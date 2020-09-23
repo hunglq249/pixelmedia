@@ -9,6 +9,9 @@
 		
 		@yield('meta')
 
+		<!-- FONTAWESOME CSS -->
+		<link rel="stylesheet" href="{{ asset('plugins/fa/css/brands.min.css')}}">
+
 		<!-- ZAYEKI CSS -->
 		<link rel="stylesheet" href="{{ asset('plugins/zayeki/css/zayeki.min.css')}}">
 		@yield('css')
@@ -18,7 +21,7 @@
 
 		<title>@yield('title')</title>
 	</head>
-	<body>
+	<body class="theme-dark" data-scroll-container>
 		@include('layouts._header')
 		
 		@yield('view')
@@ -35,6 +38,9 @@
 		<script src="{{ asset('plugins/zayeki/js/zayeki.js')}}"></script>
 		<!-- ZAYEKI UTILS JS-->
 		<script src="{{ asset('plugins/zayeki/js/utils.js')}}"></script>
+
+		<!-- COMMON JS-->
+		<script src="{{ asset('dist/js/common.js')}}"></script>
 
 		@yield('js')
 	</body>
