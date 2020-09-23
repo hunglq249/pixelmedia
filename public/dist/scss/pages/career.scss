@@ -1,0 +1,303 @@
+@import '../style';
+
+html{
+	scroll-behavior: smooth;
+}
+
+.career{
+	.career-cover{
+		height: calc(100vh - 60px);
+
+		position: relative;
+
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+
+		.career-overlay{
+			width: 100%;
+			height: 100%;
+
+			@include gradientLinearBackground(to bottom, #1c1d1f, rgba(0,0,0,0.5) 33.33%);
+
+			@include d-flex(column, center, center);
+
+			h2,
+			h5{
+				text-align: center;
+			}
+
+			h2{
+				margin-bottom: 2rem;
+
+				font-weight: 800;
+
+				text-transform: uppercase;
+			}
+
+			h5{
+				margin-bottom: 1rem;
+			}
+
+			.career-select{
+				@include d-flex(row, center, center);
+
+				> * {
+					flex: 1 0 auto;
+
+					margin: 0 0.5rem;
+				}
+
+				select{
+					padding: 1.125rem 2rem;
+					
+					background-color: transparent;
+
+					border-color: var(--bg-bw-rv);
+				}
+			}
+		}
+	}
+
+	.career-jobs{
+		.row{
+			height: 100vh;
+
+			&:nth-child(even){
+				flex-direction: row-reverse;
+			}
+
+			&:nth-child(odd){
+				.job-content{
+					.job-content-wrapper{
+						background-color: var(--primary);
+					}
+				}
+			}
+
+			.job-cover,
+			.job-content{
+				height: 100%;
+			}
+
+			.job-cover{
+				.mask{
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			.job-content{
+				padding: 2rem !important;
+
+				.job-content-wrapper{
+					width: 100%;
+					height: 100%;
+
+					padding: 4rem;
+
+					@include d-flex(column, center, flex-start);
+
+					h4,
+					p{
+						color: var(--white);
+					}
+
+					h4{
+						margin-bottom: 4rem;
+
+						font-weight: 800;
+					}
+
+					p{
+						margin-bottom: 5rem;
+
+						font-size: 1.25rem;
+						line-height: 1.75rem;
+					}
+
+					a{
+						margin-bottom: 1rem;
+
+						color: var(--white);
+
+						font-size: 1.25rem;
+						font-weight: 700;
+
+						position: relative;
+
+						&:last-of-type{
+							margin-bottom: 0;
+						}
+
+						&:after{
+							content: '';
+
+							width: 40px;
+							height: 4px;
+
+							background-color: var(--white);
+
+							position: absolute;
+							top: 50%;
+							left: 100%;
+							z-index: 1;
+
+							opacity: 0;
+
+							@include translate(66px, -50%);
+							@include transition();
+						}
+
+						&:hover{
+							&:after{
+								opacity: 1;
+
+								@include translate(16px, -50%);
+								@include transition();
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.popup{
+		&#popupJobDetail{
+			.popup-dialog{
+				.popup-content{
+					.popup-body{
+						padding: 0;
+						overflow: hidden;
+
+						.job-detail{
+							height: 100%;
+
+							.job-detail-cover,
+							.job-detail-content{
+								height: 100%;
+							}
+
+							.job-detail-cover{
+								.mask{
+									width: 100%;
+									height: 100%;
+								}
+							}
+
+							.job-detail-content{
+								height: 100%;
+
+								.area-close{
+									width: 100%;
+									height: 72px;
+
+									padding: 0 2rem;
+
+									background-color: var(--bg-bw);
+
+									@include d-flex(row, flex-end, center);
+
+									@include positionSticky(top);
+
+									.btn{
+										padding: 0;
+
+										color: var(--white);
+									}
+								}
+
+								.job-wrapper{
+									height: calc(100% - 72px);
+
+									padding: 0 4rem;
+
+									overflow-x: hidden;
+									@include overflow-y();
+
+									.job-content{
+										.content-header{
+											margin-bottom: 4.5rem;
+	
+											h3{
+												margin-bottom: 4rem;
+	
+												font-weight: 800;
+											}
+	
+											p{
+												font-size: 1.25rem;
+												font-weight: 500;
+											}
+										}
+	
+										.content-body{
+											.detail-group{
+												margin-bottom: 2.25rem;
+
+												&:last-child{
+													margin-bottom: 0;
+												}
+	
+												h5{
+													margin-bottom: 1.5rem;
+												}
+											}
+										}
+									}
+	
+									.job-apply{
+										margin-top: 4.5rem;
+										padding-top: 4.5rem;
+
+										border-top: 1px solid var(--white);
+
+										.apply-header{
+											h3{
+												margin-bottom: 2.625rem;
+	
+												font-weight: 800;
+											}
+										}
+
+										.apply-body{
+											form{
+												.form-group{
+													.form-control{
+														border-color: var(--bg-bw-rv);
+
+														&:focus{
+															border-color: var(--primary);
+														}
+													}
+
+													&.upload-file{
+														@include d-flex(row, space-between, center);
+
+														input{
+															display: none;
+														}
+													}
+
+													> .btn-primary{
+														width: 100%;
+
+														margin-top: 2.625rem;
+
+														text-transform: uppercase;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

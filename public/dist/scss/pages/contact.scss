@@ -1,0 +1,83 @@
+@import '../style';
+
+.contact{
+	.container{
+		.section{
+			&.section-heading{
+				padding-top: 4rem;
+
+				.row{
+					> div {
+						h2{
+							font-weight: 800;
+						}
+					}
+				}
+			}
+
+			&.section-map{
+				padding-top: 4.5rem;
+
+				.row{
+					> div {
+						.map{
+							width: 100%;
+							height: 500px;
+						}
+					}
+				}
+			}
+
+			&.section-message{
+				padding-top: 2rem;
+
+				.row{
+					> div {
+						&.meassage-heading{
+							h5{
+								font-weight: 800;
+							}
+						}
+
+						&.meassage-form{
+							form{
+								.row{
+
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&.section-address{
+				padding-top: 6rem;
+				padding-bottom: 6rem;
+
+				.row{
+					> div {
+						&.text-heading{
+							h5{
+								font-weight: 800;
+							}
+						}
+
+						&.text-form{
+							.row{
+								.col{
+									p{
+										margin-bottom: 1rem;
+									}
+
+									h6{
+										font-size: 1.5rem;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
