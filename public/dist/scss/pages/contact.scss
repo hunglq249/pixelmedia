@@ -1,4 +1,5 @@
-@import '../style';
+@import '../setup/var';
+@import '../setup/mixin';
 
 .contact{
 	.container{
@@ -71,10 +72,35 @@
 
 									h6{
 										font-size: 1.5rem;
+										line-height: calc(1.25rem * 1.25);
 									}
 								}
 							}
 						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 576px){
+	.contact{
+		.container{
+			.section{
+				&.section-heading{
+					.row{
+						> div {
+							h2{
+								font-size: calc(3.75rem * 0.75);
+							}
+						}
+					}
+				}
+
+				&.section-message{
+					.meassage-heading{
+						margin-bottom: 2rem;
 					}
 				}
 			}

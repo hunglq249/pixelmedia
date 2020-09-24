@@ -2,7 +2,8 @@ $(document).ready(function () {
 	// INIT LOCOMOTIVE SCROLL
 	const scroll = new LocomotiveScroll({
 		el: document.querySelector('[data-scroll-container]'),
-		smooth: true
+		smooth: true,
+		smoothMobile: true
 	});
 
 	// INIT SWIPER

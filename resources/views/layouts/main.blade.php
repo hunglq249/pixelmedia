@@ -10,10 +10,14 @@
 		@yield('meta')
 
 		<!-- FONTAWESOME CSS -->
-		<link rel="stylesheet" href="{{ asset('plugins/fa/css/brands.min.css')}}">
+		<link rel="stylesheet" href="{{ asset('plugins/fa/css/all.min.css')}}">
 
 		<!-- ZAYEKI CSS -->
 		<link rel="stylesheet" href="{{ asset('plugins/zayeki/css/zayeki.min.css')}}">
+
+		<!-- MAIN STYLE -->
+		<link rel="stylesheet" href="{{ asset('dist/css/style.css')}}">
+
 		@yield('css')
 
 		<link rel="shortcut icon" href="{{ asset('dist/img/favicon.ico') }}" type="image/x-icon">
