@@ -1,10 +1,11 @@
-@import '../style';
+@import '../setup/var';
+@import '../setup/mixin';
 
 .homepage{
 	.scroll-nav{
 		position: fixed;
 		top: 50%;
-		right: 4rem;
+		right: 2rem;
 		z-index: $zindex-fixed - 1;
 
 		@include translate(0, -50%);
@@ -175,6 +176,33 @@
 					position: absolute;
 					top: 0;
 					z-index: 2;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 576px){
+	.homepage{
+		.scroll-nav{
+			right: 1.5rem;
+		}
+
+		.section{
+			&.section-greeting{
+				.mask-wrapper{
+					width: 100%;
+
+					.greeting-title {
+						width: 100%;
+
+						padding: 0 1.5rem;
+
+						h1{
+							font-size: 3rem;
+							line-height: 3.75rem;
+						}
+					}
 				}
 			}
 		}

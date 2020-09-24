@@ -68,7 +68,7 @@
 			@endforeach
 		</div>
 
-		@include('career._popup');
+		@include('career._popup')
 	</div>
 @endsection
 

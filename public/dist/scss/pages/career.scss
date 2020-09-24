@@ -1,4 +1,5 @@
-@import '../style';
+@import '../setup/var';
+@import '../setup/mixin';
 
 html{
 	scroll-behavior: smooth;
@@ -50,8 +51,6 @@ html{
 				}
 
 				select{
-					padding: 1.125rem 2rem;
-					
 					background-color: transparent;
 
 					border-color: var(--bg-bw-rv);
@@ -291,6 +290,103 @@ html{
 												}
 											}
 										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 576px){
+	.career{
+		.career-cover{
+			.career-overlay{
+				.career-select{
+					width: 75%;
+
+					flex-direction: column;
+
+					> * {
+						width: 100%;
+
+						margin-bottom: 1.5rem;
+					}
+				}
+			}
+		}
+
+		.career-jobs{
+			.row{
+				flex-direction: column;
+
+				.job-cover,
+				.job-content{
+					height: 50%;
+				}
+
+				.job-content{
+					padding: 0 !important;
+
+					.job-content-wrapper{
+						padding: 1.5rem;
+
+						overflow-x: hidden;
+						@include overflow-y();
+
+						h4{
+							margin-bottom: 1.25rem;
+
+							font-size: calc(2.125rem * 0.75);
+							line-height: calc(2.125rem * 0.75 * 1.25);
+						}
+
+						p{
+							margin-bottom: 2.5rem;
+
+							font-size: 1rem;
+							line-height: 1.5rem;
+						}
+
+						a{
+							margin-bottom: 0.75rem;
+
+							font-size: 1rem;
+						}
+					}
+				}
+			}
+		}
+
+		.popup{
+			&#popupJobDetail{
+				.popup-dialog{
+					.popup-content{
+						.popup-body{
+							overflow-x: hidden;
+							@include overflow-y();
+							
+							.job-detail{
+								height: auto;
+	
+								flex-direction: column;
+	
+								.job-detail-cover{
+									height: 300px;
+								}
+	
+								.job-detail-content{
+									height: auto;
+
+									.area-close{
+										padding: 0 1.5rem;
+									}
+
+									.job-wrapper{
+										padding: 0 1.5rem;
 									}
 								}
 							}

@@ -7,27 +7,51 @@
 
 			<address>
 				<h5>
-					{{ $contactInfo['Address'] }}
+					<i class="elo el-lg el-home"></i> {{ $contactInfo['Address'] }}
 				</h5>
 				<h5>
-					<a href="mailto:{{ $contactInfo['Email'] }}">{{ $contactInfo['Email'] }}</a>
+					<i class="elo el-lg el-envelope"></i> <a href="mailto:{{ $contactInfo['Email'] }}">{{ $contactInfo['Email'] }}</a>
 				</h5>
 				<h5>
-					<a href="tel:{{ $contactInfo['PhoneNumber'] }}">{{ $contactInfo['PhoneNumber'] }}</a>
+					<i class="elo el-lg el-phone"></i> <a href="tel:{{ $contactInfo['PhoneNumber'] }}">{{ $contactInfo['PhoneNumber'] }}</a>
 				</h5>
 			</address>
 		</div>
 
 		<div class="col-md-6 footer-social">
-			<ul>
+			<div class="social-network">
+				<h6>
+					Follow us	
+				</h6>
+				
 				@foreach ($contactInfo['Social'] as $key => $contact)
-					<li>
-						<a href="{{ $contact }}" target="_blank">
-							{{ $key }}
-						</a>
-					</li>
+					@php
+						$icon = '';
+						
+						if ($key == 'Facebook') {
+							$icon = 'fa-facebook-f';
+						} elseif ($key == 'Behance') {
+							$icon = 'fa-behance';
+						} elseif ($key == 'Youtube') {
+							$icon = 'fa-youtube';
+						} elseif ($key == 'Instagram') {
+							$icon = 'fa-instagram';
+						}
+					@endphp
+
+					<a href="{{ $contact }}" target="_blank">
+						<i class="fab {{ $icon }}"></i>
+					</a>
 				@endforeach
-			</ul>
+			</div>
+
+			<div class="social-logo">
+				<a href="{{ route('home')}}">
+					Pixel
+					<br>
+					Media
+				</a>
+			</div>
 		</div>
 	</div>
 </footer>

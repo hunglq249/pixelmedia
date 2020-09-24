@@ -1,4 +1,5 @@
-@import '../style';
+@import '../setup/var';
+@import '../setup/mixin';
 
 .showcase{
 	.showcase-desc{
@@ -209,6 +210,69 @@
 						width: 100%;
 					}
 				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 576px){
+	.showcase{
+		.showcase-desc{
+			.container{
+				padding-top: 4rem;
+
+				.row{
+					> div {
+						h3{
+							font-size: calc(3rem * 0.75);
+							line-height: calc(3rem * 0.75 * 1.25);
+						}
+
+						p{
+							font-size: calc(1.5rem * 0.75);
+							line-height: calc(1.5rem * 0.75 * 1.25);
+						}
+					}
+				}
+			}
+		}
+
+		.showcase-nav{
+			.container{
+				.row{
+					.nav-wrapper{
+						@include overflow-x();
+						overflow-y: hidden;
+					}
+				}
+			}
+		}
+
+		.showcase-list{
+			.container-fluid{
+				padding-left: 1.5rem;
+				padding-right: 1.5rem;
+
+				.list-products{
+					.item-sizer,
+					.item-product{
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	.showcase-detail{
+		.showcase-info{
+			.container{
+				padding-top: 4rem;
+			}
+		}
+
+		.showcase-images{
+			.container-fluid{
+				padding: 0 1.5rem;
 			}
 		}
 	}

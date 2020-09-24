@@ -3,6 +3,7 @@ $(document).ready(function () {
 	const scroll = new LocomotiveScroll({
 		el: document.querySelector('[data-scroll-container]'),
 		smooth: true,
+		smoothMobile: true
 	});
 
 	// INIT YOUTUBE BACKGROUND
@@ -26,8 +27,8 @@ $(document).ready(function () {
 						autohide: 0,
 						start: 0,
 						end: 60,
-						origin: window.location.origin,
-					},
+						origin: window.location.origin
+					}
 				});
 		}
 	});

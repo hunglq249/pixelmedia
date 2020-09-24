@@ -53,6 +53,12 @@
 								<div class="form-group col-md-12">
 									<textarea class="form-control" name="Message" rows="7" placeholder="Write something..."></textarea>
 								</div>
+
+								<div class="form-group col-md-12">
+									<button class="btn btn-primary" type="button">
+										Submit
+									</button>
+								</div>
 							</div>
 						</form>
 					</div>
@@ -114,4 +120,7 @@
 	<script src="{{ asset('plugins/locomotive/js/locomotive-scroll.min.js') }}"></script>
 
 	<script src="{{ asset('dist/js/contact/function.min.js') }}"></script>
+	
+	<!-- INIT GOOGLE MAP -->
+	<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBEM4VvMs7EHN5ljlJVnpK8bA1M0jwJI&callback=initMap"></script>
 @endsection
