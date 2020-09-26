@@ -129,7 +129,8 @@
 .about .container .section.section-text-break .row > div h3,
 .about .container .section.section-text-break .row > div h4 {
   max-width: 75%;
-  color: var(--primary);
+  color: var(--bg-bw);
+  text-shadow: -1px -1px 0 var(--white), -1px 1px 0 var(--white), 1px -1px 0 var(--white), 1px 1px 0 var(--white);
 }
 
 .about .container .section.section-staff .row > div .section-header {
@@ -146,7 +147,8 @@
 .about .container .section.section-staff .row > div .section-header h4 {
   max-width: 80%;
   margin-bottom: 4rem;
-  color: var(--primary);
+  color: var(--bg-bw);
+  text-shadow: -1px -1px 0 var(--white), -1px 1px 0 var(--white), 1px -1px 0 var(--white), 1px 1px 0 var(--white);
 }
 
 .about .container .section.section-staff .row > div .section-body .swiper-container {

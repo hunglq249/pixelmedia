@@ -47,9 +47,7 @@
 
 			<div class="social-logo">
 				<a href="{{ route('home')}}">
-					Pixel
-					<br>
-					Media
+					<img src="{{ asset('dist/img/logo.svg') }}" alt="Logo Pixel Media">
 				</a>
 			</div>
 		</div>

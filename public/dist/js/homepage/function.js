@@ -1,9 +1,28 @@
+let scroll = '';
+
 $(document).ready(function () {
 	// INIT LOCOMOTIVE SCROLL
-	const scroll = new LocomotiveScroll({
+	scroll = new LocomotiveScroll({
 		el: document.querySelector('[data-scroll-container]'),
 		smooth: true,
 		smoothMobile: true
+	});
+
+	let height = $(window).height();
+
+	scroll.on('scroll', function (obj) {
+		let delta = obj.delta.y;
+		let index = Math.ceil(delta / height) + 1;
+		let numSlide = $('.scroll-nav').find('li').length;
+
+		if (index > numSlide) {
+			index = numSlide;
+		}
+
+		$('.scroll-nav').find('a').removeClass('active');
+		$('.scroll-nav')
+			.find('li:nth-child(' + index + ') a')
+			.addClass('active');
 	});
 
 	// INIT YOUTUBE BACKGROUND
@@ -33,3 +52,9 @@ $(document).ready(function () {
 		}
 	});
 });
+
+function scrollToSection(element) {
+	let target = $(element).data('target');
+
+	scroll.scrollTo(target, 0, 1000, [0.25, 0.0, 0.35, 1.0], false);
+}

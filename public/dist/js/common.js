@@ -11,4 +11,14 @@ $(document).ready(function () {
 			$(this).toggleClass('active');
 			$('header').find('.header-nav').toggleClass('show');
 		});
+
+	// CHANGE LOGO ON ENTER MOUSE
+	$('.web-logo').on({
+		mouseenter: function () {
+			$(this).attr('src', '/dist/img/logo.svg');
+		},
+		mouseleave: function () {
+			$(this).attr('src', '/dist/img/logo_w.svg');
+		}
+	});
 });
