@@ -1,6 +1,10 @@
 @import '../setup/var';
 @import '../setup/mixin';
 
+html{
+	scroll-behavior: smooth;
+}
+
 .homepage{
 	.scroll-nav{
 		position: fixed;
@@ -176,6 +180,52 @@
 					position: absolute;
 					top: 0;
 					z-index: 2;
+				}
+			}
+
+			.section-overlay{
+				width: 100%;
+				height: 100%;
+
+				background-color: transparentize($color-black, 0.667);
+
+				@include d-flex(column, center, center);
+
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				z-index: 5;
+
+				@include translate(-50%, -50%);
+
+				h3,
+				h5,
+				h6{
+					text-align: center;
+				}
+
+				h6{
+					margin-bottom: 0.5rem;
+				}
+
+				h5{
+					margin-bottom: 1rem;
+				}
+
+				h3{
+					font-weight: 800;
+				}
+
+				.overlay-actions{
+					margin-top: 1.5rem;
+
+					.btn{
+						margin-right: 0.5rem;
+
+						&:last-child{
+							margin-right: 0;
+						}
+					}
 				}
 			}
 		}

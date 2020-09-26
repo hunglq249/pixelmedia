@@ -19,6 +19,8 @@ use App\Http\Controllers\ContactController;
 |
 */
 
+Route::get('/', [HomeController::class, 'countdown'])->name('countdown');
+
 Route::prefix('beta')->group(function(){
     Route::get('/', [HomeController::class, 'home'])->name('home');
 

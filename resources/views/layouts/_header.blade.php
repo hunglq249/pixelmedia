@@ -1,9 +1,7 @@
 <header>
 	<div class="header-brand">
 		<a href="{{ route('home')}}">
-			Pixel
-			<br>
-			Media
+			<img src="{{ asset('dist/img/logo_w.svg') }}" class="web-logo" alt="Logo Pixel Media">
 		</a>
 	</div>
 
@@ -21,7 +19,7 @@
 
 	<div class="header-nav">
 		@foreach ($navMenu as $key => $nav)
-			<a href="{{ $nav['Link'] }}">
+			<a href="{{ $nav['Link'] }}" class="{{ Request::Segment(2) == $nav['Slug'] ? 'active' : ''}}">
 				{{ $nav['Title'] }}
 			</a>
 		@endforeach

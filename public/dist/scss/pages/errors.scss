@@ -1,0 +1,29 @@
+@import '../setup/var';
+@import '../setup/mixin';
+
+html,
+body{
+	width: 100%;
+	height: 100vh;
+
+	overflow: hidden;
+}
+
+.view-error{
+	width: 100%;
+	height: 100%;
+
+	@include d-flex(column, center, center);
+
+	h1{
+		margin-bottom: 0.5rem;
+
+		font-weight: 800;
+
+		text-shadow: -4px 0 0 var(--primary), 4px 0 0 var(--danger);
+	}
+
+	h4{
+		margin-bottom: 2rem;
+	}
+}

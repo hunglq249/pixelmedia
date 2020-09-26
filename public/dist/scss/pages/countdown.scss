@@ -1,0 +1,76 @@
+@import '../setup/var';
+@import '../setup/mixin';
+
+html,
+body{
+	width: 100%;
+	height: 100vh;
+
+	overflow: hidden;
+}
+
+.view-countdown{
+	width: 100%;
+	height: 100%;
+
+	position: relative;
+	z-index: 1;
+
+	@include d-flex(column, center, center);
+
+	.play-video-wrapper{
+		width: 100%;
+		height: 100%;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: -1;
+
+		@include translate(-50%, -50%);
+
+		.play-video{
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.play-video-overlay{
+		width: 100%;
+		height: 100%;
+
+		background-color: rgba(0,0,0,0.5);
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+
+		@include translate(-50%, -50%);
+	}
+
+	h4{
+		color: var(--white);
+
+		text-align: center;
+	}
+
+	.timer{
+		min-width: 50vw;
+
+		margin-top: 2rem;
+
+		@include d-flex(row, space-around, center);
+
+		.row{
+			width: 100%;
+
+			.col{
+				h3,
+				h6{
+					text-align: center;
+				}
+			}
+		}
+	}
+}

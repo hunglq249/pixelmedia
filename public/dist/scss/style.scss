@@ -27,10 +27,9 @@ header{
 
 	.header-brand{
 		a{
-			color: var(--primary);
-
-			font-size: 1.5rem;
-			font-weight: 800;
+			img{
+				width: 40px;
+			}
 		}
 	}
 
@@ -176,7 +175,8 @@ header{
 				display: none;
 			}
 
-			&:hover{
+			&:hover,
+			&.active{
 				&:before{
 					display: block;
 				}
@@ -254,10 +254,9 @@ footer{
 
 			.social-logo{
 				a{
-					color: var(--white);
-
-					font-size: 1.5rem;
-					font-weight: 800;
+					img{
+						width: 40px;
+					}
 				}
 			}
 		}

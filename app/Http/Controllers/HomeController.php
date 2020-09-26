@@ -12,6 +12,10 @@ class HomeController extends BaseController
 {
 	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 	
+	public function countdown(){
+		return view('countdown');
+	}
+
 	public function home(){
 		$navMenu = Common::navMenu();
 		$products = Common::products();
