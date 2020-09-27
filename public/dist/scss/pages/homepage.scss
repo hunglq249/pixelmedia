@@ -70,10 +70,11 @@ html{
 					min-width: 10rem;
 
 					text-transform: uppercase;
+					text-align: right;
 
 					position: absolute;
 					top: 50%;
-					right: 0;
+					right: 1.5rem;
 					z-index: -1;
 
 					opacity: 0;
@@ -180,12 +181,19 @@ html{
 					position: absolute;
 					top: 0;
 					z-index: 2;
+
+					.mask{
+						width: 100%;
+						height: 100%;
+					}
 				}
 			}
 
 			.section-overlay{
 				width: 100%;
 				height: 100%;
+
+				padding: 1.5rem;
 
 				background-color: transparentize($color-black, 0.667);
 
@@ -198,22 +206,65 @@ html{
 
 				@include translate(-50%, -50%);
 
-				h3,
-				h5,
-				h6{
-					text-align: center;
+				&.hide{
+					background-color: transparent;
+
+					justify-content: flex-end;
+
+					.overlay-text{
+						display: none;
+					}
+
+					.overlay-actions{
+						.btn{
+							&:not([data-play]){
+								display: none;
+							}
+
+							&[data-play]{
+								width: 42px;
+								height: 42px;
+
+								padding: 0;
+
+								border-width: 2px;
+								@include borderRadius(50%);
+
+								i{
+									@include translate(0, -2px);
+								}
+							}
+						}
+					}
 				}
 
-				h6{
-					margin-bottom: 0.5rem;
-				}
+				.overlay-text{
+					@include d-flex(column, center, center);
 
-				h5{
-					margin-bottom: 1rem;
-				}
+					h3,
+					h5,
+					h6{
+						text-align: center;
 
-				h3{
-					font-weight: 800;
+						opacity: 1;
+
+						&.show{
+							opacity: 1;
+							@include transition();
+						}
+					}
+
+					h6{
+						margin-bottom: 0.5rem;
+					}
+
+					h5{
+						margin-bottom: 1rem;
+					}
+
+					h3{
+						font-weight: 800;
+					}
 				}
 
 				.overlay-actions{

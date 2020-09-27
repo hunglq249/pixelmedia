@@ -47,41 +47,45 @@ class Common extends Model
 		
 		$products->push(
 			[
-				'Subtitle' => 'Project #1',
-				'Title' => 'Title of project 1',
+				'Subtitle' => 'LANDMARK 81',
+				'Title' => 'BIỂU TƯỢNG MỚI CỦA SÀI GÒN HOA LỆ',
                 'Category' => 'VFX',
                 'CoverType' => 0,
-                'CoverUrl' => 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+                'CoverUrl' => 'https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/0bd31f99868495.5efc4e3b45884.png',
+                'CoverMask' => 'https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/0bd31f99868495.5efc4e3b45884.png'
 			],
 		);
 
 		$products->push(
 			[
-				'Subtitle' => 'Project #2',
-				'Title' => 'Title of project 2',
+				'Subtitle' => 'Hologram',
+				'Title' => 'CMC Telecom',
                 'Category' => 'Visual',
                 'CoverType' => 1,
-                'CoverUrl' => 'k89qQ6MUg-4',
+                'CoverUrl' => 'gdeWc3dT2S0',
+                'CoverMask' => 'https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/244f6674892305.5c3dc8acdfaac.png'
 			],
 		);
 
 		$products->push(
 			[
-				'Subtitle' => 'Project #3',
-				'Title' => 'Title of project 3',
-                'Category' => 'Making of',
+				'Subtitle' => 'KEM BEACH RESORT',
+				'Title' => 'SUN PREMIER VILLAGE',
+                'Category' => 'TVC',
                 'CoverType' => 1,
-                'CoverUrl' => 'pLGE1NLyvmE',
+                'CoverUrl' => 'wimB6jv4fL4',
+                'CoverMask' => 'https://mir-s3-cdn-cf.behance.net/project_modules/fs/82ae9b84442269.5d5d15d99f1bd.png'
 			],
 		);
 
 		$products->push(
 			[
-				'Subtitle' => 'Project #4',
-				'Title' => 'Title of project 4',
-                'Category' => 'VFX',
+				'Subtitle' => 'Visual show',
+				'Title' => 'DAVINES SHOW',
+                'Category' => 'Visual',
                 'CoverType' => 0,
-                'CoverUrl' => 'https://images.unsplash.com/photo-1569317002804-ab77bcf1bce4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+                'CoverUrl' => 'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/7f6b3890737655.5e1f2c1f18e66.jpg',
+                'CoverMask' => 'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/7f6b3890737655.5e1f2c1f18e66.jpg'
 			],
 		);
 

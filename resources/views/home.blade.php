@@ -13,7 +13,7 @@
 		<div class="scroll-nav">
 			<ul>
 				<li>
-					<a href="#" class="scroll-nav-item active" onclick="scrollToSection(this)" data-target="#section_0" data-index="0">
+					<a href="#" class="scroll-nav-item active" onclick="scrollToSection(this)" data-target="" data-index="0">
 						<div class="circle"></div>
 					</a>
 				</li>
@@ -32,7 +32,7 @@
 			</ul>
 		</div>
 
-		<div class="section section-greeting" id="section_0" data-scroll-section>
+		<div class="section section-greeting" data-scroll-section>
 			<div class="mask-wrapper">
 				<div class="mask" data-scroll data-scroll-speed="1">
 					<img src="https://images.unsplash.com/photo-1512025316832-8658f04f8a83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt="Image greeting">
@@ -55,32 +55,35 @@
 				@else
 					<div class="play-video-wrapper" data-ytb-id="{{ $item['CoverUrl'] }}">
 						<div class="play-video"></div>
-						<div class="play-video-overlay"></div>
+						<div class="play-video-overlay">
+							<div class="mask">
+								@if ($item['CoverMask'] != '')
+									<img src="{{ $item['CoverMask'] }}" alt="Thumb mask of {{ $item['Title'] }}">
+								@endif
+							</div>
+						</div>
 					</div>
 				@endif
 
 				<div class="section-overlay">
-					<h6>
-						{{ $item['Category'] }}
-					</h6>
-					<h5>
-						{{ $item['Subtitle'] }}
-					</h5>
-					<h3>
-						{{ $item['Title'] }}
-					</h3>
+					<div class="overlay-text">
+						<h6 data-scroll data-scroll-speed="2">
+							{{ $item['Category'] }}
+						</h6>
+						<h5 data-scroll data-scroll-speed="3">
+							{{ $item['Subtitle'] }}
+						</h5>
+						<h3 data-scroll data-scroll-speed="4">
+							{{ $item['Title'] }}
+						</h3>
+					</div>
 
 					<div class="overlay-actions">
-						@if ($item['CoverType'] == 0)
-							<a href="#" class="btn btn-lg btn-outline-dark">
-								View experience
-							</a>
-						@else
-							<a href="#" class="btn btn-lg btn-outline-dark">
-								View experience
-							</a>
-
-							<button class="btn btn-lg btn-outline-dark" type="button">
+						<a href="#" class="btn btn-lg btn-outline-dark">
+							View experience
+						</a>
+						@if ($item['CoverType'] == 1)
+							<button class="btn btn-lg btn-outline-dark" onclick="playVideo(this)" data-play="false" type="button">
 								Play video
 							</button>
 						@endif
@@ -135,5 +138,5 @@
 	<!-- YOUTUBE BACKGROUND -->
     <script src="{{ asset('plugins/youtube-background/src/jquery.youtubebackground.min.js') }}"></script>
 
-	<script src="{{ asset('dist/js/homepage/function.min.js') }}"></script>
+	<script src="{{ asset('dist/js/homepage/function.js') }}"></script>
 @endsection

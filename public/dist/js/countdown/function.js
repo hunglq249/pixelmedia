@@ -25,7 +25,7 @@ $(document).ready(function () {
 	// INIT VIDEO
 	$('.play-video').YTPlayer({
 		fitToBackground: true,
-		videoId: 'kUOfVTPKgsk',
+		videoId: 'LBBx52Jw74g',
 		mute: true,
 		playerVars: {
 			modestbranding: 0,
