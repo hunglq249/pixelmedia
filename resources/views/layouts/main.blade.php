@@ -44,7 +44,7 @@
 		<script src="{{ asset('plugins/zayeki/js/utils.js')}}"></script>
 
 		<!-- COMMON JS-->
-		<script src="{{ asset('dist/js/common.js')}}"></script>
+		<script src="{{ asset('dist/js/common.min.js')}}"></script>
 
 		@yield('js')
 	</body>
