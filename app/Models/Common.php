@@ -15,7 +15,7 @@ class Common extends Model
             0 => [
                 'Title' => 'Showcase',
                 'Link' => route('showcase'),
-                'Slug' => 'showcase'
+                'Slug' => 'san-pham'
             ],
             1 => [
                 'Title' => 'Articles',

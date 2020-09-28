@@ -10,7 +10,7 @@
 
 // COMMON
 body{
-	background-color: var(--bg-bw);
+	background-color: var(--bg-body);
 }
 
 // HEADER
@@ -28,7 +28,7 @@ header{
 	.header-brand{
 		a{
 			img{
-				width: 40px;
+				height: 50px;
 			}
 		}
 	}
@@ -59,126 +59,58 @@ header{
 	}
 
 	.header-toggle{
-		position: relative;
-		z-index: $zindex-fixed + 1;
-
-		.btn-toggle-nav{
-			width: 40px;
-			height: 30px;
-
-			padding: 0;
-
-			&.active{
-				.line{
-					&:before,
-					&:after{
-						margin-top: 0;
-
-						@include transition();
-					}
-
-					&:before{
-						@include rotate(45deg);
-					}
-
-					&:after{
-						@include rotate(-45deg);
-					}
-				}
-			}
-
-			.line{
-				width: 40px;
-				height: 4px;
-
-				background-color: transparent;
-
-				display: block;
-
-				position: relative;
-
-				&:before,
-				&:after{
-					content: '';
-
-					width: 100%;
-					height: 100%;
-
-					background-color: var(--bg-bw-rv);
-
-					position: absolute;
-					top: 50%;
-					left: 0;
-
-					@include transition();
-				}
-
-				&:before{
-					margin-top: -0.5rem;
-				}
-
-				&:after{
-					margin-top: 0.5rem;
-				}
-			}
-		}
+		display: none;
 	}
 
 	.header-nav{
-		width: 50vw;
-		height: 100vh;
+		height: 100%;
 
-		padding: 0 4rem;
-
-		background-color: var(--gray-2);
-
-		position: fixed;
-		top: 0;
-		right: -50vw;
-		z-index: $zindex-fixed;
-
-		@include transition();
-
-		@include d-flex(column, center, flex-end);
-
-		&.show{
-			right: 0;
-
-			@include transition();
-		}
+		@include d-flex(row, flex-end, center);
 
 		a{
-			width: 100%;
+			height: 100%;
 
-			margin-bottom: 3rem;
+			margin-left: 1.25rem;
 
-			font-size: 4.5rem;
-			
-			color: var(--text-title);
+			font-size: 1.25rem;
+			font-weight: 500;
 
-			@include d-flex(row, flex-end, center);
+			text-transform: uppercase;
 
-			&:last-child{
-				margin-bottom: 0;
-			}
+			color: var(--white);
 
-			&:before{
+			position: relative;
+
+			@include d-flex(row, center, center);
+
+			&:after{
 				content: '';
 
-				flex: 1 0 auto;
+				width: 0;
 				height: 4px;
 
-				background-color: var(--primary);
+				background-color: var(--bg-bw-rv);
 
-				margin-right: 2rem;
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				z-index: 1;
 
-				display: none;
+				@include translate(-50%, 0);
+				@include transition();
 			}
 
-			&:hover,
 			&.active{
-				&:before{
-					display: block;
+				&:after{
+					width: 100%;
+				}
+			}
+
+			&:hover{
+				&:after{
+					width: 100%;
+
+					@include transition();
 				}
 			}
 		}
@@ -188,16 +120,16 @@ header{
 footer{
 	padding: 4rem 4rem 6rem;
 
-	background-color: var(--primary);
+	background-color: var(--gray-1);
 
 	.row{
 		h3,
 		h5,
 		h6{
-			color: #1c1d1f;
+			color: var(--white);
 
 			a{
-				color: #1c1d1f;
+				color: var(--white);
 			}
 		}
 		
@@ -238,7 +170,7 @@ footer{
 					margin-left: 0.75rem;
 
 					background-color: var(--black);
-					color: var(--primary);
+					color: var(--white);
 
 					display: block;
 
@@ -255,7 +187,7 @@ footer{
 			.social-logo{
 				a{
 					img{
-						width: 40px;
+						height: 60px;
 					}
 				}
 			}
@@ -269,13 +201,101 @@ footer{
 
 		.header-nav{
 			width: 100%;
+			height: 100%;
 
 			padding: 0 1.5rem;
 
+			background-color: var(--gray-1);
+
+			position: fixed;
+			top: 0;
 			right: -100%;
+			z-index: 1031;
+
+			@include d-flex(column, center, flex-end);
+			@include transition();
+
+			&.show{
+				right: 0;
+
+				@include transition();
+			}
 
 			a{
-				font-size: 3rem;
+				height: auto;
+
+				margin-bottom: 2rem;
+				margin-left: 0;
+
+				font-size: 2.25rem;
+			}
+		}
+
+		.header-toggle{
+			position: relative;
+			z-index: $zindex-fixed + 1;
+
+			display: block;
+
+			.btn-toggle-nav{
+				width: 40px;
+				height: 30px;
+
+				padding: 0;
+
+				&.active{
+					.line{
+						&:before,
+						&:after{
+							margin-top: 0;
+
+							@include transition();
+						}
+
+						&:before{
+							@include rotate(45deg);
+						}
+
+						&:after{
+							@include rotate(-45deg);
+						}
+					}
+				}
+
+				.line{
+					width: 40px;
+					height: 4px;
+
+					background-color: transparent;
+
+					display: block;
+
+					position: relative;
+
+					&:before,
+					&:after{
+						content: '';
+
+						width: 100%;
+						height: 100%;
+
+						background-color: var(--bg-bw-rv);
+
+						position: absolute;
+						top: 50%;
+						left: 0;
+
+						@include transition();
+					}
+
+					&:before{
+						margin-top: -0.5rem;
+					}
+
+					&:after{
+						margin-top: 0.5rem;
+					}
+				}
 			}
 		}
 	}

@@ -1,21 +1,15 @@
 <header>
 	<div class="header-brand">
 		<a href="{{ route('home')}}">
-			<img src="{{ asset('dist/img/logo_w.svg') }}" class="web-logo" alt="Logo Pixel Media">
+			<img src="{{ asset('dist/img/logo_lg_w.svg') }}" class="web-logo" alt="Logo Pixel Media">
 		</a>
 	</div>
 
-	<div class="header-greeting">
+	{{-- <div class="header-greeting">
 		<p class="p-sm" id="headerGreeting">
 			Hello, how are you?
 		</p>
-	</div>
-
-	<div class="header-toggle">
-		<button class="btn btn-toggle-nav">
-			<div class="line"></div>
-		</button>
-	</div>
+	</div> --}}
 
 	<div class="header-nav">
 		@foreach ($navMenu as $key => $nav)
@@ -23,5 +17,11 @@
 				{{ $nav['Title'] }}
 			</a>
 		@endforeach
+	</div>
+
+	<div class="header-toggle">
+		<button class="btn btn-toggle-nav">
+			<div class="line"></div>
+		</button>
 	</div>
 </header>

@@ -15,10 +15,10 @@ $(document).ready(function () {
 	// CHANGE LOGO ON ENTER MOUSE
 	$('.web-logo').on({
 		mouseenter: function () {
-			$(this).attr('src', '/dist/img/logo.svg');
+			$(this).attr('src', '/dist/img/logo_lg.svg');
 		},
 		mouseleave: function () {
-			$(this).attr('src', '/dist/img/logo_w.svg');
+			$(this).attr('src', '/dist/img/logo_lg_w.svg');
 		}
 	});
 });
