@@ -8,6 +8,14 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 
+//admin
+use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\auth\RegisteredController;
+use App\Http\Controllers\admin\auth\LoginController;
+use App\Http\Controllers\admin\ProductCategoryController;
+use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\TeamController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,10 +45,46 @@ Route::prefix('beta')->group(function(){
 
     Route::group(['prefix' => '/tuyen-dung'], function () {
         Route::get('/', [CareerController::class, 'index'])->name('career');
-        Route::get('/chi-tiet-cong-viec', [CareerController::class, 'getJobDetail'])->name('career_getJobDetail'); 
+        Route::get('/chi-tiet-cong-viec', [CareerController::class, 'getJobDetail'])->name('career_getJobDetail');
     });
 
     Route::get('/gioi-thieu', [AboutController::class, 'index'])->name('about');
 
     Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+Route::get('/register', function (){
+    return '404 page';
+});
+Route::get('/login', function (){
+    return '404 page';
+});
+
+Route::prefix('admin')->group(function(){
+    Route::get('/dang-ky', [RegisteredController::class, 'create'])
+        ->middleware(['guest'])
+        ->name('register');
+    Route::post('/dang-ky', [RegisteredController::class, 'store'])
+        ->middleware(['guest']);
+
+    Route::get('/dang-nhap', [LoginController::class, 'create'])
+        ->middleware(['guest'])
+        ->name('login');
+    $limiter = config('fortify.limiters.login');
+    Route::post('/dang-nhap', [LoginController::class, 'store'])
+        ->middleware(array_filter([
+            'guest',
+            $limiter ? 'throttle:'.$limiter : null,
+        ]));
+    Route::group(['middleware' => 'adminLogin'], function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('danh-muc-san-pham/remove/{danh_muc_san_pham}', [ProductCategoryController::class, 'remove'])->name('danh-muc-san-pham.remove');
+        Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
+        Route::get('san-pham/remove/{san_pham}', [ProductController::class, 'remove'])->name('san-pham.remove');
+        Route::resource('/san-pham', ProductController::class);
+        Route::resource('/thanh-vien', TeamController::class);
+    });
 });

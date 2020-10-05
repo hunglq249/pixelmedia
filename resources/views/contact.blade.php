@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('meta')
-	
+
 @endsection
 
 @section('title')
@@ -120,7 +120,7 @@
 	<script src="{{ asset('plugins/locomotive/js/locomotive-scroll.min.js') }}"></script>
 
 	<script src="{{ asset('dist/js/contact/function.min.js') }}"></script>
-	
+
 	<!-- INIT GOOGLE MAP -->
 	<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBEM4VvMs7EHN5ljlJVnpK8bA1M0jwJI&callback=initMap"></script>
 @endsection

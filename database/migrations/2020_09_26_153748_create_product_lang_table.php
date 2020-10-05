@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateProductLangTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('product_lang', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('product_id')->nullable()->index();
+            $table->string('sub_title');
+            $table->string('title');
+            $table->text('description');
+            $table->longText('content');
+            $table->string('lang');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('product_lang');
+    }
+}

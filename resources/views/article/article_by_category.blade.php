@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('meta')
-	
+
 @endsection
 
 @section('title')
@@ -16,7 +16,7 @@
 					Articles
 				</h3>
 			</div>
-	
+
 			<div class="article-nav" data-scroll-section>
 				<div class="article-nav-wrapper">
 					<div class="swiper-container" id="swiperArticleNav">
@@ -65,23 +65,23 @@
 								@if(isset($article['Thumb']) && $article['Thumb'] != '')
 									<img src="{{ $article['Thumb'] }}" alt="Image of article {{ $article['Title'] }}">
 								@endif
-	
+
 								<h6>
 									{{ $article['Id'] }}
 								</h6>
-	
+
 								<a href="#">
 									<h4>
 										{{ $article['Title'] }}
 									</h4>
 								</a>
-	
+
 								@if(isset($article['Desc']) && $article['Desc'] != '')
 									<p>
 										{{ $article['Desc'] }}
 									</p>
 								@endif
-	
+
 								<a href="#" class="btn btn-sm" role="button">
 									See detail
 								</a>
@@ -107,7 +107,7 @@
 @section('js')
 	<!-- IMAGELOADED JS -->
 	<script src="{{ asset('plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-	
+
 	<!-- MANSORY JS -->
 	<script src="{{ asset('plugins/mansory/masonry.pkgd.min.js') }}"></script>
 

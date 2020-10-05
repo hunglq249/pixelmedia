@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('meta')
-	
+
 @endsection
 
 @section('title')
@@ -20,14 +20,14 @@
 									Showcase
 								</a>
 							</li>
-	
+
 							<li class="breadcrumb-item active">
 								<a href="javascript:void(0)">
 									{{ $product['Title'] }}
 								</a>
 							</li>
 						</ul>
-	
+
 						<h3>
 							{{ $product['Title'] }}
 						</h3>
@@ -44,7 +44,7 @@
 										<p>
 											Client
 										</p>
-	
+
 										<h5>
 											{{ $product['Client'] }}
 										</h5>
@@ -56,7 +56,7 @@
 										<p>
 											Date
 										</p>
-	
+
 										<h5>
 											{{ $product['Date'] }}
 										</h5>
@@ -69,7 +69,7 @@
 											<p>
 												{{ $item['Position'] }}
 											</p>
-		
+
 											<h5>
 												{{ $item['Name'] }}
 											</h5>
@@ -105,7 +105,7 @@
 @section('js')
 	<!-- IMAGELOADED JS -->
 	<script src="{{ asset('plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-	
+
 	<!-- MANSORY JS -->
 	<script src="{{ asset('plugins/mansory/masonry.pkgd.min.js') }}"></script>
 

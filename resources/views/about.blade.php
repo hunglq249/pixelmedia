@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('meta')
-	
+
 @endsection
 
 @section('title')
@@ -21,7 +21,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="section section-cover" data-scroll-section>
 				<div class="row">
 					<div class="col-md-3"></div>
@@ -118,7 +118,7 @@
 							</h2>
 
 							<h4 data-scroll data-scroll-speed="1">
-								Maecenas scelerisque sem quis odio efficitur, eget finibus nisl condimentum. Vivamus porttitor iaculis tellus et scelerisque. Vivamus nec ultricies ex. Cras tincidunt magna eu ullamcorper pulvinar. 
+								Maecenas scelerisque sem quis odio efficitur, eget finibus nisl condimentum. Vivamus porttitor iaculis tellus et scelerisque. Vivamus nec ultricies ex. Cras tincidunt magna eu ullamcorper pulvinar.
 							</h4>
 						</div>
 

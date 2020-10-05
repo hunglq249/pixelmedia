@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('meta')
-	
+
 @endsection
 
 @section('title')
@@ -94,6 +94,11 @@
 
 		<div class="home-contact">
 			<div class="home-contact-left">
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 				@foreach ($contactInfo['Social'] as $key => $socialUrl)
 					@php
 						$icon = 'fab ';
@@ -108,7 +113,7 @@
 							$icon = $icon . 'fa-youtube';
 						}
 					@endphp
-						
+
 					<a href="{{ $socialUrl }}">
 						<i class="{{ $icon }}"></i>
 					</a>
@@ -138,5 +143,10 @@
 	<!-- YOUTUBE BACKGROUND -->
     <script src="{{ asset('plugins/youtube-background/src/jquery.youtubebackground.min.js') }}"></script>
 
+<<<<<<< Updated upstream
 	<script src="{{ asset('dist/js/homepage/function.js') }}"></script>
 @endsection
+=======
+	<script src="{{ asset('dist/js/homepage/function.min.js') }}"></script>
+@endsection
+>>>>>>> Stashed changes

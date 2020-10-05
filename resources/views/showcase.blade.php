@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('meta')
-	
+
 @endsection
 
 @section('title')
@@ -38,7 +38,7 @@
 							<a href="#" class="active" data-type="*">
 								All
 							</a>
-				
+
 							@foreach ($productTypes as $key => $productType)
 								<a href="#" data-type="{{ $key }}">
 									{{ $productType }}
@@ -81,7 +81,7 @@
 @section('js')
 	<!-- IMAGELOADED JS -->
 	<script src="{{ asset('plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-	
+
 	<!-- MANSORY JS -->
 	<script src="{{ asset('plugins/mansory/masonry.pkgd.min.js') }}"></script>
 
