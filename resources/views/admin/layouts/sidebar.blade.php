@@ -38,6 +38,16 @@
                     <i class="fa fa-hand-o-right"></i> <span>Thành Viên</span>
                 </a>
             </li>
+            <li class="{{ Request::segment(2) == 'danh-muc-bai-viet' ? 'active' : '' }}">
+                <a href="{{ route('danh-muc-bai-viet.index') }}">
+                    <i class="fa fa-hand-o-right"></i> <span>Danh Mục Bài Viết</span>
+                </a>
+            </li>
+            <li class="{{ Request::segment(2) == 'bai-viet' ? 'active' : '' }}">
+                <a href="{{ route('bai-viet.index') }}">
+                    <i class="fa fa-hand-o-right"></i> <span>Bài Viết</span>
+                </a>
+            </li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>

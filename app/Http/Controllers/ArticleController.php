@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Common;
-use App\Models\Article;
+use App\Models\Article1;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -17,8 +17,8 @@ class ArticleController extends BaseController
 		$navMenu = Common::navMenu();
 		$contactInfo = Common::contactInfo();
 
-		$articleTypes = Article::articleType();
-		$articles = Article::article();
+		$articleTypes = Article1::articleType();
+		$articles = Article1::article();
 
 		return view('article', compact('navMenu', 'contactInfo', 'articleTypes', 'articles'));
 	}
@@ -28,7 +28,7 @@ class ArticleController extends BaseController
 		$contactInfo = Common::contactInfo();
 
 		$articleType = $id;
-		$articles = Article::article()->where('CategoryId', $id)->get();
+		$articles = Article1::article()->where('CategoryId', $id)->get();
 
 		return view('article_by_category', compact('navMenu', 'contactInfo', 'articleTypes', 'articles'));
 	}
@@ -37,7 +37,7 @@ class ArticleController extends BaseController
 		$navMenu = Common::navMenu();
 		$contactInfo = Common::contactInfo();
 
-		$article = Article::article()->where('Slug', $slug)->first();
+		$article = Article1::article()->where('Slug', $slug)->first();
 
 		return view('article.detail', compact('navMenu', 'contactInfo', 'article'));
 	}

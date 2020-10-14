@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-slug">Danh Sách Sản Phẩm</h3>
+                        <h3 class="box-slug">Danh Sách Danh Mục Sản Phẩm</h3>
                         @if(Session::has('error'))
                             <p class="alert {{ Session::get('alert-class', 'alert-warning') }}">{{ Session::get('error') }}<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></p>
                         @endif
@@ -78,6 +78,13 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <div class="paging_simple_numbers" id="example2_paginate">
+                                    {{ $categories->links('pagination::bootstrap-4') }}
+                                </div>
                             </div>
                         </div>
                     </div>
