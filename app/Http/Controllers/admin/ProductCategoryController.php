@@ -133,6 +133,11 @@ class ProductCategoryController extends Controller
      */
     public function update(ProductCategoryRequest $request, $id)
     {
+        $productCategory = $this->productCategoryRepository->find($id);
+        if(!$productCategory){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Danh mục sản phẩm'));
+            return redirect()->route('danh-muc-san-pham.index');
+        }
         $uniqueSlug = $this->createSlug('product_category', $request->slug);
         $data = [
             'slug' => $uniqueSlug,
