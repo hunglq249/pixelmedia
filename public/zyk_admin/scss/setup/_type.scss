@@ -1,0 +1,33 @@
+@font-face{
+	font-family: 'Manrope';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/zyk_admin/fonts/Manrope/Manrope-Regular.woff2') format("woff2"),
+		 url('/zyk_admin/fonts/Manrope/Manrope-Regular.woff') format("woff");
+}
+
+@font-face{
+	font-family: 'Manrope';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url('/zyk_admin/fonts/Manrope/Manrope-SemiBold.woff2') format("woff2"),
+		 url('/zyk_admin/fonts/Manrope/Manrope-SemiBold.woff') format("woff");
+}
+
+@font-face{
+	font-family: 'Manrope';
+	font-style: normal;
+	font-weight: 800;
+	font-display: swap;
+	src: url('/zyk_admin/fonts/Manrope/Manrope-ExtraBold.woff2') format("woff2"),
+		 url('/zyk_admin/fonts/Manrope/Manrope-ExtraBold.woff') format("woff");
+}
+
+@each $key, $value in $font-heading-size{
+    h#{$key},
+    .h#{$key}{
+        font-weight: 700;
+    }
+}

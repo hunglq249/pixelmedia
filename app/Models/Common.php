@@ -99,8 +99,8 @@ class Common extends Model
             'PhoneNumber' => '(+84) 1234 5678',
             'Social' => [
                 'Facebook' => 'https://www.facebook.com/pg/Pixel-Media-341017606305657/about/?ref=page_internal',
-                'Instagram' => '#',
-                'Youtube' => '#',
+                'Instagram' => null,
+                'Youtube' => 'https://www.youtube.com/channel/UCk2hc04CDVg2BVOzBYRnBDA',
                 'Behance' => 'https://www.behance.net/pxmediaart'
             ],
         ];

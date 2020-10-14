@@ -1,0 +1,23 @@
+// REBOOT BUTTONS
+.btn{
+	&.btn-primary{
+		background-color: var(--primary);
+		border: 1px solid var(--primary);
+		color: $color-white;
+	
+		&:hover {
+			background-color: lighten($color-primary, 10%);
+		}
+	
+		&:not(:disabled):active,
+		&:not(.disabled):active {
+			background-color: var(--primary);
+			border-color: var(--primary);
+		}
+	}
+}
+
+// RESET FORM CONTROL
+.form-control{
+	// font-size: 0.875rem;
+}

@@ -17,6 +17,21 @@
 				{{ $nav['Title'] }}
 			</a>
 		@endforeach
+
+		<div class="dropdown">
+			<button class="btn dropdown-toggle" data-toggle="dropdown" type="button">
+				<img src="{{ asset('dist/img/lang_vi.png') }}" alt="Image lang vi">
+			</button>
+
+			<div class="dropdown-menu dropdown-menu-right">
+				<a href="#" class="dropdown-item">
+					<img src="{{ asset('dist/img/lang_vi.png') }}" alt="Image lang vi"> Vietnam
+				</a>
+				<a href="#" class="dropdown-item">
+					<img src="{{ asset('dist/img/lang_en.png') }}" alt="Image lang en"> English
+				</a>
+			</div>
+		</div>
 	</div>
 
 	<div class="header-toggle">

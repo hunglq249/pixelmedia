@@ -2067,11 +2067,11 @@ header .header-nav {
           align-items: center;
 }
 
-header .header-nav a {
+header .header-nav > a {
   height: 100%;
-  margin-left: 1.25rem;
-  font-size: 1.25rem;
-  font-weight: 500;
+  margin-left: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 400;
   text-transform: uppercase;
   color: var(--white);
   position: relative;
@@ -2090,7 +2090,7 @@ header .header-nav a {
           align-items: center;
 }
 
-header .header-nav a:after {
+header .header-nav > a:after {
   content: '';
   width: 0;
   height: 4px;
@@ -2105,14 +2105,32 @@ header .header-nav a:after {
   transition: all ease-in-out 300ms;
 }
 
-header .header-nav a.active:after {
+header .header-nav > a.active:after {
   width: 100%;
 }
 
-header .header-nav a:hover:after {
+header .header-nav > a:hover:after {
   width: 100%;
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
+}
+
+header .header-nav .dropdown .btn {
+  color: var(--white);
+}
+
+header .header-nav .dropdown .btn:after {
+  -webkit-transform: translate(0, -2px);
+  transform: translate(0, -2px);
+}
+
+header .header-nav .dropdown .btn img {
+  width: 20px;
+}
+
+header .header-nav .dropdown .dropdown-menu .dropdown-item img {
+  width: 18px;
+  margin-right: 0.5rem;
 }
 
 footer {

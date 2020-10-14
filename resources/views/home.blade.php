@@ -94,8 +94,6 @@
 
 		<div class="home-contact">
 			<div class="home-contact-left">
-
-
 				@foreach ($contactInfo['Social'] as $key => $socialUrl)
 					@php
 						$icon = 'fab ';
