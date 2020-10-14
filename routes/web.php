@@ -12,9 +12,12 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\auth\RegisteredController;
 use App\Http\Controllers\admin\auth\LoginController;
-use App\Http\Controllers\admin\ProductCategoryController;
-use App\Http\Controllers\admin\ProductController;
+// use App\Http\Controllers\admin\ProductCategoryController;
+//use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\TeamController;
+
+use App\Http\Controllers\zyk_admin\ProductCategoryController;
+use App\Http\Controllers\zyk_admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,5 +89,10 @@ Route::prefix('admin')->group(function(){
         Route::get('san-pham/remove/{san_pham}', [ProductController::class, 'remove'])->name('san-pham.remove');
         Route::resource('/san-pham', ProductController::class);
         Route::resource('/thanh-vien', TeamController::class);
+
+        Route::prefix('zyk')->group(function(){
+            Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
+            Route::resource('/san-pham', ProductController::class);
+        });
     });
 });

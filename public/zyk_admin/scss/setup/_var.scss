@@ -1,0 +1,105 @@
+// COLORS
+$color-black:                                       #000;
+$color-white:                                       #fff;
+$color-gray:                                        #666;
+
+$color-primary:                                     #F25CA2;
+$color-secondary:                                   #0433BF;
+
+$color-success:                                     #00A65A;
+$color-warning:                                     #E0A800;
+$color-danger:                                      #C82333;
+
+$color-link:                                        #007DFF;
+
+// FONTS
+$font-base-family:                                  'Manrope', sans-serif;
+$font-base-size:                                    16px;
+
+// FONT SIZES
+$font-heading-size: (
+    1: 6rem,
+    2: 3.75rem,
+    3: 3rem,
+    4: 2.125rem,
+    5: 1.5rem,
+    6: 1rem
+);
+
+$font-display-size: (
+    1: 5rem,
+    2: 4.5rem,
+    3: 4rem,
+    4: 3.5rem,
+    5: 3rem,
+    6: 2.5rem
+);
+
+// BORDER RADIUS
+$border-radius:                                     0.5rem;
+
+$zindex-dropdown:                                   1000;
+$zindex-sticky:                                     1020;
+$zindex-fixed:                                      1030;
+$zindex-popup-backdrop:                             1039;
+$zindex-popup:                                      1040;
+$zindex-modal-backdrop:                             1049;
+$zindex-modal:                                      1050;
+$zindex-popover:                                    1060;
+$zindex-tooltip:                                    1070;
+$zindex-block:                                      2000;
+
+:root{
+    --primary:                                      #{$color-primary};
+    --secondary:                                    #{$color-secondary};
+
+    --black:                                        #{$color-black};
+    --white:                                        #{$color-white};
+
+    --success:                                      #{$color-success};
+    --warning:                                      #{$color-warning};
+    --danger:                                       #{$color-danger};
+
+    --link:                                         #{$color-link};
+
+    --gray-1:                                       #f2f2f7;
+    --gray-2:                                       #e5e5ea;
+    --gray-3:                                       #d1d1d6;
+    --gray-4:                                       #c7c7cc;
+    --gray-5:                                       #aeaeb2;
+    --gray-6:                                       #8e8e93;
+
+    --bg-body:                                      #fafafa;
+    --bg-bw:                                        #f6f6f9;
+    --bg-bw-rv:                                     #1c1d1f;
+
+    --border:                                       var(--gray-2);
+
+    --text-title:                                   #1c1d1f;
+    --text-subtitle:                                #3a3a3c;
+    --text-paragraph:                               #48484a;
+    --text-overline:                                #8e8e93;
+
+    --webfont-family:                               #{$font-base-family};
+    --webfont-size:                                 #{$font-base-size};
+}
+
+.theme-dark{
+    --gray-1:                                       #1c1d1f;
+    --gray-2:                                       #2c2c2e;
+    --gray-3:                                       #3a3a3c;
+    --gray-4:                                       #48484a;
+    --gray-5:                                       #636366;
+    --gray-6:                                       #8e8e93;
+
+    --bg-body:                                      #0a0a0a;
+    --bg-bw:                                        #131414;
+    --bg-bw-rv:                                     #f2f2f7;
+
+    --border:                                       var(--gray-2);
+
+    --text-title:                                   #f2f2f7;
+    --text-subtitle:                                #d1d1d6;
+    --text-paragraph:                               #c7c7cc;
+    --text-overline:                                #8e8e93;
+}

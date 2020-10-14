@@ -10,6 +10,49 @@
 
 @section('view')
 	<div class="showcase-detail">
+		<div class="showcase-cover">
+			@if ($product['Type'] == 0)
+				<div class="mask">
+					<img src="{{ $product['Thumb'] }}" alt="Cover of product {{ $product['Title'] }}">
+				</div>
+			@elseif($product['Type'] == 1)
+				
+			@endif
+
+			<div class="cover-overlay"></div>
+			
+			<div class="overlay-hover overlay-prev" data-direction="prev">
+				<a href="#" class="btn" role="button">
+					<span class="circle">
+						<i class="els el-lg el-caret-left"></i>
+					</span>
+
+					Previous<br>project
+				</a>
+			</div>
+
+			<div class="overlay-hover overlay-next" data-direction="next">
+				<a href="#" class="btn" role="button">
+					Next<br>project
+					<span class="circle">
+						<i class="els el-lg el-caret-right"></i>
+					</span>
+				</a>
+			</div>
+
+			<div class="cover-prev">
+				<div class="mask">
+					<img src="https://images.unsplash.com/photo-1602433834445-401f98fa8f73?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+				</div>
+			</div>
+
+			<div class="cover-next">
+				<div class="mask">
+					<img src="https://images.unsplash.com/photo-1602433834445-401f98fa8f73?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+				</div>
+			</div>
+		</div>
+
 		<div class="showcase-info">
 			<div class="container">
 				<div class="row">

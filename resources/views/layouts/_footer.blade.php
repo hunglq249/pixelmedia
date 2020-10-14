@@ -39,9 +39,11 @@
 						}
 					@endphp
 
-					<a href="{{ $contact }}" target="_blank">
-						<i class="fab {{ $icon }}"></i>
-					</a>
+					@if($contact != null)
+						<a href="{{ $contact }}" target="_blank">
+							<i class="fab {{ $icon }}"></i>
+						</a>
+					@endif
 				@endforeach
 			</div>
 

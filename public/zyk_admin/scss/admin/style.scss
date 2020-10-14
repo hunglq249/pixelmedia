@@ -1,0 +1,280 @@
+@import '../setup/var';
+@import '../setup/mixin';
+@import '../setup/type';
+
+@import 'reboot';
+
+@import '../admin/components/datepicker';
+
+body,
+html{
+	width: 100%;
+	height: 100vh;
+
+	overflow: hidden;
+
+	scroll-behavior: smooth;
+}
+
+.page{
+	height: 100%;
+
+	background-color: var(--bg-body);
+
+	@include d-flex(row, normal, normal);
+
+	.page-navside,
+	.page-content{
+		height: 100%;
+	}
+
+	.page-navside{
+		width: 250px;
+
+		background-color: var(--bg-bw);
+
+		.navside-toggle{
+			display: none;
+		}
+
+		.navside-brand{
+			height: 130px;
+
+			@include d-flex(column, center, center);
+
+			a{
+				display: block;
+
+				img{
+					width: 70px;
+				}
+			}
+		}
+
+		.navside-menu{
+			height: calc(100% - 130px);
+
+			padding: 1.5rem 0.75rem;
+
+			overflow-x: hidden;
+			@include overflow-y();
+
+			.menu-group{
+				margin-bottom: 1.5rem;
+
+				&:last-child{
+					margin-bottom: 2rem;
+				}
+
+				.menu-group-heading{
+					margin-bottom: 0.5rem;
+					padding-left: 1rem;
+				}
+
+				.menu-group-wrapper{
+					.menu-group-item{
+						margin-bottom: 0.25rem;
+
+						@include borderRadius();
+						@include d-flex(row, space-between, center);
+
+						&:last-child{
+							margin-bottom: 0;
+						}
+
+						&:hover{
+							background-color: var(--gray-1);
+						}
+
+						&.active{
+							background-color: var(--primary);
+
+							&:hover{
+								background-color: var(--primary);
+							}
+
+							a{
+								color: var(--white);
+							}
+						}
+
+						a{
+							flex: 1 0 auto;
+							padding: 0.5rem 1rem;
+
+							color: var(--text-subtitle);
+
+							i{
+								@include translate(0, -2px);
+							}
+
+							&.btn-toggle-menu-expand{
+								max-width: 24px;
+								
+								padding: 0;
+
+								i{
+									@include translate(0, 0);
+
+									@include transition();
+
+									&.rotated{
+										@include rotate(90deg);
+										@include transition();
+									}
+								}
+							}
+						}
+
+						.badge{
+							margin-right: 1rem;
+						}
+					}
+
+					.menu-group-expand{
+						padding-left: 1.5rem;
+
+						display: none;
+
+						.menu-group-item{
+							a{
+								font-size: 0.875rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.page-content{
+		flex: 1 0 calc(100% - 250px);
+
+		@include boxShadow(-8px, 0, 16px, rgba(0,0,0,0.1));
+
+		overflow: hidden;
+
+		.page-header{
+			height: 60px;
+
+			padding: 0 1.5rem;
+
+			@include d-flex(row, space-between, center);
+
+			.page-header-left{
+				@include d-flex(row, flex-start, center);
+
+				> * {
+					margin-right: 0.5rem;
+				}
+			}
+
+			.page-header-right{
+				@include d-flex(row, flex-end, center);
+
+				> * {
+					margin-left: 0.5rem;
+				}
+
+				.dropdown{
+					&.dropdown-notification{
+						.dropdown-menu{
+							min-width: 15rem;
+							max-height: 300px;
+
+							overflow-x: hidden;
+							@include overflow-y();
+						}
+					}
+
+					&.dropdown-language{
+						.dropdown-item{
+							@include d-flex(row, normal, center);
+
+							img{
+								width: 24px;
+
+								margin-right: 0.5rem;
+							}
+						}
+					}
+
+					.btn{
+						width: 40px;
+						height: 40px;
+
+						padding: 0;
+
+						position: relative;
+
+						@include borderRadius(50%);
+
+						img{
+							width: 20px;
+						}
+
+						.badge{
+							width: 20px;
+							height: 20px;
+
+							font-size: 0.625rem;
+
+							position: absolute;
+							top: -4px;
+							right: -4px;
+							z-index: 1;
+
+							@include borderRadius(50%);
+						}
+					}
+				}
+				
+			}
+		}
+
+		.page-view{
+			height: calc(100% - 60px);
+
+			padding: 0 1.5rem;
+
+			overflow-x: hidden;
+			@include overflow-y();
+
+			.view-header{
+				height: 100px;
+
+				@include d-flex(row, space-between, center);
+
+				.view-header-left{
+					@include d-flex(row, flex-start, center);
+
+					> * {
+						margin-right: 0.5rem;
+					}
+
+					.header-navigation{
+						h6{
+							&.subtitle-md{
+								font-weight: 600;
+
+								color: var(--text-overline);
+							}
+						}
+					}
+				}
+
+				.view-header-right{
+					@include d-flex(row, flex-end, center);
+
+					> * {
+						margin-left: 0.5rem;
+					}
+				}
+			}
+
+			.view-body{
+				
+			}
+		}
+	}
+}

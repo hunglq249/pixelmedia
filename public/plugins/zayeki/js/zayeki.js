@@ -21,7 +21,7 @@ UTIL
 */
 
 const zykKeys = {
-	escapeKey: 27,
+	escapeKey: 27
 };
 
 const zykVar = {
@@ -36,7 +36,7 @@ const zykVar = {
 			months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
 			monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 
-			views: ['month', 'week', 'day'],
+			views: ['month', 'week', 'day']
 		},
 		vi: {
 			today: 'Hôm nay',
@@ -48,19 +48,19 @@ const zykVar = {
 			months: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
 			monthsShort: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', '12'],
 
-			views: ['Tháng', 'Tuần', 'Ngày'],
-		},
+			views: ['Tháng', 'Tuần', 'Ngày']
+		}
 	},
 	basicLang: {
 		en: {
 			next: 'Next',
-			prev: 'Prev',
+			prev: 'Prev'
 		},
 		vi: {
 			next: 'Next',
-			prev: 'Prev',
-		},
-	},
+			prev: 'Prev'
+		}
+	}
 };
 
 const zykApp = {
@@ -106,174 +106,8 @@ const zykApp = {
 		if (!hasPopper) {
 			throw new TypeError('Require Popper js');
 		}
-	},
+	}
 };
-
-/*
-=========================================================
-POAL (POPUP ALERTS)
-=========================================================
-*/
-class Poal {
-	constructor(options) {
-		let defaultOptions = {
-			type: 'default',
-			title: 'This is Alert Title',
-			message: "This is the Alert's message",
-
-			cancelButtonClass: 'btn-default',
-			cancelButtonText: 'Cancel',
-			confirmButtonClass: 'btn-success',
-			confirmButtonText: 'Confirm',
-		};
-
-		this.config = {
-			...defaultOptions,
-			...options,
-		};
-
-		this.$btn = $('.btn-poal');
-
-		this.fire();
-	}
-
-	fire() {
-		$('body').append(this.template());
-
-		let _self = this;
-
-		setTimeout(() => {
-			_self.transition();
-		}, 100);
-
-		this.initEvent();
-	}
-
-	transition() {
-		$(document).find('.poal').addClass('show');
-	}
-
-	initEvent() {
-		$(document).on('click', '.btn-cancel', this.dismiss.bind(this));
-		$(document).on('click', '.btn-confirm', this.confirm.bind(this));
-		$(document).on('click', '.poal-backdrop', this.dismiss.bind(this));
-	}
-
-	template() {
-		let popup = `
-            <div class="poal poal-${this.config.type}">
-                <div class="poal-backdrop"></div>
-                <div class="poal-dialog">
-                    <div class="poal-content">
-                        <div class="poal-header">
-                            <h3>
-                                ${this.config.title}
-                            </h3>
-                        </div>
-
-                        <div class="poal-body">
-                            <p>
-                                ${this.config.message}
-                            </p>
-                        </div>
-
-                        <div class="poal-actions">
-                            <button class="btn ${this.config.cancelButtonClass} btn-cancel" type="button">
-                                ${this.config.cancelButtonText}
-                            </button>
-                            <button class="btn ${this.config.confirmButtonClass} btn-confirm" type="button">
-                                ${this.config.confirmButtonText}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-		return popup;
-	}
-
-	dismiss(e) {
-		$(e.target).closest('.poal').remove();
-	}
-
-	confirm(e) {
-		$(e.target).closest('.poal').remove();
-
-		this.callbackConfirm();
-	}
-
-	callbackConfirm() {
-		console.log('callback');
-	}
-}
-
-/*
-=========================================================
-GUIDE
-=========================================================
-*/
-
-let guide_data = {};
-guide_data['buttonPrimary'] = 'This is btn primary';
-guide_data['buttonSuccess'] = 'This is btn success';
-
-class Guide {
-	constructor(target, options) {
-		let defaultOptions = {
-			trigger: 'manual',
-			container: 'body',
-			html: true,
-			content: guide_data[target],
-			template: `
-                <div class="popover popover-guide" role="tooltip">
-                    <div class="arrow"></div>
-                    <h3 class="popover-header"></h3>
-                    <div class="popover-body"></div>
-                </div>
-            `,
-		};
-
-		this.config = {
-			...defaultOptions,
-			...options,
-		};
-
-		this.fire(target);
-	}
-
-	fire(element) {
-		const _this = this;
-
-		// Remove all shown popover
-		$('body').find('.popover').remove();
-
-		// Set config for Guide
-		$('#' + element).popover(_this.config);
-
-		// Show Guide
-		$('#' + element).popover('show');
-
-		// Init hide Guide
-
-		$(document).on('click.el.guide', function (e) {
-			if (!$('body').find('.popover').is(e.target) && $('body').find('.popover').has(e.target).length === 0) {
-				$(document).off('click.el.guide');
-
-				return _this.hide(element);
-			}
-		});
-
-		$('#' + element).on('click.el.guidedismiss', function () {
-			$('#' + element).off('click.el.guidedismiss');
-
-			_this.hide(element);
-		});
-	}
-
-	hide(element) {
-		$('#' + element).popover('hide');
-	}
-}
 
 /*
 =========================================================
@@ -290,26 +124,26 @@ class Calendar {
 			header: {
 				controls: ['today'],
 				title: true,
-				views: ['month', 'week', 'day'],
+				views: ['month', 'week', 'day']
 			},
 
 			body: {
 				tableHeader: {
-					type: 'daysOfWeek',
+					type: 'daysOfWeek'
 				},
 				tableBody: {
-					disablePast: false,
-				},
+					disablePast: false
+				}
 			},
 
 			buttonClass: {
 				default: 'btn btn-sm btn-default',
-				active: 'btn btn-sm btn-primary',
+				active: 'btn btn-sm btn-primary'
 			},
 
 			icons: {
 				prev: 'els el-lg el-caret-left',
-				next: 'els el-lg el-caret-right',
+				next: 'els el-lg el-caret-right'
 			},
 
 			dayRatio: 0.5,
@@ -323,12 +157,12 @@ class Calendar {
 			eventOnClick: false,
 			eventOnClickNext: false,
 			eventOnClickPrev: false,
-			eventOnClickToday: false,
+			eventOnClickToday: false
 		};
 
 		this.config = {
 			...defaultOptions,
-			...options,
+			...options
 		};
 
 		this.date = new Date();
@@ -795,12 +629,12 @@ class Calendar {
 				if (_this.config.view == 'month') {
 					if (_this.config.dayRatio != 'auto') {
 						$(this).css({
-							height: $(this).width() * _this.config.dayRatio + 'px',
+							height: $(this).width() * _this.config.dayRatio + 'px'
 						});
 					}
 				} else if (_this.config.view == 'week') {
 					$(this).css({
-						height: $(this).width() * 1 + 'px',
+						height: $(this).width() * 1 + 'px'
 					});
 				}
 			});
@@ -1016,12 +850,12 @@ class Pagination {
 			current: 1,
 			limit: 10,
 			action: 'javascipt:void(0);',
-			extendParams: false,
+			extendParams: false
 		};
 
 		this.config = {
 			...defaultOptions,
-			...options,
+			...options
 		};
 
 		this.lang = zykVar.basicLang.en;
@@ -1177,7 +1011,7 @@ class Datepicker {
 
 		this.config = {
 			...defaultOptions,
-			...options,
+			...options
 		};
 
 		this.popoverConfig = {
@@ -1191,7 +1025,7 @@ class Datepicker {
                     <h3 class="popover-header"></h3>
                     <div class="popover-body"></div>
                 </div>
-            `,
+            `
 		};
 
 		this.button = target;
@@ -1232,38 +1066,6 @@ class Datepicker {
 
 /*
 =========================================================
-CHART
-=========================================================
-*/
-
-const CHART_DEFAULT = {
-	TYPE: 'bar',
-	WIDTH: 400,
-	HEIGHT: 400,
-	COLORS: {
-		BORDER: '#e5e5ea',
-	},
-};
-
-class Chart {
-	constructor(wrapper, options) {
-		let defaultOptions = {};
-
-		this.config = {
-			...defaultOptions,
-			...options,
-		};
-
-		this.wrapper = $(wrapper);
-
-		this.render();
-	}
-
-	render() {}
-}
-
-/*
-=========================================================
 BREADCRUMB
 =========================================================
 */
@@ -1274,7 +1076,7 @@ class Breadcrumb {
 
 		this.config = {
 			...defaultOptions,
-			...options,
+			...options
 		};
 
 		this.render(data);
@@ -1303,6 +1105,88 @@ class Breadcrumb {
 
 /*
 =========================================================
+TOAST
+=========================================================
+*/
+
+class Toast {
+	constructor(options) {
+		let defaultOptions = {
+			placement: {
+				y: 'top',
+				x: 'center'
+			},
+			animation: true,
+			autohide: true,
+			delay: 1000
+		};
+
+		this.config = {
+			...defaultOptions,
+			...options
+		};
+
+		this.wrapper = $('.toast-wrapper');
+
+		this.render();
+	}
+
+	render() {
+		const _this = this;
+
+		this.checkWrapperExist();
+	}
+
+	checkWrapperExist() {
+		const _this = this;
+
+		// if (_this.wrapper.length > 0) {
+		// 	_this.wrapper.remove();
+		// }
+
+		_this.renderWrapper();
+	}
+
+	renderWrapper() {
+		const _this = this;
+
+		const wrapper = '<div class="toast-wrapper" style="position: fixed; z-index: 1030"></div>';
+
+		let position = {
+			top: 'auto',
+			bottom: 'auto',
+			left: 'auto',
+			right: 'auto'
+		};
+
+		if (_this.config.placement.y == 'top') {
+			position.top = 0;
+		} else if (_this.config.placement.y == 'center') {
+			position.top = '50%';
+		} else if (_this.placement.y == 'bottom') {
+			position.bottom = 0;
+		}
+
+		if (_this.config.placement.x == 'left') {
+			position.left = 0;
+		} else if (_this.config.placement.x == 'center') {
+			position.left = '50%';
+		} else if (_this.placement.x == 'right') {
+			position.right = 0;
+		}
+
+		console.log(position, $(wrapper));
+		$(wrapper).css({
+			top: position.top,
+			bottom: position.bottom
+		});
+
+		$(wrapper).appendTo('body');
+	}
+}
+
+/*
+=========================================================
 POPUP
 =========================================================
 */
@@ -1318,7 +1202,7 @@ const POPUP_CLASSNAME = {
 	DARK: 'dark',
 	DIALOG: 'popup-dialog',
 	BACKDROP: 'popup-backdrop',
-	BODY: 'popup-body',
+	BODY: 'popup-body'
 };
 
 const POPUP_SELECTOR = {
@@ -1326,19 +1210,19 @@ const POPUP_SELECTOR = {
 	BACKDROP: `.${POPUP_CLASSNAME.BACKDROP}`,
 	POPUP_BODY: `.${POPUP_CLASSNAME.BODY}`,
 	TOGGLE: '[data-toggle="popup"]',
-	DISMISS: '[data-dismiss="popup"]',
+	DISMISS: '[data-dismiss="popup"]'
 };
 
 const POPUP_DEFAULT = {
 	backdrop: true,
 	focus: true,
-	keyboard: true,
+	keyboard: true
 };
 
 const POPUP_DEFAULT_TYPE = {
 	backdrop: '(boolean|string)',
 	focus: 'boolean',
-	keyboard: 'boolean',
+	keyboard: 'boolean'
 };
 
 const POPUP_EVENT = {
@@ -1351,7 +1235,7 @@ const POPUP_EVENT = {
 	MOUSEUP_DISMISS: `mouseup.dismiss.${POPUP_EVENT_KEY}`,
 	CLICK: `click.${POPUP_EVENT_KEY}`,
 	KEYDOWN_DISMISS: `keydown.dismiss.${POPUP_EVENT_KEY}`,
-	FOCUSIN: `focusin.${POPUP_EVENT_KEY}`,
+	FOCUSIN: `focusin.${POPUP_EVENT_KEY}`
 };
 
 const POPUP_VAR = {
@@ -1359,7 +1243,7 @@ const POPUP_VAR = {
 	IS_SHOWN: false,
 	IGNOREBACKDROPCLICK: false,
 	IS_TRANSITION: false,
-	TRANSITION: 100,
+	TRANSITION: 100
 };
 
 var Popup = (function () {
@@ -1400,7 +1284,7 @@ var Popup = (function () {
 		zykApp.bodyBlock(true);
 
 		let showEvent = $.Event(POPUP_EVENT.SHOW, {
-			target: target,
+			target: target
 		});
 
 		$(this.element).trigger(showEvent);
@@ -1465,7 +1349,7 @@ var Popup = (function () {
 		}
 
 		let shownEvent = $.Event(POPUP_EVENT.SHOWN, {
-			target: target,
+			target: target
 		});
 
 		$(_this.element).trigger(shownEvent);
@@ -1639,136 +1523,6 @@ $.fn[POPUP_NAME].constructor = Popup;
 
 /*
 =========================================================
-LISTVIEW
-=========================================================
-*/
-
-const LISTVIEW_NAME = 'listview';
-const LISTVIEW_EVENT_KEY = `${ZYK_DATA_KEY}.${LISTVIEW_NAME}`;
-
-const LISTVIEW_CLASSNAME = {};
-
-const LISTVIEW_SELECTOR = {
-	TOGGLE: '[data-toggle="listview"]',
-};
-
-const LISTVIEW_VIEW_OPTIONS = {
-	LIST: 'list',
-	GRID: 'grid',
-};
-
-const LISTVIEW_DEFAULT = {
-	VIEW: 'list',
-};
-
-const LISTVIEW_EVENT = {
-	CLICK: `click.${LISTVIEW_EVENT_KEY}`,
-
-	CHANGE: `change.${LISTVIEW_EVENT_KEY}`,
-	CHANGED: `changed.${LISTVIEW_EVENT_KEY}`,
-};
-
-var Listview = (function () {
-	function Listview(element, config) {
-		this.element = element;
-	}
-
-	const _proto = Listview.prototype;
-
-	_proto.change = function change() {
-		console.log('haha');
-	};
-
-	Listview.jqueryInterface = function jqueryInterface(config) {
-		return this.each(function () {
-			let data = $(this).data(LISTVIEW_EVENT_KEY);
-
-			if (!data) {
-				data = new Listview(this, config);
-				$(this).data(LISTVIEW_EVENT_KEY, data);
-			}
-
-			if (typeof config == 'string') {
-				if (typeof data[config] == 'undefined') {
-					throw new TypeError('No method named ' + '"' + config + '"');
-				}
-
-				data.change();
-			}
-		});
-	};
-
-	return Listview;
-})();
-
-$(document).on(LISTVIEW_EVENT.CLICK, LISTVIEW_SELECTOR.TOGGLE, function (e) {
-	e.preventDefault();
-
-	let config = $(this).data();
-
-	Listview.jqueryInterface.call($(this), config);
-});
-
-$.fn[LISTVIEW_NAME] = Listview.jqueryInterface;
-$.fn[LISTVIEW_NAME].constructor = Listview;
-
-/*
-=========================================================
-NAV HEADER
-=========================================================
-*/
-const NAVHEADER_NAME = 'navheader';
-const NAVHEADER_EVENT_KEY = `${ZYK_DATA_KEY}.${NAVHEADER_NAME}`;
-
-const NAVHEADER_CLASSNAME = {
-	NAV_MENU: '.nav-menu',
-
-	BTN_EXPAND: '.btn-expand-nav',
-
-	SHOW: 'show',
-	ACTIVE: 'active',
-};
-
-const NAVHEADER_EVENTS = {
-	CLICK: `click.${NAVHEADER_EVENT_KEY}`,
-};
-
-class Navheader {
-	constructor(element, options) {
-		let defaultOptions = {};
-
-		this.options = {
-			...defaultOptions,
-			...options,
-		};
-
-		this.element = element;
-
-		this.btnExpand = $(this.element).find(NAVHEADER_CLASSNAME.BTN_EXPAND);
-		this.navMenu = $(this.element).find(NAVHEADER_CLASSNAME.NAV_MENU);
-
-		this.init();
-	}
-
-	init() {
-		const _this = this;
-
-		$(document).on(NAVHEADER_EVENTS.CLICK, $(_this.btnExpand), function (e) {
-			console.log(_this.btnExpand);
-			$(_this.navMenu).toggleClass(NAVHEADER_CLASSNAME.SHOW);
-			$(_this.btnExpand).toggleClass(NAVHEADER_CLASSNAME.ACTIVE);
-
-			if ($(_this.btnExpand).hasClass(NAVHEADER_CLASSNAME.ACTIVE)) {
-				zykApp.bodyBlock(true);
-			} else {
-				zykApp.bodyBlock();
-			}
-		});
-	}
-}
-
-/*
-=========================================================
 CHECKBOX, RADIO, SWITCH
 =========================================================
 */
@@ -1779,14 +1533,14 @@ const CHECK_EVENT_KEY = `${ZYK_DATA_KEY}.${CHECK_NAME}`;
 const CHECK_TYPE = {
 	CHECKBOX: 'checkbox',
 	RADIO: 'radio',
-	SWITCH: 'switch',
+	SWITCH: 'switch'
 };
 
 const CHECK_EVENT = {
 	CLICK: `click.${CHECK_EVENT_KEY}`,
 	CHECK: `check.${CHECK_EVENT_KEY}`,
 	UNCHECK: `uncheck.${CHECK_EVENT_KEY}`,
-	CHANGE: `change.${CHECK_EVENT_KEY}`,
+	CHANGE: `change.${CHECK_EVENT_KEY}`
 };
 
 const CHECK_DEFAULT = {};
@@ -1795,11 +1549,11 @@ const CHECK_ICONS = {
 	ICON_CHECKBOX_UNCHECK: 'elo el-lg el-square',
 	ICON_CHECKBOX_CHECK: 'els el-lg el-check-square',
 	ICON_RADIO_UNCHECK: 'elo el-lg el-circle',
-	ICON_RADIO_CHECK: 'els el-lg el-check-circle',
+	ICON_RADIO_CHECK: 'els el-lg el-check-circle'
 };
 
 const CHECK_SELECTOR = {
-	TOGGLE: '[data-toggle="check"]',
+	TOGGLE: '[data-toggle="check"]'
 };
 
 var Check = (function () {
@@ -1927,18 +1681,18 @@ const LIST_TREE_EVENT = {
 	SHOW: `show.${LIST_TREE_EVENT_KEY}`,
 	SHOWN: `shown.${LIST_TREE_EVENT_KEY}`,
 	HIDE: `hide.${LIST_TREE_EVENT_KEY}`,
-	HIDDEN: `hidden.${LIST_TREE_EVENT_KEY}`,
+	HIDDEN: `hidden.${LIST_TREE_EVENT_KEY}`
 };
 
 const LIST_TREE_SELECTOR = {
 	TOGGLE: '[data-toggle="list-tree"]',
 	WRAPPER: '.item-wrapper-',
 	ROW: '.item-row',
-	ICON: 'i',
+	ICON: 'i'
 };
 
 const LIST_TREE_CLASS = {
-	ROTATED: 'rotated',
+	ROTATED: 'rotated'
 };
 
 const LIST_TREE_DEFAULT = {};
@@ -2023,23 +1777,23 @@ const COLLAPSE_EVENT = {
 	SHOW: `show.${COLLAPSE_EVENT_KEY}`,
 	SHOWN: `shown.${COLLAPSE_EVENT_KEY}`,
 	HIDE: `hide.${COLLAPSE_EVENT_KEY}`,
-	HIDDEN: `hidden.${COLLAPSE_EVENT_KEY}`,
+	HIDDEN: `hidden.${COLLAPSE_EVENT_KEY}`
 };
 
 const COLLAPSE_SELECTOR = {
 	TOGGLE: '[data-toggle="collapse"]',
 	COLLAPSE: '.collapse',
-	ICON: 'i',
+	ICON: 'i'
 };
 
 const COLLAPSE_CLASS = {
 	ROTATED: 'rotated',
 
-	SHOW: 'show',
+	SHOW: 'show'
 };
 
 const COLLAPSE_DEFAULT = {
-	DURATION: 300,
+	DURATION: 300
 };
 
 var Collapse = (function () {
@@ -2184,7 +1938,7 @@ const DROPDOWN_EVENT = {
 	SHOW: `show.${DROPDOWN_EVENT_KEY}`,
 	SHOWN: `shown.${DROPDOWN_EVENT_KEY}`,
 	HIDE: `hide.${DROPDOWN_EVENT_KEY}`,
-	HIDDEN: `hidden.${DROPDOWN_EVENT_KEY}`,
+	HIDDEN: `hidden.${DROPDOWN_EVENT_KEY}`
 };
 
 const DROPDOWN_CLASS = {
@@ -2194,12 +1948,12 @@ const DROPDOWN_CLASS = {
 
 	DROPUP: 'dropup',
 	DROPLEFT: 'dropleft',
-	DROPRIGHT: 'dropright',
+	DROPRIGHT: 'dropright'
 };
 
 const DROPDOWN_SELECTOR = {
 	TOGGLE: '[data-toggle="dropdown"]',
-	MENU: `.${DROPDOWN_CLASS.MENU}`,
+	MENU: `.${DROPDOWN_CLASS.MENU}`
 };
 
 const DROPDOWN_PLACEMENT = {
@@ -2208,14 +1962,14 @@ const DROPDOWN_PLACEMENT = {
 	UP: 'top-start',
 	UPEND: 'top-end',
 	LEFT: 'left-start',
-	RIGHT: 'right-start',
+	RIGHT: 'right-start'
 };
 
 const DROPDOWN_DEFAULT = {
 	placement: DROPDOWN_PLACEMENT.DOWN,
 	flip: true,
 	offset: [0, 0],
-	boundary: 'viewport',
+	boundary: 'viewport'
 };
 
 var Dropdown = (function () {
@@ -2322,17 +2076,17 @@ var Dropdown = (function () {
 				{
 					name: 'offset',
 					options: {
-						offset: _this.getOffset(),
-					},
+						offset: _this.getOffset()
+					}
 				},
 				{
 					name: 'flip',
 					enabled: _this.config.flip,
 					option: {
-						boundary: _this.config.boundary,
-					},
-				},
-			],
+						boundary: _this.config.boundary
+					}
+				}
+			]
 		};
 
 		return popperConfig;
@@ -2422,29 +2176,29 @@ const TOOLTIP_EVENT = {
 	SHOW: `show.${TOOLTIP_EVENT_KEY}`,
 	SHOWN: `shown.${TOOLTIP_EVENT_KEY}`,
 	HIDE: `hide.${TOOLTIP_EVENT_KEY}`,
-	HIDDEN: `hidden.${TOOLTIP_EVENT_KEY}`,
+	HIDDEN: `hidden.${TOOLTIP_EVENT_KEY}`
 };
 
 const TOOLTIP_CLASS = {
-	TOOLTIP: 'tooltip',
+	TOOLTIP: 'tooltip'
 };
 
 const TOOLTIP_SELECTOR = {
 	TOGGLE: '[data-toggle="tooltip"]',
-	TOOLTIP: `.${TOOLTIP_CLASS.TOOLTIP}`,
+	TOOLTIP: `.${TOOLTIP_CLASS.TOOLTIP}`
 };
 
 const TOOLTIP_PLACEMENT = {
 	BOTTOM: 'bottom',
 	TOP: 'top',
 	LEFT: 'left',
-	RIGHT: 'right',
+	RIGHT: 'right'
 };
 
 const TOOLTIP_TRIGGER = {
 	CLICK: 'click',
 	HOVER: 'hover',
-	MANUAL: 'manual',
+	MANUAL: 'manual'
 };
 
 const TOOLTIP_DEFAULT = {
@@ -2458,7 +2212,7 @@ const TOOLTIP_DEFAULT = {
             <div class="tooltip-inner"></div>
         </div>
     `,
-	boundary: 'viewport',
+	boundary: 'viewport'
 };
 
 var Tooltip = (function () {
@@ -2659,17 +2413,17 @@ var Tooltip = (function () {
 				{
 					name: 'offset',
 					options: {
-						offset: _this.getOffset(),
-					},
+						offset: _this.getOffset()
+					}
 				},
 				{
 					name: 'flip',
 					enabled: _this.config.flip,
 					option: {
-						boundary: _this.config.boundary,
-					},
-				},
-			],
+						boundary: _this.config.boundary
+					}
+				}
+			]
 		};
 
 		return popperConfig;
@@ -2709,3 +2463,139 @@ var Tooltip = (function () {
 
 $.fn[TOOLTIP_NAME] = Tooltip.jqueryInterface;
 $.fn[TOOLTIP_NAME].constructor = Tooltip;
+
+/*
+=========================================================
+TAB
+=========================================================
+*/
+
+const TAB_NAME = 'tab';
+const TAB_EVENT_KEY = `${ZYK_DATA_KEY}.${TAB_NAME}`;
+
+const TAB_CLASS = {
+	CONTROL: 'tab-controls',
+	ITEM: 'tab-item',
+	CONTENT: 'tab-content',
+	PANE: 'tab-pane',
+	ACTIVE: 'active',
+	SHOW: 'show',
+	FADE: 'fade',
+	DISABLED: 'disabled'
+};
+
+const TAB_SELECTOR = {
+	TOGGLE: '[data-toggle="tab"]',
+	CONTROL: `.${TAB_CLASS.CONTROL}`,
+	ITEM: `.${TAB_CLASS.ITEM}`,
+	CONTENT: `.${TAB_CLASS.CONTENT}`,
+	PANE: `.${TAB_CLASS.PANE}`,
+	PANECURRENT: `.${TAB_CLASS.PANE}.${TAB_CLASS.SHOW}`
+};
+
+const TAB_EVENT = {
+	CLICK: `click.${TAB_EVENT_KEY}`,
+	SHOW: `show.${TAB_EVENT_KEY}`,
+	SHOWN: `shown.${TAB_EVENT_KEY}`,
+	HIDE: `hide.${TAB_EVENT_KEY}`,
+	HIDDEN: `hidden.${TAB_EVENT_KEY}`
+};
+
+const TAB_DEFAULT = {};
+
+var Tab = (function () {
+	function Tab(element) {
+		this.element = element;
+
+		this.current = this.getCurrent();
+	}
+
+	const _proto = Tab.prototype;
+
+	_proto.toggle = function toggle(target) {
+		if ($(target).hasClass(TAB_CLASS.DISABLED) || $(target).attr('disabled') || $(target).hasClass(TAB_CLASS.ACTIVE)) {
+			return;
+		}
+
+		this.show(target);
+	};
+
+	_proto.show = function show(target) {
+		const _this = this;
+
+		let paneId = $(target).data('target');
+
+		$(paneId).trigger(TAB_EVENT.SHOW);
+
+		_this.hide(_this.current);
+
+		if ($(paneId).hasClass(TAB_CLASS.FADE)) {
+			$(paneId).fadeIn();
+		} else {
+			$(paneId).show();
+		}
+		$(paneId).addClass(TAB_CLASS.SHOW);
+
+		$(paneId).trigger(TAB_EVENT.SHOWN);
+
+		$(target).parent().find(TAB_SELECTOR.ITEM).removeClass(TAB_CLASS.ACTIVE);
+		$(target).addClass(TAB_CLASS.ACTIVE);
+	};
+
+	_proto.hide = function hide(target) {
+		$(target).trigger(TAB_EVENT.HIDE);
+
+		$(target).parent().find(TAB_SELECTOR.PANE).removeClass(TAB_CLASS.SHOW);
+		$(target).parent().find(TAB_SELECTOR.PANE).removeAttr('style');
+
+		$(target).trigger(TAB_EVENT.HIDDEN);
+	};
+
+	_proto.getCurrent = function gerCurrent() {
+		const _this = this;
+
+		let current = $(_this.element).parent().find(TAB_SELECTOR.PANECURRENT);
+
+		return current;
+	};
+
+	Tab.jqueryInterface = function jqueryInterface(config, target) {
+		return this.each(function () {
+			let data = $(this).data(TAB_EVENT_KEY);
+
+			let _config = zykApp.configSpread(TAB_DEFAULT, $(this).data(), typeof config == 'object' && config ? config : {});
+
+			if (!data) {
+				data = new Tab(this, _config);
+				$(this).data(TAB_EVENT_KEY, data);
+			}
+
+			if (typeof config == 'string') {
+				if (typeof data[config] == 'undefined') {
+					throw new TypeError('No method named ' + '"' + config + '"');
+				}
+
+				data[config](target);
+			} else if (_config.toggle) {
+				data.toggle(target);
+			}
+		});
+	};
+
+	return Tab;
+})();
+
+$(document).on(TAB_EVENT.CLICK, TAB_SELECTOR.TOGGLE, function (e) {
+	let target = $(this).data('target');
+
+	let config = $(target).data(TAB_EVENT_KEY) ? 'toggle' : zykApp.configSpread($(target).data(), $(this).data());
+
+	if (this.tagName == 'A') {
+		e.preventDefault();
+	}
+
+	Tab.jqueryInterface.call($(target), config, this);
+});
+
+$.fn[TAB_NAME] = Tab.jqueryInterface;
+$.fn[TAB_NAME].constructor = Tab;

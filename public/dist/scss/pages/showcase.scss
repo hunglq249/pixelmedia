@@ -131,6 +131,151 @@
 }
 
 .showcase-detail{
+	.showcase-cover{
+		height: 66.67vh;
+
+		position: relative;
+
+		overflow: hidden;
+
+		.mask{
+			width: 100%;
+			height: 100%;
+		}
+
+		.cover-overlay{
+			width: 100%;
+			height: 100%;
+
+			background-color: rgba(0,0,0,0);
+			
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+
+			@include transition();
+
+			&.show{
+				background-color: rgba(0,0,0,0.75);
+
+				@include transition();
+			}
+		}
+
+		.overlay-hover{
+			height: 100%;
+
+			position: absolute;
+			top: 0;
+			z-index: 3;
+
+			@include d-flex(column, center, center);
+			@include transition();
+
+			&.active{
+				width: 50vw;
+
+				@include transition();
+			}
+
+			.btn{
+				width: 100%;
+				height: 100%;
+
+				color: var(--white);
+
+				font-size: 0.75rem;
+				text-transform: uppercase;
+
+				opacity: 0.5;
+
+				&:hover{
+					opacity: 1;
+				}
+
+				.circle{
+					width: 32px;
+					height: 32px;
+
+					@include borderRadius(50%);
+					border: 2px solid var(--white);
+
+					@include d-flex(row, center, center);
+				}
+			}
+
+			&.overlay-prev{
+				left: 0;
+
+				@include d-flex(column, center, flex-start);
+	
+				.btn{
+					text-align: left;
+
+					@include d-flex(row, flex-start, center);
+	
+					.circle{
+						margin-right: 0.5rem;
+					}
+				}
+			}
+	
+			&.overlay-next{
+				right: 0;
+
+				@include d-flex(column, center, flex-end);
+	
+				.btn{
+					text-align: right;
+
+					@include d-flex(row, flex-end, center);
+	
+					.circle{
+						margin-left: 0.5rem;
+					}
+				}
+			}
+		}
+
+		.cover-prev,
+		.cover-next{
+			width: 50vw;
+			height: 100%;
+
+			position: absolute;
+			top: 0;
+			z-index: 2;
+
+			@include transition();
+
+			.mask{
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.cover-prev{
+			left: -50vw;
+
+			&.show{
+				left: 0;
+
+				@include transition();
+			}
+		}
+
+		.cover-next{
+			right: -50vw;
+
+			&.show{
+				right: 0;
+
+				@include transition();
+			}
+		}
+	}
+
 	.showcase-info{
 		padding-bottom: 6rem;
 

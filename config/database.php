@@ -90,7 +90,20 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-
+        'mysql2' => [
+            'driver' => 'mysql',
+            'host' => '103.138.88.11',
+            'port' => '3306',
+            'database' => 'pix56218_db',
+            'username' => 'pix56218_user',
+            'password' => '7#8xloP6',
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'options'=>['mode'=>'ssl'],
+            'strict' => false,
+            'engine' => null,
+        ],
     ],
 
     /*
