@@ -21,6 +21,7 @@ use App\Http\Controllers\admin\AboutController as AdminAboutController;
 
 use App\Http\Controllers\zyk_admin\ProductCategoryController;
 use App\Http\Controllers\zyk_admin\ProductController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,12 +63,27 @@ Route::prefix('beta')->group(function(){
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::get('/register', function (){
-    return '404 page';
-});
-Route::get('/login', function (){
-    return '404 page';
-});
+// Route::get('/register', function (){
+//     return '404 page';
+// });
+// Route::get('/login', function (){
+//     return '404 page';
+// });
+// Route::post('/logout', function (){
+//     return '404 page';
+// });
+// Route::get('/forgot-password', function (){
+//     return '404 page';
+// });
+// Route::post('/forgot-password', function (){
+//     return '404 page';
+// });
+// Route::get('/reset-password/{token}', function (){
+//     return '404 page';
+// });
+// Route::post('/reset-password', function (){
+//     return '404 page';
+// });
 
 Route::prefix('admin')->group(function(){
     Route::get('/dang-ky', [RegisteredController::class, 'create'])
@@ -86,6 +102,8 @@ Route::prefix('admin')->group(function(){
             $limiter ? 'throttle:'.$limiter : null,
         ]));
     Route::group(['middleware' => 'adminLogin'], function () {
+        Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::get('danh-muc-san-pham/remove/{danh_muc_san_pham}', [ProductCategoryController::class, 'remove'])->name('danh-muc-san-pham.remove');
@@ -102,7 +120,9 @@ Route::prefix('admin')->group(function(){
         Route::get('bai-viet/remove/{bai_viet}', [AdminArticleController::class, 'remove'])->name('bai-viet.remove');
         Route::resource('/bai-viet', AdminArticleController::class);
 
-        Route::resource('/gioi-thieu', AdminAboutController::class);
+        Route::get('/gioi-thieu', [AdminAboutController::class, 'index'])->name('gioi-thieu.index');
+        Route::get('/gioi-thieu/{gioi_thieu}/edit', [AdminAboutController::class, 'edit'])->name('gioi-thieu.edit');
+        Route::post('/gioi-thieu/{gioi_thieu}', [AdminAboutController::class, 'update'])->name('gioi-thieu.update');
         Route::prefix('zyk')->group(function(){
             Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
             Route::resource('/san-pham', ProductController::class);

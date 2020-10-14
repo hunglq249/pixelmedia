@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\admin\auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
