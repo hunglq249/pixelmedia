@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Repositories\ProductCategories\ProductCategoryLangRepository;
 use App\Repositories\ProductCategories\ProductCategoryRepository;
 use Illuminate\Http\Request;
-use Auth;
-use Session;
+use App\Http\Requests\ProductCategoryRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ProductCategoryController extends Controller
 {
@@ -34,7 +35,7 @@ class ProductCategoryController extends Controller
         $keyword = '';
         $keyword = $request->keyword;
         $categories = $this->productCategoryRepository->searchAndPaginateWithLang($keyword, 10);
-        $categories->setPath('danh-muc-san-pham?keyword='.$keyword);
+        $categories->withPath('danh-muc-san-pham?keyword='.$keyword);
         return view('admin.product_categories.index', compact('categories', 'keyword'));
     }
 
@@ -54,7 +55,7 @@ class ProductCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductCategoryRequest $request)
     {
         $uniqueSlug = $this->createSlug('product_category', $request->slug);
         $data = [
@@ -130,7 +131,7 @@ class ProductCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductCategoryRequest $request, $id)
     {
         $uniqueSlug = $this->createSlug('product_category', $request->slug);
         $data = [

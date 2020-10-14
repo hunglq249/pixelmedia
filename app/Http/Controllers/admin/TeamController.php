@@ -29,7 +29,7 @@ class TeamController extends Controller
         $keyword = '';
         $keyword = $request->keyword;
         $teams = $this->teamRepository->searchAndPaginate($keyword, 10);
-        $teams->setPath('thanh-vien?keyword='.$keyword);
+        $teams->withPath('thanh-vien?keyword='.$keyword);
         return view('admin.teams.index', compact('teams', 'keyword'));
     }
 

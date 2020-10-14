@@ -15,6 +15,9 @@ use App\Http\Controllers\admin\auth\LoginController;
 use App\Http\Controllers\admin\ProductCategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\TeamController;
+use App\Http\Controllers\admin\ArticleCategoryController;
+use App\Http\Controllers\admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\admin\AboutController as AdminAboutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,10 +84,21 @@ Route::prefix('admin')->group(function(){
         ]));
     Route::group(['middleware' => 'adminLogin'], function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
         Route::get('danh-muc-san-pham/remove/{danh_muc_san_pham}', [ProductCategoryController::class, 'remove'])->name('danh-muc-san-pham.remove');
         Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
+
         Route::get('san-pham/remove/{san_pham}', [ProductController::class, 'remove'])->name('san-pham.remove');
         Route::resource('/san-pham', ProductController::class);
+
         Route::resource('/thanh-vien', TeamController::class);
+
+        Route::get('danh-muc-bai-viet/remove/{danh_muc_bai_viet}', [ArticleCategoryController::class, 'remove'])->name('danh-muc-bai-viet.remove');
+        Route::resource('/danh-muc-bai-viet', ArticleCategoryController::class);
+
+        Route::get('bai-viet/remove/{bai_viet}', [AdminArticleController::class, 'remove'])->name('bai-viet.remove');
+        Route::resource('/bai-viet', AdminArticleController::class);
+
+        Route::resource('/gioi-thieu', AdminAboutController::class);
     });
 });

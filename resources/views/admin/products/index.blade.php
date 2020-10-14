@@ -77,6 +77,13 @@
                                 </table>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <div class="paging_simple_numbers" id="example2_paginate">
+                                    {{ $result->links('pagination::bootstrap-4') }}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

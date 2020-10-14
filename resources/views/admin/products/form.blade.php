@@ -23,6 +23,11 @@
             <label class="col-md-2 col-form-label text-md-right" for="client">Khách Hàng</label>
             <div class="col-md-9">
                 <input type="text" class="form-control" id="client" name="client" placeholder="Khách Hàng" value="{{$client ? $client : ''}}">
+                @if ($errors->has('client'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('client') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <div class="form-group row">
@@ -34,6 +39,11 @@
                     </div>
                     <input type="text" class="form-control pull-right" name="date" id="datepicker" value="{{$date}}">
                 </div>
+                @if ($errors->has('date'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('date') }}</strong>
+                    </span>
+                @endif
             </div>
 
         </div>
@@ -42,6 +52,11 @@
             <div class="col-md-9">
                 <input type="file" name="images[]" value="{{ old('images') }}"
                        class="custom-file-input {{ $errors->has('images') ? ' is-invalid' : '' }}" id="imageUpload" multiple>
+                @if ($errors->has('images'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('images') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <div class="form-group row">
@@ -52,6 +67,11 @@
                     <option value="0" {{$isUpdate ? ($product->cover_type == 0 ? 'selected' : '') : ''}}>Hình Ảnh</option>
                     <option value="1" {{$isUpdate ? ($product->cover_type == 1 ? 'selected' : '') : ''}}>Video</option>
                 </select>
+                @if ($errors->has('cover_type'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('cover_type') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
 
@@ -65,6 +85,11 @@
                         <option value="{{ $id }}" {{$isUpdate ? (in_array($id, $product->team_id) ? 'selected' : '') : ''}}>{{$team}}</option>
                     @endforeach
                 </select>
+                @if ($errors->has('team_id'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('team_id') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
     </div>
@@ -73,30 +98,55 @@
             <label class="col-md-2 col-form-label text-md-right" for="title-vi">Tiêu Đề<br>(Tiếng Việt)</label>
             <div class="col-md-9">
                 <input type="text" class="form-control" id="title-vi" name="title_vi" placeholder="Tiêu đề tiếng việt" value="{{$title_vi ? $title_vi : ''}}">
+                @if ($errors->has('title_vi'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('title_vi') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-2 col-form-label text-md-right" for="title-en">Tiêu Đề<br>(Tiếng Anh)</label>
             <div class="col-md-9">
                 <input type="text" class="form-control" id="title-en" name="title_en" placeholder="Tiêu đề tiếng anh" value="{{$title_en ? $title_en : ''}}">
+                @if ($errors->has('title_en'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('title_en') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-2 col-form-label text-md-right" for="sub-title-vi">Tiêu Đề Phụ<br>(Tiếng Việt)</label>
             <div class="col-md-9">
                 <input type="text" class="form-control" id="sub-title-vi" name="sub_title_vi" placeholder="Tiêu đề phụ tiếng việt" value="{{$sub_title_vi ? $sub_title_vi : ''}}">
+                @if ($errors->has('sub_title_vi'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('sub_title_vi') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-2 col-form-label text-md-right" for="sub-title-en">Tiêu Đề Phụ<br>(Tiếng Anh)</label>
             <div class="col-md-9">
                 <input type="text" class="form-control" id="sub-title-en" name="sub_title_en" placeholder="Tiêu đề phụ tiếng anh" value="{{$sub_title_en ? $sub_title_en : ''}}">
+                @if ($errors->has('sub_title_en'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('sub_title_en') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-2 col-form-label text-md-right" for="slug">Slug</label>
             <div class="col-md-9">
                 <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{$slug ? $slug : ''}}">
+                @if ($errors->has('slug'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('slug') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
     </div>
@@ -116,13 +166,13 @@
         <div class="form-group row">
             <label class="col-md-1 col-form-label text-md-right" for="content-vi">Nội Dung<br>(Tiếng Việt)</label>
             <div class="col-md-11">
-                <textarea class="form-control tinymce" id="content-vi" name="content_vi" placeholder="Nội dung tiếng việt">{{$content_vi ? $content_vi : ''}}</textarea>
+                <textarea class="form-control tinymce"  rows="15" id="content-vi" name="content_vi" placeholder="Nội dung tiếng việt">{{$content_vi ? $content_vi : ''}}</textarea>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-1 col-form-label text-md-right" for="content-en">Nội Dung<br>(Tiếng Anh)</label>
             <div class="col-md-11">
-                <textarea class="form-control tinymce" id="content-en" name="content_en" placeholder="Nội dung tiếng anh">{{$content_en ? $content_en : ''}}</textarea>
+                <textarea class="form-control tinymce"  rows="15" id="content-en" name="content_en" placeholder="Nội dung tiếng anh">{{$content_en ? $content_en : ''}}</textarea>
             </div>
         </div>
     </div>

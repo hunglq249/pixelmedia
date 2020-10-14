@@ -8,8 +8,9 @@ use App\Repositories\ProductCategories\ProductCategoryRepository;
 use App\Repositories\Teams\TeamRepository;
 use App\Repositories\Products\ProductRepository;
 use App\Repositories\Products\ProductLangRepository;
-use Auth;
-use Session;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -42,7 +43,7 @@ class ProductController extends Controller
         $keyword = '';
         $keyword = $request->keyword;
         $result = $this->productRepository->searchAndPaginateWithLang($keyword, 10);
-        $result->setPath('san-pham?keyword='.$keyword);
+        $result->withPath('san-pham?keyword='.$keyword);
         return view('admin.products.index', compact('keyword', 'result'));
     }
 
@@ -80,7 +81,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         if($request->cover_mask){
             $size = $request->cover_mask->getSize();
@@ -103,7 +104,7 @@ class ProductController extends Controller
             Session::flash('error', 'Ảnh '. implode(', ', $imageErrors) .' vựt quá 1.5 Mb!!');
             return redirect()->intended(route('san-pham.create'));
         }
-        $uniqueSlug = $this->createSlug('product_category', $request->slug);
+        $uniqueSlug = $this->createSlug('products', $request->slug);
         $data = [
             'product_category_id' => $request->product_category_id,
             'slug' => $uniqueSlug,
@@ -113,6 +114,8 @@ class ProductController extends Controller
             'cover_type' => $request->cover_type,
             'created_by' => Auth::user()->email,
             'updated_by' => Auth::user()->email,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
             'is_deleted' => 0
         ];
         if($request->cover_mask){
@@ -237,7 +240,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
         $ids = explode(',', $request->id_lang);
         $idVi = $ids[0];
@@ -263,7 +266,7 @@ class ProductController extends Controller
             Session::flash('error', 'Ảnh '. implode(', ', $imageErrors) .' vựt quá 1.5 Mb!!');
             return redirect()->intended(route('san-pham.create'));
         }
-        $uniqueSlug = $this->createSlug('product_category', $request->slug);
+        $uniqueSlug = $this->createSlug('products', $request->slug, $id);
         $data = [
             'product_category_id' => $request->product_category_id,
             'slug' => $uniqueSlug,

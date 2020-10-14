@@ -24,6 +24,7 @@
                                     'categories' => $customCategories, 'teams' => $customTeams
                                 ])
                             <input type="hidden" name="id_lang" value="{{$ids}}">
+                            <input type="hidden" name="id_video_hiden" id="id-video-hiden" value="{{$product->cover_url}}">
                             <div class="card-footer text-right">
                                 <button type="submit" class="btn btn-primary">Cập Nhật</button>
                             </div>
