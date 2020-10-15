@@ -23,14 +23,6 @@
 				</a>
 			</div>
 		</div>
-	</div>
-
-	<div class="menu-group">
-		<div class="menu-group-heading">
-			<p class="p-overline">
-				Sản phẩm
-			</p>
-		</div>
 
 		<div class="menu-group-wrapper">
 			<div class="menu-group-item @if(Request::Segment($segmentPos) == 'danh-muc-san-pham' || Request::Segment($segmentPos) == 'san-pham') active @endif">
@@ -53,6 +45,14 @@
 						Sản phẩm
 					</a>
 				</div>
+			</div>
+		</div>
+
+		<div class="menu-group-wrapper">
+			<div class="menu-group-item @if(Request::Segment($segmentPos) == 'thanh-vien') active @endif">
+				<a href="{{ route('thanh-vien.index') }}">
+					<i class="elo el-lg el-users"></i> Thành Viên
+				</a>
 			</div>
 		</div>
 	</div>

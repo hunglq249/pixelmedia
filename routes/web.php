@@ -14,13 +14,14 @@ use App\Http\Controllers\admin\auth\RegisteredController;
 use App\Http\Controllers\admin\auth\LoginController;
 // use App\Http\Controllers\admin\ProductCategoryController;
 //use App\Http\Controllers\admin\ProductController;
-use App\Http\Controllers\admin\TeamController;
+// use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\ArticleCategoryController;
 use App\Http\Controllers\admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\admin\AboutController as AdminAboutController;
 
 use App\Http\Controllers\zyk_admin\ProductCategoryController;
 use App\Http\Controllers\zyk_admin\ProductController;
+use App\Http\Controllers\zyk_admin\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,9 +104,11 @@ Route::prefix('admin')->group(function(){
         Route::resource('/bai-viet', AdminArticleController::class);
 
         Route::resource('/gioi-thieu', AdminAboutController::class);
+
         Route::prefix('zyk')->group(function(){
             Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
             Route::resource('/san-pham', ProductController::class);
+            Route::resource('/thanh-vien', TeamController::class);
         });
     });
 });

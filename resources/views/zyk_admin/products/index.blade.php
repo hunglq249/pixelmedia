@@ -155,6 +155,9 @@
 @section('css')
     <!-- DATEPICKER CSS -->
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap-datepicker/css/bootstrap-datepicker.css') }}">
+
+    <!-- SELECT2 CSS -->
+    <link rel="stylesheet" href="{{ asset('plugins/select2/select2.min.css') }}">
 @endsection
 
 @section('js')
@@ -164,6 +167,9 @@
     <!-- DATEPICKER JS -->
     <script  src="{{ asset('plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
     <script  src="{{ asset('plugins/bootstrap-datepicker/locales/bootstrap-datepicker.vi.min.js') }}"></script>
+
+    <!-- SELECT2 JS -->
+    <script  src="{{ asset('plugins/select2/select2.full.js') }}"></script>
 
     <script  src="{{ asset('zyk_admin/js/admin/products/products.js') }}"></script>
 @endsection
