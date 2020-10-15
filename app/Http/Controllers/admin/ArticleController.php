@@ -137,6 +137,10 @@ class ArticleController extends Controller
     public function show($id)
     {
         $detail = $this->articleRepository->find($id);
+        if(!$detail){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Bài viết'));
+            return redirect()->route('bai-viet.index');
+        }
         return view('admin.articles.show', compact('detail'));
     }
 
@@ -149,6 +153,10 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = $this->articleRepository->find($id);
+        if(!$article){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Bài viết'));
+            return redirect()->route('bai-viet.index');
+        }
         $categories = $this->articleCategoryRepository->getAllWithLang();
         $customCategories = [];
         foreach ($categories as $key => $value){
@@ -191,6 +199,11 @@ class ArticleController extends Controller
      */
     public function update(ArticleRequest $request, $id)
     {
+        $article = $this->articleRepository->find($id);
+        if(!$article){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Bài viết'));
+            return redirect()->route('bai-viet.index');
+        }
         $ids = explode(',', $request->id_lang);
         $idVi = $ids[0];
         $idEn = $ids[1];

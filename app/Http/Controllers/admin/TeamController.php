@@ -93,6 +93,10 @@ class TeamController extends Controller
     public function edit($id)
     {
         $team = $this->teamRepository->findWithoutRelationships($id);
+        if(!$team){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Thành viên'));
+            return redirect()->route('thanh-vien.index');
+        }
         return view('admin.teams.edit', compact('team'));
     }
 
@@ -105,6 +109,11 @@ class TeamController extends Controller
      */
     public function update(TeamRequest $request, $id)
     {
+        $team = $this->teamRepository->findWithoutRelationships($id);
+        if(!$team){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Thành viên'));
+            return redirect()->route('thanh-vien.index');
+        }
         if($request->image){
             $size = $request->image->getSize();
             if($size > 1572864){

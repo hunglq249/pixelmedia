@@ -48,6 +48,11 @@
                     <i class="fa fa-hand-o-right"></i> <span>Bài Viết</span>
                 </a>
             </li>
+            <li class="{{ Request::segment(2) == 'gioi-thieu' ? 'active' : '' }}">
+                <a href="{{ route('gioi-thieu.index') }}">
+                    <i class="fa fa-hand-o-right"></i> <span>Giới Thiệu</span>
+                </a>
+            </li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>

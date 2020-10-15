@@ -193,6 +193,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = $this->productRepository->find($id);
+        if(!$product){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Sản phẩm'));
+            return redirect()->route('san-pham.index');
+        }
         $categories = $this->productCategoryRepository->getAllWithLang();
         $customCategories = [];
         foreach ($categories as $key => $value){
@@ -242,6 +246,11 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, $id)
     {
+        $product = $this->productRepository->find($id);
+        if(!$product){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Sản phẩm'));
+            return redirect()->route('san-pham.index');
+        }
         $ids = explode(',', $request->id_lang);
         $idVi = $ids[0];
         $idEn = $ids[1];
@@ -330,11 +339,6 @@ class ProductController extends Controller
         }
         Session::flash('error', sprintf(config('constants.MESSAGE_CREATE_ERROR'), 'Sản phẩm'));
         return back();
-
-
-//        $data = $request->all();
-//        $data['team_id'] = implode(',', $data['team_id']);
-//        dd($data);
     }
 
     /**

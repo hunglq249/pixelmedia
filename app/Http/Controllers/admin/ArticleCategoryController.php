@@ -134,6 +134,11 @@ class ArticleCategoryController extends Controller
      */
     public function update(ArticleCategoryRequest $request, $id)
     {
+        $category = $this->articleCategoryRepository->find($id);
+        if(!$category){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Danh mục sản phẩm'));
+            return redirect()->route('danh-muc-bai-viet.index');
+        }
         $uniqueSlug = $this->createSlug('article_category', $request->slug);
         $data = [
             'slug' => $uniqueSlug,
