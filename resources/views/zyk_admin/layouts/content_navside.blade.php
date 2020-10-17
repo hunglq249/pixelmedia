@@ -27,7 +27,7 @@
 		<div class="menu-group-wrapper">
 			<div class="menu-group-item @if(Request::Segment($segmentPos) == 'danh-muc-san-pham' || Request::Segment($segmentPos) == 'san-pham') active @endif">
 				<a href="javascript:void(0)">
-					<i class="elo el-lg el-square"></i> Sản phẩm
+					<i class="elo el-lg el-video"></i> Sản phẩm
 				</a>
 				<a href="#" class="btn-toggle-menu-expand">
 					<i class="elo el-lg el-caret-right"></i>
@@ -53,6 +53,30 @@
 				<a href="{{ route('thanh-vien.index') }}">
 					<i class="elo el-lg el-users"></i> Thành Viên
 				</a>
+			</div>
+		</div>
+
+		<div class="menu-group-wrapper">
+			<div class="menu-group-item @if(Request::Segment($segmentPos) == 'danh-muc-bai-viet' || Request::Segment($segmentPos) == 'bai-viet') active @endif">
+				<a href="javascript:void(0)">
+					<i class="elo el-lg el-news"></i> Bài Viết
+				</a>
+				<a href="#" class="btn-toggle-menu-expand">
+					<i class="elo el-lg el-caret-right"></i>
+				</a>
+			</div>
+
+			<div class="menu-group-expand">
+				<div class="menu-group-item @if(Request::Segment($segmentPos) == 'danh-muc-bai-viet') active @endif">
+					<a href="{{ route('danh-muc-bai-viet.index') }}">
+						Danh mục Bài viết
+					</a>
+				</div>
+				<div class="menu-group-item @if(Request::Segment($segmentPos) == 'bai-viet') active @endif">
+					<a href="{{ route('bai-viet.index') }}">
+						Bài viết
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

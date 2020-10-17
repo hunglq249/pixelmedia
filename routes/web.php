@@ -15,17 +15,17 @@ use App\Http\Controllers\admin\auth\LoginController;
 // use App\Http\Controllers\admin\ProductCategoryController;
 //use App\Http\Controllers\admin\ProductController;
 // use App\Http\Controllers\admin\TeamController;
-use App\Http\Controllers\admin\ArticleCategoryController;
-use App\Http\Controllers\admin\ArticleController as AdminArticleController;
-use App\Http\Controllers\admin\AboutController as AdminAboutController;
+// use App\Http\Controllers\admin\ArticleCategoryController;
+// use App\Http\Controllers\admin\ArticleController as AdminArticleController;
+// use App\Http\Controllers\admin\AboutController as AdminAboutController;
 
 use App\Http\Controllers\zyk_admin\ProductCategoryController;
 use App\Http\Controllers\zyk_admin\ProductController;
-<<<<<<< HEAD
 use App\Http\Controllers\zyk_admin\TeamController;
-=======
+use App\Http\Controllers\zyk_admin\ArticleCategoryController;
+use App\Http\Controllers\zyk_admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\zyk_admin\AboutController as AdminAboutController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
->>>>>>> 8b7d765ae0c4c37f5dea8b24db90f81f081f6bf1
 
 /*
 |--------------------------------------------------------------------------
@@ -124,18 +124,17 @@ Route::prefix('admin')->group(function(){
         Route::get('bai-viet/remove/{bai_viet}', [AdminArticleController::class, 'remove'])->name('bai-viet.remove');
         Route::resource('/bai-viet', AdminArticleController::class);
 
-<<<<<<< HEAD
-        Route::resource('/gioi-thieu', AdminAboutController::class);
-
-=======
         Route::get('/gioi-thieu', [AdminAboutController::class, 'index'])->name('gioi-thieu.index');
         Route::get('/gioi-thieu/{gioi_thieu}/edit', [AdminAboutController::class, 'edit'])->name('gioi-thieu.edit');
         Route::post('/gioi-thieu/{gioi_thieu}', [AdminAboutController::class, 'update'])->name('gioi-thieu.update');
->>>>>>> 8b7d765ae0c4c37f5dea8b24db90f81f081f6bf1
+        
         Route::prefix('zyk')->group(function(){
             Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
             Route::resource('/san-pham', ProductController::class);
             Route::resource('/thanh-vien', TeamController::class);
+            Route::resource('/danh-muc-bai-viet', ArticleCategoryController::class);
+            Route::resource('/bai-viet', AdminArticleController::class);
+            Route::get('/gioi-thieu', [AdminAboutController::class, 'index'])->name('gioi-thieu.index');
         });
     });
 });

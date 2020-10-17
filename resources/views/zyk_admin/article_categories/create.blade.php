@@ -1,6 +1,6 @@
 <div class="popup-header">
     <h5>
-        Thêm Mới Thành Viên
+        Thêm Mới Danh mục sản phẩm
     </h5>
 
     <button class="btn" data-dismiss="popup" type="button">
@@ -9,10 +9,8 @@
 </div>
 
 <div class="popup-body">
-    <form action="{{ route('thanh-vien.store') }}" method="post" enctype="multipart/form-data" autocomplete="off">
-        @include('zyk_admin.teams.form', [
-            'name' => null, 'position' => null, 'error' => $errors, 'is_update' => false
-        ])
+    <form action="{{ route('danh-muc-bai-viet.store') }}" method="post" autocomplete="off">
+        @include('zyk_admin.article_categories.form', ['title_vi' => '', 'title_en' => '', 'slug' => ''])
     </form>
 </div>
 
@@ -25,5 +23,3 @@
         Thêm mới
     </button>
 </div>
-
-

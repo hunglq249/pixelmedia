@@ -1,7 +1,8 @@
 {{ csrf_field() }}
-<?php
+@php
     $isUpdate = $product ? true : false;
-?>
+@endphp
+
 <div class="row">
     <div class="form-group col-md-8">
         <label>
