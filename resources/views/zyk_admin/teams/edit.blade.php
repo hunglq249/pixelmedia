@@ -9,7 +9,7 @@
 </div>
 
 <div class="popup-body">
-    <form action="{{ route('thanh-vien.update', ['thanh_vien' => $team->id]) }}" method="post" autocomplete="off">
+    <form action="{{ route('thanh-vien.update', ['thanh_vien' => $team->id]) }}" method="post" enctype="multipart/form-data" autocomplete="off">
         {{ method_field('PUT') }}
         @include('zyk_admin.teams.form', [
             'name' => $team->name, 'position' => $team->position,
@@ -24,7 +24,7 @@
     </button>
 
     <button class="btn btn-primary btn-update-item" type="button">
-        Thêm mới
+        Cập nhật
     </button>
 </div>
 

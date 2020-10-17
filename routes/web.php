@@ -15,13 +15,16 @@ use App\Http\Controllers\admin\auth\LoginController;
 // use App\Http\Controllers\admin\ProductCategoryController;
 //use App\Http\Controllers\admin\ProductController;
 // use App\Http\Controllers\admin\TeamController;
-use App\Http\Controllers\admin\ArticleCategoryController;
-use App\Http\Controllers\admin\ArticleController as AdminArticleController;
-use App\Http\Controllers\admin\AboutController as AdminAboutController;
+// use App\Http\Controllers\admin\ArticleCategoryController;
+// use App\Http\Controllers\admin\ArticleController as AdminArticleController;
+// use App\Http\Controllers\admin\AboutController as AdminAboutController;
 
 use App\Http\Controllers\zyk_admin\ProductCategoryController;
 use App\Http\Controllers\zyk_admin\ProductController;
 use App\Http\Controllers\zyk_admin\TeamController;
+use App\Http\Controllers\zyk_admin\ArticleCategoryController;
+use App\Http\Controllers\zyk_admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\zyk_admin\AboutController as AdminAboutController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
@@ -131,6 +134,9 @@ Route::prefix('admin')->group(function(){
             Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
             Route::resource('/san-pham', ProductController::class);
             Route::resource('/thanh-vien', TeamController::class);
+            Route::resource('/danh-muc-bai-viet', ArticleCategoryController::class);
+            Route::resource('/bai-viet', AdminArticleController::class);
+            Route::get('/gioi-thieu', [AdminAboutController::class, 'index'])->name('gioi-thieu.index');
         });
     });
 });

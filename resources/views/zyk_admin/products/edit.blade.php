@@ -29,6 +29,6 @@
     </button>
 
     <button class="btn btn-primary btn-update-item" type="button">
-        Thêm mới
+        Cập nhật
     </button>
 </div>
