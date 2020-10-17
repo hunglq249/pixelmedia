@@ -7,11 +7,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Session;
 
 class HomeController extends BaseController
 {
 	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-	
+
 	public function countdown(){
 		return view('countdown');
 	}
@@ -22,5 +23,11 @@ class HomeController extends BaseController
 		$contactInfo = Common::contactInfo();
 
 		return view('home', compact('navMenu', 'products', 'contactInfo'));
-	}
+    }
+
+    public function changeLanguage($language){
+        Session::put('website_language', $language);
+
+        return redirect()->back();
+    }
 }

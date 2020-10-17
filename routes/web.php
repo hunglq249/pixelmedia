@@ -21,11 +21,8 @@ use App\Http\Controllers\admin\AboutController as AdminAboutController;
 
 use App\Http\Controllers\zyk_admin\ProductCategoryController;
 use App\Http\Controllers\zyk_admin\ProductController;
-<<<<<<< HEAD
 use App\Http\Controllers\zyk_admin\TeamController;
-=======
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
->>>>>>> 8b7d765ae0c4c37f5dea8b24db90f81f081f6bf1
 
 /*
 |--------------------------------------------------------------------------
@@ -41,27 +38,30 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 Route::get('/', [HomeController::class, 'countdown'])->name('countdown');
 
 Route::prefix('beta')->group(function(){
-    Route::get('/', [HomeController::class, 'home'])->name('home');
+    Route::group(['middleware' => 'locale'], function() {
+        Route::get('change-language/{language}', [HomeController::class, 'changeLanguage'])->name('user.change-language');
+        Route::get('/', [HomeController::class, 'home'])->name('home');
 
-    Route::group(['prefix' => '/san-pham'], function () {
-        Route::get('/', [ShowcaseController::class, 'index'])->name('showcase');
-        Route::get('/chi-tiet/{slug}', [ShowcaseController::class, 'detail'])->name('showcase_detail');
+        Route::group(['prefix' => '/san-pham'], function () {
+            Route::get('/', [ShowcaseController::class, 'index'])->name('showcase');
+            Route::get('/chi-tiet/{slug}', [ShowcaseController::class, 'detail'])->name('showcase_detail');
+        });
+
+        Route::group(['prefix' => '/bai-viet'], function () {
+            Route::get('/', [ArticleController::class, 'index'])->name('article');
+            Route::get('/category/{id}', [ArticleController::class, 'articleByCategory'])->name('article_by_category');
+            Route::get('/chi-tiet/{slug}', [ArticleController::class, 'detail'])->name('article_detail');
+        });
+
+        Route::group(['prefix' => '/tuyen-dung'], function () {
+            Route::get('/', [CareerController::class, 'index'])->name('career');
+            Route::get('/chi-tiet-cong-viec', [CareerController::class, 'getJobDetail'])->name('career_getJobDetail');
+        });
+
+        Route::get('/gioi-thieu', [AboutController::class, 'index'])->name('about');
+
+        Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
     });
-
-    Route::group(['prefix' => '/bai-viet'], function () {
-        Route::get('/', [ArticleController::class, 'index'])->name('article');
-        Route::get('/category/{id}', [ArticleController::class, 'articleByCategory'])->name('article_by_category');
-        Route::get('/chi-tiet/{slug}', [ArticleController::class, 'detail'])->name('article_detail');
-    });
-
-    Route::group(['prefix' => '/tuyen-dung'], function () {
-        Route::get('/', [CareerController::class, 'index'])->name('career');
-        Route::get('/chi-tiet-cong-viec', [CareerController::class, 'getJobDetail'])->name('career_getJobDetail');
-    });
-
-    Route::get('/gioi-thieu', [AboutController::class, 'index'])->name('about');
-
-    Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -124,14 +124,9 @@ Route::prefix('admin')->group(function(){
         Route::get('bai-viet/remove/{bai_viet}', [AdminArticleController::class, 'remove'])->name('bai-viet.remove');
         Route::resource('/bai-viet', AdminArticleController::class);
 
-<<<<<<< HEAD
-        Route::resource('/gioi-thieu', AdminAboutController::class);
-
-=======
         Route::get('/gioi-thieu', [AdminAboutController::class, 'index'])->name('gioi-thieu.index');
         Route::get('/gioi-thieu/{gioi_thieu}/edit', [AdminAboutController::class, 'edit'])->name('gioi-thieu.edit');
         Route::post('/gioi-thieu/{gioi_thieu}', [AdminAboutController::class, 'update'])->name('gioi-thieu.update');
->>>>>>> 8b7d765ae0c4c37f5dea8b24db90f81f081f6bf1
         Route::prefix('zyk')->group(function(){
             Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
             Route::resource('/san-pham', ProductController::class);
