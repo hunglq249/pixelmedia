@@ -10,6 +10,7 @@ use App\Repositories\Products\ProductRepository;
 use App\Repositories\Products\ProductLangRepository;
 use Auth;
 use Session;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -71,7 +72,7 @@ class ProductController extends Controller
         foreach ($teams as $team) {
             $customTeams[$team->id] = $team->name;
         }
-        
+
         $html = view('zyk_admin.products.create', compact('customCategories', 'customTeams'))->render();
         return response()->json(['html' => $html]);
     }
@@ -82,8 +83,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
+        dd($request->all());
         if($request->cover_mask){
             $size = $request->cover_mask->getSize();
             if($size > 1572864){
@@ -229,7 +231,7 @@ class ProductController extends Controller
             }
         }
         $ids = implode(',', $ids);
-        
+
         $html = view('zyk_admin.products.edit', compact('customCategories', 'customTeams', 'product', 'langData', 'ids'))->render();
         return response()->json(['html' => $html]);
     }
