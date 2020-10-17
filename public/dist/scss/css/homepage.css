@@ -48,6 +48,201 @@ html {
   scroll-behavior: smooth;
 }
 
+header {
+  width: 100%;
+  position: fixed;
+}
+
+.homepage .swiper-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.homepage .swiper-container .swiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide {
+  position: relative;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .mask {
+  width: 100%;
+  height: 100%;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .play-video-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .play-video-wrapper .play-video {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .play-video-wrapper .play-video .ytplayer-container {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .play-video-wrapper .play-video-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .play-video-wrapper .play-video-overlay .mask {
+  width: 100%;
+  height: 100%;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay.hide {
+  background-color: transparent;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay.hide .overlay-text {
+  display: none;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay.hide .overlay-actions .btn:not([data-play]) {
+  display: none;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay.hide .overlay-actions .btn[data-play] {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-width: 2px;
+  border-radius: 50%;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay.hide .overlay-actions .btn[data-play] i {
+  -webkit-transform: translate(0, -2px);
+  transform: translate(0, -2px);
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h3,
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h5,
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h6 {
+  text-align: center;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h3 span,
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h5 span,
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h6 span {
+  opacity: 0;
+  -webkit-transform: scale(2, 2);
+  transform: scale(2, 2);
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h3 span.show,
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h5 span.show,
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h6 span.show {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h6 {
+  margin-bottom: 0.5rem;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h5 {
+  margin-bottom: 1rem;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-text h3 {
+  font-weight: 800;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-actions {
+  margin-top: 1.5rem;
+  opacity: 0;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-actions.show {
+  opacity: 1;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-actions .btn {
+  margin-right: 0.5rem;
+}
+
+.homepage .swiper-container .swiper-wrapper .swiper-slide .overlay .overlay-actions .btn:last-child {
+  margin-right: 0;
+}
+
+.homepage .swiper-container .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  margin-bottom: 1.5rem;
+  background-color: transparent;
+  border: 2px solid var(--bg-bw-rv);
+  border-radius: 50%;
+}
+
+.homepage .swiper-container .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  height: 36px;
+  background-color: var(--white);
+  border-radius: 6px;
+}
+
 .homepage .scroll-nav {
   position: fixed;
   top: 50%;
