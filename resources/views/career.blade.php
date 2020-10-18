@@ -23,8 +23,8 @@
 				<div class="career-select">
 					<select class="form-control" id="selectJob">
 						@foreach ($jobs as $job)
-							<option value="{{ $job['Id'] }}">
-								{{ $job['Title'] }}
+							<option value="{{ $job['id'] }}">
+								{{ $job['title'] }}
 							</option>
 						@endforeach
 					</select>
@@ -38,28 +38,28 @@
 
 		<div class="career-jobs">
 			@foreach ($jobs as $job)
-				<div class="row row-no-gutters job" id="job{{ $job['Id'] }}">
+				<div class="row row-no-gutters job" id="job{{ $job['id'] }}">
 					<div class="col-md-6 job-cover">
 						<div class="mask">
-							<img src="{{ $job['Thumb'] }}" alt="Cover of job {{ $job['Title'] }}">
+							<img src="{{ asset('storage/app'. $job['image']) }}" alt="Cover of job {{ $job['title'] }}">
 						</div>
 					</div>
 
 					<div class="col-md-6 job-content">
 						<div class="job-content-wrapper">
 							<h4>
-								{{ $job['Title'] }}
+								{{ $job['title'] }}
 							</h4>
 
 							<p>
-								{{ $job['Desc'] }}
+								{{ $job['description'] }}
 							</p>
 
-							<a href="#" onclick="callPopup(event, {{ $job['Id'] }}, false)">
+							<a href="#" onclick="callPopup(event, {{ $job['id'] }}, false)">
 								See detail
 							</a>
 
-							<a href="#" onclick="callPopup(event, {{ $job['Id'] }})">
+							<a href="#" onclick="callPopup(event, {{ $job['id'] }})">
 								Apply now
 							</a>
 						</div>

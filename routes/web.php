@@ -61,6 +61,7 @@ Route::prefix('beta')->group(function(){
         Route::group(['prefix' => '/tuyen-dung'], function () {
             Route::get('/', [CareerController::class, 'index'])->name('career');
             Route::get('/chi-tiet-cong-viec', [CareerController::class, 'getJobDetail'])->name('career_getJobDetail');
+            Route::post('/apply', [CareerController::class, 'apply'])->name('career.apply');
         });
 
         Route::get('/gioi-thieu', [AboutController::class, 'index'])->name('about');
@@ -70,9 +71,9 @@ Route::prefix('beta')->group(function(){
     });
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 // Route::get('/register', function (){
 //     return '404 page';
 // });

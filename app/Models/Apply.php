@@ -18,6 +18,8 @@ class Apply extends Model
      */
     protected $fillable = [
         'id',
+        'recruitment_id',
+        'file',
         'name',
         'email',
         'phone',
