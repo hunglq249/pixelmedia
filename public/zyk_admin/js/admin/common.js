@@ -130,7 +130,7 @@ function initFormEvents($form) {
 				var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 				var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
 
-				var cmsURL = editor_config.path_absolute + 'mobile/laravel-filemanager?field_name=' + field_name;
+				var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
 				if (type == 'image') {
 					cmsURL = cmsURL + '&type=Images';
 				} else {
@@ -169,3 +169,21 @@ function initFormEvents($form) {
 		$form.find('.select2').select2();
 	}
 }
+
+// REMOVE ITEM ROW
+$('.btn-update-status').on('click', function () {
+    var url = $(this).data('url');
+
+    if (confirm('Chắc chắn cập nhật trạng thái?')) {
+        zykUtils.callAjax({
+            method: 'GET',
+            url: url,
+            success: (response) => {
+                location.reload();
+            },
+            error: (jqXHR, exception) => {
+                console.log(errorHandle(jqXHR, exception));
+            }
+        });
+    }
+});
