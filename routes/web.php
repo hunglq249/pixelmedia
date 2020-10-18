@@ -26,6 +26,8 @@ use App\Http\Controllers\zyk_admin\ArticleCategoryController;
 use App\Http\Controllers\zyk_admin\ArticleController as AdminArticleController;
 use App\Http\Controllers\zyk_admin\AboutController as AdminAboutController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\zyk_admin\RecruitmentController;
+use App\Http\Controllers\zyk_admin\ApplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -132,12 +134,27 @@ Route::prefix('admin')->group(function(){
         Route::get('/gioi-thieu/{gioi_thieu}/edit', [AdminAboutController::class, 'edit'])->name('gioi-thieu.edit');
         Route::post('/gioi-thieu/{gioi_thieu}', [AdminAboutController::class, 'update'])->name('gioi-thieu.update');
         Route::prefix('zyk')->group(function(){
+            Route::get('danh-muc-san-pham/remove/{danh_muc_san_pham}', [ProductCategoryController::class, 'remove'])->name('danh-muc-san-pham.remove');
             Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
+
+            Route::get('san-pham/remove/{san_pham}', [ProductController::class, 'remove'])->name('san-pham.remove');
             Route::resource('/san-pham', ProductController::class);
+
             Route::resource('/thanh-vien', TeamController::class);
+
+            Route::get('danh-muc-bai-viet/remove/{danh_muc_bai_viet}', [ArticleCategoryController::class, 'remove'])->name('danh-muc-bai-viet.remove');
             Route::resource('/danh-muc-bai-viet', ArticleCategoryController::class);
+
+            Route::get('bai-viet/remove/{bai_viet}', [AdminArticleController::class, 'remove'])->name('bai-viet.remove');
             Route::resource('/bai-viet', AdminArticleController::class);
+
             Route::get('/gioi-thieu', [AdminAboutController::class, 'index'])->name('gioi-thieu.index');
+
+            Route::get('tuyen-dung/remove/{tuyen_dung}', [RecruitmentController::class, 'remove'])->name('tuyen-dung.remove');
+            Route::resource('/tuyen-dung', RecruitmentController::class);
+
+            Route::get('ung-tuyen/{id}/{status}', [ApplyController::class, 'updateStatus'])->name('ung-tuyen.updateStatus');
+            Route::get('ung-tuyen', [ApplyController::class, 'index'])->name('ung-tuyen.index');
         });
     });
 });
