@@ -39,7 +39,8 @@
 						</h5>
 					</div>
 					<div class="col-md-9 meassage-form">
-						<form action="" autocomplete="off">
+                        <form action="{{ route('contact.sendEmail') }}" method="POST" autocomplete="off">
+                            @csrf
 							<div class="row">
 								<div class="form-group col-md-12">
 									<input type="text" class="form-control" name="Name" placeholder="Name">
@@ -55,7 +56,7 @@
 								</div>
 
 								<div class="form-group col-md-12">
-									<button class="btn btn-primary" type="button">
+									<button class="btn btn-primary" type="submit">
 										Submit
 									</button>
 								</div>

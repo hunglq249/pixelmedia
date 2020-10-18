@@ -59,6 +59,13 @@ class ArticleCategoryController extends Controller
      */
     public function store(ArticleCategoryRequest $request)
     {
+        if($request->image){
+            $size = $request->image->getSize();
+            if($size > 1572864){
+                Session::flash('error', 'Ảnh không được vựt quá 1.5 Mb!!');
+                return redirect()->intended(route('thanh-vien.create'));
+            }
+        };
         $uniqueSlug = $this->createSlug('article_category', $request->slug);
         $data = [
             'slug' => $uniqueSlug,
@@ -67,6 +74,10 @@ class ArticleCategoryController extends Controller
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
         ];
+        if($request->image){
+            $data['image'] = '/article_categories/' . $request->file('image')->hashName();
+            $request->image->move('storage/app/article_categories', $request->file('image')->hashName());
+        };
         $insertId = $this->articleCategoryRepository->insertGetId($data);
         if ($insertId) {
             $title_vi = $request->title_vi;
@@ -142,6 +153,13 @@ class ArticleCategoryController extends Controller
             Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Danh mục sản phẩm'));
             return redirect()->route('danh-muc-bai-viet.index');
         }
+        if($request->image){
+            $size = $request->image->getSize();
+            if($size > 1572864){
+                Session::flash('error', 'Ảnh không được vựt quá 1.5 Mb!!');
+                return redirect()->intended(route('thanh-vien.create'));
+            }
+        };
         $uniqueSlug = $this->createSlug('article_category', $request->slug);
         $data = [
             'slug' => $uniqueSlug,
@@ -159,6 +177,10 @@ class ArticleCategoryController extends Controller
             'title' => $title_en,
             'lang' => 'en'
         ];
+        if($request->image){
+            $data['image'] = '/article_categories/' . $request->file('image')->hashName();
+            $request->image->move('storage/app/article_categories', $request->file('image')->hashName());
+        };
         $langViId = $this->articleCategoryLangRepository->findIdByProductCategoryIdAndLang($id, 'vi');
         $langEnId = $this->articleCategoryLangRepository->findIdByProductCategoryIdAndLang($id, 'en');
         $this->articleCategoryRepository->update($id, $data);

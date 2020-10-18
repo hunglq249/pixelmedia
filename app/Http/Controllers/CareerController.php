@@ -12,14 +12,11 @@ use Illuminate\Routing\Controller as BaseController;
 class CareerController extends BaseController
 {
 	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-	
-	public function index(){
-		$navMenu = Common::navMenu();
-		$contactInfo = Common::contactInfo();
 
+	public function index(){
 		$jobs = Career::jobs();
 
-		return view('career', compact('navMenu', 'contactInfo', 'jobs'));
+		return view('career', compact('jobs'));
 	}
 
 	public function getJobDetail(){

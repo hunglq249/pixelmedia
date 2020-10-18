@@ -52,7 +52,7 @@ Route::prefix('beta')->group(function(){
 
         Route::group(['prefix' => '/bai-viet'], function () {
             Route::get('/', [ArticleController::class, 'index'])->name('article');
-            Route::get('/category/{id}', [ArticleController::class, 'articleByCategory'])->name('article_by_category');
+            Route::get('/category/{id?}', [ArticleController::class, 'articleByCategory'])->name('article_by_category');
             Route::get('/chi-tiet/{slug}', [ArticleController::class, 'detail'])->name('article_detail');
         });
 
@@ -64,6 +64,7 @@ Route::prefix('beta')->group(function(){
         Route::get('/gioi-thieu', [AboutController::class, 'index'])->name('about');
 
         Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
+        Route::Post('/lien-he', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
     });
 });
 

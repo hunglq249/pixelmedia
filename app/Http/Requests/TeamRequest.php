@@ -45,9 +45,9 @@ class TeamRequest extends FormRequest
     public function messages()
     {
         $messages = [
-            'image.required' => 'Hình Ảnh không được trống',
-            'name.required' => 'HỌ & Tên không được trống',
-            'position.required'  => 'Vị Trí không được trống'
+            'image.required' => sprintf(config('constants.MESSAGE_CANT_BE_BLANK'), 'Hình Ảnh'),
+            'name.required' => sprintf(config('constants.MESSAGE_CANT_BE_BLANK'), 'HỌ & Tên'),
+            'position.required'  => sprintf(config('constants.MESSAGE_CANT_BE_BLANK'), 'Vị Trí'),
         ];
 
         $action = $this->action->getActionMethod();

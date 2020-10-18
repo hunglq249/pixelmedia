@@ -85,7 +85,6 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        dd($request->all());
         if($request->cover_mask){
             $size = $request->cover_mask->getSize();
             if($size > 1572864){
@@ -117,7 +116,10 @@ class ProductController extends Controller
             'cover_type' => $request->cover_type,
             'created_by' => Auth::user()->email,
             'updated_by' => Auth::user()->email,
-            'is_deleted' => 0
+            'is_deleted' => 0,
+            'is_top' => $request->is_top,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
         ];
         if($request->cover_mask){
             $data['cover_mask'] = '/products/' . $request->file('cover_mask')->hashName();
@@ -280,7 +282,7 @@ class ProductController extends Controller
             'created_by' => Auth::user()->email,
             'updated_by' => Auth::user()->email,
             'is_deleted' => 0,
-            'created_at' => \Carbon\Carbon::now(),
+            'is_top' => $request->is_top,
             'updated_at' => \Carbon\Carbon::now(),
         ];
         if($request->cover_mask){

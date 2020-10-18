@@ -18,11 +18,9 @@ class HomeController extends BaseController
 	}
 
 	public function home(){
-		$navMenu = Common::navMenu();
 		$products = Common::products();
-		$contactInfo = Common::contactInfo();
 
-		return view('home', compact('navMenu', 'products', 'contactInfo'));
+		return view('home', compact('products'));
     }
 
     public function changeLanguage($language){

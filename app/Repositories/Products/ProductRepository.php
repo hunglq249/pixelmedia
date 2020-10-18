@@ -9,4 +9,11 @@ class ProductRepository extends EloquentRepository{
     {
         return Product::class;
     }
+
+    public function getNextId($id){
+        return Product::where('id', '>', $id)->first();
+    }
+    public function getPreviousId($id){
+        return Product::where('id', '<', $id)->first();
+    }
 }
