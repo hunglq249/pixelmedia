@@ -45,7 +45,7 @@
     </div>
 
     <div class="form-group col-md-8 render-by-type">
-        <!-- COVER TYPE APPENDS HERE -->    
+        <!-- COVER TYPE APPENDS HERE -->
     </div>
 
     <div class="form-group col-md-12">
@@ -97,6 +97,12 @@
         </label>
         <input type="text" class="form-control input-title-slug" name="slug" placeholder="Slug" value="{{$slug ? $slug : ''}}">
     </div>
+    <div class="form-group col-md-6">
+        <input class="form-check-input" type="checkbox" value="1" id="is-top" name="is_top" {{$is_top ? 'checked' : ''}}>
+        <label class="form-check-label" for="is-top">
+            Top
+        </label>
+      </div>
 
     <div class="col-md-12">
         <div class="row">

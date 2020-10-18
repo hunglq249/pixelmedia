@@ -22,7 +22,7 @@
 					<div class="swiper-container" id="swiperArticleNav">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
-								<a href="#">
+								<a href="{{ route('article_by_category') }}">
 									<div class="mask">
 										<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Image thumb of all category">
 
@@ -37,13 +37,13 @@
 
 							@foreach ($articleTypes as $type)
 								<div class="swiper-slide">
-									<a href="{{ route('article_by_category', ['id' => $type['Id']]) }}">
+									<a href="{{ route('article_by_category', ['id' => $type['id']]) }}">
 										<div class="mask">
-											<img src="{{ $type['Thumb'] }}" alt="Image thumb of {{ $type['Title'] }}">
+											<img src="{{ asset('storage/app'. $type['image']) }}" alt="Image thumb of {{ $type['title'] }}">
 
 											<div class="overlay">
 												<h5>
-													{{ $type['Title'] }}
+													{{ $type['title'] }}
 												</h5>
 											</div>
 										</div>
@@ -62,27 +62,27 @@
 					<div class="post" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
 						<div class="card">
 							<div class="card-body">
-								@if(isset($article['Thumb']) && $article['Thumb'] != '')
-									<img src="{{ $article['Thumb'] }}" alt="Image of article {{ $article['Title'] }}">
+								@if(isset($article['image']) && $article['image'] != '')
+									<img src="{{ asset('storage/app'. $article['image']) }}" alt="Image of article {{ $article['title'] }}">
 								@endif
 
 								<h6>
-									{{ $article['Id'] }}
+									{{ $article['id'] }}
 								</h6>
 
-								<a href="{{ route('article_detail', ['slug' => $article['Slug']]) }}">
+								<a href="{{ route('article_detail', ['slug' => $article['slug']]) }}">
 									<h4>
-										{{ $article['Title'] }}
+										{{ $article['title'] }}
 									</h4>
 								</a>
 
-								@if(isset($article['Desc']) && $article['Desc'] != '')
+								@if(isset($article['Desc']) && $article['description'] != '')
 									<p>
-										{{ $article['Desc'] }}
+										{{ $article['description'] }}
 									</p>
 								@endif
 
-								<a href="{{ route('article_detail', ['slug' => $article['Slug']]) }}" class="btn btn-sm" role="button">
+								<a href="{{ route('article_detail', ['slug' => $article['slug']]) }}" class="btn btn-sm" role="button">
 									See detail
 								</a>
 							</div>

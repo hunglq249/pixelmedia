@@ -8,37 +8,94 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Repositories\ArticleCategories\ArticleCategoryRepository;
+use App\Repositories\Articles\ArticleRepository;
+use Session;
 
 class ArticleController extends BaseController
 {
-	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected $articleCategoryRepository;
+    protected $articleRepository;
+
+    public function __construct(
+        ArticleCategoryRepository $articleCategoryRepository,
+        ArticleRepository $articleRepository
+    )
+    {
+        $this->articleCategoryRepository = $articleCategoryRepository;
+        $this->articleRepository = $articleRepository;
+    }
 
 	public function index(){
-		$navMenu = Common::navMenu();
-		$contactInfo = Common::contactInfo();
+        $lang = Session::get('website_language', config('app.locale'));
 
 		$articleTypes = Article1::articleType();
-		$articles = Article1::article();
+        $articles = Article1::article();
 
-		return view('article', compact('navMenu', 'contactInfo', 'articleTypes', 'articles'));
+        $articleTypes = $this->articleCategoryRepository->getAllByLang($lang);
+        foreach ($articleTypes as $key => $value) {
+            if(count($value->lang)){
+                $articleTypes[$key]['title'] = $value->lang[0]['title'];
+            }
+        }
+        $articles = $this->articleRepository->getAllByLang($lang);
+        foreach ($articles as $key => $value) {
+            if(count($value->lang)){
+                $articles[$key]['title'] = $value->lang[0]['title'];
+                $articles[$key]['description'] = $value->lang[0]['description'];
+            }
+        }
+
+		return view('article', compact('articleTypes', 'articles'));
 	}
 
-	public function articleByCategory($id){
-		$navMenu = Common::navMenu();
-		$contactInfo = Common::contactInfo();
+	public function articleByCategory($id=null){
+        $lang = Session::get('website_language', config('app.locale'));
 
-		$articleType = $id;
-		$articles = Article1::article()->where('CategoryId', $id)->get();
+        $articleType = $id;
+        $articleTypes = $this->articleCategoryRepository->getAllByLang($lang);
+        foreach ($articleTypes as $key => $value) {
+            if(count($value->lang)){
+                $articleTypes[$key]['title'] = $value->lang[0]['title'];
+            }
+        }
+        if(!$id){
+            $articles = $this->articleRepository->getAllByLang($lang);
+        }else{
+            $articles = $this->articleRepository->getAllByCategoryAndLang($id, $lang);
+        }
 
-		return view('article_by_category', compact('navMenu', 'contactInfo', 'articleTypes', 'articles'));
+        foreach ($articles as $key => $value) {
+            if(count($value->lang)){
+                $articles[$key]['title'] = $value->lang[0]['title'];
+                $articles[$key]['description'] = $value->lang[0]['description'];
+            }
+        }
+
+		return view('article.article_by_category', compact('articleTypes', 'articles'));
 	}
 
 	public function detail($slug){
+        $lang = Session::get('website_language', config('app.locale'));
 		$navMenu = Common::navMenu();
 		$contactInfo = Common::contactInfo();
 
-		$article = Article1::article()->where('Slug', $slug)->first();
+        $articleTypes = $this->articleCategoryRepository->getAllByLang($lang);
+        $types = [];
+        foreach ($articleTypes as $key => $value) {
+            if(count($value->lang)){
+                $types[$value->id] = $value->lang[0]['title'];
+            }
+        }
+        $article = $this->articleRepository->findBySlugAndLang($slug, $lang);
+        if(count($article->lang)){
+            $article['title'] = $article->lang[0]['title'];
+            $article['description'] = $article->lang[0]['description'];
+            $article['content'] = $article->lang[0]['content'];
+        }
 
-		return view('article.detail', compact('navMenu', 'contactInfo', 'article'));
+		return view('article.detail', compact('article', 'types'));
 	}
 }

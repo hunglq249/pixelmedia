@@ -27,7 +27,7 @@
 					<div class="col-md-3"></div>
 					<div class="col-md-9">
 						<div class="mask">
-							<img src="{{ $aboutInfo['Images']['Cover'] }}" alt="Image cover">
+							<img src="{{ asset('storage/app'. $aboutInfo['cover']) }}" alt="Image cover">
 						</div>
 					</div>
 				</div>
@@ -57,10 +57,10 @@
 					<div class="col-md-3"></div>
 					<div class="col-md-9 images-wrapper">
 						<div class="row">
-							@foreach ($aboutInfo['Images']['Break'][0] as $key => $image)
+							@foreach ($aboutInfo['break']['break1'] as $key => $image)
 								<div class="col">
 									<div class="mask" data-scroll data-scroll-speed="{{ $key }}">
-										<img src="{{ $image }}" alt="Image break {{ $key }}">
+										<img src="{{ asset('storage/app'. $image) }}" alt="Image break {{ $key }}">
 									</div>
 								</div>
 							@endforeach
@@ -74,7 +74,7 @@
 					<div class="col-md-3"></div>
 					<div class="col-md-9">
 						<h4 data-scroll data-scroll-speed="2">
-							Maecenas scelerisque sem quis odio efficitur, eget finibus nisl condimentum. Vivamus porttitor iaculis tellus et scelerisque. Vivamus nec ultricies ex. Cras tincidunt magna eu ullamcorper pulvinar.
+							{{ $aboutInfo->description }}
 						</h4>
 					</div>
 				</div>
@@ -85,10 +85,10 @@
 					<div class="col-md-3"></div>
 					<div class="col-md-9 images-wrapper">
 						<div class="row">
-							@foreach ($aboutInfo['Images']['Break'][1] as $key => $image)
+							@foreach ($aboutInfo['break']['break2'] as $key => $image)
 								<div class="col-md-{{ $key == 0 ? '12' : '6'}}">
 									<div class="mask" data-scroll data-scroll-speed="{{ $key }}">
-										<img src="{{ $image }}" alt="Image break {{ $key }}">
+										<img src="{{ asset('storage/app'. $image) }}" alt="Image break {{ $key }}">
 									</div>
 								</div>
 							@endforeach
@@ -102,7 +102,7 @@
 					<div class="col-md-3"></div>
 					<div class="col-md-9">
 						<h3 data-scroll data-scroll-speed="2">
-							Maecenas scelerisque sem quis odio efficitur, eget finibus nisl condimentum. Vivamus porttitor iaculis tellus et scelerisque. Vivamus nec ultricies ex. Cras tincidunt magna eu ullamcorper pulvinar.
+							{!! $aboutInfo->content !!}
 						</h3>
 					</div>
 				</div>
@@ -130,14 +130,14 @@
 											<div class="mask">
 												<div class="overlay">
 													<h4>
-														{{ $staff['Name'] }}
+														{{ $staff['name'] }}
 													</h4>
 													<h6 class="sutitle-md">
-														{{ $staff['Position'] }}
+														{{ $staff['position'] }}
 													</h6>
 												</div>
 
-												<img src="{{ $staff['Thumb'] }}" alt="Avatar of {{ $staff['Name'] }}">
+												<img src="{{ asset('storage/app'. $staff['image']) }}" alt="Avatar of {{ $staff['name'] }}">
 											</div>
 										</div>
 									@endforeach

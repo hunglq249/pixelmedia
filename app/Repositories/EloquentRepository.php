@@ -122,4 +122,29 @@ abstract class EloquentRepository
         return $this->_model::insertGetId($data);
     }
 
+
+    public function getAllByLang($lang){
+        return $this->_model::with(
+            ['lang' => function ($query) use ($lang){
+                $query->where('lang', $lang);
+            }]
+        )->where('is_deleted', 0)->orderBy('id', 'desc')->get();
+    }
+
+    public function findBySlugAndLang($slug, $lang){
+        return $this->_model::with(
+            ['lang' => function ($query) use ($lang){
+                $query->where('lang', $lang);
+            }]
+        )->where('is_deleted', 0)->where('slug', $slug)->orderBy('id', 'desc')->first();
+    }
+
+    public function getAllByCategoryAndLang($categoryId, $lang){
+        return $this->_model::with(
+            ['lang' => function ($query) use ($lang){
+                $query->where('lang', $lang);
+            }]
+        )->where('is_deleted', 0)->where('category_id', $categoryId)->orderBy('id', 'desc')->get();
+    }
+
 }

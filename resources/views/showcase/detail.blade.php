@@ -13,44 +13,51 @@
 		<div class="showcase-cover">
 			@if ($product['Type'] == 0)
 				<div class="mask">
-					<img src="{{ $product['Thumb'] }}" alt="Cover of product {{ $product['Title'] }}">
+					<img src="{{ asset('storage/app'. $product['cover_mask']) }}" alt="Cover of product {{ $product['title'] }}">
 				</div>
 			@elseif($product['Type'] == 1)
-				
+
 			@endif
 
 			<div class="cover-overlay"></div>
-			
-			<div class="overlay-hover overlay-prev" data-direction="prev">
-				<a href="#" class="btn" role="button">
-					<span class="circle">
-						<i class="els el-lg el-caret-left"></i>
-					</span>
 
-					Previous<br>project
-				</a>
-			</div>
+            @if ($previous)
+                <div class="overlay-hover overlay-prev" data-direction="prev">
+                    <a href="{{ route('showcase_detail', ['slug' => $previous->slug] )}}" class="btn" role="button">
+                        <span class="circle">
+                            <i class="els el-lg el-caret-left"></i>
+                        </span>
 
+                        Previous<br>project
+                    </a>
+                </div>
+            @endif
+
+            @if ($next)
 			<div class="overlay-hover overlay-next" data-direction="next">
-				<a href="#" class="btn" role="button">
+				<a href="{{ route('showcase_detail', ['slug' => $next->slug] )}}" class="btn" role="button">
 					Next<br>project
 					<span class="circle">
 						<i class="els el-lg el-caret-right"></i>
 					</span>
 				</a>
-			</div>
+            </div>
+            @endif
 
-			<div class="cover-prev">
-				<div class="mask">
-					<img src="https://images.unsplash.com/photo-1602433834445-401f98fa8f73?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
-				</div>
-			</div>
-
-			<div class="cover-next">
-				<div class="mask">
-					<img src="https://images.unsplash.com/photo-1602433834445-401f98fa8f73?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
-				</div>
-			</div>
+            @if ($previous)
+                <div class="cover-prev">
+                    <div class="mask">
+                        <img src="{{ asset('storage/app'. $previous['cover_mask']) }}" alt="">
+                    </div>
+                </div>
+            @endif
+            @if ($next)
+                <div class="cover-next">
+                    <div class="mask">
+                        <img src="{{ asset('storage/app'. $next['cover_mask']) }}" alt="">
+                    </div>
+                </div>
+            @endif
 		</div>
 
 		<div class="showcase-info">
@@ -66,19 +73,19 @@
 
 							<li class="breadcrumb-item active">
 								<a href="javascript:void(0)">
-									{{ $product['Title'] }}
+									{{ $product['title'] }}
 								</a>
 							</li>
 						</ul>
 
 						<h3>
-							{{ $product['Title'] }}
+							{{ $product['title'] }}
 						</h3>
 					</div>
 					<div class="col-md-8 info-content">
 						<div class="content-desc">
 							<p>
-								{{ $product['Desc'] }}
+								{{ $product['description'] }}
 							</p>
 
 							<div class="row">
@@ -89,7 +96,7 @@
 										</p>
 
 										<h5>
-											{{ $product['Client'] }}
+											{{ $product['client'] }}
 										</h5>
 									</div>
 								</div>
@@ -101,20 +108,20 @@
 										</p>
 
 										<h5>
-											{{ $product['Date'] }}
+											{{ $product['date'] }}
 										</h5>
 									</div>
 								</div>
 
 								<div class="col-md-4">
-									@foreach ($product['TakenBy'] as $item)
+									@foreach ($product['teams'] as $item)
 										<div class="group">
 											<p>
-												{{ $item['Position'] }}
+												{{ $item['position'] }}
 											</p>
 
 											<h5>
-												{{ $item['Name'] }}
+												{{ $item['name'] }}
 											</h5>
 										</div>
 									@endforeach
@@ -129,12 +136,12 @@
 		<div class="showcase-images">
 			<div class="container-fluid">
 				<div class="list-items">
-					<div class="item-sizer"></div>
-					@for ($i = 0; $i < 13; $i++)
-						<div class="item-image @if($i%3 == 0) item-image-full @elseif($i%3 == 1 || $i%3 == 2) item-image-half @endif">
-							<img src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80" alt="Image">
-						</div>
-					@endfor
+                    <div class="item-sizer"></div>
+                    @foreach ($product->images as $key => $item)
+                        <div class="item-image @if($key%3 == 0) item-image-full @elseif($key%3 == 1 || $key%3 == 2) item-image-half @endif">
+                            <img src="{{ asset('storage/app'. $item) }}" alt="Image">
+                        </div>
+                    @endforeach
 				</div>
 			</div>
 		</div>

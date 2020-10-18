@@ -8,4 +8,5 @@ return [
     'MESSAGE_REMOVE_SUCCESS' => 'Xóa %s thành công!',
     'MESSAGE_REMOVE_ERROR' => 'Xóa %s thất bại!',
     'MESSAGE_NOT_FOUND' => '%s không tồn tại hoặc đã bị xóa!',
+    'MESSAGE_CANT_BE_BLANK' => '%s không được trống!',
 ];

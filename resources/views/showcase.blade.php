@@ -56,11 +56,11 @@
 					<div class="item-sizer"></div>
 					@foreach ($products as $key => $product)
 						<div class="item-product" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
-							<a href="{{ route('showcase_detail', ['slug' => $product['Slug']] )}}">
-								<img src="{{ $product['Thumb'] }}" alt="Thumbnail of {{ $product['Title'] }}">
+							<a href="{{ route('showcase_detail', ['slug' => $product['slug']] )}}">
+								<img src="{{ asset('storage/app'. $product['cover_mask']) }}" alt="Thumbnail of {{ $product['title'] }}">
 
 								<p>
-									{{ $product['Title'] }} - {{ $product['Client'] }}
+									{{ $product['title'] }} - {{ $product['client'] }}
 								</p>
 							</a>
 						</div>

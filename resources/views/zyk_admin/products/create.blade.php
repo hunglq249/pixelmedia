@@ -16,7 +16,7 @@
             'description_vi' => '', 'description_en' => '',
             'content_vi' => '', 'content_en' => '', 'slug' => '',
             'client' => '', 'date' => '', 'images' => '', 'product' => '',
-            'categories' => $customCategories, 'teams' => $customTeams,
+            'categories' => $customCategories, 'teams' => $customTeams, 'is_top' => 0
         ])
     </form>
 </div>

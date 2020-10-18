@@ -15,4 +15,12 @@ class AboutRepository extends EloquentRepository{
 
         return $result;
     }
+
+    public function firstByLang($lang){
+        return $this->_model::with(
+            ['lang' => function ($query) use ($lang){
+                $query->where('lang', $lang);
+            }]
+        )->where('is_deleted', 0)->first();
+    }
 }
