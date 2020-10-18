@@ -109,6 +109,9 @@
                             <button class="btn btn-sm btn-update-status" data-url="{{ route('ung-tuyen.updateStatus', ['id' => $item->id, 'status' => 1]) }}" type="button">
                                 <i class="elo el-pencil"></i>
                             </button>
+                            <a href="{{ asset('storage/app'. $item->file) }}" class="btn btn-sm" role="button" download="{{ $item->name }}">
+                                <i class="elo el-download"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
