@@ -79,5 +79,13 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="menu-group-wrapper">
+			<div class="menu-group-item @if(Request::Segment($segmentPos) == 'gioi-thieu') active @endif">
+				<a href="{{ route('gioi-thieu.index') }}">
+					<i class="elo el-lg el-users"></i> Giới Thiệu
+				</a>
+			</div>
+		</div>
 	</div>
 </div>

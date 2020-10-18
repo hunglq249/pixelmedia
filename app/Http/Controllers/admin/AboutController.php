@@ -34,6 +34,10 @@ class AboutController extends Controller
     public function index()
     {
         $detail = $this->aboutRepository->first();
+        if(!$detail){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Giới thiệu'));
+            return redirect()->route('gioi-thieu.index');
+        }
         $detail->break = unserialize($detail->break);
         return view('admin.abouts.index', compact('detail'));
     }
@@ -83,7 +87,6 @@ class AboutController extends Controller
             Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Giới thiệu'));
             return redirect()->route('gioi-thieu.index');
         }
-        dd($detail);
         $detail->break = unserialize($detail->break);
         $detail->team_id = explode(',', $detail->team_id);
         $teams = $this->teamRepository->getAll();

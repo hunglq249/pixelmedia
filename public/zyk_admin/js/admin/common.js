@@ -32,7 +32,7 @@ $(document).ready(function () {
 				initFormEvents($form);
 
 				$popup
-					.find('.btn-update-item')
+					.find('.btn-update')
 					.unbind()
 					.on('click', function () {
 						$form.submit();
@@ -69,8 +69,6 @@ $(document).ready(function () {
 	$('.input-search-items').on('search', function (e) {
 		let url = $(this).closest('.input-group').data('url');
 		let keyword = $(this).val().trim();
-
-		console.log(keyword);
 
 		if (keyword.length > 0) {
 			url = zykUtils.buildUrl(url, 'keyword', keyword);

@@ -127,7 +127,7 @@ Route::prefix('admin')->group(function(){
         Route::get('bai-viet/remove/{bai_viet}', [AdminArticleController::class, 'remove'])->name('bai-viet.remove');
         Route::resource('/bai-viet', AdminArticleController::class);
 
-        Route::get('/gioi-thieu', [AdminAboutController::class, 'index'])->name('gioi-thieu.index');
+        // Route::get('/gioi-thieu', [AdminAboutController::class, 'index'])->name('gioi-thieu.index');
         Route::get('/gioi-thieu/{gioi_thieu}/edit', [AdminAboutController::class, 'edit'])->name('gioi-thieu.edit');
         Route::post('/gioi-thieu/{gioi_thieu}', [AdminAboutController::class, 'update'])->name('gioi-thieu.update');
         Route::prefix('zyk')->group(function(){

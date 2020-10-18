@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	// INIT COUNTDOWN
-	let date = new Date('2020-10-18').getTime();
+	let date = new Date('2020-10-25').getTime();
 
 	let countdown = setInterval(function () {
 		let now = new Date().getTime();
