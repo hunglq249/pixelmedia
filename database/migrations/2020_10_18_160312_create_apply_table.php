@@ -15,6 +15,7 @@ class CreateApplyTable extends Migration
     {
         Schema::create('apply', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('recruitment_id')->nullable()->index();
             $table->string('name');
             $table->string('email');
             $table->text('phone');
