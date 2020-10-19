@@ -12,7 +12,7 @@ class ArticleCategoryRepository extends EloquentRepository{
 
     public function getAllWithLang()
     {
-        return $this->_model->with('lang')->get();
+        return $this->_model->with('lang')->where('is_deleted', 0)->get();
     }
 
 

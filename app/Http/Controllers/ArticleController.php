@@ -31,9 +31,6 @@ class ArticleController extends BaseController
 	public function index(){
         $lang = Session::get('website_language', config('app.locale'));
 
-		$articleTypes = Article1::articleType();
-        $articles = Article1::article();
-
         $articleTypes = $this->articleCategoryRepository->getAllByLang($lang);
         foreach ($articleTypes as $key => $value) {
             if(count($value->lang)){

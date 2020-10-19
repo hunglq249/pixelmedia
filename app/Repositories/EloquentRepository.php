@@ -131,6 +131,14 @@ abstract class EloquentRepository
         )->where('is_deleted', 0)->orderBy('id', 'desc')->get();
     }
 
+    public function getAllByIsTopAndLang($lang){
+        return $this->_model::with(
+            ['lang' => function ($query) use ($lang){
+                $query->where('lang', $lang);
+            }]
+        )->where('is_deleted', 0)->where('is_top', 1)->orderBy('id', 'desc')->get();
+    }
+
     public function findBySlugAndLang($slug, $lang){
         return $this->_model::with(
             ['lang' => function ($query) use ($lang){

@@ -76,7 +76,7 @@
 									</h4>
 								</a>
 
-								@if(isset($article['Desc']) && $article['description'] != '')
+								@if(isset($article['description']) && $article['description'] != '')
 									<p>
 										{{ $article['description'] }}
 									</p>
