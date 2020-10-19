@@ -88,7 +88,7 @@
 							</div>
 
 							<div class="overlay-actions {{ $key == 0 ? 'show' : '' }}">
-								<a href="#" class="btn btn-lg btn-outline-dark">
+								<a href="{{ route('showcase_detail', ['slug' => $item['slug']]) }}" class="btn btn-lg btn-outline-dark">
 									{{ trans('lang.home_btn_view') }}
 								</a>
 								@if ($item['cover_type'] == 1)
@@ -118,7 +118,7 @@
 @endsection
 
 @section('js')
-	<!-- SWIPER CSS -->
+	<!-- SWIPER JS -->
 	<script src="{{ asset('plugins/swiper/js/swiper-bundle.min.js') }}"></script>
 
 	<!-- LOCOMOTIVE JS -->

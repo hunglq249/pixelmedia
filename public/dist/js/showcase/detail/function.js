@@ -28,4 +28,39 @@ $(document).ready(function () {
 			$('.cover-overlay').removeClass('show');
 		}
 	});
+
+	// OPEN IMAGE DETAIL
+	let imageArr = [];
+	$('.showcase-images')
+		.find('img')
+		.each(function () {
+			imageArr.push($(this).attr('src'));
+		});
+
+	$('.open-image')
+		.unbind()
+		.on('click', function () {
+			const $popup = $('#popupImageDetail');
+
+			imageArr.forEach(function (imageSrc) {
+				$popup.find('.swiper-wrapper').append(`
+					<div class="swiper-slide">
+						<img src="${imageSrc}">
+					</div>
+				`);
+			});
+
+			var swiperImage = new Swiper('#popupImageDetail .swiper-container', {
+				pagination: {
+					el: '.swiper-pagination',
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev'
+					},
+					dynamicBullets: true
+				}
+			});
+
+			$popup.popup('show');
+		});
 });

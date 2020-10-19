@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-	{{ $product['Title'] }}
+	{{ $product['title'] }}
 @endsection
 
 @section('view')
@@ -27,8 +27,7 @@
                         <span class="circle">
                             <i class="els el-lg el-caret-left"></i>
                         </span>
-
-                        Previous<br>project
+                        {{ trans('lang.showcase_previous') }}
                     </a>
                 </div>
             @endif
@@ -36,7 +35,7 @@
             @if ($next)
 			<div class="overlay-hover overlay-next" data-direction="next">
 				<a href="{{ route('showcase_detail', ['slug' => $next->slug] )}}" class="btn" role="button">
-					Next<br>project
+					{{ trans('lang.showcase_next') }}
 					<span class="circle">
 						<i class="els el-lg el-caret-right"></i>
 					</span>
@@ -67,7 +66,7 @@
 						<ul class="breadcrumb">
 							<li class="breadcrumb-item">
 								<a href="{{ route('showcase') }}">
-									Showcase
+									{{ trans('lang.nav_showcase') }}
 								</a>
 							</li>
 
@@ -92,7 +91,7 @@
 								<div class="col-md-4">
 									<div class="group">
 										<p>
-											Client
+											{{ trans('lang.showcase_client') }}
 										</p>
 
 										<h5>
@@ -104,7 +103,7 @@
 								<div class="col-md-4">
 									<div class="group">
 										<p>
-											Date
+											{{ trans('lang.showcase_date') }}
 										</p>
 
 										<h5>
@@ -138,23 +137,33 @@
 				<div class="list-items">
                     <div class="item-sizer"></div>
                     @foreach ($product->images as $key => $item)
-                        <div class="item-image @if($key%3 == 0) item-image-full @elseif($key%3 == 1 || $key%3 == 2) item-image-half @endif">
-                            <img src="{{ asset('storage/app'. $item) }}" alt="Image">
+						<div class="item-image @if($key%3 == 0) item-image-full @elseif($key%3 == 1 || $key%3 == 2) item-image-half @endif">
+							<a href="#" class="open-image">
+								<img src="{{ asset('storage/app'. $item) }}" alt="Image">
+							</a>
                         </div>
                     @endforeach
 				</div>
 			</div>
 		</div>
+
+		@include('showcase._popup')
 	</div>
 @endsection
 
 @section('css')
+	<!-- SWIPER CSS -->
+	<link rel="stylesheet" href="{{ asset('plugins/swiper/css/swiper-bundle.min.css') }}">
+
 	<link rel="stylesheet" href="{{ asset('dist/scss/css/showcase.css') }}">
 @endsection
 
 @section('js')
 	<!-- IMAGELOADED JS -->
 	<script src="{{ asset('plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+
+	<!-- SWIPER JS -->
+	<script src="{{ asset('plugins/swiper/js/swiper-bundle.min.js') }}"></script>
 
 	<!-- MANSORY JS -->
 	<script src="{{ asset('plugins/mansory/masonry.pkgd.min.js') }}"></script>
