@@ -37,25 +37,25 @@
 			}
 
 			return $strConvert;
-		}	
+		}
 	@endphp
 
 	<div class="homepage">
 		<div class="swiper-container" id="swiperHomepage">
 			<div class="swiper-wrapper">
-				@foreach ($products as $key => $item)
+                @foreach ($products as $key => $item)
 					<div class="swiper-slide">
-						@if ($item['CoverType'] == 0)
+						@if ($item['cover_type'] == 0)
 							<div class="mask">
-								<img src="{{ $item['CoverUrl'] }}" alt="Image cover of {{ $item['Title'] }}">
+								<img src="{{ asset('storage/app'. $item['cover_url']) }}" alt="Image cover of {{ $item['title'] }}">
 							</div>
 						@else
-							<div class="play-video-wrapper" data-ytb-id="{{ $item['CoverUrl'] }}">
+							<div class="play-video-wrapper" data-ytb-id="{{ $item['cover_url'] }}">
 								<div class="play-video"></div>
 								<div class="play-video-overlay">
 									<div class="mask">
-										@if ($item['CoverMask'] != '')
-											<img src="{{ $item['CoverMask'] }}" alt="Thumb mask of {{ $item['Title'] }}">
+										@if ($item['cover_mask'] != '')
+											<img src="{{ asset('storage/app'. $item['cover_mask']) }}" alt="Thumb mask of {{ $item['title'] }}">
 										@endif
 									</div>
 								</div>
@@ -65,33 +65,33 @@
 						<div class="overlay">
 							<div class="overlay-text">
 								<h6>
-									@if($key == 0)
-										{!! convertString($item['Category'], true) !!}
+                                    @if($key == 0)
+										{!! convertString($types[$item['product_category_id']], true) !!}
 									@else
-										{!! convertString($item['Category']) !!}
+										{!! convertString($types[$item['product_category_id']]) !!}
 									@endif
 								</h6>
 								<h5>
 									@if ($key == 0)
-										{!! convertString($item['Subtitle'], true) !!}
+										{!! convertString($item['sub_title'], true) !!}
 									@else
-										{!! convertString($item['Subtitle']) !!}
+										{!! convertString($item['sub_title']) !!}
 									@endif
 								</h5>
 								<h3>
 									@if ($key == 0)
-										{!! convertString($item['Title'], true) !!}
+										{!! convertString($item['title'], true) !!}
 									@else
-										{!! convertString($item['Title']) !!}
+										{!! convertString($item['title']) !!}
 									@endif
 								</h3>
 							</div>
-		
+
 							<div class="overlay-actions {{ $key == 0 ? 'show' : '' }}">
 								<a href="#" class="btn btn-lg btn-outline-dark">
 									View experience
 								</a>
-								@if ($item['CoverType'] == 1)
+								@if ($item['cover_type'] == 1)
 									<button class="btn btn-lg btn-outline-dark" onclick="playVideo(this)" data-play="false" type="button">
 										Play video
 									</button>
@@ -120,7 +120,7 @@
 						</a>
 
 						<h6 class="subtitle-md">
-							{{ $item['Title'] }}
+							{{ $item['title'] }}
 						</h6>
 					</li>
 				@endforeach
@@ -143,17 +143,17 @@
 
 		@foreach ($products as $key => $item)
 			<div class="section section-product" id="section_{{ $key + 1 }}" data-scroll-section>
-				@if ($item['CoverType'] == 0)
+				@if ($item['cover_type'] == 0)
 					<div class="mask">
-						<img src="{{ $item['CoverUrl'] }}" alt="Image cover of {{ $item['Title'] }}">
+						<img src="{{ $item['cover_url'] }}" alt="Image cover of {{ $item['title'] }}">
 					</div>
 				@else
-					<div class="play-video-wrapper" data-ytb-id="{{ $item['CoverUrl'] }}">
+					<div class="play-video-wrapper" data-ytb-id="{{ $item['cover_url'] }}">
 						<div class="play-video"></div>
 						<div class="play-video-overlay">
 							<div class="mask">
-								@if ($item['CoverMask'] != '')
-									<img src="{{ $item['CoverMask'] }}" alt="Thumb mask of {{ $item['Title'] }}">
+								@if ($item['cover_mask'] != '')
+									<img src="{{ $item['cover_mask'] }}" alt="Thumb mask of {{ $item['title'] }}">
 								@endif
 							</div>
 						</div>
@@ -169,7 +169,7 @@
 							{{ $item['Subtitle'] }}
 						</h5>
 						<h3 data-scroll data-scroll-speed="4">
-							{{ $item['Title'] }}
+							{{ $item['title'] }}
 						</h3>
 					</div>
 
@@ -177,7 +177,7 @@
 						<a href="#" class="btn btn-lg btn-outline-dark">
 							View experience
 						</a>
-						@if ($item['CoverType'] == 1)
+						@if ($item['cover_type'] == 1)
 							<button class="btn btn-lg btn-outline-dark" onclick="playVideo(this)" data-play="false" type="button">
 								Play video
 							</button>
@@ -222,7 +222,7 @@
 @section('css')
 	<!-- SWIPER CSS -->
 	<link rel="stylesheet" href="{{ asset('plugins/swiper/css/swiper-bundle.min.css') }}">
-	
+
 	<!-- LOCOMOTIVE CSS -->
 	<link rel="stylesheet" href="{{ asset('plugins/locomotive/css/locomotive-scroll.min.css') }}">
 
