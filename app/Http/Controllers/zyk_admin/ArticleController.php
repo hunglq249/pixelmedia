@@ -91,7 +91,7 @@ class ArticleController extends Controller
 
         $uniqueSlug = $this->createSlug('article', $request->slug);
         $data = [
-            'category_id' => $request->product_category_id,
+            'category_id' => $request->category_id,
             'slug' => $uniqueSlug,
             'detail' => $request->detail,
             'created_by' => Auth::user()->email,
@@ -224,7 +224,7 @@ class ArticleController extends Controller
 
         $uniqueSlug = $this->createSlug('article', $request->slug);
         $data = [
-            'category_id' => $request->product_category_id,
+            'category_id' => $request->category_id,
             'slug' => $uniqueSlug,
             'detail' => $request->detail,
             'created_by' => Auth::user()->email,

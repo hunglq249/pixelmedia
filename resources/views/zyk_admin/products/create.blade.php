@@ -26,7 +26,7 @@
         Huỷ bỏ
     </button>
 
-    <button class="btn btn-primary btn-update-item" type="button">
+    <button class="btn btn-primary btn-update" type="button">
         Thêm mới
     </button>
 </div>
