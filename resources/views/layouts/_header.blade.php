@@ -14,13 +14,17 @@
 	<div class="header-nav">
 		@foreach ($navMenu as $key => $nav)
 			<a href="{{ $nav['Link'] }}" class="{{ Request::Segment(2) == $nav['Slug'] ? 'active' : ''}}">
-				{{ $nav['Title'] }}
+				{{ $nav['Title'] }} 
 			</a>
 		@endforeach
 
 		<div class="dropdown">
 			<button class="btn dropdown-toggle" data-toggle="dropdown" type="button">
-				<img src="{{ asset('dist/img/lang_vi.png') }}" alt="Image lang vi">
+				@if(Session::get('website_language', config('app.locale')) == 'en')
+					<img src="{{ asset('dist/img/lang_en.png') }}" alt="Image lang en">
+				@elseif(Session::get('website_language', config('app.locale')) == 'vi')
+					<img src="{{ asset('dist/img/lang_vi.png') }}" alt="Image lang vi">
+				@endif
 			</button>
 
 			<div class="dropdown-menu dropdown-menu-right">

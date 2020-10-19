@@ -107,6 +107,9 @@
                 </div>
                 @endforeach
             </div>
+            <div class="list-items-footer">
+                {{ $teams->links('zyk_admin.utils._pagination', ['pages' => $teams]) }}
+            </div>
         </div>
     </div>
     

@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-	Articles
+	{{ trans('lang.nav_articles') }}
 @endsection
 
 @section('view')
@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="article-title" data-scroll-section>
 				<h3>
-					Articles
+					{{ trans('lang.nav_articles') }}
 				</h3>
 			</div>
 
@@ -28,7 +28,7 @@
 
 										<div class="overlay">
 											<h5>
-												All articles
+												{{ trans('lang.articles_all') }}
 											</h5>
 										</div>
 									</div>
@@ -83,7 +83,7 @@
 								@endif
 
 								<a href="#" class="btn btn-sm" role="button">
-									See detail
+									{{ trans('lang.articles_see_detail') }}
 								</a>
 							</div>
 						</div>

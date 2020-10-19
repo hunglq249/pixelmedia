@@ -26,7 +26,7 @@
 
 			<div class="job-apply">
 				<div class="apply-header">
-					<h3>Apply now</h3>
+					<h3>{{ trans('lang.career_btn_apply') }}</h3>
 				</div>
 
 				<div class="apply-body">
@@ -34,33 +34,33 @@
 						@csrf
 						<input type="hidden" name="JobId" value="{{ $job->id }}">
 						<div class="form-group">
-							<input type="text" class="form-control" name="name" placeholder="Name">
+							<input type="text" class="form-control" name="name" placeholder="{{ trans('lang.form_name') }}">
 							<small class="form-text text-danger"></small>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" name="email" placeholder="Email">
+							<input type="text" class="form-control" name="email" placeholder="{{ trans('lang.form_email') }}">
 							<small class="form-text text-danger"></small>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" name="PhoneNumber"placeholder="Phone number">
+							<input type="text" class="form-control" name="PhoneNumber"placeholder="{{ trans('lang.form_phone') }}">
 							<small class="form-text text-danger"></small>
 						</div>
 						<div class="form-group">
-							<textarea class="form-control" name="message" rows="7" placeholder="What skills, work projects or achievements make you a strong candidate?"></textarea>
+							<textarea class="form-control" name="message" rows="7" placeholder="{{ trans('lang.career_form_message') }}"></textarea>
 							<small class="form-text text-danger"></small>
 						</div>
 						<div class="form-group upload-file">
 							<button class="btn btn-outline-dark" id="inputCV" onclick="$('#inputUploadFile').trigger('click')" type="button">
-								Upload your file
+								{{ trans('lang.career_btn_upload') }}
 							</button>
 
-							<p class="p-overline">No file selected</p>
+							<p class="p-overline">{{ trans('lang.career_note_file') }}</p>
 
 							<input type="file" name="file" id="inputUploadFile">
 						</div>
 						<div class="form-group">
 							<button class="btn btn-primary" onclick="submitFormApply(this)" type="submit">
-								Apply now
+								{{ trans('lang.career_btn_apply') }}
 							</button>
 						</div>
 					</form>

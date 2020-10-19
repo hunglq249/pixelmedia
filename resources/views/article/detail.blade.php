@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-	Articles
+	{{ $article['title'] }}
 @endsection
 
 @section('view')
@@ -15,7 +15,7 @@
 				<ul class="breadcrumb">
 					<li class="breadcrumb-item">
 						<a href="{{ route('article') }}">
-							Articles
+							{{ trans('lang.nav_articles') }}
 						</a>
 					</li>
 
@@ -54,7 +54,7 @@
 			@endif
 
 			<div class="article-content">
-				{{ $article['content'] }}
+				{!! $article['content'] !!}
 			</div>
 		</div>
 	</div>

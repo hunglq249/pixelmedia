@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-	Career
+	{{ trans('lang.nav_recruitment') }}
 @endsection
 
 @section('view')
@@ -13,11 +13,11 @@
 		<div class="career-cover" style="background-image: url('https://images.unsplash.com/photo-1553268882-827ff90c67e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80')">
 			<div class="career-overlay">
 				<h5>
-					Welcome to
+					{{ trans('lang.career_welcome') }}
 				</h5>
 
 				<h2>
-					Pixel Media Career
+					{{ trans('lang.career_greeting') }}
 				</h2>
 
 				<div class="career-select">
@@ -30,7 +30,7 @@
 					</select>
 
 					<a href="#" class="btn btn-outline-dark" role="button">
-						View Experience
+						{{ trans('lang.career_btn_view') }}
 					</a>
 				</div>
 			</div>
@@ -56,11 +56,11 @@
 							</p>
 
 							<a href="#" onclick="callPopup(event, {{ $job['id'] }}, false)">
-								See detail
+								{{ trans('lang.career_btn_view') }}
 							</a>
 
 							<a href="#" onclick="callPopup(event, {{ $job['id'] }})">
-								Apply now
+								{{ trans('lang.career_btn_apply') }}
 							</a>
 						</div>
 					</div>

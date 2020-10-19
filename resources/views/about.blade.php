@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-	About us
+	{{ trans('lang.nav_about') }}
 @endsection
 
 @section('view')
@@ -37,16 +37,16 @@
 				<div class="row">
 					<div class="col-md-3 text-heading">
 						<h5>
-							About us
+							{{ trans('lang.nav_about') }}
 						</h5>
 					</div>
 					<div class="col-md-9 text-info">
 						<h6>
-							Vivamus enim tellus, eleifend vel sollicitudin ac, accumsan quis orci
+							{{-- Vivamus enim tellus, eleifend vel sollicitudin ac, accumsan quis orci --}}
 						</h6>
 
 						<h6 class="subtitle-sm">
-							Aliquam vel malesuada purus, vel mollis tellus
+							{{-- Aliquam vel malesuada purus, vel mollis tellus --}}
 						</h6>
 					</div>
 				</div>
@@ -114,11 +114,11 @@
 					<div class="col-md-9">
 						<div class="section-header">
 							<h2 data-scroll data-scroll-speed="2">
-								Who are we?
+								{{ trans('lang.about_title') }}
 							</h2>
 
 							<h4 data-scroll data-scroll-speed="1">
-								Maecenas scelerisque sem quis odio efficitur, eget finibus nisl condimentum. Vivamus porttitor iaculis tellus et scelerisque. Vivamus nec ultricies ex. Cras tincidunt magna eu ullamcorper pulvinar.
+								{{ trans('lang.about_desc') }}
 							</h4>
 						</div>
 

@@ -139,6 +139,9 @@
                     </div>
                 @endforeach
             </div>
+            <div class="list-items-footer">
+                {{ $categories->links('zyk_admin.utils._pagination', ['pages' => $categories]) }}
+            </div>
         </div>
     </div>
 

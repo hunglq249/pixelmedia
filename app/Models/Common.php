@@ -13,27 +13,27 @@ class Common extends Model
     public static function navMenu(){
         $navMenu = [
             0 => [
-                'Title' => 'Showcase',
+                'Title' => trans('lang.nav_showcase'),
                 'Link' => route('showcase'),
                 'Slug' => 'san-pham'
             ],
             1 => [
-                'Title' => 'Articles',
+                'Title' => trans('lang.nav_articles'),
                 'Link' => route('article'),
                 'Slug' => 'bai-viet'
             ],
             2 => [
-                'Title' => 'Career',
+                'Title' => trans('lang.nav_recruitment'),
                 'Link' => route('career'),
                 'Slug' => 'tuyen-dung'
             ],
             3 => [
-                'Title' => 'About us',
+                'Title' => trans('lang.nav_about'),
                 'Link' => route('about'),
                 'Slug' => 'gioi-thieu'
             ],
             4 => [
-                'Title' => 'Contact us',
+                'Title' => trans('lang.nav_contact'),
                 'Link' => route('contact'),
                 'Slug' => 'lien-he'
             ],
@@ -94,7 +94,7 @@ class Common extends Model
     
     public static function contactInfo(){
         $contactInfo = [
-            'Address' => 'No 2, Ng Khanh Toan, Cau Giay Dist., Hanoi',
+            'Address' => trans('lang.footer_address'),
             'Email' => 'px.visualart@gmail.com',
             'PhoneNumber' => '(+84) 1234 5678',
             'Social' => [

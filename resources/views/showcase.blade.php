@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-	Showcase
+{{ trans('lang.nav_showcase') }}
 @endsection
 
 @section('view')
@@ -15,13 +15,13 @@
 				<div class="row">
 					<div class="col-md-4">
 						<h3>
-							Portfolio
+							{{ trans('lang.showcase_title') }}
 						</h3>
 					</div>
 
 					<div class="col-md-8">
 						<p>
-							Nullam in lorem ut nulla mattis ultricies. Etiam at sem in erat dignissim dictum. Cras feugiat mi magna. Proin auctor blandit massa sit amet rhoncus. Aenean consectetur, mauris id molestie bibendum, purus ex elementum purus, a volutpat leo elit a neque. Aliquam erat volutpat. Etiam ut tellus quis velit rutrum mollis. Cras mollis purus id orci aliquam, vel tincidunt ante efficitur. Pellentesque eget dui est.
+							{{ trans('lang.showcase_desc') }}
 						</p>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 					<div class="col-md-8 nav-wrapper">
 						<div class="nav">
 							<a href="#" class="active" data-type="*">
-								All
+								{{ trans('lang.showcase_all') }}
 							</a>
 
 							@foreach ($productTypes as $key => $productType)

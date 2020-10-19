@@ -16,13 +16,13 @@
 
 <div class="navside-menu">
 	<div class="menu-group">
-		<div class="menu-group-wrapper">
+		{{-- <div class="menu-group-wrapper">
 			<div class="menu-group-item @if(Request::Segment(1) == 'admin' && Request::Segment(2) == '') active @endif">
 				<a href="#">
 					<i class="elo el-lg el-dashboard"></i> Dashboard
 				</a>
 			</div>
-		</div>
+		</div> --}}
 
 		<div class="menu-group-wrapper">
 			<div class="menu-group-item @if(Request::Segment($segmentPos) == 'danh-muc-san-pham' || Request::Segment($segmentPos) == 'san-pham') active @endif">
@@ -85,6 +85,30 @@
 				<a href="{{ route('gioi-thieu.index') }}">
 					<i class="elo el-lg el-users"></i> Giới Thiệu
 				</a>
+			</div>
+		</div>
+
+		<div class="menu-group-wrapper">
+			<div class="menu-group-item @if(Request::Segment($segmentPos) == 'tuyen-dung' || Request::Segment($segmentPos) == 'ung-tuyen') active @endif">
+				<a href="javascript:void(0)">
+					<i class="elo el-lg el-news"></i> Tuyển dụng
+				</a>
+				<a href="#" class="btn-toggle-menu-expand">
+					<i class="elo el-lg el-caret-right"></i>
+				</a>
+			</div>
+
+			<div class="menu-group-expand">
+				<div class="menu-group-item @if(Request::Segment($segmentPos) == 'tuyen-dung') active @endif">
+					<a href="{{ route('tuyen-dung.index') }}">
+						Tuyển dụng
+					</a>
+				</div>
+				<div class="menu-group-item @if(Request::Segment($segmentPos) == 'ung-tuyen') active @endif">
+					<a href="{{ route('ung-tuyen.index') }}">
+						Ứng tuyển
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

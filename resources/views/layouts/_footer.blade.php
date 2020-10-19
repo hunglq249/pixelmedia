@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-6 footer-contact">
 			<h3>
-				Pixel Media is a media
+				{{ trans('lang.footer_desc') }}
 			</h3>
 
 			<address>
@@ -21,7 +21,7 @@
 		<div class="col-md-6 footer-social">
 			<div class="social-network">
 				<h6>
-					Follow us	
+					{{ trans('lang.footer_follow') }}
 				</h6>
 				
 				@foreach ($contactInfo['Social'] as $key => $contact)

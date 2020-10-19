@@ -5,7 +5,7 @@
 @endsection
 
 @section('title')
-	Contact us
+	{{ trans('lang.nav_contact') }}
 @endsection
 
 @section('view')
@@ -16,7 +16,7 @@
 					<div class="col-md-3"></div>
 					<div class="col-md-9">
 						<h2 data-scroll data-scroll-speed="2">
-							Keep it touch
+							{{ trans('lang.contact_title') }}
 						</h2>
 					</div>
 				</div>
@@ -35,7 +35,7 @@
 				<div class="row">
 					<div class="col-md-3 meassage-heading">
 						<h5>
-							About us
+							{{ trans('lang.nav_about') }}
 						</h5>
 					</div>
 					<div class="col-md-9 meassage-form">
@@ -43,21 +43,21 @@
                             @csrf
 							<div class="row">
 								<div class="form-group col-md-12">
-									<input type="text" class="form-control" name="Name" placeholder="Name">
+									<input type="text" class="form-control" name="Name" placeholder="{{ trans('lang.form_name') }}">
 								</div>
 								<div class="form-group col-md-6">
-									<input type="email" class="form-control" name="Email" placeholder="Email">
+									<input type="email" class="form-control" name="Email" placeholder="{{ trans('lang.form_email') }}">
 								</div>
 								<div class="form-group col-md-6">
-									<input type="text" class="form-control" name="PhoneNumer" placeholder="Phone number">
+									<input type="text" class="form-control" name="PhoneNumer" placeholder="{{ trans('lang.form_phone') }}">
 								</div>
 								<div class="form-group col-md-12">
-									<textarea class="form-control" name="Message" rows="7" placeholder="Write something..."></textarea>
+									<textarea class="form-control" name="Message" rows="7" placeholder="{{ trans('lang.form_message') }}"></textarea>
 								</div>
 
 								<div class="form-group col-md-12">
 									<button class="btn btn-primary" type="submit">
-										Submit
+										{{ trans('lang.form_submit') }}
 									</button>
 								</div>
 							</div>
@@ -70,14 +70,14 @@
 				<div class="row">
 					<div class="col-md-3 text-heading">
 						<h5>
-							Contact us
+							{{ trans('lang.nav_conact') }}
 						</h5>
 					</div>
 					<div class="col-md-9 text-form">
 						<div class="row">
 							<div class="col">
 								<p>
-									Address
+									{{ trans('lang.contact_address') }}
 								</p>
 								<h6>
 									{{ $contactInfo['Address'] }}
@@ -95,7 +95,7 @@
 
 							<div class="col">
 								<p>
-									Phone number
+									{{ trans('lang.contact_phone') }}
 								</p>
 								<h6>
 									{{ $contactInfo['PhoneNumber'] }}
