@@ -10,6 +10,7 @@ use App\Repositories\Recruitments\RecruitmentRepository;
 use App\Repositories\Apply\ApplyRepository;
 use Illuminate\Http\Request;
 use Session;
+use Mail;
 
 class CareerController extends BaseController
 {

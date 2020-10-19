@@ -50,13 +50,13 @@
 							<small class="form-text text-danger"></small>
 						</div>
 						<div class="form-group upload-file">
-							{{-- <button class="btn btn-outline-dark" id="inputCV" type="button">
+							<button class="btn btn-outline-dark" id="inputCV" onclick="$('#inputUploadFile').trigger('click')" type="button">
 								Upload your file
 							</button>
 
-							<p class="p-overline">No file selected</p> --}}
+							<p class="p-overline">No file selected</p>
 
-							<input type="file" name="file" for="#inputCV">
+							<input type="file" name="file" id="inputUploadFile">
 						</div>
 						<div class="form-group">
 							<button class="btn btn-primary" onclick="submitFormApply(this)" type="submit">

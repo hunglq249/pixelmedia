@@ -98,10 +98,19 @@
         <input type="text" class="form-control input-title-slug" name="slug" placeholder="Slug" value="{{$slug ? $slug : ''}}">
     </div>
     <div class="form-group col-md-6">
-        <input class="form-check-input" type="checkbox" value="1" id="is-top" name="is_top" {{$is_top ? 'checked' : ''}}>
+        {{-- <input class="form-check-input" type="checkbox" value="1" id="is-top" name="is_top" {{$is_top ? 'checked' : ''}}>
         <label class="form-check-label" for="is-top">
             Top
-        </label>
+        </label> --}}
+
+        <div class="form-check-group">
+            <div class="form-check">
+                <input type="checkbox" value="1" name="is_top" {{$is_top ? 'checked' : ''}}>
+                <label data-toggle="check" data-type="checkbox">
+                    <i class=" el-lg {{ $is_top ? 'els el-check-square' : 'elo el-square'}}"></i> Is top
+                </label>
+            </div>
+        </div>
       </div>
 
     <div class="col-md-12">
