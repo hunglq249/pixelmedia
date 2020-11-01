@@ -22,7 +22,7 @@
 					<div class="swiper-container" id="swiperArticleNav">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
-								<a href="{{ route('article_by_category') }}">
+								<a href="#" data-type="*">
 									<div class="mask">
 										<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Image thumb of all category">
 
@@ -37,7 +37,7 @@
 
 							@foreach ($articleTypes as $type)
 								<div class="swiper-slide">
-									<a href="{{ route('article_by_category', ['id' => $type['id']]) }}">
+									<a href="#" data-type="{{ $type['id'] }}">
 										<div class="mask">
 											<img src="{{ asset('storage/app'. $type['image']) }}" alt="Image thumb of {{ $type['title'] }}">
 
@@ -59,7 +59,7 @@
 				<div class="post-sizer"></div>
 
 				@foreach ($articles as $key => $article)
-					<div class="post" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
+					<div class="post post-{{ $article['category_id'] }}" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
 						<div class="card">
 							<div class="card-body">
 								@if(isset($article['image']) && $article['image'] != '')
@@ -108,8 +108,8 @@
 	<!-- IMAGELOADED JS -->
 	<script src="{{ asset('plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
 
-	<!-- MANSORY JS -->
-	<script src="{{ asset('plugins/mansory/masonry.pkgd.min.js') }}"></script>
+	<!-- ISOTOPE JS -->
+	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 
 	<!-- LOCOMOTIVE JS -->
 	<script src="{{ asset('plugins/locomotive/js/locomotive-scroll.min.js') }}"></script>

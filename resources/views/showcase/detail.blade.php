@@ -137,7 +137,7 @@
 				<div class="list-items">
                     <div class="item-sizer"></div>
                     @foreach ($product->images as $key => $item)
-						<div class="item-image @if($key%3 == 0) item-image-full @elseif($key%3 == 1 || $key%3 == 2) item-image-half @endif">
+						<div class="wow zoomIn item-image @if($key%3 == 0) item-image-full @elseif($key%3 == 1 || $key%3 == 2) item-image-half @endif">
 							<a href="#" class="open-image">
 								<img src="{{ asset('storage/app'. $item) }}" alt="Image">
 							</a>
@@ -147,6 +147,8 @@
 			</div>
 		</div>
 
+		
+
 		@include('showcase._popup')
 	</div>
 @endsection
@@ -154,11 +156,17 @@
 @section('css')
 	<!-- SWIPER CSS -->
 	<link rel="stylesheet" href="{{ asset('plugins/swiper/css/swiper-bundle.min.css') }}">
+	
+	<!-- ANIMATE CSS -->
+	<link rel="stylesheet" href="{{ asset('plugins/animate/animate.css') }}">
 
 	<link rel="stylesheet" href="{{ asset('dist/scss/css/showcase.css') }}">
 @endsection
 
 @section('js')
+	<!-- WOW JS -->
+	<script src="{{ asset('plugins/wow/wow.min.js') }}"></script>
+
 	<!-- IMAGELOADED JS -->
 	<script src="{{ asset('plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
 

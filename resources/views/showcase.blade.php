@@ -55,7 +55,7 @@
 				<div class="list-products">
 					<div class="item-sizer"></div>
 					@foreach ($products as $key => $product)
-						<div class="item-product" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
+						<div class="item-product item-product-{{$product['product_category_id']}}" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
 							<a href="{{ route('showcase_detail', ['slug' => $product['slug']] )}}">
 								<img src="{{ asset('storage/app'. $product['cover_mask']) }}" alt="Thumbnail of {{ $product['title'] }}">
 
@@ -82,8 +82,8 @@
 	<!-- IMAGELOADED JS -->
 	<script src="{{ asset('plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
 
-	<!-- MANSORY JS -->
-	<script src="{{ asset('plugins/mansory/masonry.pkgd.min.js') }}"></script>
+	<!-- ISOTOPE JS -->
+	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 
 	<!-- LOCOMOTIVE JS -->
 	<script src="{{ asset('plugins/locomotive/js/locomotive-scroll.min.js') }}"></script>

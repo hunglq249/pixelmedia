@@ -1,20 +1,36 @@
 $(document).ready(function () {
-	// INIT MANSORY GRID
-	const grid = $('.list-products').masonry({
-		itemSelector: '.item-product',
+    // INIT ISOTOPE
+    $('.list-products').isotope({
+        itemSelector: '.item-product',
 
-		columnWidth: '.item-sizer',
-		percentPosition: true
-	});
+        columnWidth: '.item-sizer',
+        percentPosition: true
+    });
 
-	grid.imagesLoaded().progress(function () {
-		grid.masonry('layout');
-	});
+    $('.showcase-nav')
+        .find('a')
+        .unbind()
+        .on('click', function () {
+            let type = $(this).data('type');
 
-	// INIT LOCOMOTIVE SCROLL
-	const scroll = new LocomotiveScroll({
-		el: document.querySelector('[data-scroll-container]'),
-		smooth: true,
-		smoothMobile: true
-	});
+            $('.showcase-nav').find('a').removeClass('active');
+            $(this).addClass('active');
+
+            if (type == '*') {
+                $('.list-products').isotope({
+                    filter: '*'
+                });
+            } else {
+                $('.list-products').isotope({
+                    filter: '.item-product-' + type
+                });
+            }
+        });
+
+    // INIT LOCOMOTIVE SCROLL
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        smoothMobile: true
+    });
 });

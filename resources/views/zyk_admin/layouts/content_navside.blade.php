@@ -11,7 +11,7 @@
 </div>
 
 @php
-	$segmentPos = 3;	
+	$segmentPos = 2;	
 @endphp
 
 <div class="navside-menu">

@@ -3,7 +3,7 @@
 </div>
 
 <div class="page-header-right">
-	<div class="dropdown dropdown-notification">
+	{{-- <div class="dropdown dropdown-notification">
 		<button class="btn btn-outline-default" data-toggle="dropdown" type="button">
 			<i class="elo el-lg el-bell"></i>
 	
@@ -32,5 +32,5 @@
 				<img src="{{ asset('dist/img/lang_en.png') }}" alt="Icon lang vi"> English
 			</a>
 		</div>
-	</div>
+	</div> --}}
 </div>
