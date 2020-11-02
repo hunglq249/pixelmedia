@@ -117,7 +117,7 @@ class ProductController extends Controller
             'created_by' => Auth::user()->email,
             'updated_by' => Auth::user()->email,
             'is_deleted' => 0,
-            'is_top' => $request->is_top,
+            'is_top' => $request->is_top ? $request->is_top : 0,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
         ];

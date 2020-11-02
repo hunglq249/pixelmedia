@@ -143,7 +143,10 @@
 							</a>
                         </div>
                     @endforeach
-				</div>
+                </div>
+                <div>
+                    {!! $product['content'] !!}
+                </div>
 			</div>
 		</div>
 
