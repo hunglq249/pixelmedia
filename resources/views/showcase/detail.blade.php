@@ -142,7 +142,10 @@
                             <img src="{{ asset('storage/app'. $item) }}" alt="Image">
                         </div>
                     @endforeach
-				</div>
+                </div>
+                <div>
+                    {!! $product['content'] !!}
+                </div>
 			</div>
 		</div>
 	</div>

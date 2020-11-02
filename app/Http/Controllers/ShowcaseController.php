@@ -76,7 +76,7 @@ class ShowcaseController extends BaseController
             $product['description'] = $product->lang[0]['description'];
             $product['content'] = $product->lang[0]['content'];
             $product['images'] = explode(',', $product->images);
-            $teamIds = explode(',', $product->team_id);
+            $teamIds = explode(',', str_replace(' ', '', $product->team_id));
             foreach ($teamIds as $tid) {
                 $product['teams'] = $customTeams[$tid];
             }
