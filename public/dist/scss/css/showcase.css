@@ -470,6 +470,11 @@
   transition: all ease-in-out 300ms;
 }
 
+.showcase-detail .showcase-images .container-fluid div iframe {
+  width: 100%;
+  height: 100vh;
+}
+
 .showcase-detail .popup#popupImageDetail {
   padding: 0;
 }
