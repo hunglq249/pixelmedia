@@ -37,6 +37,8 @@ return [
 
 	'career_welcome' => 'Welcome to',
 	'career_greeting' => 'Pixel Media Recruitment',
+	'career_intro_subtitle' => 'Pixel Media artists create some of the most inspiring VFX in film, year after year.',
+	'career_intro_content' => 'They are supported by some of the most advanced and forward-looking technology in the industry, and frequently get the opportunity to work on challenging, high profile projects. We are always looking for great candidates.',
 	'career_btn_view' => 'View experience',
 	'career_btn_apply' => 'Apply now',
 	'career_btn_upload' => 'Upload now',
@@ -45,6 +47,7 @@ return [
 
 	'about_title' => 'Who are we?',
 	'about_desc' => 'Maecenas scelerisque sem quis odio efficitur, eget finibus nisl condimentum. Vivamus porttitor iaculis tellus et scelerisque. Vivamus nec ultricies ex. Cras tincidunt magna eu ullamcorper pulvinar.',
+	'about_team' => 'Team',
 
 	'contact_title' => 'Keep in touch with us',
 	'contact_address' => 'Address',

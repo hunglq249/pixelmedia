@@ -34,9 +34,9 @@
 			<div class="section section-message" data-scroll-section>
 				<div class="row">
 					<div class="col-md-3 meassage-heading">
-						<h5>
+						<h3>
 							{{ trans('lang.nav_about') }}
-						</h5>
+						</h3>
 					</div>
 					<div class="col-md-9 meassage-form">
                         <form action="{{ route('contact.sendEmail') }}" method="POST" autocomplete="off">
@@ -69,9 +69,9 @@
 			<div class="section section-address" data-scroll-section>
 				<div class="row">
 					<div class="col-md-3 text-heading">
-						<h5>
-							{{ trans('lang.nav_conact') }}
-						</h5>
+						<h3>
+							{{ trans('lang.nav_contact') }}
+						</h3>
 					</div>
 					<div class="col-md-9 text-form">
 						<div class="row">

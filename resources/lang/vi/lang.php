@@ -37,6 +37,8 @@ return [
 
 	'career_welcome' => 'Chào mừng bạn đến với',
 	'career_greeting' => 'Tuyển dụng Pixel Media',
+	'career_intro_subtitle' => 'Các nghệ sĩ Pixel Media tạo ra một số VFX truyền cảm hứng nhất trong phim, năm này qua năm khác.',
+	'career_intro_content' => 'Họ được hỗ trợ bởi một số công nghệ tiên tiến và tiên tiến nhất trong ngành, và thường xuyên có cơ hội làm việc trong các dự án có tính thử thách cao. Chúng tôi luôn tìm kiếm những ứng viên tuyệt vời.',
 	'career_btn_view' => 'Xem chi tiết',
 	'career_btn_apply' => 'Ứng tuyển ngay',
 	'career_btn_upload' => 'Tải tệp lên',
@@ -45,6 +47,7 @@ return [
 
 	'about_title' => 'Chúng tôi là ai?',
 	'about_desc' => 'Maecenas scelerisque sem quis odio efficitur, eget finibus nisl condimentum. Vivamus porttitor iaculis tellus et scelerisque. Vivamus nec ultricies ex. Cras tincidunt magna eu ullamcorper pulvinar.',
+	'about_team' => 'Thành viên',
 
 	'contact_title' => 'Giữ liên lạc với chúng tôi',
 	'contact_address' => 'Địa chỉ',

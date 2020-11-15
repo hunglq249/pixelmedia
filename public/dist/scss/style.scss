@@ -15,7 +15,8 @@ body{
 
 // HEADER
 header{
-	height: 70px;
+	width: 100%;
+	height: 8rem;
 
 	padding: 0 4rem;
 
@@ -23,12 +24,14 @@ header{
 
 	@include d-flex(row, space-between, center);
 
-	@include positionSticky(top, 0, 1030);
+	position: fixed;
+	top: 0;
+	z-index: $zindex-fixed;
 
 	.header-brand{
 		a{
 			img{
-				height: 50px;
+				height: 64px;
 			}
 		}
 	}
@@ -70,10 +73,10 @@ header{
 		> a {
 			height: 100%;
 
-			margin-left: 1.5rem;
+			margin-left: 4rem;
 
-			font-size: 1rem;
-			font-weight: 400;
+			font-size: 1.125rem;
+			font-weight: 700;
 
 			text-transform: uppercase;
 
@@ -92,7 +95,7 @@ header{
 				background-color: var(--bg-bw-rv);
 
 				position: absolute;
-				bottom: 0;
+				bottom: 2rem;
 				left: 50%;
 				z-index: 1;
 

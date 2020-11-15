@@ -10,19 +10,63 @@
 
 @section('view')
 	<div class="about">
-		<div class="container">
-			<div class="section section-heading" data-scroll-section>
-				<div class="row">
-					<div class="col-md-3"></div>
-					<div class="col-md-9">
-						<h2 data-scroll data-scroll-speed="2">
-							Pixel Media
-						</h2>
+		<div class="container" data-scroll-section>
+			<div class="row">
+				<div class="heading-content col-md-5">
+					<h3>
+						{{ trans('lang.nav_about') }}
+					</h3>
+
+					<h4>
+						{{ $aboutInfo->description }}
+					</h4>
+
+					<p>
+						{!! $aboutInfo->content !!}
+					</p>
+				</div>
+				<div class="heading-image col-md-7" data-scroll data-scroll-speed="1">
+					<div class="mask">
+						<div class="mask-overlay"></div>
+
+						<img src="https://images.unsplash.com/photo-1532800783378-1bed60adaf58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="About cover">
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="section section-cover" data-scroll-section>
+		<div class="container-fluid" data-scroll-section>
+			<div class="team-header">
+				<div class="container">
+					<h3>
+						{{ trans('lang.about_team') }}
+					</h3>
+				</div>
+			</div>
+
+			<div class="team-body">
+				<div class="row">
+					@foreach ($staffs as $staff)
+						<div class="item-team col-md-4">
+							<div class="mask">
+								<div class="overlay">
+									<h3>
+										{{ $staff['name'] }}
+									</h3>
+									<h6>
+										{{ $staff['position'] }}
+									</h6>
+								</div>
+
+								<img src="{{ asset('storage/app'. $staff['image']) }}" alt="Avatar of {{ $staff['name'] }}">
+							</div>
+						</div>
+					@endforeach
+				</div>
+			</div>
+		</div>
+
+			{{-- <div class="section section-cover" data-scroll-section>
 				<div class="row">
 					<div class="col-md-3"></div>
 					<div class="col-md-9">
@@ -42,11 +86,11 @@
 					</div>
 					<div class="col-md-9 text-info">
 						<h6>
-							{{-- Vivamus enim tellus, eleifend vel sollicitudin ac, accumsan quis orci --}}
+							Vivamus enim tellus, eleifend vel sollicitudin ac, accumsan quis orci
 						</h6>
 
 						<h6 class="subtitle-sm">
-							{{-- Aliquam vel malesuada purus, vel mollis tellus --}}
+							Aliquam vel malesuada purus, vel mollis tellus
 						</h6>
 					</div>
 				</div>
@@ -148,7 +192,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 
 			<div class="hidden-div" data-scroll-section></div>
 		</div>

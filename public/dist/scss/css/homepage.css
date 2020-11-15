@@ -72,6 +72,7 @@ header {
 .homepage .swiper-container .overlay .overlay-wrapper {
   width: 100%;
   height: 100%;
+  background-image: url("/dist/img/bg_texture.png");
   position: relative;
 }
 
@@ -130,7 +131,6 @@ header {
 
 .homepage .swiper-container .overlay .overlay-wrapper .overlay-item .overlay-text h2 {
   font-weight: 900;
-  text-transform: uppercase;
   position: relative;
   text-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
   position: relative;

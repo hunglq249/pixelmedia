@@ -44,6 +44,10 @@
   --text-overline:                                #8e8e93;
 }
 
+.article .container {
+  padding-top: 6rem;
+}
+
 .article .container .article-title {
   padding-top: 4rem;
 }
@@ -147,6 +151,10 @@
   color: var(--text-title);
   font-size: 1.25rem;
   font-weight: 800;
+}
+
+.article-detail .container {
+  padding-top: 6rem;
 }
 
 .article-detail .container .article-breadcrumb {

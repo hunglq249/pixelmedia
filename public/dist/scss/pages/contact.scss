@@ -3,6 +3,8 @@
 
 .contact{
 	.container{
+		padding-top: 6rem;
+
 		.section{
 			&.section-heading{
 				padding-top: 4rem;
@@ -35,7 +37,7 @@
 				.row{
 					> div {
 						&.meassage-heading{
-							h5{
+							h3{
 								font-weight: 800;
 							}
 						}
@@ -58,7 +60,7 @@
 				.row{
 					> div {
 						&.text-heading{
-							h5{
+							h3{
 								font-weight: 800;
 							}
 						}
