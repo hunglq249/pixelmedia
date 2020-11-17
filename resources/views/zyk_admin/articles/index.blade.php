@@ -1,7 +1,7 @@
 @extends('zyk_admin.layouts.content')
 
 @section('title')
-    Sản phẩm
+    Bài Viết
 @endsection
 
 @section('view')
@@ -9,7 +9,7 @@
         <div class="view-header-left">
             <div class="header-navigation">
                 <h3>
-                    Sản phẩm
+                    Bài Viết
                 </h3>
             </div>
         </div>

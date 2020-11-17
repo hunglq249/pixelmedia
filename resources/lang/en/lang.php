@@ -24,7 +24,7 @@ return [
 	'home_btn_play' => 'Play video',
 
 	'showcase_title' => 'Portfolio',
-	'showcase_desc' => 'Nullam in lorem ut nulla mattis ultricies. Etiam at sem in erat dignissim dictum. Cras feugiat mi magna. Proin auctor blandit massa sit amet rhoncus. Aenean consectetur, mauris id molestie bibendum, purus ex elementum purus, a volutpat leo elit a neque. Aliquam erat volutpat. Etiam ut tellus quis velit rutrum mollis. Cras mollis purus id orci aliquam, vel tincidunt ante efficitur. Pellentesque eget dui est.',
+	'showcase_desc' => 'Nullam in lorem ut nulla mattis ultricies. Etiam at sem in erat dignissim dictum. Cras feugiat mi magna.',
 	'showcase_all' => 'All',
 	'showcase_previous' => 'Previous project',
 	'showcase_next' => 'Next project',

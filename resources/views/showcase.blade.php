@@ -10,41 +10,33 @@
 
 @section('view')
 	<div class="showcase">
-		<div class="showcase-desc" data-scroll-section>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-						<h3>
-							{{ trans('lang.showcase_title') }}
-						</h3>
-					</div>
+		<div class="showcase-cover" data-scroll-section>
+			<div class="mask">
+				<img src="https://images.unsplash.com/photo-1591976158059-35d5fcf46a6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Showcase cover">
 
-					<div class="col-md-8">
-						<p>
-							{{ trans('lang.showcase_desc') }}
-						</p>
-					</div>
+				<div class="mask-content container">
+					<h3>
+						{{ trans('lang.showcase_title') }}
+					</h3>
+
+					<h4>
+						{{ trans('lang.showcase_desc') }}
+					</h4>
 				</div>
 			</div>
-		</div>
 
-		<div class="showcase-nav" data-scroll-section>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4"></div>
+			<div class="showcase-nav">
+				<div class="container">
+					<div class="nav">
+						<a href="#" class="active" data-type="*">
+							{{ trans('lang.showcase_all') }}
+						</a>
 
-					<div class="col-md-8 nav-wrapper">
-						<div class="nav">
-							<a href="#" class="active" data-type="*">
-								{{ trans('lang.showcase_all') }}
+						@foreach ($productTypes as $key => $productType)
+							<a href="#" data-type="{{ $key }}">
+								{{ $productType }}
 							</a>
-
-							@foreach ($productTypes as $key => $productType)
-								<a href="#" data-type="{{ $key }}">
-									{{ $productType }}
-								</a>
-							@endforeach
-						</div>
+						@endforeach
 					</div>
 				</div>
 			</div>
@@ -55,13 +47,23 @@
 				<div class="list-products">
 					<div class="item-sizer"></div>
 					@foreach ($products as $key => $product)
-						<div class="item-product item-product-{{$product['product_category_id']}}" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
+						<div class="item-product item-product-{{ $product['product_category_id'] }}" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
 							<a href="{{ route('showcase_detail', ['slug' => $product['slug']] )}}">
 								<img src="{{ asset('storage/app'. $product['cover_mask']) }}" alt="Thumbnail of {{ $product['title'] }}">
 
-								<p>
-									{{ $product['title'] }} - {{ $product['client'] }}
-								</p>
+								<div class="item-content">
+									<h6 class="subtitle-md">
+										{{ $product['product_category_id'] }}
+									</h6>
+									
+									<h4>
+										{{ $product['title'] }}
+									</h4>
+	
+									<h6 class="subtitle-sm">
+										{{ trans('lang.articles_see_detail') }}
+									</h6>
+								</div>
 							</a>
 						</div>
 					@endforeach

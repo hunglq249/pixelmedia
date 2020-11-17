@@ -33,14 +33,14 @@
             @endif
 
             @if ($next)
-			<div class="overlay-hover overlay-next" data-direction="next">
-				<a href="{{ route('showcase_detail', ['slug' => $next->slug] )}}" class="btn" role="button">
-					{{ trans('lang.showcase_next') }}
-					<span class="circle">
-						<i class="els el-lg el-caret-right"></i>
-					</span>
-				</a>
-            </div>
+				<div class="overlay-hover overlay-next" data-direction="next">
+					<a href="{{ route('showcase_detail', ['slug' => $next->slug] )}}" class="btn" role="button">
+						{{ trans('lang.showcase_next') }}
+						<span class="circle">
+							<i class="els el-lg el-caret-right"></i>
+						</span>
+					</a>
+				</div>
             @endif
 
             @if ($previous)
@@ -61,79 +61,70 @@
 
 		<div class="showcase-info">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-4 info-title">
-						<ul class="breadcrumb">
-							<li class="breadcrumb-item">
-								<a href="{{ route('showcase') }}">
-									{{ trans('lang.nav_showcase') }}
-								</a>
-							</li>
+				<div class="info-title">
+					<ul class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a href="{{ route('showcase') }}">
+								{{ trans('lang.nav_showcase') }}
+							</a>
+						</li>
 
-							<li class="breadcrumb-item active">
-								<a href="javascript:void(0)">
-									{{ $product['title'] }}
-								</a>
-							</li>
-						</ul>
+						<li class="breadcrumb-item active">
+							<a href="javascript:void(0)">
+								{{ $product['title'] }}
+							</a>
+						</li>
+					</ul>
 
-						<h3>
-							{{ $product['title'] }}
-						</h3>
+					<h3>
+						{{ $product['title'] }}
+					</h3>
+
+					<p>
+						{{ $product['description'] }}
+					</p>
+
+					<div class="group">
+						<p>
+							{{ trans('lang.showcase_client') }}
+						</p>
+
+						<h5>
+							{{ $product['client'] }}
+						</h5>
 					</div>
-					<div class="col-md-8 info-content">
-						<div class="content-desc">
+
+					<div class="group">
+						<p>
+							{{ trans('lang.showcase_date') }}
+						</p>
+
+						<h5>
+							{{ $product['date'] }}
+						</h5>
+					</div>
+
+					@foreach ($product['teams'] as $item)
+						<div class="group">
 							<p>
-								{{ $product['description'] }}
+								{{ $item['position'] }}
 							</p>
 
-							<div class="row">
-								<div class="col-md-4">
-									<div class="group">
-										<p>
-											{{ trans('lang.showcase_client') }}
-										</p>
-
-										<h5>
-											{{ $product['client'] }}
-										</h5>
-									</div>
-								</div>
-
-								<div class="col-md-4">
-									<div class="group">
-										<p>
-											{{ trans('lang.showcase_date') }}
-										</p>
-
-										<h5>
-											{{ $product['date'] }}
-										</h5>
-									</div>
-								</div>
-
-								<div class="col-md-4">
-									@foreach ($product['teams'] as $item)
-										<div class="group">
-											<p>
-												{{ $item['position'] }}
-											</p>
-
-											<h5>
-												{{ $item['name'] }}
-											</h5>
-										</div>
-									@endforeach
-								</div>
-							</div>
+							<h5>
+								{{ $item['name'] }}
+							</h5>
 						</div>
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
 
 		<div class="showcase-images">
 			<div class="container-fluid">
+				<div>
+                    {!! $product['content'] !!}
+				</div>
+				
 				<div class="list-items">
                     <div class="item-sizer"></div>
                     @foreach ($product->images as $key => $item)
@@ -144,13 +135,8 @@
                         </div>
                     @endforeach
                 </div>
-                <div>
-                    {!! $product['content'] !!}
-                </div>
 			</div>
 		</div>
-
-		
 
 		@include('showcase._popup')
 	</div>

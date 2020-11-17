@@ -29,7 +29,7 @@
 
 			<div class="dropdown-menu dropdown-menu-right">
 				<a href="{!! route('user.change-language', ['vi']) !!}" class="dropdown-item">
-					<img src="{{ asset('dist/img/lang_vi.png') }}" alt="Image lang vi"> Vietnam
+					<img src="{{ asset('dist/img/lang_vi.png') }}" alt="Image lang vi"> Tiếng Việt
 				</a>
 				<a href="{!! route('user.change-language', ['en']) !!}" class="dropdown-item">
 					<img src="{{ asset('dist/img/lang_en.png') }}" alt="Image lang en"> English

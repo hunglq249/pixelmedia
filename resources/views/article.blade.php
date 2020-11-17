@@ -10,83 +10,75 @@
 
 @section('view')
 	<div class="article">
-		<div class="container">
-			<div class="article-title" data-scroll-section>
-				<h3>
-					{{ trans('lang.nav_articles') }}
-				</h3>
-			</div>
+		<div class="article-cover" data-scroll-section>
+			<div class="swiper-container" id="swiperArticle">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="mask">
+							<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Image thumb of all category">
+						</div>
+					</div>
 
-			<div class="article-nav" data-scroll-section>
-				<div class="article-nav-wrapper">
-					<div class="swiper-container" id="swiperArticleNav">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
-								<a href="#" data-type="*">
-									<div class="mask">
-										<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Image thumb of all category">
-
-										<div class="overlay">
-											<h5>
-												{{ trans('lang.articles_all') }}
-											</h5>
-										</div>
-									</div>
-								</a>
+					@foreach ($articleTypes as $type)
+						<div class="swiper-slide">
+							<div class="mask">
+								<img src="{{ asset('storage/app'. $type['image']) }}" alt="Image thumb of {{ $type['title'] }}">
 							</div>
+						</div>
+					@endforeach
+				</div>
 
-							@foreach ($articleTypes as $type)
-								<div class="swiper-slide">
-									<a href="#" data-type="{{ $type['id'] }}">
-										<div class="mask">
-											<img src="{{ asset('storage/app'. $type['image']) }}" alt="Image thumb of {{ $type['title'] }}">
-
-											<div class="overlay">
-												<h5>
-													{{ $type['title'] }}
-												</h5>
-											</div>
-										</div>
-									</a>
-								</div>
+				<div class="article-nav">
+					<div class="container">
+						<div class="nav">
+							<a href="#" class="active" data-type="*">
+								{{ trans('lang.showcase_all') }}
+							</a>
+	
+							@foreach ($articleTypes as $key => $articleType)
+								<a href="#" data-type="{{ $key }}">
+									{{ $articleType['title'] }}
+								</a>
 							@endforeach
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="article-posts" data-scroll-section>
+		<div class="container" data-scroll-section>
+			<div class="article-posts">
 				<div class="post-sizer"></div>
 
 				@foreach ($articles as $key => $article)
 					<div class="post post-{{ $article['category_id'] }}" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
-						<div class="card">
-							<div class="card-body">
-								@if(isset($article['image']) && $article['image'] != '')
-									<img src="{{ asset('storage/app'. $article['image']) }}" alt="Image of article {{ $article['title'] }}">
-								@endif
+						<a href="{{ route('article_detail', ['slug' => $article['slug']]) }}">
+							@if(isset($article['image']) && $article['image'] != '')
+								<img src="{{ asset('storage/app'. $article['image']) }}" alt="Image of article {{ $article['title'] }}">
+							@else
+								<div class="blank-image"></div>
+							@endif
 
-								<h6>
+							<div class="post-content">
+								<h6 class="subtitle-md">
 									{{ $article['id'] }}
 								</h6>
-
-								<a href="{{ route('article_detail', ['slug' => $article['slug']]) }}">
-									<h4>
-										{{ $article['title'] }}
-									</h4>
-								</a>
+								
+								<h4>
+									{{ str_limit($article['title'], 70, '...') }}
+								</h4>
 
 								@if(isset($article['description']) && $article['description'] != '')
 									<p>
-										{{ $article['description'] }}
+										{{ str_limit($article['description'], 120, '...') }}
 									</p>
 								@endif
 
-								<a href="{{ route('article_detail', ['slug' => $article['slug']]) }}" class="btn btn-sm" role="button">
+								<h6 class="subtitle-sm">
 									{{ trans('lang.articles_see_detail') }}
-								</a>
+								</h6>
 							</div>
-						</div>
+						</a>
 					</div>
 				@endforeach
 			</div>

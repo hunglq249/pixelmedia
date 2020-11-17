@@ -64,11 +64,11 @@
 								{{ $job['description'] }}
 							</p>
 
-							<a href="#" onclick="callPopup(event, {{ $job['id'] }}, false)">
+							<a href="#" class="btn btn-outline-dark" onclick="callPopup(event, {{ $job['id'] }}, false)" role="button">
 								{{ trans('lang.career_btn_view') }}
 							</a>
 
-							<a href="#" onclick="callPopup(event, {{ $job['id'] }})">
+							<a href="#" class="btn btn-outline-dark" onclick="callPopup(event, {{ $job['id'] }})" role="button">
 								{{ trans('lang.career_btn_apply') }}
 							</a>
 						</div>

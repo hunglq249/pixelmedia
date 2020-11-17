@@ -36,21 +36,25 @@ $(document).ready(function () {
     });
 
     // INIT SWIPER
-    var swiperArticleNav = new Swiper('#swiperArticleNav', {
-        slidesPerView: 'auto',
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                spaceBetween: 0
-            },
-            768: {
-                slidesPerView: 'auto',
-                spaceBetween: 24
-            },
-            1024: {
-                slidesPerView: 'auto',
-                spaceBetween: 24
-            }
-        }
+    var swiperArticleNav = new Swiper('#swiperArticle', {
+        slidesPerView: 1
     });
+
+    // var swiperArticleNav = new Swiper('#swiperArticleNav', {
+    //     slidesPerView: 'auto',
+    //     breakpoints: {
+    //         0: {
+    //             slidesPerView: 1,
+    //             spaceBetween: 0
+    //         },
+    //         768: {
+    //             slidesPerView: 'auto',
+    //             spaceBetween: 24
+    //         },
+    //         1024: {
+    //             slidesPerView: 'auto',
+    //             spaceBetween: 24
+    //         }
+    //     }
+    // });
 });

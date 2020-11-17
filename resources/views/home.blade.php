@@ -18,9 +18,6 @@
 							<div class="overlay-text">
 								<h2>
 									{{ $item['title'] }}
-
-									<span class="stroke stroke-1">{{ $item['title'] }}</span>
-      								<span class="stroke stroke-2">{{ $item['title'] }}</span>
 								</h2>
 								<h5>
 									{{ $types[$item['product_category_id']] }}
@@ -57,8 +54,34 @@
 			</div>
 
 			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="swiper-inner">
+						<video preload="auto" autoplay="true" loop muted>
+							<source src="{{ asset('storage/video/VERSATILE.mp4') }}" type="video/mp4">
+							Your browser does not support video
+						</video>
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="swiper-inner">
+						<video preload="auto" autoplay="true" loop muted>
+							<source src="{{ asset('storage/video/Portal_FX.mp4') }}" type="video/mp4">
+							Your browser does not support video
+						</video>
+					</div>
+				</div>
+			</div>
+
+			{{-- <div class="swiper-wrapper">
                 @foreach ($products as $key => $item)
 					<div class="swiper-slide">
+						<div class="swiper-inner">
+							<video preload="auto" autoplay="true" loop muted>
+								<source src="{{ asset('storage/video/VERSATILE.mp4') }}" type="video/mp4">
+								Your browser does not support video
+							</video>
+						</div>
 						@if ($item['cover_type'] == 0)
 							<div class="swiper-inner" style="background-image: url({{ asset('storage/app'. $item['cover_url']) }})"></div>
 						@else
@@ -66,7 +89,7 @@
 						@endif
 					</div>
 				@endforeach
-			</div>
+			</div> --}}
 
 			<div class="swiper-pagination"></div>
 		</div>
