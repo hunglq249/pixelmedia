@@ -54,8 +54,8 @@ class TeamController extends Controller
     {
         if($request->image){
             $size = $request->image->getSize();
-            if($size > 1572864){
-                Session::flash('error', 'Ảnh không được vựt quá 1.5 Mb!!');
+            if($size > config('constants.IMAGE_UPLOAD_SIZE')){
+                Session::flash('error', config('constants.IMAGE_UPLOAD_OVER_SIZE'));
                 return redirect()->intended(route('thanh-vien.create'));
             }
         };
@@ -110,8 +110,8 @@ class TeamController extends Controller
     {
         if($request->image){
             $size = $request->image->getSize();
-            if($size > 1572864){
-                Session::flash('error', 'Ảnh không được vựt quá 1.5 Mb!!');
+            if($size > config('constants.IMAGE_UPLOAD_SIZE')){
+                Session::flash('error', config('constants.IMAGE_UPLOAD_OVER_SIZE'));
                 return redirect()->intended(route('thanh-vien.create'));
             }
         };

@@ -30,31 +30,20 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'image' => 'required',
             'title_vi' => 'required',
             'title_en' => 'required',
             'slug' => 'required',
         ];
-        $action = $this->action->getActionMethod();
-        if($action == 'update'){
-            unset($rules['image']);
-        }
         return $rules;
     }
 
     public function messages()
     {
         $messages = [
-            'image.required' => 'Hình Ảnh không được trống',
             'title_vi.required'  => 'Tiêu Đề (Tiếng Việt) không được trống',
             'title_en.required'  => 'Tiêu Đề (Tiếng Anh) không được trống',
             'slug.required'  => 'Slug không được trống'
         ];
-
-        $action = $this->action->getActionMethod();
-        if($action == 'update'){
-            unset($messages['image']);
-        }
         return $messages;
     }
 }

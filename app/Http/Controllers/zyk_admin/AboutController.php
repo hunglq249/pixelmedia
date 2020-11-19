@@ -137,8 +137,8 @@ class AboutController extends Controller
 
         if($request->cover){
             $size = $request->cover->getSize();
-            if($size > 1572864){
-                Session::flash('error', 'Ảnh không được vựt quá 1.5 Mb!!');
+            if($size > config('constants.IMAGE_UPLOAD_SIZE')){
+                Session::flash('error', config('constants.IMAGE_UPLOAD_OVER_SIZE'));
                 return redirect()->intended(route('san-pham.create'));
             }
         };
@@ -147,7 +147,7 @@ class AboutController extends Controller
             foreach($files as $file){
                 $size = $file->getSize();
                 $name=$file->getClientOriginalName();
-                if($size > 1572864){
+                if($size > config('constants.IMAGE_UPLOAD_SIZE')){
                     $break1Errors[] = $name;
                 }
             }
@@ -162,7 +162,7 @@ class AboutController extends Controller
             foreach($files as $file){
                 $size = $file->getSize();
                 $name=$file->getClientOriginalName();
-                if($size > 1572864){
+                if($size > config('constants.IMAGE_UPLOAD_SIZE')){
                     $break2Errors[] = $name;
                 }
             }

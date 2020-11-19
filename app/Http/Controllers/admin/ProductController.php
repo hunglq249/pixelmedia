@@ -85,8 +85,8 @@ class ProductController extends Controller
     {
         if($request->cover_mask){
             $size = $request->cover_mask->getSize();
-            if($size > 1572864){
-                Session::flash('error', 'Ảnh không được vựt quá 1.5 Mb!!');
+            if($size > config('constants.IMAGE_UPLOAD_SIZE')){
+                Session::flash('error', config('constants.IMAGE_UPLOAD_OVER_SIZE'));
                 return redirect()->intended(route('san-pham.create'));
             }
         };
@@ -95,7 +95,7 @@ class ProductController extends Controller
             foreach($files as $file){
                 $size = $file->getSize();
                 $name=$file->getClientOriginalName();
-                if($size > 1572864){
+                if($size > config('constants.IMAGE_UPLOAD_SIZE')){
                     $imageErrors[] = $name;
                 }
             }
@@ -256,8 +256,8 @@ class ProductController extends Controller
         $idEn = $ids[1];
         if($request->cover_mask){
             $size = $request->cover_mask->getSize();
-            if($size > 1572864){
-                Session::flash('error', 'Ảnh không được vựt quá 1.5 Mb!!');
+            if($size > config('constants.IMAGE_UPLOAD_SIZE')){
+                Session::flash('error', config('constants.IMAGE_UPLOAD_OVER_SIZE'));
                 return redirect()->intended(route('san-pham.create'));
             }
         };
@@ -266,7 +266,7 @@ class ProductController extends Controller
             foreach($files as $file){
                 $size = $file->getSize();
                 $name=$file->getClientOriginalName();
-                if($size > 1572864){
+                if($size > config('constants.IMAGE_UPLOAD_SIZE')){
                     $imageErrors[] = $name;
                 }
             }

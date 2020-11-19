@@ -53,7 +53,7 @@
 
 								<div class="item-content">
 									<h6 class="subtitle-md">
-										{{ $product['product_category_id'] }}
+										{{ $productTypes[$product['product_category_id']] }}
 									</h6>
 									
 									<h4>
