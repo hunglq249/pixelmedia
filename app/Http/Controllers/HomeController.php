@@ -9,6 +9,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Repositories\Products\ProductRepository;
 use App\Repositories\ProductCategories\ProductCategoryRepository;
+use App\Repositories\Videos\VideoRepository;
 use Session;
 
 class HomeController extends BaseController
@@ -17,14 +18,17 @@ class HomeController extends BaseController
 
     protected $productRepository;
     protected $productCategoryRepository;
+    protected $videoRepository;
 
     public function __construct(
         ProductRepository $productRepository,
-        ProductCategoryRepository $productCategoryRepository
+        ProductCategoryRepository $productCategoryRepository,
+        VideoRepository $videoRepository
     )
     {
         $this->productRepository = $productRepository;
         $this->productCategoryRepository = $productCategoryRepository;
+        $this->videoRepository = $videoRepository;
     }
 
 	public function countdown(){
@@ -42,9 +46,14 @@ class HomeController extends BaseController
             }
         }
 
+        $videos = $this->videoRepository->getAllByLang($lang);
+        foreach ($videos as $key => $value) {
+            if(count($value->lang)){
+                $videos[$key]['title'] = $value->lang[0]['title'];
+            }
+        }
 
         $products = Common::products();
-
         $products = $this->productRepository->getAllByIsTopAndLang($lang);
         foreach ($products as $key => $value) {
             if(count($value->lang)){
@@ -52,8 +61,7 @@ class HomeController extends BaseController
                 $products[$key]['sub_title'] = $value->lang[0]['sub_title'];
             }
         }
-
-		return view('home', compact('products', 'types'));
+		return view('home', compact('products', 'types', 'videos'));
     }
 
     public function changeLanguage($language){

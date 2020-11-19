@@ -8,6 +8,7 @@ use App\Repositories\Videos\VideoRepository;
 use App\Repositories\Videos\VideoLangRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
 {
@@ -55,7 +56,7 @@ class VideoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VideoRequest $request)
     {
         if($request->path){
             $size = $request->path->getSize();
@@ -118,7 +119,31 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $video = $this->videoRepository->find($id);
+        if(!$video){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Video'));
+            return redirect()->route('video.index');
+        }
+        $langData = [];
+        $ids = [];
+        if($video->lang){
+            foreach ($video->lang->toArray() as $key => $item){
+                if($item['lang'] == 'en'){
+                    $lang = 'en';
+                    $ids['id_en'] = $item['id'];
+                }else{
+                    $lang = 'vi';
+                    $ids['id_vi'] = $item['id'];
+                }
+                foreach ($item as $k => $value){
+                    $langData[$k . '_' . $lang] = $value;
+                }
+            }
+        }
+        $ids = implode(',', $ids);
+
+        $html = view('zyk_admin.videos.edit', compact('video', 'langData', 'ids'))->render();
+        return response()->json(['html' => $html]);
     }
 
     /**
@@ -128,9 +153,57 @@ class VideoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(VideoRequest $request, $id)
     {
-        //
+        $video = $this->videoRepository->find($id);
+        if(!$video){
+            Session::flash('error', sprintf(config('constants.MESSAGE_NOT_FOUND'), 'Video'));
+            return redirect()->route('video.index');
+        }
+        $ids = explode(',', $request->id_lang);
+        $idVi = $ids[0];
+        $idEn = $ids[1];
+
+        if($request->path){
+            $size = $request->path->getSize();
+            if($size > config('constants.VIDEO_UPLOAD_SIZE')){
+                Session::flash('error', config('constants.VIDEO_UPLOAD_OVER_SIZE'));
+                return redirect()->intended(route('video.create'));
+            }
+        };
+
+        $data = [
+            'created_by' => Auth::user()->email,
+            'updated_by' => Auth::user()->email,
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'is_deleted' => 0,
+            'status' => 0,
+        ];
+        if($request->path){
+            $data['path'] = '/videos/' . $request->file('path')->hashName();
+            $request->path->move('storage/app/videos', $request->file('path')->hashName());
+        };
+        $update = $this->videoRepository->update($id, $data);
+
+        if($update){
+            $dataVi = [
+                'video_id' => $id,
+                'title' => $request->title_vi,
+                'lang' => 'vi'
+            ];
+            $dataEn = [
+                'video_id' => $id,
+                'title' => $request->title_en,
+                'lang' => 'en'
+            ];
+            $this->videoLangRepository->update($idVi, $dataVi);
+            $this->videoLangRepository->update($idEn, $dataEn);
+            Session::flash('success', sprintf(config('constants.MESSAGE_CREATE_SUCCESS'), 'Video'));
+            return redirect()->route('video.index');
+        }
+        Session::flash('error', sprintf(config('constants.MESSAGE_CREATE_ERROR'), 'Video'));
+        return back();
     }
 
     /**

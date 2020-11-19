@@ -25,8 +25,8 @@
             <div class="form-group col-md-8">
                 <div class="article-image-wrapper">
                     @if($path)
-                        <div class="mask" style="width: 100%; height: 230px">
-                            <img src="{{ asset('storage/app'. $path) }}" alt="Thumb of {{ $path }}">
+                        <div class="mask" style="width: 100%;">
+                            <video width="100%" src="{{ asset('storage/app'. $path) }}" controls autoplay></video>
                         </div>
                     @endif
                 </div>

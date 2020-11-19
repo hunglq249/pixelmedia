@@ -144,7 +144,7 @@ Route::prefix('admin')->group(function(){
         Route::get('/gioi-thieu/{gioi_thieu}/edit', [AdminAboutController::class, 'edit'])->name('gioi-thieu.edit');
         Route::post('/gioi-thieu/{gioi_thieu}', [AdminAboutController::class, 'update'])->name('gioi-thieu.update');
 
-        Route::get('video/remove/{video}', [AdminArticleController::class, 'remove'])->name('video.remove');
+        Route::get('video/remove/{video}', [VideoController::class, 'remove'])->name('video.remove');
         Route::resource('/video', VideoController::class);
         // Route::prefix('zyk')->group(function(){
         //     Route::get('danh-muc-san-pham/remove/{danh_muc_san_pham}', [ProductCategoryController::class, 'remove'])->name('danh-muc-san-pham.remove');

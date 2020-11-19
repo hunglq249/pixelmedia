@@ -54,23 +54,16 @@
 			</div>
 
 			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<div class="swiper-inner">
-						<video preload="auto" autoplay="true" loop muted>
-							<source src="{{ asset('storage/video/VERSATILE.mp4') }}" type="video/mp4">
-							Your browser does not support video
-						</video>
+				@foreach ($videos as $video)
+					<div class="swiper-slide">
+						<div class="swiper-inner">
+							<video preload="auto" autoplay="true" loop muted>
+								<source src="{{ asset('storage/app' . $video->path) }}" type="video/mp4">
+								{{ $video->title }}
+							</video>
+						</div>
 					</div>
-				</div>
-
-				<div class="swiper-slide">
-					<div class="swiper-inner">
-						<video preload="auto" autoplay="true" loop muted>
-							<source src="{{ asset('storage/video/Portal_FX.mp4') }}" type="video/mp4">
-							Your browser does not support video
-						</video>
-					</div>
-				</div>
+				@endforeach
 			</div>
 
 			{{-- <div class="swiper-wrapper">
