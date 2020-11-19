@@ -61,7 +61,7 @@
 
 							<div class="post-content">
 								<h6 class="subtitle-md">
-									{{ $article['id'] }}
+									{{ $articleCategorieArr[$article['category_id']] }}
 								</h6>
 								
 								<h4>

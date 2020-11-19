@@ -97,7 +97,7 @@ class VideoController extends Controller
             return redirect()->route('video.index');
         }
         Session::flash('error', sprintf(config('constants.MESSAGE_CREATE_ERROR'), 'Video'));
-        return back();
+        return redirect()->route('video.index');
     }
 
     /**

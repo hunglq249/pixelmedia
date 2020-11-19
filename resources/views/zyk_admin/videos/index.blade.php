@@ -137,3 +137,14 @@
 
     @include('zyk_admin.utils._popup_common')
 @endsection
+
+@section('js')
+    <script>
+        $(document).ready(function(){
+            $('#popupUpdateItem').on('hidden.zyk.popup', function(){
+                const $popup = $(this);
+                $popup.find('video').trigger('pause');
+            })
+        })
+    </script>
+@endsection

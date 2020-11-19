@@ -41,11 +41,11 @@
 
 			<div class="overlay-nav">
 				<ul>
-					@foreach ($products as $key => $item)
+					@foreach ($videos as $key => $video)
 						<li>
 							<a href="#" class="switch-slide {{ $key == 0 ? 'active' : '' }}" data-slide-index="{{ $key }}">
 								<span>
-									{{ $item['title'] }}	
+									{{ $video['title'] }}	
 								</span>	
 							</a>
 						</li>

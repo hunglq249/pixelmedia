@@ -31,12 +31,15 @@ class ArticleController extends BaseController
 	public function index(){
         $lang = Session::get('website_language', config('app.locale'));
 
+        $articleCategorieArr = [];
         $articleTypes = $this->articleCategoryRepository->getAllByLang($lang);
         foreach ($articleTypes as $key => $value) {
             if(count($value->lang)){
                 $articleTypes[$key]['title'] = $value->lang[0]['title'];
+                $articleCategorieArr[$value->id] = $value->lang[0]['title'];
             }
         }
+
         $articles = $this->articleRepository->getAllByLang($lang);
         foreach ($articles as $key => $value) {
             if(count($value->lang)){
@@ -45,7 +48,7 @@ class ArticleController extends BaseController
             }
         }
 
-		return view('article', compact('articleTypes', 'articles'));
+		return view('article', compact('articleTypes', 'articleCategorieArr', 'articles'));
 	}
 
 	public function articleByCategory($id=null){
