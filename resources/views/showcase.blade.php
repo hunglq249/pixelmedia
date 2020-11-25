@@ -14,7 +14,7 @@
 			<div class="mask">
 				<img src="https://images.unsplash.com/photo-1591976158059-35d5fcf46a6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Showcase cover">
 
-				<div class="mask-content container">
+				<div class="mask-content container-fluid">
 					<h3>
 						{{ trans('lang.showcase_title') }}
 					</h3>
@@ -26,7 +26,7 @@
 			</div>
 
 			<div class="showcase-nav">
-				<div class="container">
+				<div class="container-fluid">
 					<div class="nav">
 						<a href="#" class="active" data-type="*">
 							{{ trans('lang.showcase_all') }}
@@ -42,14 +42,17 @@
 			</div>
 		</div>
 
-		<div class="showcase-list" data-scroll-section>
-			<div class="container-fluid">
+		<div class="container-fluid" data-scroll-section>
+			<div class="showcase-list">
 				<div class="list-products">
 					<div class="item-sizer"></div>
 					@foreach ($products as $key => $product)
-						<div class="item-product item-product-{{ $product['product_category_id'] }}" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
+						<div class="item-product item-product-{{ $product['product_category_id'] }}" data-scroll data-scroll-speed="{{ rand(2, 4) }}">
 							<a href="{{ route('showcase_detail', ['slug' => $product['slug']] )}}">
-								<img src="{{ asset('storage/app'. $product['cover_mask']) }}" alt="Thumbnail of {{ $product['title'] }}">
+								<div class="mask">
+									<div class="mask-overlay"></div>
+									<img src="{{ asset('storage/app'. $product['cover_mask']) }}" alt="Thumbnail of {{ $product['title'] }}">
+								</div>
 
 								<div class="item-content">
 									<h6 class="subtitle-md">
@@ -82,7 +85,7 @@
 
 @section('js')
 	<!-- IMAGELOADED JS -->
-	<script src="{{ asset('plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+	<script src="{{ asset('plugins/imagesLoaded/imagesloaded.pkgd.min.js') }}"></script>
 
 	<!-- ISOTOPE JS -->
 	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>

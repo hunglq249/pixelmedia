@@ -1974,7 +1974,7 @@ body {
 header {
   width: 100%;
   height: 8rem;
-  padding: 0 4rem;
+  padding: 0 8rem;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0)));
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
   background-image: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
@@ -1994,6 +1994,14 @@ header {
   position: fixed;
   top: 0;
   z-index: 1030;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+header.collapsed {
+  top: -8rem;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 header .header-brand a img {
@@ -2243,6 +2251,9 @@ footer .row .footer-social .social-logo a img {
     margin-bottom: 2rem;
     margin-left: 0;
     font-size: 2.25rem;
+  }
+  header .header-nav a:after {
+    bottom: -4px;
   }
   header .header-toggle {
     position: relative;

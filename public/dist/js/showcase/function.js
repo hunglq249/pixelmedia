@@ -7,6 +7,7 @@ $(document).ready(function () {
         percentPosition: true
     });
 
+    // FILTER PRODUCT
     $('.showcase-nav')
         .find('a')
         .unbind()

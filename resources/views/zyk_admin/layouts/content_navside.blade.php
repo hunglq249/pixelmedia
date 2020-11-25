@@ -111,5 +111,13 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="menu-group-wrapper">
+			<div class="menu-group-item @if(Request::Segment($segmentPos) == 'video') active @endif">
+				<a href="{{ route('video.index') }}">
+					<i class="elo el-lg el-video"></i> Video
+				</a>
+			</div>
+		</div>
 	</div>
 </div>

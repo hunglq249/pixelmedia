@@ -10,7 +10,7 @@
 
 @section('view')
 	<div class="article-detail">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="article-breadcrumb">
 				<ul class="breadcrumb">
 					<li class="breadcrumb-item">

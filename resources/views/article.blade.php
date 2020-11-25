@@ -29,14 +29,14 @@
 				</div>
 
 				<div class="article-nav">
-					<div class="container">
+					<div class="container-fluid">
 						<div class="nav">
 							<a href="#" class="active" data-type="*">
 								{{ trans('lang.showcase_all') }}
 							</a>
 	
 							@foreach ($articleTypes as $key => $articleType)
-								<a href="#" data-type="{{ $key }}">
+								<a href="#" data-type="{{ $articleType['id'] }}">
 									{{ $articleType['title'] }}
 								</a>
 							@endforeach
@@ -46,15 +46,17 @@
 			</div>
 		</div>
 
-		<div class="container" data-scroll-section>
+		<div class="container-fluid" data-scroll-section>
 			<div class="article-posts">
 				<div class="post-sizer"></div>
 
 				@foreach ($articles as $key => $article)
-					<div class="post post-{{ $article['category_id'] }}" data-scroll data-scroll-speed="{{ rand(1, 3) }}">
+					<div class="post post-{{ $article['category_id'] }}" data-scroll data-scroll-speed="{{ rand(2, 4) }}">
 						<a href="{{ route('article_detail', ['slug' => $article['slug']]) }}">
 							@if(isset($article['image']) && $article['image'] != '')
-								<img src="{{ asset('storage/app'. $article['image']) }}" alt="Image of article {{ $article['title'] }}">
+								<div class="mask">
+									<img src="{{ asset('storage/app'. $article['image']) }}" alt="Image of article {{ $article['title'] }}">
+								</div>
 							@else
 								<div class="blank-image"></div>
 							@endif

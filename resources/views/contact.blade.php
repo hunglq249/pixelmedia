@@ -10,7 +10,7 @@
 
 @section('view')
 	<div class="contact">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="section section-heading" data-scroll-section>
 				<div class="row">
 					<div class="col-md-3"></div>

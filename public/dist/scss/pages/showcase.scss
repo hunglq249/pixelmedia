@@ -3,7 +3,9 @@
 
 .showcase{
 	.showcase-cover{
-		height: 90vh;
+		height: 100vh;
+
+		border-bottom: 2px solid var(--bg-bw-rv);
 
 		position: relative;
 
@@ -14,6 +16,8 @@
 			position: relative;
 
 			.mask-content{
+				padding: 0 8rem;
+
 				position: absolute;
 				top: 50%;
 				left: 50%;
@@ -30,6 +34,8 @@
 				}
 
 				h4{
+					max-width: 60%;
+
 					margin-bottom: 2rem;
 					font-weight: 400;
 				}
@@ -47,8 +53,10 @@
 	
 			@include d-flex(row, normal, center);
 	
-			.container{
+			.container-fluid{
 				height: 100%;
+
+				padding: 0 8rem;
 	
 				.nav{
 					height: 100%;
@@ -102,66 +110,96 @@
 	}
 
 	.showcase-list{
-		.container-fluid{
-			padding: 1rem 4rem 2rem;
+		padding: 8rem;
 
-			.list-products{
-				margin: 0 -1.5rem;
+		.list-products{
+			margin: 0 -1.5rem;
 
-				.item-sizer,
-				.item-product{
-					width: 50%;
+			.item-sizer,
+			.item-product{
+				width: 50%;
 
-					padding: 0 1.5rem;
-					margin-bottom: 3rem;
+				padding: 0 1.5rem;
+				margin-bottom: 3rem;
 
-					a{
+				@include transition();
+
+				a{
+					width: 100%;
+
+					display: block;
+
+					position: relative;
+
+					&:hover{
+						.mask{
+							img{
+								@include scale(1.2, 1.2);
+								@include transition();
+							}
+						}
+					}
+
+					.mask{
 						width: 100%;
-
-						display: block;
+						max-height: 50vh;
 
 						position: relative;
 
-						img{
+						.mask-overlay{
 							width: 100%;
-						}
+							height: 100%;
 
-						.item-content{
-							padding: 2rem;
+							background-image: url('/dist/img/bg_texture.png');
 
 							position: absolute;
-							bottom: 0;
-							left: 0;
+							top: 50%;
+							left: 50%;
 							z-index: 1;
 
-							h4{
-								margin-bottom: 2rem;
+							@include translate(-50%, -50%);
+						}
 
-								font-weight: 800;
+						img{
+							@include transition();
+						}
+					}
+
+					.item-content{
+						padding: 2rem;
+
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						z-index: 1;
+
+						h4{
+							margin-bottom: 2rem;
+
+							font-weight: 800;
+							text-transform: uppercase;
+
+							@include textShadowDf();
+						}
+
+						h6{
+							@include textShadowDf();
+
+							&.subtitle-md{
+								margin-bottom: 1rem;
+
 								text-transform: uppercase;
 
-								@include textShadowDf();
+								font-weight: 600;
 							}
 
-							h6{
-								@include textShadowDf();
+							&.subtitle-sm{
+								padding: 0.75rem 1.5rem;
 
-								&.subtitle-md{
-									margin-bottom: 1rem;
+								display: inline-flex;
 
-									text-transform: uppercase;
-
-									font-weight: 600;
-								}
-
-								&.subtitle-sm{
-									padding: 0.75rem 1.5rem;
-
-									display: inline-flex;
-
-									border: 1px solid var(--white);
-									@include borderRadius();
-								}
+								border: 1px solid var(--white);
+								@include borderRadius();
 							}
 						}
 					}
@@ -373,7 +411,7 @@
 
 	.showcase-images{
 		.container-fluid{
-			padding: 0 4rem;
+			padding: 0 8rem;
 
 			.list-items{
 				margin: 0 -0.75rem;
@@ -494,47 +532,36 @@
 
 @media screen and (max-width: 576px){
 	.showcase{
-		.showcase-desc{
-			.container{
-				padding-top: 4rem;
+		.showcase-cover{
+			.mask{
+				.mask-content{
+					padding: 0 1.5rem;
 
-				.row{
-					> div {
-						h3{
-							font-size: calc(3rem * 0.75);
-							line-height: calc(3rem * 0.75 * 1.25);
-						}
+					top: 10%;
 
-						p{
-							font-size: calc(1.5rem * 0.75);
-							line-height: calc(1.5rem * 0.75 * 1.25);
-						}
+					h4{
+						max-width: unset;
 					}
 				}
 			}
-		}
 
-		.showcase-nav{
-			.container{
-				.row{
-					.nav-wrapper{
-						@include overflow-x();
-						overflow-y: hidden;
-					}
+			.showcase-nav{
+				@include overflow-x();
+				overflow-y: hidden;
+
+				.container-fluid{
+					padding: 0 1.5rem;
 				}
 			}
 		}
 
 		.showcase-list{
-			.container-fluid{
-				padding-left: 1.5rem;
-				padding-right: 1.5rem;
+			padding: 8rem 0;
 
-				.list-products{
-					.item-sizer,
-					.item-product{
-						width: 100%;
-					}
+			.list-products{
+				.item-sizer,
+				.item-product{
+					width: 100%;
 				}
 			}
 		}
@@ -550,6 +577,13 @@
 		.showcase-images{
 			.container-fluid{
 				padding: 0 1.5rem;
+
+				.list-items{
+					.item-sizer,
+					.item-image{
+						width: 100% !important;
+					}
+				}
 			}
 		}
 	}

@@ -45,7 +45,8 @@
 }
 
 .article .article-cover {
-  height: 90vh;
+  height: 100vh;
+  border-bottom: 2px solid var(--bg-bw-rv);
 }
 
 .article .article-cover .swiper-container {
@@ -87,11 +88,12 @@
           align-items: center;
 }
 
-.article .article-cover .swiper-container .article-nav .container {
+.article .article-cover .swiper-container .article-nav .container-fluid {
   height: 100%;
+  padding: 0 8rem;
 }
 
-.article .article-cover .swiper-container .article-nav .container .nav {
+.article .article-cover .swiper-container .article-nav .container-fluid .nav {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -108,7 +110,7 @@
           align-items: stretch;
 }
 
-.article .article-cover .swiper-container .article-nav .container .nav a {
+.article .article-cover .swiper-container .article-nav .container-fluid .nav a {
   padding: 1rem;
   font-size: 1.25rem;
   text-transform: uppercase;
@@ -116,7 +118,7 @@
   position: relative;
 }
 
-.article .article-cover .swiper-container .article-nav .container .nav a:after {
+.article .article-cover .swiper-container .article-nav .container-fluid .nav a:after {
   content: '';
   width: 100%;
   height: 4px;
@@ -127,53 +129,57 @@
   z-index: 1;
 }
 
-.article .article-cover .swiper-container .article-nav .container .nav a:hover {
+.article .article-cover .swiper-container .article-nav .container-fluid .nav a:hover {
   color: var(--primary);
 }
 
-.article .article-cover .swiper-container .article-nav .container .nav a:hover:after {
+.article .article-cover .swiper-container .article-nav .container-fluid .nav a:hover:after {
   background-color: var(--primary);
 }
 
-.article .article-cover .swiper-container .article-nav .container .nav a.active {
+.article .article-cover .swiper-container .article-nav .container-fluid .nav a.active {
   color: var(--primary);
 }
 
-.article .article-cover .swiper-container .article-nav .container .nav a.active:after {
+.article .article-cover .swiper-container .article-nav .container-fluid .nav a.active:after {
   background-color: var(--primary);
 }
 
-.article .container .article-title {
+.article .container-fluid {
+  padding: 0 8rem;
+}
+
+.article .container-fluid .article-title {
   padding-top: 4rem;
 }
 
-.article .container .article-title h3 {
+.article .container-fluid .article-title h3 {
   font-weight: 800;
 }
 
-.article .container .article-nav {
+.article .container-fluid .article-nav {
   padding-top: 4rem;
 }
 
-.article .container .article-nav .article-nav-wrapper .swiper-container .swiper-wrapper .swiper-slide {
+.article .container-fluid .article-nav .article-nav-wrapper .swiper-container .swiper-wrapper .swiper-slide {
   width: 374px;
   height: 160px;
 }
 
-.article .container .article-nav .article-nav-wrapper .swiper-container .swiper-wrapper .swiper-slide a {
+.article .container-fluid .article-nav .article-nav-wrapper .swiper-container .swiper-wrapper .swiper-slide a {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.article .container .article-nav .article-nav-wrapper .swiper-container .swiper-wrapper .swiper-slide a .mask {
+.article .container-fluid .article-nav .article-nav-wrapper .swiper-container .swiper-wrapper .swiper-slide a .mask {
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
   position: relative;
 }
 
-.article .container .article-nav .article-nav-wrapper .swiper-container .swiper-wrapper .swiper-slide a .mask .overlay {
+.article .container-fluid .article-nav .article-nav-wrapper .swiper-container .swiper-wrapper .swiper-slide a .mask .overlay {
   width: 100%;
   height: 100%;
   padding: 1.5rem;
@@ -196,42 +202,56 @@
           align-items: flex-end;
 }
 
-.article .container .article-nav .article-nav-wrapper .swiper-container .swiper-wrapper .swiper-slide a .mask .overlay h5 {
+.article .container-fluid .article-nav .article-nav-wrapper .swiper-container .swiper-wrapper .swiper-slide a .mask .overlay h5 {
   text-transform: uppercase;
   text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-.article .container .article-posts {
-  padding-top: 8rem;
+.article .container-fluid .article-posts {
+  padding: 8rem 0;
 }
 
-.article .container .article-posts .post-sizer,
-.article .container .article-posts .post {
+.article .container-fluid .article-posts .post-sizer,
+.article .container-fluid .article-posts .post {
   width: 50%;
   margin-bottom: 1.5rem;
   padding: 0 0.75rem;
 }
 
-.article .container .article-posts .post-sizer a,
-.article .container .article-posts .post a {
+.article .container-fluid .article-posts .post-sizer a,
+.article .container-fluid .article-posts .post a {
   display: block;
   position: relative;
 }
 
-.article .container .article-posts .post-sizer a img,
-.article .container .article-posts .post a img {
-  width: 100%;
-  display: block;
+.article .container-fluid .article-posts .post-sizer a:hover .mask img,
+.article .container-fluid .article-posts .post a:hover .mask img {
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
-.article .container .article-posts .post-sizer a .blank-image,
-.article .container .article-posts .post a .blank-image {
+.article .container-fluid .article-posts .post-sizer a .mask,
+.article .container-fluid .article-posts .post a .mask {
+  width: 100%;
+  max-height: 50vh;
+}
+
+.article .container-fluid .article-posts .post-sizer a .mask img,
+.article .container-fluid .article-posts .post a .mask img {
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.article .container-fluid .article-posts .post-sizer a .blank-image,
+.article .container-fluid .article-posts .post a .blank-image {
   min-height: 400px;
   background-color: var(--gray-1);
 }
 
-.article .container .article-posts .post-sizer a .post-content,
-.article .container .article-posts .post a .post-content {
+.article .container-fluid .article-posts .post-sizer a .post-content,
+.article .container-fluid .article-posts .post a .post-content {
   padding: 2rem;
   position: absolute;
   bottom: 0;
@@ -239,28 +259,28 @@
   z-index: 1;
 }
 
-.article .container .article-posts .post-sizer a .post-content h4,
-.article .container .article-posts .post a .post-content h4 {
+.article .container-fluid .article-posts .post-sizer a .post-content h4,
+.article .container-fluid .article-posts .post a .post-content h4 {
   margin-bottom: 2rem;
   font-weight: 800;
   text-transform: uppercase;
   text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-.article .container .article-posts .post-sizer a .post-content h6,
-.article .container .article-posts .post a .post-content h6 {
+.article .container-fluid .article-posts .post-sizer a .post-content h6,
+.article .container-fluid .article-posts .post a .post-content h6 {
   text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-.article .container .article-posts .post-sizer a .post-content h6.subtitle-md,
-.article .container .article-posts .post a .post-content h6.subtitle-md {
+.article .container-fluid .article-posts .post-sizer a .post-content h6.subtitle-md,
+.article .container-fluid .article-posts .post a .post-content h6.subtitle-md {
   margin-bottom: 1rem;
   text-transform: uppercase;
   font-weight: 600;
 }
 
-.article .container .article-posts .post-sizer a .post-content h6.subtitle-sm,
-.article .container .article-posts .post a .post-content h6.subtitle-sm {
+.article .container-fluid .article-posts .post-sizer a .post-content h6.subtitle-sm,
+.article .container-fluid .article-posts .post a .post-content h6.subtitle-sm {
   padding: 0.75rem 1.5rem;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -269,62 +289,98 @@
   border-radius: 0.5rem;
 }
 
-.article .container .article-posts .post-sizer a .post-content p,
-.article .container .article-posts .post a .post-content p {
+.article .container-fluid .article-posts .post-sizer a .post-content p,
+.article .container-fluid .article-posts .post a .post-content p {
   margin-bottom: 4rem;
 }
 
-.article-detail .container {
-  padding-top: 6rem;
+.article-detail .container-fluid {
+  padding: 8rem;
 }
 
-.article-detail .container .article-breadcrumb {
+.article-detail .container-fluid .article-breadcrumb {
   padding-top: 4rem;
 }
 
-.article-detail .container .article-title {
+.article-detail .container-fluid .article-title {
   padding-top: 2rem;
 }
 
-.article-detail .container .article-title h3 {
+.article-detail .container-fluid .article-title h3 {
   max-width: 66.67%;
   font-weight: 800;
 }
 
-.article-detail .container .article-date {
+.article-detail .container-fluid .article-date {
   padding-top: 3rem;
 }
 
-.article-detail .container .article-desc {
+.article-detail .container-fluid .article-desc {
   padding-top: 4rem;
 }
 
-.article-detail .container .article-content {
+.article-detail .container-fluid .article-content {
   padding-top: 4rem;
 }
 
-.article-detail .container .article-content p {
+.article-detail .container-fluid .article-content p {
   margin-bottom: 2rem;
 }
 
-.article-detail .container .article-content img {
+.article-detail .container-fluid .article-content img {
   width: 100%;
 }
 
 @media screen and (max-width: 576px) {
-  .article .container .article-posts {
+  .article .article-cover .swiper-container .article-nav {
+    overflow-x: overlay;
+    overflow-y: hidden;
+  }
+  .article .article-cover .swiper-container .article-nav::-webkit-scrollbar {
+    height: 6px;
+    background-color: transparent;
+  }
+  .article .article-cover .swiper-container .article-nav::-webkit-scrollbar-thumb {
+    height: 6px;
+    background-color: #d1d1d1;
+    border-radius: 3px;
+    -webkit-transition: 300ms ease-in-out 300ms;
+    transition: 300ms ease-in-out 300ms;
+  }
+  .article .article-cover .swiper-container .article-nav::-webkit-scrollbar-thumb:hover {
+    width: calc($size + 4px);
+    background-color: #b3b3b3;
+    cursor: pointer;
+    -webkit-transition: 300ms ease-in-out 300ms;
+    transition: 300ms ease-in-out 300ms;
+  }
+  .article .article-cover .swiper-container .article-nav .container-fluid {
+    padding: 0 1.5rem;
+  }
+  .article .container-fluid {
+    padding: 0 1.5rem;
+  }
+  .article .container-fluid .article-posts {
     padding-top: 4rem;
   }
-  .article .container .article-posts .post-sizer,
-  .article .container .article-posts .post {
+  .article .container-fluid .article-posts .post-sizer,
+  .article .container-fluid .article-posts .post {
     width: 100%;
   }
-  .article-detail .container .article-title h3 {
+  .article .container-fluid .article-posts .post-sizer a .mask,
+  .article .container-fluid .article-posts .post a .mask {
+    max-height: unset;
+    height: 100vh;
+  }
+  .article-detail .container-fluid {
+    padding: 8rem 1.5rem;
+  }
+  .article-detail .container-fluid .article-title h3 {
     max-width: unset;
     font-size: calc(3rem * 0.75);
     line-height: calc(3rem * 0.75 * 1.25);
   }
-  .article-detail .container .article-desc h4 {
+  .article-detail .container-fluid .article-desc h4 {
     font-size: calc(2.125rem * 0.75);
     line-height: calc(2.125rem * 0.75 * 1.25);
   }

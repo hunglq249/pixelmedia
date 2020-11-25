@@ -157,7 +157,7 @@
 	<script src="{{ asset('plugins/wow/wow.min.js') }}"></script>
 
 	<!-- IMAGELOADED JS -->
-	<script src="{{ asset('plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+	<script src="{{ asset('plugins/imagesLoaded/imagesloaded.pkgd.min.js') }}"></script>
 
 	<!-- SWIPER JS -->
 	<script src="{{ asset('plugins/swiper/js/swiper-bundle.min.js') }}"></script>

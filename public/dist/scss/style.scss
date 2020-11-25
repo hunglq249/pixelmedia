@@ -18,7 +18,7 @@ header{
 	width: 100%;
 	height: 8rem;
 
-	padding: 0 4rem;
+	padding: 0 8rem;
 
 	@include gradientLinearBackground(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0));
 
@@ -27,6 +27,14 @@ header{
 	position: fixed;
 	top: 0;
 	z-index: $zindex-fixed;
+
+	@include transition();
+
+	&.collapsed{
+		top: -8rem;
+
+		@include transition();
+	}
 
 	.header-brand{
 		a{
@@ -255,6 +263,10 @@ footer{
 				margin-left: 0;
 
 				font-size: 2.25rem;
+
+				&:after{
+					bottom: -4px;
+				}
 			}
 		}
 

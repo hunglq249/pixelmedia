@@ -11,7 +11,7 @@
 @section('view')
 	<div class="career">
 		<div class="career-cover" data-scroll-section>
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="cover-content col-md-5">
 						<h6>

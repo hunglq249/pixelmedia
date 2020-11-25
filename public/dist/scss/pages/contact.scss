@@ -2,8 +2,8 @@
 @import '../setup/mixin';
 
 .contact{
-	.container{
-		padding-top: 6rem;
+	.container-fluid{
+		padding: 8rem 8rem 0;
 
 		.section{
 			&.section-heading{
@@ -88,7 +88,8 @@
 
 @media screen and (max-width: 576px){
 	.contact{
-		.container{
+		.container-fluid{
+			padding: 8rem 1.5rem 0;
 			.section{
 				&.section-heading{
 					.row{

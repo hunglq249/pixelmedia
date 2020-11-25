@@ -9,106 +9,68 @@ html{
 	.career-cover{
 		padding-top: 6rem;
 
-		.row{
-			.cover-content{
-				@include d-flex(column, center, flex-start);
+		.container-fluid{
+			padding: 0 8rem;
 
-				h3{
-					margin-bottom: 2rem;
-
-					font-weight: 800;
-
-					text-transform: uppercase;
-				}
-
-				h4{
-					margin-bottom: 2rem;
-					font-weight: 400;
-				}
-
-				h6{
-					margin-bottom: 0.75rem;
-				}
-
-				p{
-					margin-bottom: 2rem;
-
-					font-size: 1.25rem;
-					font-weight: 400;
-				}
-
-				a{
-					color: var(--text-title);
-					text-decoration: underline;
-
-					display: none;
-				}
-			}
-
-			.cover-image{
-				.mask{
-					width: 100%;
-					height: 100vh;
-
-					padding: 2rem 0;
-
-					position: relative;
-
-					@include borderRadius();
-
-					.mask-overlay{
-						width: 100%;
-						height: 100%;
-
-						background-image: url('/dist/img/bg_texture.png');
-
-						position: absolute;
-						top: 0;
-						left: 0;
-						z-index: 1;
+			.row{
+				.cover-content{
+					@include d-flex(column, center, flex-start);
+	
+					h3{
+						margin-bottom: 2rem;
+	
+						font-weight: 800;
+	
+						text-transform: uppercase;
+					}
+	
+					h4{
+						margin-bottom: 2rem;
+						font-weight: 400;
+					}
+	
+					h6{
+						margin-bottom: 0.75rem;
+					}
+	
+					p{
+						margin-bottom: 2rem;
+	
+						font-size: 1.25rem;
+						font-weight: 400;
+					}
+	
+					a{
+						color: var(--text-title);
+						text-decoration: underline;
+	
+						display: none;
 					}
 				}
-			}
-		}
-
-		.career-overlay{
-			width: 100%;
-			height: 100%;
-
-			@include gradientLinearBackground(to bottom, #1c1d1f, rgba(0,0,0,0.5) 33.33%);
-
-			@include d-flex(column, center, center);
-
-			h2,
-			h5{
-				text-align: center;
-			}
-
-			h2{
-				margin-bottom: 2rem;
-
-				font-weight: 800;
-
-				text-transform: uppercase;
-			}
-
-			h5{
-				margin-bottom: 1rem;
-			}
-
-			.career-select{
-				@include d-flex(row, center, center);
-
-				> * {
-					flex: 1 0 auto;
-
-					margin: 0 0.5rem;
-				}
-
-				select{
-					background-color: transparent;
-
-					border-color: var(--bg-bw-rv);
+	
+				.cover-image{
+					.mask{
+						width: 100%;
+						height: 100vh;
+	
+						padding: 2rem 0;
+	
+						position: relative;
+	
+						@include borderRadius();
+	
+						.mask-overlay{
+							width: 100%;
+							height: 100%;
+	
+							background-image: url('/dist/img/bg_texture.png');
+	
+							position: absolute;
+							top: 0;
+							left: 0;
+							z-index: 1;
+						}
+					}
 				}
 			}
 		}
@@ -350,18 +312,8 @@ html{
 @media screen and (max-width: 576px){
 	.career{
 		.career-cover{
-			.career-overlay{
-				.career-select{
-					width: 75%;
-
-					flex-direction: column;
-
-					> * {
-						width: 100%;
-
-						margin-bottom: 1.5rem;
-					}
-				}
+			.container-fluid{
+				padding: 0 1.5rem;
 			}
 		}
 
@@ -371,7 +323,7 @@ html{
 
 				.job-cover,
 				.job-content{
-					height: 50%;
+					height: auto;
 				}
 
 				.job-content{

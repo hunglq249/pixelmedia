@@ -44,11 +44,11 @@
   --text-overline:                                #8e8e93;
 }
 
-.about > .container {
-  padding-top: 6rem;
+.about > .container-fluid {
+  padding: 8rem 8rem 0;
 }
 
-.about > .container .row .heading-content {
+.about > .container-fluid .row .heading-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -64,34 +64,34 @@
           align-items: flex-start;
 }
 
-.about > .container .row .heading-content h3 {
+.about > .container-fluid .row .heading-content h3 {
   margin-bottom: 2rem;
   font-weight: 800;
   text-transform: uppercase;
 }
 
-.about > .container .row .heading-content h4 {
+.about > .container-fluid .row .heading-content h4 {
   margin-bottom: 2rem;
   font-weight: 400;
 }
 
-.about > .container .row .heading-content h6 {
+.about > .container-fluid .row .heading-content h6 {
   margin-bottom: 0.75rem;
 }
 
-.about > .container .row .heading-content p {
+.about > .container-fluid .row .heading-content p {
   margin-bottom: 2rem;
   font-size: 1.25rem;
   font-weight: 400;
 }
 
-.about > .container .row .heading-content a {
+.about > .container-fluid .row .heading-content a {
   color: var(--text-title);
   text-decoration: underline;
   display: none;
 }
 
-.about > .container .row .heading-image {
+.about > .container-fluid .row .heading-image {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,7 +107,7 @@
           align-items: center;
 }
 
-.about > .container .row .heading-image .mask {
+.about > .container-fluid .row .heading-image .mask {
   width: 100%;
   height: 80;
   padding: 2rem 0;
@@ -115,7 +115,7 @@
   border-radius: 0.5rem;
 }
 
-.about > .container .row .heading-image .mask .mask-overlay {
+.about > .container-fluid .row .heading-image .mask .mask-overlay {
   width: 100%;
   height: 100%;
   background-image: url("/dist/img/bg_texture.png");
@@ -212,47 +212,11 @@
 }
 
 @media screen and (max-width: 576px) {
-  .about .container .section.section-heading .row > div h2 {
-    font-size: calc(3.75rem * 0.75);
+  .about > .container-fluid {
+    padding: 8rem 1.5rem 0;
   }
-  .about .container .section.section-cover {
-    padding-top: 3rem;
-  }
-  .about .container .section.section-cover .row > div .mask {
-    width: 100%;
-    height: 50vh;
-  }
-  .about .container .section.section-desc {
-    padding-top: 2rem;
-  }
-  .about .container .section.section-desc .row > div.text-heading h5 {
-    margin-bottom: 2rem;
-  }
-  .about .container .section.section-text-break .row > div h3 {
-    max-width: unset;
-    font-size: calc(3rem * 0.75);
-    line-height: calc(3rem * 0.75 * 1.5);
-  }
-  .about .container .section.section-text-break .row > div h4 {
-    max-width: unset;
-    font-size: calc(2.125rem * 0.75);
-    line-height: calc(2.125rem * 0.75 * 1.5);
-  }
-  .about .container .section.section-staff .row > div .section-header h2 {
-    font-size: calc(3.75rem * 0.75);
-    line-height: calc(3.75rem * 0.75 * 1.25);
-  }
-  .about .container .section.section-staff .row > div .section-header h4 {
-    max-width: unset;
-    font-size: calc(2.125rem * 0.75);
-    line-height: calc(2.125rem * 0.75 * 1.5);
-  }
-  .about .container .section.section-staff .row > div .section-body .swiper-container .swiper-wrapper .swiper-slide .mask .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  .about .container .section.section-staff .row > div .section-body .swiper-container .swiper-wrapper .swiper-slide .mask .overlay h4,
-  .about .container .section.section-staff .row > div .section-body .swiper-container .swiper-wrapper .swiper-slide .mask .overlay h6 {
-    opacity: 1;
+  .about > .container-fluid .team-body .row .item-team {
+    margin-bottom: 1.5rem;
   }
 }
 /*# sourceMappingURL=about.css.map */

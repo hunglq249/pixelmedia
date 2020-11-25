@@ -45,7 +45,8 @@
 }
 
 .showcase .showcase-cover {
-  height: 90vh;
+  height: 100vh;
+  border-bottom: 2px solid var(--bg-bw-rv);
   position: relative;
 }
 
@@ -56,6 +57,7 @@
 }
 
 .showcase .showcase-cover .mask .mask-content {
+  padding: 0 8rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -71,6 +73,7 @@
 }
 
 .showcase .showcase-cover .mask .mask-content h4 {
+  max-width: 60%;
   margin-bottom: 2rem;
   font-weight: 400;
 }
@@ -97,11 +100,12 @@
           align-items: center;
 }
 
-.showcase .showcase-cover .showcase-nav .container {
+.showcase .showcase-cover .showcase-nav .container-fluid {
   height: 100%;
+  padding: 0 8rem;
 }
 
-.showcase .showcase-cover .showcase-nav .container .nav {
+.showcase .showcase-cover .showcase-nav .container-fluid .nav {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -118,7 +122,7 @@
           align-items: stretch;
 }
 
-.showcase .showcase-cover .showcase-nav .container .nav a {
+.showcase .showcase-cover .showcase-nav .container-fluid .nav a {
   padding: 1rem;
   font-size: 1.25rem;
   text-transform: uppercase;
@@ -126,7 +130,7 @@
   position: relative;
 }
 
-.showcase .showcase-cover .showcase-nav .container .nav a:after {
+.showcase .showcase-cover .showcase-nav .container-fluid .nav a:after {
   content: '';
   width: 100%;
   height: 4px;
@@ -137,51 +141,82 @@
   z-index: 1;
 }
 
-.showcase .showcase-cover .showcase-nav .container .nav a:hover {
+.showcase .showcase-cover .showcase-nav .container-fluid .nav a:hover {
   color: var(--primary);
 }
 
-.showcase .showcase-cover .showcase-nav .container .nav a:hover:after {
+.showcase .showcase-cover .showcase-nav .container-fluid .nav a:hover:after {
   background-color: var(--primary);
 }
 
-.showcase .showcase-cover .showcase-nav .container .nav a.active {
+.showcase .showcase-cover .showcase-nav .container-fluid .nav a.active {
   color: var(--primary);
 }
 
-.showcase .showcase-cover .showcase-nav .container .nav a.active:after {
+.showcase .showcase-cover .showcase-nav .container-fluid .nav a.active:after {
   background-color: var(--primary);
 }
 
-.showcase .showcase-list .container-fluid {
-  padding: 1rem 4rem 2rem;
+.showcase .showcase-list {
+  padding: 8rem;
 }
 
-.showcase .showcase-list .container-fluid .list-products {
+.showcase .showcase-list .list-products {
   margin: 0 -1.5rem;
 }
 
-.showcase .showcase-list .container-fluid .list-products .item-sizer,
-.showcase .showcase-list .container-fluid .list-products .item-product {
+.showcase .showcase-list .list-products .item-sizer,
+.showcase .showcase-list .list-products .item-product {
   width: 50%;
   padding: 0 1.5rem;
   margin-bottom: 3rem;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
-.showcase .showcase-list .container-fluid .list-products .item-sizer a,
-.showcase .showcase-list .container-fluid .list-products .item-product a {
+.showcase .showcase-list .list-products .item-sizer a,
+.showcase .showcase-list .list-products .item-product a {
   width: 100%;
   display: block;
   position: relative;
 }
 
-.showcase .showcase-list .container-fluid .list-products .item-sizer a img,
-.showcase .showcase-list .container-fluid .list-products .item-product a img {
-  width: 100%;
+.showcase .showcase-list .list-products .item-sizer a:hover .mask img,
+.showcase .showcase-list .list-products .item-product a:hover .mask img {
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
-.showcase .showcase-list .container-fluid .list-products .item-sizer a .item-content,
-.showcase .showcase-list .container-fluid .list-products .item-product a .item-content {
+.showcase .showcase-list .list-products .item-sizer a .mask,
+.showcase .showcase-list .list-products .item-product a .mask {
+  width: 100%;
+  max-height: 50vh;
+  position: relative;
+}
+
+.showcase .showcase-list .list-products .item-sizer a .mask .mask-overlay,
+.showcase .showcase-list .list-products .item-product a .mask .mask-overlay {
+  width: 100%;
+  height: 100%;
+  background-image: url("/dist/img/bg_texture.png");
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.showcase .showcase-list .list-products .item-sizer a .mask img,
+.showcase .showcase-list .list-products .item-product a .mask img {
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.showcase .showcase-list .list-products .item-sizer a .item-content,
+.showcase .showcase-list .list-products .item-product a .item-content {
   padding: 2rem;
   position: absolute;
   bottom: 0;
@@ -189,28 +224,28 @@
   z-index: 1;
 }
 
-.showcase .showcase-list .container-fluid .list-products .item-sizer a .item-content h4,
-.showcase .showcase-list .container-fluid .list-products .item-product a .item-content h4 {
+.showcase .showcase-list .list-products .item-sizer a .item-content h4,
+.showcase .showcase-list .list-products .item-product a .item-content h4 {
   margin-bottom: 2rem;
   font-weight: 800;
   text-transform: uppercase;
   text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-.showcase .showcase-list .container-fluid .list-products .item-sizer a .item-content h6,
-.showcase .showcase-list .container-fluid .list-products .item-product a .item-content h6 {
+.showcase .showcase-list .list-products .item-sizer a .item-content h6,
+.showcase .showcase-list .list-products .item-product a .item-content h6 {
   text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-.showcase .showcase-list .container-fluid .list-products .item-sizer a .item-content h6.subtitle-md,
-.showcase .showcase-list .container-fluid .list-products .item-product a .item-content h6.subtitle-md {
+.showcase .showcase-list .list-products .item-sizer a .item-content h6.subtitle-md,
+.showcase .showcase-list .list-products .item-product a .item-content h6.subtitle-md {
   margin-bottom: 1rem;
   text-transform: uppercase;
   font-weight: 600;
 }
 
-.showcase .showcase-list .container-fluid .list-products .item-sizer a .item-content h6.subtitle-sm,
-.showcase .showcase-list .container-fluid .list-products .item-product a .item-content h6.subtitle-sm {
+.showcase .showcase-list .list-products .item-sizer a .item-content h6.subtitle-sm,
+.showcase .showcase-list .list-products .item-product a .item-content h6.subtitle-sm {
   padding: 0.75rem 1.5rem;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -469,7 +504,7 @@
 }
 
 .showcase-detail .showcase-images .container-fluid {
-  padding: 0 4rem;
+  padding: 0 8rem;
 }
 
 .showcase-detail .showcase-images .container-fluid .list-items {
@@ -580,45 +615,43 @@
 }
 
 @media screen and (max-width: 576px) {
-  .showcase .showcase-desc .container {
-    padding-top: 4rem;
+  .showcase .showcase-cover .mask .mask-content {
+    padding: 0 1.5rem;
+    top: 10%;
   }
-  .showcase .showcase-desc .container .row > div h3 {
-    font-size: calc(3rem * 0.75);
-    line-height: calc(3rem * 0.75 * 1.25);
+  .showcase .showcase-cover .mask .mask-content h4 {
+    max-width: unset;
   }
-  .showcase .showcase-desc .container .row > div p {
-    font-size: calc(1.5rem * 0.75);
-    line-height: calc(1.5rem * 0.75 * 1.25);
-  }
-  .showcase .showcase-nav .container .row .nav-wrapper {
+  .showcase .showcase-cover .showcase-nav {
     overflow-x: overlay;
     overflow-y: hidden;
   }
-  .showcase .showcase-nav .container .row .nav-wrapper::-webkit-scrollbar {
+  .showcase .showcase-cover .showcase-nav::-webkit-scrollbar {
     height: 6px;
     background-color: transparent;
   }
-  .showcase .showcase-nav .container .row .nav-wrapper::-webkit-scrollbar-thumb {
+  .showcase .showcase-cover .showcase-nav::-webkit-scrollbar-thumb {
     height: 6px;
     background-color: #d1d1d1;
     border-radius: 3px;
     -webkit-transition: 300ms ease-in-out 300ms;
     transition: 300ms ease-in-out 300ms;
   }
-  .showcase .showcase-nav .container .row .nav-wrapper::-webkit-scrollbar-thumb:hover {
+  .showcase .showcase-cover .showcase-nav::-webkit-scrollbar-thumb:hover {
     width: calc($size + 4px);
     background-color: #b3b3b3;
     cursor: pointer;
     -webkit-transition: 300ms ease-in-out 300ms;
     transition: 300ms ease-in-out 300ms;
   }
-  .showcase .showcase-list .container-fluid {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  .showcase .showcase-cover .showcase-nav .container-fluid {
+    padding: 0 1.5rem;
   }
-  .showcase .showcase-list .container-fluid .list-products .item-sizer,
-  .showcase .showcase-list .container-fluid .list-products .item-product {
+  .showcase .showcase-list {
+    padding: 8rem 0;
+  }
+  .showcase .showcase-list .list-products .item-sizer,
+  .showcase .showcase-list .list-products .item-product {
     width: 100%;
   }
   .showcase-detail .showcase-info .container {
@@ -626,6 +659,10 @@
   }
   .showcase-detail .showcase-images .container-fluid {
     padding: 0 1.5rem;
+  }
+  .showcase-detail .showcase-images .container-fluid .list-items .item-sizer,
+  .showcase-detail .showcase-images .container-fluid .list-items .item-image {
+    width: 100% !important;
   }
 }
 /*# sourceMappingURL=showcase.css.map */

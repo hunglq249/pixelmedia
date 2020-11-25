@@ -52,7 +52,11 @@ html {
   padding-top: 6rem;
 }
 
-.career .career-cover .row .cover-content {
+.career .career-cover .container-fluid {
+  padding: 0 8rem;
+}
+
+.career .career-cover .container-fluid .row .cover-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,34 +72,34 @@ html {
           align-items: flex-start;
 }
 
-.career .career-cover .row .cover-content h3 {
+.career .career-cover .container-fluid .row .cover-content h3 {
   margin-bottom: 2rem;
   font-weight: 800;
   text-transform: uppercase;
 }
 
-.career .career-cover .row .cover-content h4 {
+.career .career-cover .container-fluid .row .cover-content h4 {
   margin-bottom: 2rem;
   font-weight: 400;
 }
 
-.career .career-cover .row .cover-content h6 {
+.career .career-cover .container-fluid .row .cover-content h6 {
   margin-bottom: 0.75rem;
 }
 
-.career .career-cover .row .cover-content p {
+.career .career-cover .container-fluid .row .cover-content p {
   margin-bottom: 2rem;
   font-size: 1.25rem;
   font-weight: 400;
 }
 
-.career .career-cover .row .cover-content a {
+.career .career-cover .container-fluid .row .cover-content a {
   color: var(--text-title);
   text-decoration: underline;
   display: none;
 }
 
-.career .career-cover .row .cover-image .mask {
+.career .career-cover .container-fluid .row .cover-image .mask {
   width: 100%;
   height: 100vh;
   padding: 2rem 0;
@@ -103,7 +107,7 @@ html {
   border-radius: 0.5rem;
 }
 
-.career .career-cover .row .cover-image .mask .mask-overlay {
+.career .career-cover .container-fluid .row .cover-image .mask .mask-overlay {
   width: 100%;
   height: 100%;
   background-image: url("/dist/img/bg_texture.png");
@@ -111,70 +115,6 @@ html {
   top: 0;
   left: 0;
   z-index: 1;
-}
-
-.career .career-cover .career-overlay {
-  width: 100%;
-  height: 100%;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1c1d1f), color-stop(33.33%, rgba(0, 0, 0, 0.5)));
-  background-image: linear-gradient(to bottom, #1c1d1f, rgba(0, 0, 0, 0.5) 33.33%);
-  background-image: -o-linear-gradient(to bottom, #1c1d1f, rgba(0, 0, 0, 0.5) 33.33%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.career .career-cover .career-overlay h2,
-.career .career-cover .career-overlay h5 {
-  text-align: center;
-}
-
-.career .career-cover .career-overlay h2 {
-  margin-bottom: 2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.career .career-cover .career-overlay h5 {
-  margin-bottom: 1rem;
-}
-
-.career .career-cover .career-overlay .career-select {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.career .career-cover .career-overlay .career-select > * {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
-  margin: 0 0.5rem;
-}
-
-.career .career-cover .career-overlay .career-select select {
-  background-color: transparent;
-  border-color: var(--bg-bw-rv);
 }
 
 .career .career-jobs .row {
@@ -425,16 +365,8 @@ html {
 }
 
 @media screen and (max-width: 576px) {
-  .career .career-cover .career-overlay .career-select {
-    width: 75%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .career .career-cover .career-overlay .career-select > * {
-    width: 100%;
-    margin-bottom: 1.5rem;
+  .career .career-cover .container-fluid {
+    padding: 0 1.5rem;
   }
   .career .career-jobs .row {
     -webkit-box-orient: vertical;
@@ -444,7 +376,7 @@ html {
   }
   .career .career-jobs .row .job-cover,
   .career .career-jobs .row .job-content {
-    height: 50%;
+    height: auto;
   }
   .career .career-jobs .row .job-content {
     padding: 0 !important;
