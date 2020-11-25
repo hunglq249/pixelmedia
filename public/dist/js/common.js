@@ -32,7 +32,7 @@ $(document).ready(function () {
             if (scrollTop < newScrollTop) {
                 $('header').addClass('collapsed');
             } else if (scrollTop > newScrollTop) {
-                console.log('scroll up');
+                $('header').removeClass('collapsed');
             }
         }, 100);
     });
