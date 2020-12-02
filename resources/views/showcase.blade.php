@@ -15,9 +15,11 @@
 				<img src="https://images.unsplash.com/photo-1591976158059-35d5fcf46a6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Showcase cover">
 
 				<div class="mask-content container-fluid">
-					<h3>
-						{{ trans('lang.showcase_title') }}
-					</h3>
+					<div class="heading-wrapper">
+						<h3>
+							{{ trans('lang.showcase_title') }}
+						</h3>
+					</div>
 
 					<h4>
 						{{ trans('lang.showcase_desc') }}
@@ -47,14 +49,23 @@
 				<div class="list-products">
 					<div class="item-sizer"></div>
 					@foreach ($products as $key => $product)
-						<div class="item-product item-product-{{ $product['product_category_id'] }}" data-scroll data-scroll-speed="{{ rand(2, 4) }}">
+						@php
+							$addtionalClass = 'item-product-class-1';
+
+							if($key % 2 == 0){
+								$addtionalClass = 'item-product-class-2';
+							} if($key % 3 == 0){
+								$addtionalClass = 'item-product-class-3';
+							}
+						@endphp
+						<div class="item-product item-product-id-{{ $product['id'] }} item-product-{{ $product['product_category_id'] }} {{ $addtionalClass }}" data-scroll data-scroll-speed="{{ rand(2, 4) }}" data-scroll-call="item-product-id-{{ $product['id'] }}">
 							<a href="{{ route('showcase_detail', ['slug' => $product['slug']] )}}">
-								<div class="mask">
+								<div class="mask offset">
 									<div class="mask-overlay"></div>
 									<img src="{{ asset('storage/app'. $product['cover_mask']) }}" alt="Thumbnail of {{ $product['title'] }}">
 								</div>
 
-								<div class="item-content">
+								<div class="item-content offset">
 									<h6 class="subtitle-md">
 										{{ $productTypes[$product['product_category_id']] }}
 									</h6>

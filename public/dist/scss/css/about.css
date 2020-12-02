@@ -153,6 +153,12 @@
   text-transform: uppercase;
 }
 
+.about > .container-fluid .team-body .row .item-team:hover .mask .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
 .about > .container-fluid .team-body .row .item-team:hover .mask .overlay h3,
 .about > .container-fluid .team-body .row .item-team:hover .mask .overlay h6 {
   opacity: 1;
@@ -172,6 +178,7 @@
   height: 100%;
   padding: 2rem;
   background-image: url("/dist/img/bg_texture.png");
+  background-color: rgba(0, 0, 0, 0);
   position: absolute;
   top: 0;
   left: 0;
@@ -189,6 +196,8 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 .about > .container-fluid .team-body .row .item-team .mask .overlay h3 {
@@ -200,8 +209,10 @@
 
 .about > .container-fluid .team-body .row .item-team .mask .overlay h6 {
   text-transform: uppercase;
-  -webkit-transform: translate(0, 2rem);
-  transform: translate(0, 2rem);
+  -webkit-transform: translate(-2rem, 0);
+  transform: translate(-2rem, 0);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 .about > .container-fluid .team-body .row .item-team .mask .overlay h3,

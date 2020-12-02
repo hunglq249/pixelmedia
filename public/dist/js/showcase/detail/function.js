@@ -55,13 +55,14 @@ $(document).ready(function () {
             });
 
             var swiperImage = new Swiper('#popupImageDetail .swiper-container', {
+                effect: 'fade',
                 pagination: {
                     el: '.swiper-pagination',
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev'
-                    },
                     dynamicBullets: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
                 }
             });
 

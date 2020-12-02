@@ -13,13 +13,13 @@
 					<div class="swiper-wrapper">
 					</div>
 
-    				{{-- <div class="swiper-button-prev">
+    				<div class="swiper-button-prev">
 						<i class="elo el-3x el-caret-left"></i>
 					</div>
 
 					<div class="swiper-button-next">
 						<i class="elo el-3x el-caret-right"></i>
-					</div> --}}
+					</div>
 
 					<div class="swiper-pagination"></div>
 				</div>

@@ -34,4 +34,15 @@ $(document).ready(function () {
         smooth: true,
         smoothMobile: true
     });
+
+    scroll.on('call', function (className) {
+        delete timeout;
+        let timeout = setTimeout(function () {
+            $(`.${className}`).find('.mask').removeClass('offset');
+            $(`.${className}`).find('.item-content').removeClass('offset');
+        }, 500);
+    });
+
+    $('.showcase-cover').find('.heading-wrapper').addClass('show');
+    $('.showcase-cover').find('h4').addClass('show');
 });

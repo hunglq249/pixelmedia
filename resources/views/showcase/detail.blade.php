@@ -126,9 +126,25 @@
 				</div>
 				
 				<div class="list-items">
-                    <div class="item-sizer"></div>
-                    @foreach ($product->images as $key => $item)
-						<div class="wow zoomIn item-image @if($key%3 == 0) item-image-full @elseif($key%3 == 1 || $key%3 == 2) item-image-half @endif">
+					<div class="item-sizer"></div>
+					
+					@foreach ($product->images as $key => $item)
+						@php
+							$additionalClass = 'item-image';
+							$limit = floor(count($product->images) / 7);
+
+							for($i = 0; $i < $limit; $i++){
+								if($key - $i * 7 == 1 || $key - $i * 7 == 2){
+									$additionalClass = 'item-image-2';
+								} elseif ($key - $i * 7 == 3 || $key - $i * 7 == 4 || $key - $i * 7 == 6 || $key - $i * 7 == 7) {
+									$additionalClass = 'item-image-1';
+								} elseif ($key - $i * 7 == 5) {
+									$additionalClass = 'item-image-2-plus';
+								}
+							}
+						@endphp
+
+						<div class="wow slideInUp item-image {{ $additionalClass }}">
 							<a href="#" class="open-image">
 								<img src="{{ asset('storage/app'. $item) }}" alt="Image">
 							</a>

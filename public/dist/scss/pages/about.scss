@@ -96,6 +96,10 @@
 					&:hover{
 						.mask{
 							.overlay{
+								background-color: rgba(0,0,0,0.5);
+
+								@include transition();
+
 								h3,
 								h6{
 									opacity: 1;
@@ -119,6 +123,7 @@
 							padding: 2rem;
 
 							background-image: url('/dist/img/bg_texture.png');
+							background-color: rgba(0,0,0,0);
 
 							position: absolute;
 							top: 0;
@@ -126,6 +131,7 @@
 							z-index: 1;
 
 							@include d-flex(column, flex-end, flex-start);
+							@include transition();
 
 							h3{
 								margin-bottom: 1.5rem;
@@ -138,7 +144,8 @@
 							h6{
 								text-transform: uppercase;
 
-								@include translate(0,2rem);
+								@include translate(-2rem, 0);
+								@include transition();
 							}
 
 							h3,
