@@ -130,11 +130,13 @@
                             </p>
                         </div>
                         <div class="item-col-1">
-                            @include('zyk_admin.utils.btn_group_actions', [
-                                'routeEdit' => route('danh-muc-bai-viet.edit', ['danh_muc_bai_viet' => $value->id]),
-                                'routeDel' => route('danh-muc-bai-viet.remove', ['danh_muc_bai_viet' => $value->id]),
-                                'idDel' => $value->id,
-                            ])
+                            @if ($value->id != 7)
+                                @include('zyk_admin.utils.btn_group_actions', [
+                                    'routeEdit' => route('danh-muc-bai-viet.edit', ['danh_muc_bai_viet' => $value->id]),
+                                    'routeDel' => route('danh-muc-bai-viet.remove', ['danh_muc_bai_viet' => $value->id]),
+                                    'idDel' => $value->id,
+                                ])
+                            @endif
                         </div>
                     </div>
                 @endforeach

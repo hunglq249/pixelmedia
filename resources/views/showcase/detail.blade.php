@@ -181,5 +181,12 @@
 	<!-- MANSORY JS -->
 	<script src="{{ asset('plugins/mansory/masonry.pkgd.min.js') }}"></script>
 
+	<script>
+		let imageArr = [];
+		@foreach ($product->images as $key => $item)
+			imageArr.push('{{ asset('storage/app'. $item) }}')
+		@endforeach
+	</script>
+
 	<script src="{{ asset('dist/js/showcase/detail/function.min.js') }}"></script>
 @endsection

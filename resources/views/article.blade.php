@@ -13,12 +13,6 @@
 		<div class="article-cover" data-scroll-section>
 			<div class="swiper-container" id="swiperArticle">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<div class="mask">
-							<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Image thumb of all category">
-						</div>
-					</div>
-
 					@foreach ($articleTypes as $type)
 						<div class="swiper-slide">
 							<div class="mask">
@@ -31,12 +25,8 @@
 				<div class="article-nav">
 					<div class="container-fluid">
 						<div class="nav">
-							<a href="#" class="active" data-type="*">
-								{{ trans('lang.showcase_all') }}
-							</a>
-	
 							@foreach ($articleTypes as $key => $articleType)
-								<a href="#" data-type="{{ $articleType['id'] }}">
+								<a href="#" class="{{ $articleType['id'] == 7 ? 'active' : '' }}" data-index="{{ $key }}" data-type="{{ $articleType['id'] == 7 ? '*' : $articleType['id'] }}">
 									{{ $articleType['title'] }}
 								</a>
 							@endforeach

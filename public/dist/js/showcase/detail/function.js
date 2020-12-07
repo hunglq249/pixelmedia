@@ -33,12 +33,12 @@ $(document).ready(function () {
     });
 
     // OPEN IMAGE DETAIL
-    let imageArr = [];
-    $('.showcase-images')
-        .find('img')
-        .each(function () {
-            imageArr.push($(this).attr('src'));
-        });
+    // let imageArr = [];
+    // $('.showcase-images')
+    //     .find('img')
+    //     .each(function () {
+    //         imageArr.push($(this).attr('src'));
+    //     });
 
     $('.open-image')
         .unbind()

@@ -13,6 +13,9 @@ $(document).ready(function () {
         .on('click', function (e) {
             e.preventDefault();
             let type = $(this).data('type');
+            let index = $(this).data('index');
+
+            swiperArticleNav.slideTo(index);
 
             $('.article-nav').find('a').removeClass('active');
             $(this).addClass('active');
