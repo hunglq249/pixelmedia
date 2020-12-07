@@ -55,7 +55,6 @@ $(document).ready(function () {
             });
 
             var swiperImage = new Swiper('#popupImageDetail .swiper-container', {
-                effect: 'fade',
                 pagination: {
                     el: '.swiper-pagination',
                     dynamicBullets: true
