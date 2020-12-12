@@ -1,11 +1,11 @@
 $(document).ready(function () {
     // INIT ISOTOPE
-    $('.list-products').isotope({
-        itemSelector: '.item-product',
+    // $('.list-products').isotope({
+    //     itemSelector: '.item-product',
 
-        columnWidth: '.item-sizer',
-        percentPosition: true
-    });
+    //     columnWidth: '.item-sizer',
+    //     percentPosition: true
+    // });
 
     // FILTER PRODUCT
     $('.showcase-nav')
@@ -18,14 +18,21 @@ $(document).ready(function () {
             $(this).addClass('active');
 
             if (type == '*') {
-                $('.list-products').isotope({
-                    filter: '*'
-                });
+                $('.item-product').fadeIn();
             } else {
-                $('.list-products').isotope({
-                    filter: '.item-product-' + type
-                });
+                $('.item-product').fadeOut();
+                $('.item-product-' + type).fadeIn();
             }
+
+            // if (type == '*') {
+            //     $('.list-products').isotope({
+            //         filter: '*'
+            //     });
+            // } else {
+            //     $('.list-products').isotope({
+            //         filter: '.item-product-' + type
+            //     });
+            // }
         });
 
     // INIT LOCOMOTIVE SCROLL

@@ -46,19 +46,27 @@
 
 		<div class="container-fluid" data-scroll-section>
 			<div class="showcase-list">
-				<div class="list-products">
-					<div class="item-sizer"></div>
+				<div class="list-products row row-no-gutters">
 					@foreach ($products as $key => $product)
 						@php
-							$addtionalClass = 'item-product-class-1';
+							$addtionalClass = '';
 
-							if($key % 2 == 0){
-								$addtionalClass = 'item-product-class-2';
-							} if($key % 3 == 0){
-								$addtionalClass = 'item-product-class-3';
+							if($key >= 5){
+								if(($key % 10) - 5 == 0 || ($key % 10) - 5 == 1 || ($key % 10) - 5 == 2){
+									$additionalClass= 'col-md-4';
+								} else if(($key % 10) - 5 == 3 || ($key % 10) -5 == 4) {
+									$additionalClass= 'col-md-6';
+								}
+							} else {
+								if($key == 0 || $key == 1 || $key == 2){
+									$additionalClass= 'col-md-4';
+								} else if($key == 3 || $key == 4) {
+									$additionalClass = 'col-md-6';
+								}
 							}
 						@endphp
-						<div class="item-product item-product-id-{{ $product['id'] }} item-product-{{ $product['product_category_id'] }} {{ $addtionalClass }}" data-scroll data-scroll-speed="{{ rand(2, 4) }}" data-scroll-call="item-product-id-{{ $product['id'] }}">
+
+						<div class="item-product item-product-{{ $product['product_category_id'] }} {{ $additionalClass }}" data-scroll data-scroll-speed="1">
 							<a href="{{ route('showcase_detail', ['slug' => $product['slug']] )}}">
 								<div class="mask offset">
 									<div class="mask-overlay"></div>

@@ -179,75 +179,17 @@
 }
 
 .showcase .showcase-list {
-  padding: 8rem;
-}
-
-.showcase .showcase-list .list-products .item-sizer {
-  width: 50%;
+  padding: 8rem 0;
 }
 
 .showcase .showcase-list .list-products .item-product {
-  width: 50%;
-  padding: 0 1.5rem;
-  margin-bottom: 4rem;
-}
-
-.showcase .showcase-list .list-products .item-product.item-product-class-1 a .mask,
-.showcase .showcase-list .list-products .item-product.item-product-class-1 a .item-content {
-  opacity: 1;
-  -webkit-transform: translate(-2rem, 2rem);
-  transform: translate(-2rem, 2rem);
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
-}
-
-.showcase .showcase-list .list-products .item-product.item-product-class-1 a .mask.offset,
-.showcase .showcase-list .list-products .item-product.item-product-class-1 a .item-content.offset {
-  opacity: 0;
-  -webkit-transform: translate(-8rem, 2rem);
-  transform: translate(-8rem, 2rem);
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
-}
-
-.showcase .showcase-list .list-products .item-product.item-product-class-2 a .mask,
-.showcase .showcase-list .list-products .item-product.item-product-class-2 a .item-content {
-  opacity: 1;
-  -webkit-transform: translate(2rem, -1rem);
-  transform: translate(2rem, -1rem);
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
-}
-
-.showcase .showcase-list .list-products .item-product.item-product-class-2 a .mask.offset,
-.showcase .showcase-list .list-products .item-product.item-product-class-2 a .item-content.offset {
-  opacity: 0;
-  -webkit-transform: translate(8rem, 2rem);
-  transform: translate(8rem, 2rem);
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
-}
-
-.showcase .showcase-list .list-products .item-product.item-product-class-3 a .mask,
-.showcase .showcase-list .list-products .item-product.item-product-class-3 a .item-content {
-  opacity: 1;
-  -webkit-transform: translate(2rem, -3rem);
-  transform: translate(2rem, -3rem);
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
-}
-
-.showcase .showcase-list .list-products .item-product.item-product-class-3 a .mask.offset,
-.showcase .showcase-list .list-products .item-product.item-product-class-3 a .item-content.offset {
-  opacity: 0;
-  -webkit-transform: translate(-4rem, 2rem);
-  transform: translate(-4rem, 2rem);
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
+  height: 50vh;
+  margin-bottom: 1.5rem;
 }
 
 .showcase .showcase-list .list-products .item-product a {
   width: 100%;
+  height: 100%;
   display: block;
   position: relative;
 }
@@ -259,9 +201,22 @@
   transition: all ease-in-out 300ms;
 }
 
+.showcase .showcase-list .list-products .item-product a:hover .item-content {
+  -webkit-transform: translate(0.5rem, 0);
+  transform: translate(0.5rem, 0);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.showcase .showcase-list .list-products .item-product a:hover .item-content h6.subtitle-sm {
+  opacity: 1;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
 .showcase .showcase-list .list-products .item-product a .mask {
   width: 100%;
-  max-height: 50vh;
+  height: 100%;
   border-radius: 0.5rem;
   -webkit-box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.15);
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -286,11 +241,13 @@
 }
 
 .showcase .showcase-list .list-products .item-product a .item-content {
-  padding: 2rem;
+  width: calc(100% - 3rem);
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 1.5rem;
+  left: 1.5rem;
   z-index: 1;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 .showcase .showcase-list .list-products .item-product a .item-content h4 {
@@ -317,6 +274,9 @@
   display: inline-flex;
   border: 1px solid var(--white);
   border-radius: 0.5rem;
+  opacity: 0;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 .showcase-detail .showcase-cover {

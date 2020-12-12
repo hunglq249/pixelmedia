@@ -43,33 +43,31 @@ use App\Http\Controllers\zyk_admin\VideoController;
 
 Route::get('/', [HomeController::class, 'countdown'])->name('countdown');
 
-Route::prefix('beta')->group(function(){
-    Route::group(['middleware' => 'locale'], function() {
-        Route::get('change-language/{language}', [HomeController::class, 'changeLanguage'])->name('user.change-language');
-        Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::group(['middleware' => 'locale'], function() {
+    Route::get('change-language/{language}', [HomeController::class, 'changeLanguage'])->name('user.change-language');
+    Route::get('/', [HomeController::class, 'home'])->name('home');
 
-        Route::group(['prefix' => '/san-pham'], function () {
-            Route::get('/', [ShowcaseController::class, 'index'])->name('showcase');
-            Route::get('/chi-tiet/{slug}', [ShowcaseController::class, 'detail'])->name('showcase_detail');
-        });
-
-        Route::group(['prefix' => '/bai-viet'], function () {
-            Route::get('/', [ArticleController::class, 'index'])->name('article');
-            Route::get('/category/{id?}', [ArticleController::class, 'articleByCategory'])->name('article_by_category');
-            Route::get('/chi-tiet/{slug}', [ArticleController::class, 'detail'])->name('article_detail');
-        });
-
-        Route::group(['prefix' => '/tuyen-dung'], function () {
-            Route::get('/', [CareerController::class, 'index'])->name('career');
-            Route::get('/chi-tiet-cong-viec', [CareerController::class, 'getJobDetail'])->name('career_getJobDetail');
-            Route::post('/apply', [CareerController::class, 'apply'])->name('career.apply');
-        });
-
-        Route::get('/gioi-thieu', [AboutController::class, 'index'])->name('about');
-
-        Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
-        Route::Post('/lien-he', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
+    Route::group(['prefix' => '/san-pham'], function () {
+        Route::get('/', [ShowcaseController::class, 'index'])->name('showcase');
+        Route::get('/chi-tiet/{slug}', [ShowcaseController::class, 'detail'])->name('showcase_detail');
     });
+
+    Route::group(['prefix' => '/bai-viet'], function () {
+        Route::get('/', [ArticleController::class, 'index'])->name('article');
+        Route::get('/category/{id?}', [ArticleController::class, 'articleByCategory'])->name('article_by_category');
+        Route::get('/chi-tiet/{slug}', [ArticleController::class, 'detail'])->name('article_detail');
+    });
+
+    Route::group(['prefix' => '/tuyen-dung'], function () {
+        Route::get('/', [CareerController::class, 'index'])->name('career');
+        Route::get('/chi-tiet-cong-viec', [CareerController::class, 'getJobDetail'])->name('career_getJobDetail');
+        Route::post('/apply', [CareerController::class, 'apply'])->name('career.apply');
+    });
+
+    Route::get('/gioi-thieu', [AboutController::class, 'index'])->name('about');
+
+    Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
+    Route::Post('/lien-he', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -146,28 +144,5 @@ Route::prefix('admin')->group(function(){
 
         Route::get('video/remove/{video}', [VideoController::class, 'remove'])->name('video.remove');
         Route::resource('/video', VideoController::class);
-        // Route::prefix('zyk')->group(function(){
-        //     Route::get('danh-muc-san-pham/remove/{danh_muc_san_pham}', [ProductCategoryController::class, 'remove'])->name('danh-muc-san-pham.remove');
-        //     Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
-
-        //     Route::get('san-pham/remove/{san_pham}', [ProductController::class, 'remove'])->name('san-pham.remove');
-        //     Route::resource('/san-pham', ProductController::class);
-
-        //     Route::resource('/thanh-vien', TeamController::class);
-
-        //     Route::get('danh-muc-bai-viet/remove/{danh_muc_bai_viet}', [ArticleCategoryController::class, 'remove'])->name('danh-muc-bai-viet.remove');
-        //     Route::resource('/danh-muc-bai-viet', ArticleCategoryController::class);
-
-        //     Route::get('bai-viet/remove/{bai_viet}', [AdminArticleController::class, 'remove'])->name('bai-viet.remove');
-        //     Route::resource('/bai-viet', AdminArticleController::class);
-
-        //     Route::get('/gioi-thieu', [AdminAboutController::class, 'index'])->name('gioi-thieu.index');
-
-        //     Route::get('tuyen-dung/remove/{tuyen_dung}', [RecruitmentController::class, 'remove'])->name('tuyen-dung.remove');
-        //     Route::resource('/tuyen-dung', RecruitmentController::class);
-
-        //     Route::get('ung-tuyen/{id}/{status}', [ApplyController::class, 'updateStatus'])->name('ung-tuyen.updateStatus');
-        //     Route::get('ung-tuyen', [ApplyController::class, 'index'])->name('ung-tuyen.index');
-        // });
     });
 });
