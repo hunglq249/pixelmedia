@@ -125,26 +125,24 @@
                     {!! $product['content'] !!}
 				</div>
 				
-				<div class="list-items">
-					<div class="item-sizer"></div>
-					
+				<div class="list-items row row-no-gutters">
 					@foreach ($product->images as $key => $item)
 						@php
-							$additionalClass = 'item-image';
-							$limit = floor(count($product->images) / 7);
+							$addtionalClass = '';
+							$limit = ceil(count($product->images) / 6);
 
 							for($i = 0; $i < $limit; $i++){
-								if($key - $i * 7 == 1 || $key - $i * 7 == 2){
-									$additionalClass = 'item-image-2';
-								} elseif ($key - $i * 7 == 3 || $key - $i * 7 == 4 || $key - $i * 7 == 6 || $key - $i * 7 == 7) {
-									$additionalClass = 'item-image-1';
-								} elseif ($key - $i * 7 == 5) {
-									$additionalClass = 'item-image-2-plus';
+								if($key - $i * 6 == 0){
+									$addtionalClass = 'col-md-12';
+								} elseif ($key - $i * 6 == 1 || $key - $i * 6 == 2) {
+									$addtionalClass = 'col-md-6';
+								} elseif ($key - $i * 6 == 3 || $key - $i * 6 == 4 || $key - $i * 6 == 5) {
+									$addtionalClass = 'col-md-4';
 								}
 							}
 						@endphp
 
-						<div class="wow slideInUp item-image {{ $additionalClass }}">
+						<div class="wow slideInUp item-image {{ $addtionalClass }}">
 							<a href="#" class="open-image">
 								<img src="{{ asset('storage/app'. $item) }}" alt="Image">
 							</a>
@@ -180,13 +178,6 @@
 
 	<!-- MANSORY JS -->
 	<script src="{{ asset('plugins/mansory/masonry.pkgd.min.js') }}"></script>
-
-	<script>
-		let imageArr = [];
-		@foreach ($product->images as $key => $item)
-			imageArr.push('{{ asset('storage/app'. $item) }}')
-		@endforeach
-	</script>
 
 	<script src="{{ asset('dist/js/showcase/detail/function.min.js') }}"></script>
 @endsection

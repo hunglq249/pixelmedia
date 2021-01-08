@@ -45,7 +45,9 @@ Route::get('/', [HomeController::class, 'countdown'])->name('countdown');
 
 Route::group(['middleware' => 'locale'], function() {
     Route::get('change-language/{language}', [HomeController::class, 'changeLanguage'])->name('user.change-language');
-    Route::get('/', [HomeController::class, 'home'])->name('home');
+
+    Route::group(['prefix' => '/beta'], function () {
+        Route::get('/', [HomeController::class, 'home'])->name('home');
 
     Route::group(['prefix' => '/san-pham'], function () {
         Route::get('/', [ShowcaseController::class, 'index'])->name('showcase');
@@ -68,6 +70,7 @@ Route::group(['middleware' => 'locale'], function() {
 
     Route::get('/lien-he', [ContactController::class, 'index'])->name('contact');
     Route::Post('/lien-he', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
+    });
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

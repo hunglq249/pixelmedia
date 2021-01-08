@@ -184,7 +184,8 @@
 
 .showcase .showcase-list .list-products .item-product {
   height: 50vh;
-  margin-bottom: 1.5rem;
+  padding: 0 0.25rem;
+  margin-bottom: -30px;
 }
 
 .showcase .showcase-list .list-products .item-product a {
@@ -529,7 +530,7 @@
 }
 
 .showcase-detail .showcase-images .container-fluid {
-  padding: 0 8rem;
+  padding: 0 1rem;
 }
 
 .showcase-detail .showcase-images .container-fluid .list-items {
@@ -541,30 +542,13 @@
 }
 
 .showcase-detail .showcase-images .container-fluid .list-items .item-image {
-  width: 100%;
-  height: 60vh;
-  margin-bottom: 1.5rem;
-  padding: 0 0.75rem;
+  height: 70vh;
+  margin-bottom: 0.5rem;
+  padding: 0 0.25rem;
 }
 
-.showcase-detail .showcase-images .container-fluid .list-items .item-image.item-image-1 {
-  width: 25%;
-  height: 30vh;
-}
-
-.showcase-detail .showcase-images .container-fluid .list-items .item-image.item-image-2 {
-  width: 50%;
-  height: 60vh;
-}
-
-.showcase-detail .showcase-images .container-fluid .list-items .item-image.item-image-2-plus {
-  width: 50%;
-  height: calc(60vh + 1.5rem);
-}
-
-.showcase-detail .showcase-images .container-fluid .list-items .item-image.item-image-3 {
-  width: 33.33%;
-  height: 30vh;
+.showcase-detail .showcase-images .container-fluid .list-items .item-image.col-md-4 {
+  height: 50vh;
 }
 
 .showcase-detail .showcase-images .container-fluid .list-items .item-image:hover .open-image img {

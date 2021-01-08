@@ -9,18 +9,23 @@
 				</button>
 			</div>
 			<div class="popup-body">
-				<div class="swiper-container">
+				<div class="swiper-container" id="swiperImage">
 					<div class="swiper-wrapper">
+						@foreach ($product->images as $key => $item)
+							<div class="swiper-slide">
+								<img src="{{ asset('storage/app'. $item) }}">
+							</div>
+						@endforeach
 					</div>
-
-    				<div class="swiper-button-prev">
+	
+					<div class="swiper-button-prev">
 						<i class="elo el-3x el-caret-left"></i>
 					</div>
-
+	
 					<div class="swiper-button-next">
 						<i class="elo el-3x el-caret-right"></i>
 					</div>
-
+	
 					<div class="swiper-pagination"></div>
 				</div>
 			</div>

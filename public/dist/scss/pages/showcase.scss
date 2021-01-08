@@ -139,7 +139,8 @@
 			.item-product{
 				height: 50vh;
 
-				margin-bottom: 1.5rem;
+				padding: 0 0.25rem;
+				margin-bottom: -30px;
 
 				a{
 					width: 100%;
@@ -450,7 +451,7 @@
 
 	.showcase-images{
 		.container-fluid{
-			padding: 0 8rem;
+			padding: 0 1rem;
 
 			.list-items{
 				margin: 0 -0.75rem;
@@ -460,30 +461,13 @@
 				}
 
 				.item-image{
-					width: 100%;
-					height: 60vh;
+					height: 70vh;
 
-					margin-bottom: 1.5rem;
-					padding: 0 0.75rem;
+					margin-bottom: 0.5rem;
+					padding: 0 0.25rem;
 
-					&.item-image-1{
-						width: 25%;
-						height: 30vh;
-					}
-
-					&.item-image-2{
-						width: 50%;
-						height: 60vh;
-					}
-
-					&.item-image-2-plus{
-						width: 50%;
-						height: calc(60vh + 1.5rem);
-					}
-
-					&.item-image-3{
-						width: 33.33%;
-						height: 30vh;
+					&.col-md-4{
+						height: 50vh;
 					}
 
 					&:hover{
