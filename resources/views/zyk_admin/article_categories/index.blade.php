@@ -136,6 +136,12 @@
                                     'routeDel' => route('danh-muc-bai-viet.remove', ['danh_muc_bai_viet' => $value->id]),
                                     'idDel' => $value->id,
                                 ])
+                            @else
+                                @include('zyk_admin.utils.btn_group_actions', [
+                                    'routeEdit' => route('danh-muc-bai-viet.edit', ['danh_muc_bai_viet' => $value->id]),
+                                    'routeDel' => route('danh-muc-bai-viet.remove', ['danh_muc_bai_viet' => $value->id]),
+                                    'idDel' => null,
+                                ])
                             @endif
                         </div>
                     </div>

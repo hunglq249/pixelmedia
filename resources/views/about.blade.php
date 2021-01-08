@@ -29,7 +29,7 @@
 					<div class="mask">
 						<div class="mask-overlay"></div>
 
-						<img src="https://images.unsplash.com/photo-1532800783378-1bed60adaf58?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="About cover">
+						<img src="{{ asset('storage/app'. $aboutInfo->cover) }}" alt="About cover">
 					</div>
 				</div>
 			</div>
