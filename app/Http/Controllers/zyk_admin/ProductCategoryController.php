@@ -148,10 +148,21 @@ class ProductCategoryController extends Controller
     public function update(Request $request, $id)
     {
         $uniqueSlug = $this->createSlug('product_category', $request->slug);
+        if($request->image){
+            $size = $request->image->getSize();
+            if($size > config('constants.IMAGE_UPLOAD_SIZE')){
+                Session::flash('error', config('constants.IMAGE_UPLOAD_OVER_SIZE'));
+                return redirect()->intended(route('thanh-vien.create'));
+            }
+        };
         $data = [
             'slug' => $uniqueSlug,
             'updated_by' => Auth::user()->email,
         ];
+        if($request->image){
+            $data['image'] = '/product_categories/' . $request->file('image')->hashName();
+            $request->image->move('storage/app/product_categories', $request->file('image')->hashName());
+        };
         $title_vi = $request->title_vi;
         $title_en = $request->title_en;
         $dataVi = [
