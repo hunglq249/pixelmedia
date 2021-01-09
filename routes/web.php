@@ -99,12 +99,6 @@ Route::group(['middleware' => 'locale'], function() {
 // });
 
 Route::prefix('admin')->group(function(){
-    Route::get('/dang-ky', [RegisteredController::class, 'create'])
-        ->middleware(['guest'])
-        ->name('register');
-    Route::post('/dang-ky', [RegisteredController::class, 'store'])
-        ->middleware(['guest']);
-
     Route::get('/dang-nhap', [LoginController::class, 'create'])
         ->middleware(['guest'])
         ->name('login');
@@ -115,6 +109,13 @@ Route::prefix('admin')->group(function(){
             $limiter ? 'throttle:'.$limiter : null,
         ]));
     Route::group(['middleware' => 'adminLogin'], function () {
+        Route::get('/dang-ky', [RegisteredController::class, 'create'])
+        ->middleware(['guest'])
+        ->name('register');
+
+        Route::post('/dang-ky', [RegisteredController::class, 'store'])
+            ->middleware(['guest']);
+
         Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');

@@ -77,11 +77,11 @@
 									<h6 class="subtitle-md">
 										{{ $productTypes[$product['product_category_id']] }}
 									</h6>
-									
+
 									<h4>
 										{{ $product['title'] }}
 									</h4>
-	
+
 									<h6 class="subtitle-sm">
 										{{ trans('lang.articles_see_detail') }}
 									</h6>

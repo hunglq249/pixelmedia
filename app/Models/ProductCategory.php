@@ -19,6 +19,7 @@ class ProductCategory extends Model
         'id',
         'title',
         'slug',
+        'image',
         'created_by',
         'updated_by',
         'is_deleted',

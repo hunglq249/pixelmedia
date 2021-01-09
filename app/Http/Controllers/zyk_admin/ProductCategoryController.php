@@ -45,7 +45,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        $html = view('zyk_admin.product_categories.create')->render(); 
+        $html = view('zyk_admin.product_categories.create')->render();
         return response()->json(['html' => $html]);
     }
 
@@ -57,6 +57,14 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->image){
+            $size = $request->image->getSize();
+            if($size > config('constants.IMAGE_UPLOAD_SIZE')){
+                Session::flash('error', config('constants.IMAGE_UPLOAD_OVER_SIZE'));
+                return redirect()->intended(route('thanh-vien.create'));
+            }
+        };
+
         $uniqueSlug = $this->createSlug('product_category', $request->slug);
         $data = [
             'slug' => $uniqueSlug,
@@ -65,6 +73,10 @@ class ProductCategoryController extends Controller
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
         ];
+        if($request->image){
+            $data['image'] = '/product_categories/' . $request->file('image')->hashName();
+            $request->image->move('storage/app/product_categories', $request->file('image')->hashName());
+        };
         $insertId = $this->productCategoryRepository->insertGetId($data);
         if ($insertId) {
             $title_vi = $request->title_vi;

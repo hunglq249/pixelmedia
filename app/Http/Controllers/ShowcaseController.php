@@ -41,7 +41,8 @@ class ShowcaseController extends BaseController
         $productCategories = $this->productCategoryRepository->getAllByLang($lang);
         foreach ($productCategories as $key => $value) {
             if(count($value->lang)){
-                $productTypes[$value->id] = $value->lang[0]['title'];
+                $productTypes[$value->id]['title'] = $value->lang[0]['title'];
+                $productTypes[$value->id]['image'] = $value->image;
             }
         }
 

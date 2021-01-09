@@ -11,7 +11,13 @@
 <div class="popup-body">
     <form action="{{ route('danh-muc-san-pham.update', ['danh_muc_san_pham' => $productCategory->id]) }}" method="post" enctype="multipart/form-data" autocomplete="off">
         {{ method_field('PUT') }}
-        @include('zyk_admin.product_categories.form', ['title_vi' => $title_vi, 'title_en' => $title_en, 'slug' => $productCategory->slug])
+        @include('zyk_admin.product_categories.form', [
+            'title_vi' => $title_vi,
+            'title_en' => $title_en,
+            'slug' => $productCategory->slug,
+            'image' => $productCategory->image,
+            'is_update' => true
+        ])
     </form>
 </div>
 

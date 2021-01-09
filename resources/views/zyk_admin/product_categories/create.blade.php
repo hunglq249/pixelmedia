@@ -9,8 +9,8 @@
 </div>
 
 <div class="popup-body">
-    <form action="{{ route('danh-muc-san-pham.store') }}" method="post" autocomplete="off">
-        @include('zyk_admin.product_categories.form', ['title_vi' => '', 'title_en' => '', 'slug' => ''])
+    <form action="{{ route('danh-muc-san-pham.store') }}" method="post" autocomplete="off" enctype="multipart/form-data">
+        @include('zyk_admin.product_categories.form', ['title_vi' => '', 'title_en' => '', 'slug' => '', 'is_update' => false])
     </form>
 </div>
 
