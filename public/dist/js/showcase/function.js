@@ -1,18 +1,13 @@
 $(document).ready(function () {
-    // INIT ISOTOPE
-    // $('.list-products').isotope({
-    //     itemSelector: '.item-product',
-
-    //     columnWidth: '.item-sizer',
-    //     percentPosition: true
-    // });
-
     // FILTER PRODUCT
     $('.showcase-nav')
         .find('a')
         .unbind()
         .on('click', function () {
             let type = $(this).data('type');
+            let index = $(this).data('index');
+
+            swiperShowcaseNav.slideTo(index);
 
             $('.showcase-nav').find('a').removeClass('active');
             $(this).addClass('active');
@@ -23,16 +18,6 @@ $(document).ready(function () {
                 $('.item-product').fadeOut();
                 $('.item-product-' + type).fadeIn();
             }
-
-            // if (type == '*') {
-            //     $('.list-products').isotope({
-            //         filter: '*'
-            //     });
-            // } else {
-            //     $('.list-products').isotope({
-            //         filter: '.item-product-' + type
-            //     });
-            // }
         });
 
     // INIT LOCOMOTIVE SCROLL
@@ -52,4 +37,9 @@ $(document).ready(function () {
 
     $('.showcase-cover').find('.heading-wrapper').addClass('show');
     $('.showcase-cover').find('h4').addClass('show');
+
+    // INIT SWIPER
+    var swiperShowcaseNav = new Swiper('#swiperShowcase', {
+        slidesPerView: 1
+    });
 });

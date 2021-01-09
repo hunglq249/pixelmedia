@@ -43,6 +43,7 @@ class ShowcaseController extends BaseController
             if(count($value->lang)){
                 $productTypes[$value->id]['title'] = $value->lang[0]['title'];
                 $productTypes[$value->id]['image'] = $value->image;
+                $productTypes[$value->id]['id'] = $value->id;
             }
         }
 

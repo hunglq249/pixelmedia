@@ -11,37 +11,34 @@
 @section('view')
 	<div class="showcase">
 		<div class="showcase-cover" data-scroll-section>
-			<div class="mask">
-				<img src="https://images.unsplash.com/photo-1591976158059-35d5fcf46a6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Showcase cover">
-
-				<div class="mask-content container-fluid">
-					<div class="heading-wrapper">
-						<h3>
-							{{ trans('lang.showcase_title') }}
-						</h3>
-					</div>
-
-					<h4>
-						{{ trans('lang.showcase_desc') }}
-					</h4>
+			<div class="swiper-container" id="swiperShowcase">
+				<div class="swiper-wrapper">
+					@foreach ($productTypes as $type)
+						<div class="swiper-slide">
+							<div class="mask">
+								<img src="{{ asset('storage/app'. $type['image']) }}" alt="Image thumb of {{ $type['title'] }}">
+							</div>
+						</div>
+					@endforeach
 				</div>
-			</div>
 
-			<div class="showcase-nav">
-				<div class="container-fluid">
-					<div class="nav">
-						<a href="#" class="active" data-type="*">
-							{{ trans('lang.showcase_all') }}
-						</a>
-
-						@foreach ($productTypes as $key => $productType)
-							<a href="#" data-type="{{ $key }}">
-								{{ $productType }}
-							</a>
-						@endforeach
+				<div class="showcase-nav">
+					<div class="container-fluid">
+						<div class="nav">
+							@php
+								$customProductTypes = array_values($productTypes)
+							@endphp
+							@foreach ($customProductTypes as $key => $productType)
+								<a href="#" class="{{ $productType['id'] == 38 ? 'active' : '' }}" data-index="{{ $key }}" data-type="{{ $productType['id'] == 38 ? '*' : $productType['id'] }}">
+									{{ $productType['title'] }}
+								</a>
+							@endforeach
+						</div>
 					</div>
 				</div>
 			</div>
+
+			
 		</div>
 
 		<div class="container-fluid" data-scroll-section>
@@ -75,7 +72,7 @@
 
 								<div class="item-content offset">
 									<h6 class="subtitle-md">
-										{{ $productTypes[$product['product_category_id']] }}
+										{{ $productTypes[$product['product_category_id']]['title'] }}
 									</h6>
 
 									<h4>
@@ -99,6 +96,9 @@
 	<!-- LOCOMOTIVE CSS -->
 	<link rel="stylesheet" href="{{ asset('plugins/locomotive/css/locomotive-scroll.min.css') }}">
 
+	<!-- SWIPER CSS -->
+	<link rel="stylesheet" href="{{ asset('plugins/swiper/css/swiper-bundle.min.css') }}">
+
 	<link rel="stylesheet" href="{{ asset('dist/scss/css/showcase.css') }}">
 @endsection
 
@@ -111,6 +111,9 @@
 
 	<!-- LOCOMOTIVE JS -->
 	<script src="{{ asset('plugins/locomotive/js/locomotive-scroll.min.js') }}"></script>
+
+	<!-- SWIPER JS -->
+	<script src="{{ asset('plugins/swiper/js/swiper-bundle.min.js') }}"></script>
 
 	<script src="{{ asset('dist/js/showcase/function.min.js') }}"></script>
 @endsection
