@@ -7,7 +7,7 @@ return [
 	'nav_about' => 'Về chúng tôi',
 	'nav_contact' => 'Liên hệ',
 
-	'footer_desc' => 'Pixel Media is a media',
+	'footer_desc' => 'We do it in public',
 	'footer_address' => 'Số 2, Ng Khánh Toàn, Q. Cầu Giấy, Hà Nội',
 	'footer_follow' => 'Theo dõi chúng tôi',
 

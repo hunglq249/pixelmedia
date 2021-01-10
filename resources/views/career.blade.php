@@ -37,7 +37,7 @@
 					<div class="cover-image col-md-7" data-scroll data-scroll-speed="1">
 						<div class="mask">
 							<div class="mask-overlay"></div>
-
+							
 							<img src="{{ asset('storage/app'. $banner->image) }}" alt="Career cover">
 						</div>
 					</div>

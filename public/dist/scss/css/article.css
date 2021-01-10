@@ -226,8 +226,8 @@
 
 .article .container-fluid .article-posts .post-sizer a:hover .mask img,
 .article .container-fluid .article-posts .post a:hover .mask img {
-  -webkit-transform: scale(1.2, 1.2);
-  transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.025, 1.025);
+  transform: scale(1.025, 1.025);
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
 }

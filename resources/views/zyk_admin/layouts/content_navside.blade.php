@@ -99,6 +99,11 @@
 			</div>
 
 			<div class="menu-group-expand">
+				<div class="menu-group-item @if(Request::Segment($segmentPos) == 'banner-tuyen-dung') active @endif">
+					<a href="{{ route('banner-tuyen-dung.index') }}">
+						Banner tuyển dụng
+					</a>
+				</div>
 				<div class="menu-group-item @if(Request::Segment($segmentPos) == 'tuyen-dung') active @endif">
 					<a href="{{ route('tuyen-dung.index') }}">
 						Tuyển dụng

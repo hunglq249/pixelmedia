@@ -412,6 +412,21 @@
 		.container-fluid{
 			padding: 0 1rem;
 
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p{
+				img{
+					width: 100%;
+					max-width: 100%;
+
+					margin-bottom: 0.5rem;
+				}
+			}
+
 			.list-items{
 				margin: 0 -0.75rem;
 

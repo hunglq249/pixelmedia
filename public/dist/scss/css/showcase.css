@@ -500,6 +500,18 @@
   padding: 0 1rem;
 }
 
+.showcase-detail .showcase-images .container-fluid h1 img,
+.showcase-detail .showcase-images .container-fluid h2 img,
+.showcase-detail .showcase-images .container-fluid h3 img,
+.showcase-detail .showcase-images .container-fluid h4 img,
+.showcase-detail .showcase-images .container-fluid h5 img,
+.showcase-detail .showcase-images .container-fluid h6 img,
+.showcase-detail .showcase-images .container-fluid p img {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+}
+
 .showcase-detail .showcase-images .container-fluid .list-items {
   margin: 0 -0.75rem;
 }

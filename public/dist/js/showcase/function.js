@@ -14,9 +14,13 @@ $(document).ready(function () {
 
             if (type == '*') {
                 $('.item-product').fadeIn();
+
+                scroll.update();
             } else {
                 $('.item-product').fadeOut();
                 $('.item-product-' + type).fadeIn();
+
+                scroll.update();
             }
         });
 

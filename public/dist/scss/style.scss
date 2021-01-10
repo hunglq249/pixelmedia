@@ -153,12 +153,12 @@ header{
 }
 
 footer{
-	padding: 4rem 4rem 6rem;
+	padding: 4rem 6rem 6rem;
 
 	background-color: var(--gray-1);
 
 	.row{
-		h3,
+		h4,
 		h5,
 		h6{
 			color: var(--white);
@@ -169,10 +169,11 @@ footer{
 		}
 		
 		.footer-contact{
-			h3{
-				margin-bottom: 4.5rem;
+			h4{
+				margin-bottom: 2.5rem;
 
 				font-weight: 700;
+				text-transform: uppercase;
 			}
 
 			h5{
@@ -189,13 +190,17 @@ footer{
 
 			address{
 				font-style: normal;
+
+				@include translate(-3rem, 0);
 			}
 		}
 
 		.footer-social{
-			@include d-flex(column, space-between, flex-end);
+			@include d-flex(column, center, flex-end);
 
 			.social-network{
+				margin-bottom: 1.5rem;
+				
 				@include d-flex(row, flex-end, center);
 
 				a{
@@ -222,7 +227,7 @@ footer{
 			.social-logo{
 				a{
 					img{
-						height: 60px;
+						height: 80px;
 					}
 				}
 			}

@@ -1,9 +1,9 @@
 <footer data-scroll-section>
 	<div class="row">
 		<div class="col-md-6 footer-contact">
-			<h3>
+			<h4>
 				{{ trans('lang.footer_desc') }}
-			</h3>
+			</h4>
 
 			<address>
 				<h5>
@@ -20,9 +20,9 @@
 
 		<div class="col-md-6 footer-social">
 			<div class="social-network">
-				<h6>
+				<h5>
 					{{ trans('lang.footer_follow') }}
-				</h6>
+				</h5>
 				
 				@foreach ($contactInfo['Social'] as $key => $contact)
 					@php
