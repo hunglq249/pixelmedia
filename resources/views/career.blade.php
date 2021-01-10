@@ -17,7 +17,7 @@
 						<h6>
 							{{ trans('lang.career_welcome') }}
 						</h6>
-		
+
 						<h3>
 							{{ trans('lang.career_greeting') }}
 						</h3>
@@ -37,8 +37,8 @@
 					<div class="cover-image col-md-7" data-scroll data-scroll-speed="1">
 						<div class="mask">
 							<div class="mask-overlay"></div>
-	
-							<img src="https://images.unsplash.com/photo-1553268882-827ff90c67e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" alt="Career cover">
+
+							<img src="{{ asset('storage/app'. $banner->image) }}" alt="Career cover">
 						</div>
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 @section('css')
 	<!-- LOCOMOTIVE CSS -->
 	<link rel="stylesheet" href="{{ asset('plugins/locomotive/css/locomotive-scroll.min.css') }}">
-	
+
 	<link rel="stylesheet" href="{{ asset('dist/scss/css/career.css') }}">
 @endsection
 
@@ -95,6 +95,6 @@
 
 	<!-- LOCOMOTIVE JS -->
 	<script src="{{ asset('plugins/locomotive/js/locomotive-scroll.min.js') }}"></script>
-	
+
 	<script src="{{ asset('dist/js/career/function.min.js') }}"></script>
 @endsection

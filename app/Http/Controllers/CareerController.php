@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Repositories\Recruitments\RecruitmentRepository;
+use App\Repositories\RecruitmentBanner\RecruitmentBannerRepository;
 use App\Repositories\Apply\ApplyRepository;
 use Illuminate\Http\Request;
 use Session;
@@ -17,19 +18,24 @@ class CareerController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected $recruitmentRepository;
+    protected $recruitmentRepositoryBanner;
     protected $applyRepository;
 
     public function __construct(
         RecruitmentRepository $recruitmentRepository,
+        RecruitmentBannerRepository $recruitmentRepositoryBanner,
         ApplyRepository $applyRepository
     )
     {
         $this->recruitmentRepository = $recruitmentRepository;
+        $this->recruitmentRepositoryBanner = $recruitmentRepositoryBanner;
         $this->applyRepository = $applyRepository;
     }
 
 	public function index(){
         $lang = Session::get('website_language', config('app.locale'));
+
+        $banner = $this->recruitmentRepositoryBanner->first();
 
         $jobs = $this->recruitmentRepository->getAllByLang($lang);
         foreach ($jobs as $key => $value) {
@@ -39,7 +45,7 @@ class CareerController extends BaseController
             }
         }
 
-		return view('career', compact('jobs'));
+		return view('career', compact('jobs', 'banner'));
 	}
 
 	public function getJobDetail(){

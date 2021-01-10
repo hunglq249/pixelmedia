@@ -29,6 +29,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\zyk_admin\RecruitmentController;
 use App\Http\Controllers\zyk_admin\ApplyController;
 use App\Http\Controllers\zyk_admin\VideoController;
+use App\Http\Controllers\zyk_admin\RecruitmentBannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -148,5 +149,9 @@ Route::prefix('admin')->group(function(){
 
         Route::get('video/remove/{video}', [VideoController::class, 'remove'])->name('video.remove');
         Route::resource('/video', VideoController::class);
+
+        Route::get('banner-tuyen-dung', [RecruitmentBannerController::class, 'index'])->name('banner-tuyen-dung.index');
+        Route::get('banner-tuyen-dung/{banner_tuyen_dung}/edit', [RecruitmentBannerController::class, 'edit'])->name('banner-tuyen-dung.edit');
+        Route::put('banner-tuyen-dung/{banner_tuyen_dung}', [RecruitmentBannerController::class, 'update'])->name('banner-tuyen-dung.update');
     });
 });
