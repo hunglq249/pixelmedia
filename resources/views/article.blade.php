@@ -45,6 +45,7 @@
 						<a href="{{ route('article_detail', ['slug' => $article['slug']]) }}">
 							@if(isset($article['image']) && $article['image'] != '')
 								<div class="mask">
+									<div class="mask-overlay"></div>
 									<img src="{{ asset('storage/app'. $article['image']) }}" alt="Image of article {{ $article['title'] }}">
 								</div>
 							@else
