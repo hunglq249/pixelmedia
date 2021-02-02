@@ -151,4 +151,21 @@
         </label>
         <input type="file" name="images[]" class="custom-file-input {{ $errors->has('images') ? ' is-invalid' : '' }}" id="imageUpload" multiple  value="{{ old('images') }}" accept="image/*">
     </div>
+
+    <div class="list-images col-md-12">
+        @if($isUpdate)
+            <div class="row">
+                @foreach($product->images as $image)
+                    <div class="item-image col-md-3">
+                        <button class="btn btn-danger btn-remove-image" type="button">
+                            <i class="elo el-lg el-close"></i>
+                        </button>
+                        <div class="mask">
+                            <img src="{{ asset('storage/app'. $image) }}" width="20%" alt="..." class="margin">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+    </div>
 </div>

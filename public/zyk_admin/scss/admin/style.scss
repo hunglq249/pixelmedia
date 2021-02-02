@@ -275,6 +275,58 @@ html{
 			.view-body{
 				
 			}
+
+			.popup{
+				&.popup-update{
+					.popup-dialog{
+						.popup-content{
+							.popup-body{
+								.row{
+									.list-images{
+										.row{
+											.item-image{
+												height: 230px;
+
+												margin-bottom: 1.5rem;
+
+												position: relative;
+
+												&:hover{
+													> .btn-remove-image{
+														opacity: 1;
+													}	
+												}
+
+												> .btn-remove-image{
+													width: 32px;
+													height: 32px;
+
+													padding: 0;
+
+													position: absolute;
+													top: 8px;
+													right: 8px;
+													z-index: 1;
+
+													opacity: 0;
+
+													@include borderRadius(50%);
+													@include d-flex(row, center, center);
+												}
+
+												.mask{
+													width: 100%;
+													height: 100%;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
