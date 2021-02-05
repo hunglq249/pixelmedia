@@ -41,11 +41,11 @@ class ProductRequest extends FormRequest
             'sub_title_en' => 'required',
             'slug' => 'required',
             'cover_mask' => 'required',
-            'images' => 'required',
+            // 'images' => 'required',
         ];
         $action = $this->action->getActionMethod();
         if($action == 'update'){
-            unset($rules['images']);
+            // unset($rules['images']);
             unset($rules['cover_mask']);
         }
         return $rules;
@@ -65,12 +65,12 @@ class ProductRequest extends FormRequest
             'sub_title_en.required'  => 'Tiêu Đề Phụ (Tiếng Anh) không được trống',
             'slug.required'  => 'Slug không được trống',
             'cover_mask.required'  => 'Thumb không được trống',
-            'images.required'  => 'Danh Sách Ảnh không được trống',
+            // 'images.required'  => 'Danh Sách Ảnh không được trống',
         ];
 
         $action = $this->action->getActionMethod();
         if($action == 'update'){
-            unset($messages['images']);
+            // unset($messages['images']);
             unset($messages['cover_mask']);
         }
         return $messages;
