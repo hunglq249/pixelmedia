@@ -709,6 +709,7 @@
 
 .showcase-detail .showcase-detail-nav {
   height: 200px;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -749,6 +750,12 @@
 }
 
 .showcase-detail .showcase-detail-nav a.btn-top {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
