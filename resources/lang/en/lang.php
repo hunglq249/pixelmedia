@@ -36,6 +36,7 @@ return [
 
 	'articles_all' => 'All articles',
 	'articles_see_detail' => 'See detail',
+	'articles_related' => 'Related posts',
 
 	'career_welcome' => 'Welcome to',
 	'career_greeting' => 'Pixel Media Recruitment',

@@ -9,4 +9,12 @@ class ArticleRepository extends EloquentRepository{
     {
         return Article::class;
     }
+
+    public function related($categoryId, $id, $lang){
+        return Article::with(
+            ['lang' => function ($query) use ($lang){
+                $query->where('lang', $lang);
+            }]
+        )->where('category_id', '=', $categoryId)->where('id', '!=', $id)->where('is_deleted', 0)->limit(3)->orderBy('id', 'DESC')->get();
+    }
 }

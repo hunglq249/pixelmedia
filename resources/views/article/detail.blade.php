@@ -56,6 +56,46 @@
 			<div class="article-content">
 				{!! $article['content'] !!}
 			</div>
+
+			<div class="article-related">
+				<div class="related-header">
+					<h5>
+						{{ trans('lang.articles_related') }}
+					</h5>
+				</div>
+				<div class="related-body">
+					<div class="container-fluid">
+						<div class="row">
+							@if (count($relateds) > 0)
+								@foreach ($relateds as $key => $related)
+									<div class="item-related col-md-4">
+										<a href="{{ route('article_detail', ['slug' => $related['slug']] )}}">
+											<div class="mask">
+												<div class="mask-overlay"></div>
+												<img src="{{ asset('storage/app'. $related['image']) }}" alt="Image related">
+											</div>
+	
+											<div class="item-content offset">
+												<h6 class="subtitle-md">
+													{{ $types[$article['category_id']] }}
+												</h6>
+	
+												<h4>
+													{{ $related['title'] }}
+												</h4>
+	
+												<h6 class="subtitle-sm">
+													{{ trans('lang.articles_see_detail') }}
+												</h6>
+											</div>
+										</a>
+									</div>
+								@endforeach
+							@endif
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 @endsection

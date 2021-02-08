@@ -96,6 +96,13 @@ class ArticleController extends BaseController
             $article['content'] = $article->lang[0]['content'];
         }
 
-		return view('article.detail', compact('article', 'types'));
+        $relateds = $this->articleRepository->related($article->category_id, $article->id, $lang);
+        foreach($relateds as $key => $related){
+            if(count($related->lang)){
+                $related['title'] = $related->lang[0]['title'];
+            }
+        }
+
+		return view('article.detail', compact('article', 'types', 'relateds'));
 	}
 }

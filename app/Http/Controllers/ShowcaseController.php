@@ -73,6 +73,10 @@ class ShowcaseController extends BaseController
         }
 
         $product = $this->productRepository->findBySlugAndLang($slug, $lang);
+
+        $productCategorie = $this->productCategoryRepository->findByIdAndLang($product->product_category_id, $lang);
+        $product['product_category'] = $productCategorie->lang[0]['title'];
+
         if(count($product->lang)){
             $product['title'] = $product->lang[0]['title'];
             $product['description'] = $product->lang[0]['description'];
@@ -86,6 +90,13 @@ class ShowcaseController extends BaseController
         $previous = $this->productRepository->getPreviousId($product->id);
         $next = $this->productRepository->getNextId($product->id);
 
-		return view('showcase.detail', compact('product', 'previous', 'next'));
+        $relateds = $this->productRepository->related($product->product_category_id, $product->id, $lang);
+        foreach($relateds as $key => $related){
+            if(count($related->lang)){
+                $related['title'] = $related->lang[0]['title'];
+            }
+        }
+
+		return view('showcase.detail', compact('product', 'previous', 'next', 'relateds'));
 	}
 }

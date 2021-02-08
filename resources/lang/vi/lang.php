@@ -36,6 +36,7 @@ return [
 
 	'articles_all' => 'Tất cả bài viết',
 	'articles_see_detail' => 'Xem chi tiết',
+	'articles_related' => 'Bài viết liên quan',
 
 	'career_welcome' => 'Chào mừng bạn đến với',
 	'career_greeting' => 'Tuyển dụng Pixel Media',
