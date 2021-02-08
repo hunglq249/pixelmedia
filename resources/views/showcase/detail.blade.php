@@ -30,7 +30,7 @@
                         {{ trans('lang.showcase_previous') }}
                     </a>
                 </div>
-            @endif
+			@endif
 
             @if ($next)
 				<div class="overlay-hover overlay-next" data-direction="next">
@@ -66,6 +66,12 @@
 						<li class="breadcrumb-item">
 							<a href="{{ route('showcase') }}">
 								{{ trans('lang.nav_showcase') }}
+							</a>
+						</li>
+
+						<li class="breadcrumb-item">
+							<a href="javascript:void(0)">
+								{{ $product['product_category_id'] }}
 							</a>
 						</li>
 
@@ -150,6 +156,83 @@
                     @endforeach
                 </div>
 			</div>
+		</div>
+
+		{{-- <div class="showcase-share">
+			<div class="btn-wrapper">
+				<button class="btn" type="button">
+					<i class="elo el-lg el-share"></i>
+				</button>
+			</div>
+		</div> --}}
+
+		<div class="showcase-related">
+			<div class="related-header">
+				<h5>
+					{{ trans('lang.showcase_related') }}
+				</h5>
+			</div>
+			<div class="related-body">
+				<div class="container-fluid">
+					<div class="row">
+						@for ($i = 0; $i < 3; $i++)
+							<div class="item-related col-md-4">
+								<a href="#">
+									<div class="mask">
+										<div class="mask-overlay"></div>
+										<img src="https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Image related">
+									</div>
+
+									<div class="item-content offset">
+										<h6 class="subtitle-md">
+											Cate
+										</h6>
+	
+										<h4>
+											Title
+										</h4>
+	
+										<h6 class="subtitle-sm">
+											{{ trans('lang.articles_see_detail') }}
+										</h6>
+									</div>
+								</a>
+							</div>
+						@endfor
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showcase-detail-nav">
+			@if ($previous)
+				<a href="{{ route('showcase_detail', ['slug' => $previous->slug] )}}" class="btn btn-control-showcase" role="button">
+					<span class="circle">
+						<i class="els el-lg el-caret-left"></i>
+					</span>
+					{{ trans('lang.showcase_previous') }}
+				</a>
+			@else
+				<div></div>
+			@endif
+
+			<a href="#" class="btn btn-top" id="btnTop">
+				<span class="circle">
+					<i class="elo el-lg el-caret-up"></i>
+				</span>
+				{{ trans('lang.showcase_top') }}
+			</a>
+
+			@if ($next)
+				<a href="{{ route('showcase_detail', ['slug' => $next->slug] )}}" class="btn btn-control-showcase" role="button">
+					{{ trans('lang.showcase_next') }}
+					<span class="circle">
+						<i class="els el-lg el-caret-right"></i>
+					</span>
+				</a>
+			@else
+				<div></div>
+			@endif
 		</div>
 
 		@include('showcase._popup')

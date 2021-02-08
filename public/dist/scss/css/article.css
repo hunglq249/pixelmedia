@@ -34,7 +34,7 @@
   --gray-4:                                       #48484a;
   --gray-5:                                       #636366;
   --gray-6:                                       #8e8e93;
-  --bg-body:                                      #0a0a0a;
+  --bg-body:                                      #1a1a1a;
   --bg-bw:                                        #131414;
   --bg-bw-rv:                                     #f2f2f7;
   --border:                                       var(--gray-2);
@@ -139,6 +139,7 @@
 
 .article .article-cover .swiper-container .article-nav .container-fluid .nav a.active {
   color: var(--primary);
+  font-weight: 700;
 }
 
 .article .article-cover .swiper-container .article-nav .container-fluid .nav a.active:after {

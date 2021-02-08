@@ -31,6 +31,8 @@ return [
 	'showcase_client' => 'Khách hàng',
 	'showcase_date' => 'Ngày',
 	'showcase_taken' => 'Thực hiện bởi',
+	'showcase_related' => 'Các dự án liên quan',
+	'showcase_top' => 'Trở lại đầu trang',
 
 	'articles_all' => 'Tất cả bài viết',
 	'articles_see_detail' => 'Xem chi tiết',

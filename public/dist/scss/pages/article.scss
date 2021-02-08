@@ -80,6 +80,8 @@
 							&.active{
 								color: var(--primary);
 
+								font-weight: 700;
+
 								&:after{
 									background-color: var(--primary);
 								}

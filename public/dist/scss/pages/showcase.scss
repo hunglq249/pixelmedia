@@ -80,6 +80,8 @@
 							&.active{
 								color: var(--primary);
 
+								font-weight: 700;
+
 								&:after{
 									background-color: var(--primary);
 								}
@@ -361,6 +363,8 @@
 			padding-top: 8rem;
 
 			.info-title{
+				text-align: center;
+
 				.breadcrumb{
 					margin-bottom: 2.25rem;
 
@@ -478,6 +482,188 @@
 					width: 100%;
 					height: 100vh;
 				}
+			}
+		}
+	}
+
+	.showcase-share{
+		height: 40px;
+
+		border-bottom: 1px solid var(--border);
+
+		@include d-flex(row, flex-end, center);
+
+		.btn-wrapper{
+			position: relative;
+		}
+	}
+
+	.showcase-related{
+		.related-header{
+			padding: 2.5rem 0 1.25rem;
+
+			@include d-flex(row, center, center);
+
+			h5{
+				text-transform: uppercase;
+				font-weight: 700;
+			}
+		}
+
+		.related-body{
+			.container-fluid{
+				padding: 0 1rem;
+				
+				.row{
+					margin: 0 -0.75rem;
+	
+					.item-related{
+						a{
+							width: 100%;
+							height: 425px;
+	
+							display: block;
+
+							position: relative;
+
+							&:hover{
+								.mask{
+									img{
+										@include scale(1.025, 1.025);
+										@include transition();
+									}
+								}
+		
+								.item-content{
+									@include translate(0.5rem, 0);
+									@include transition();
+		
+									h6{
+										&.subtitle-sm{
+											opacity: 1;
+		
+											@include transition();
+										}
+									}
+								}
+							}
+	
+							.mask{
+								width: 100%;
+								height: 100%;
+
+								@include borderRadius(0.5rem);
+								@include boxShadowDf();
+
+								position: relative;
+
+								.mask-overlay{
+									width: 100%;
+									height: 100%;
+
+									background-image: url('/dist/img/bg_texture.png');
+
+									position: absolute;
+									top: 50%;
+									left: 50%;
+									z-index: 1;
+
+									@include translate(-50%, -50%);
+								}
+
+								img{
+									@include transition();
+								}
+							}
+
+							.item-content{
+								width: calc(100% - 3rem);
+		
+								position: absolute;
+								bottom: 1.5rem;
+								left: 1.5rem;
+								z-index: 1;
+		
+								@include transition();
+		
+								h4{
+									margin-bottom: 2rem;
+		
+									font-weight: 800;
+									text-transform: uppercase;
+		
+									@include textShadowDf();
+								}
+		
+								h6{
+									@include textShadowDf();
+		
+									&.subtitle-md{
+										margin-bottom: 1rem;
+		
+										text-transform: uppercase;
+		
+										font-weight: 600;
+									}
+		
+									&.subtitle-sm{
+										padding: 0.75rem 1.5rem;
+		
+										display: inline-flex;
+		
+										border: 1px solid var(--white);
+										@include borderRadius();
+		
+										opacity: 0;
+										@include transition();
+									}
+								}
+							}
+						}
+					}
+				}
+			}	
+		}
+	}
+
+	.showcase-detail-nav{
+		height: 200px;
+
+		@include d-flex(row, space-between, center);
+
+		a{
+			&.btn-control-showcase{
+				@include d-flex(row, center, center);
+
+				&:first-child{
+					.circle{
+						margin-right: 0.5rem;
+					}
+				}
+
+				&:last-child{
+					.circle{
+						margin-left: 0.5rem;
+					}
+				}
+			}
+
+			&.btn-top{
+				@include d-flex(column, center, center);
+
+				.circle{
+					margin-bottom: 0.5rem;
+				}
+			}
+
+			.circle{
+				width: 40px;
+				height: 40px;
+
+				border: 1px solid var(--text-paragraph);
+
+				@include borderRadius(50%);
+				@include d-flex(row, center, center);
 			}
 		}
 	}

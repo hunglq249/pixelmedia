@@ -31,6 +31,8 @@ return [
 	'showcase_client' => 'Client',
 	'showcase_date' => 'Date',
 	'showcase_taken' => 'Taken by',
+	'showcase_related' => 'Related projects',
+	'showcase_top' => 'Top',
 
 	'articles_all' => 'All articles',
 	'articles_see_detail' => 'See detail',

@@ -55,4 +55,15 @@ $(document).ready(function () {
 
             $popup.popup('show');
         });
+
+    $('#btnTop').on('click', function (e) {
+        e.preventDefault();
+
+        $('html, body').stop().animate(
+            {
+                scrollTop: 0
+            },
+            500
+        );
+    });
 });
