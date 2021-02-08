@@ -5,7 +5,9 @@ class Product {
 
         this.$inputChangeType = $('#selectCoverType');
         this.$renderByType = $('.render-by-type');
+        this.$btnRemoveImage = $('.btn-remove-image');
         this.$inputChangeType.on('change', this.onChangeType.bind(this));
+        this.$btnRemoveImage.on('click', this.onRemoveImage.bind(this));
     }
 
     onChangeType(e) {
@@ -39,6 +41,28 @@ class Product {
 			</label>
             <input type="text" class="form-control" id="cover_url" name="cover_url" placeholder="Youtube Video Id" value="">
         `;
+    }
+
+    onRemoveImage(e){
+        let $this = $(e.currentTarget);
+        let url = $this.attr('data-url');
+        let image = $this.attr('data-image');
+        if(confirm('Chắc chắn xóa ảnh này?')){
+            $.ajax({
+                url: url,
+                type: 'GET',
+                data: {
+                    image: image
+                },
+                success: function (res) {
+                    if(res.status == 200){
+                        $this.parent('.item-image').remove();
+                    }else{
+                        alert(res.message);
+                    }
+                }
+            });
+        }
     }
 }
 

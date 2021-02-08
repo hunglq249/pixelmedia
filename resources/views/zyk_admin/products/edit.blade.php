@@ -17,7 +17,7 @@
                 'content_vi' => $langData['content_vi'], 'content_en' => $langData['content_en'],
                 'sub_title_vi' => $langData['sub_title_vi'], 'sub_title_en' => $langData['sub_title_en'],
                 'client' => $product->client, 'date' => $product->date, 'images' => $product->images, 'slug' => $product->slug,
-                'categories' => $customCategories, 'teams' => $customTeams, 'is_top' => $product->is_top
+                'categories' => $customCategories, 'teams' => $customTeams, 'is_top' => $product->is_top, 'product_id' => $product->id
             ])
         <input type="hidden" name="id_lang" value="{{$ids}}">
     </form>

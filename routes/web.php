@@ -125,6 +125,7 @@ Route::prefix('admin')->group(function(){
         Route::resource('/danh-muc-san-pham', ProductCategoryController::class);
 
         Route::get('san-pham/remove/{san_pham}', [ProductController::class, 'remove'])->name('san-pham.remove');
+        Route::get('san-pham/remove-image/{san_pham}', [ProductController::class, 'removeImage'])->name('san-pham.remove.image');
         Route::resource('/san-pham', ProductController::class);
 
         Route::resource('/thanh-vien', TeamController::class);

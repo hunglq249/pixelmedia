@@ -304,7 +304,9 @@ class ProductController extends Controller
             }
         }
         if(count($images) > 0){
-            $data['images'] = implode(',', $images);
+            $product = $this->productRepository->find($id);
+            $oldImages = explode(',', $product->images);
+            $data['images'] = implode(',', array_merge($oldImages, $images));
         }
 
         if($request->cover_url){
@@ -351,5 +353,31 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function removeImage(Request $request, $id)
+    {
+        $image = $request->image;
+        $product = $this->productRepository->find($id);
+        $images = explode(',', $product->images);
+        $newImages = array_diff($images, array($image));
+
+        $data = ['images' => implode(',', $newImages)];
+
+        $update = $this->productRepository->update($id,$data);
+        if($update){
+            return response()->json([
+                'status' => 200,
+                'isExist' => true,
+                'message' => 'Xóa ảnh thành công!'
+            ]);
+        }else{
+            return response()->json([
+                'status' => 400,
+                'isExist' => false,
+                'message' => 'Có lỗi trong quá trình xóa ảnh!'
+            ]);
+        }
     }
 }

@@ -157,7 +157,7 @@
             <div class="row">
                 @foreach($product->images as $image)
                     <div class="item-image col-md-3">
-                        <button class="btn btn-danger btn-remove-image" type="button">
+                        <button class="btn btn-danger btn-remove-image" type="button" data-image="{{ $image }}" data-url="{{route('san-pham.remove.image', ['san_pham' => $product_id])}}">
                             <i class="elo el-lg el-close"></i>
                         </button>
                         <div class="mask">
