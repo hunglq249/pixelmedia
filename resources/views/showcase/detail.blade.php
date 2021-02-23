@@ -40,7 +40,7 @@
 
 			<div class="cover-overlay">
 				@if($product['cover_type'] == 1)
-					<a href="https://vimeo.com/{{ $product['cover_url'] }}" class="btn btn-outline-dark" role="button">
+					<a href="https://vimeo.com/{{ $product['cover_url'] }}" class="btn btn-outline-dark" role="button" target="_blank">
 						{{ trans('lang.home_btn_play') }}
 					</a>
 				@endif
@@ -181,7 +181,19 @@
 							</div>
 						@endforeach
 					@endif
-                </div>
+				</div>
+				
+				{{-- <div class="list-images">
+					@if(count($product->images) > 0)
+						@foreach ($product->images as $key => $item)
+							<div class="wow slideInUp item-image">
+								<a href="#" class="open-image">
+									<img src="{{ asset('storage/app'. $item) }}" alt="Image">
+								</a>
+							</div>
+						@endforeach
+					@endif
+				</div> --}}
 			</div>
 		</div>
 
