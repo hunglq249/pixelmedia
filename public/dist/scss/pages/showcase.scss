@@ -211,6 +211,8 @@
 }
 
 .showcase-detail{
+	overflow-x: hidden;
+
 	.showcase-cover{
 		height: 100vh;
 
@@ -221,6 +223,20 @@
 		.mask{
 			width: 100%;
 			height: 100%;
+		}
+
+		video{
+			width: 100%;
+			height: 100%;
+
+			overflow: hidden;
+
+			source{
+				width: 100%;
+				height: 100%;
+
+				object-fit: cover;
+			}
 		}
 
 		.cover-overlay{
@@ -235,6 +251,7 @@
 			z-index: 1;
 
 			@include transition();
+			@include d-flex(row, center, center);
 
 			&.show{
 				background-color: rgba(0,0,0,0.75);
@@ -487,7 +504,9 @@
 	}
 
 	.showcase-share{
-		height: 40px;
+		height: 60px;
+
+		padding: 0 1rem;
 
 		border-bottom: 1px solid var(--border);
 
@@ -495,6 +514,47 @@
 
 		.btn-wrapper{
 			position: relative;
+
+			&:hover{
+				.btn-list{
+					right: 0;
+
+					@include transition();
+				}
+			}
+
+			.btn-list{
+				width: auto;
+				height: 40px;
+
+				padding: 0 0.5rem;
+
+				position: absolute;
+				top: 0;
+				right: -200px;
+				z-index: 1;
+
+				@include borderRadius(20px);
+				@include transition();
+
+				> .btn{
+					width: 38px;
+					height: 38px;
+
+					padding: 0;
+
+					@include borderRadius(50%);
+				}
+			}
+
+			.btn-hidden{
+				opacity: 0;
+
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+			}
 		}
 	}
 

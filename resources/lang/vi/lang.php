@@ -21,7 +21,7 @@ return [
 	'form_submit' => 'Gửi đi',
 
 	'home_btn_view' => 'Xem sản phẩm',
-	'home_btn_play' => 'Phát video',
+	'home_btn_play' => 'Xem video',
 
 	'showcase_title' => 'Portfolio',
 	'showcase_desc' => 'Nullam in lorem ut nulla mattis ultricies. Etiam at sem in erat dignissim dictum. Cras feugiat mi magna.',

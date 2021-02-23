@@ -1,7 +1,11 @@
 @extends('layouts.main')
 
 @section('meta')
-
+	<meta property="og:url" content="{{ url()->full() }}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{{ $product['title'] }}" />
+	<meta property="og:description" content="{{ $product['description'] }}" />
+	<meta property="og:image" content="{{ asset('storage/app'. $product['cover_mask']) }}" />
 @endsection
 
 @section('title')
@@ -9,17 +13,38 @@
 @endsection
 
 @section('view')
+	<div id="fb-root"></div>
+	<script>
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk')
+	);
+	</script>
+
 	<div class="showcase-detail">
 		<div class="showcase-cover">
-			@if ($product['Type'] == 0)
+			@if ($product['cover_type'] == 0)
 				<div class="mask">
 					<img src="{{ asset('storage/app'. $product['cover_mask']) }}" alt="Cover of product {{ $product['title'] }}">
 				</div>
-			@elseif($product['Type'] == 1)
-
+			@elseif($product['cover_type'] == 1)
+				<div style="padding:56.25% 0 0 0;position:relative;">
+					<iframe src="https://player.vimeo.com/video/{{ $product['cover_url'] }}?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0&muted=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<script src="https://player.vimeo.com/api/player.js"></script>
 			@endif
 
-			<div class="cover-overlay"></div>
+			<div class="cover-overlay">
+				@if($product['cover_type'] == 1)
+					<a href="https://vimeo.com/{{ $product['cover_url'] }}" class="btn btn-outline-dark" role="button">
+						{{ trans('lang.home_btn_play') }}
+					</a>
+				@endif
+			</div>
 
             @if ($previous)
                 <div class="overlay-hover overlay-prev" data-direction="prev">
@@ -132,39 +157,54 @@
 				</div>
 				
 				<div class="list-items row row-no-gutters">
-					@foreach ($product->images as $key => $item)
-						@php
-							$addtionalClass = '';
-							$limit = ceil(count($product->images) / 6);
+					@if(count($product->images) > 0)
+						@foreach ($product->images as $key => $item)
+							@php
+								$addtionalClass = '';
+								$limit = ceil(count($product->images) / 6);
 
-							for($i = 0; $i < $limit; $i++){
-								if($key - $i * 6 == 0){
-									$addtionalClass = 'col-md-12';
-								} elseif ($key - $i * 6 == 1 || $key - $i * 6 == 2) {
-									$addtionalClass = 'col-md-6';
-								} elseif ($key - $i * 6 == 3 || $key - $i * 6 == 4 || $key - $i * 6 == 5) {
-									$addtionalClass = 'col-md-4';
+								for($i = 0; $i < $limit; $i++){
+									if($key - $i * 6 == 0){
+										$addtionalClass = 'col-md-12';
+									} elseif ($key - $i * 6 == 1 || $key - $i * 6 == 2) {
+										$addtionalClass = 'col-md-6';
+									} elseif ($key - $i * 6 == 3 || $key - $i * 6 == 4 || $key - $i * 6 == 5) {
+										$addtionalClass = 'col-md-4';
+									}
 								}
-							}
-						@endphp
+							@endphp
 
-						<div class="wow slideInUp item-image {{ $addtionalClass }}">
-							<a href="#" class="open-image">
-								<img src="{{ asset('storage/app'. $item) }}" alt="Image">
-							</a>
-                        </div>
-                    @endforeach
+							<div class="wow slideInUp item-image {{ $addtionalClass }}">
+								<a href="#" class="open-image">
+									<img src="{{ asset('storage/app'. $item) }}" alt="Image">
+								</a>
+							</div>
+						@endforeach
+					@endif
                 </div>
 			</div>
 		</div>
 
-		{{-- <div class="showcase-share">
+		<div class="showcase-share">
 			<div class="btn-wrapper">
-				<button class="btn" type="button">
+				<div class="fb-share-button" data-href="{{ url()->full() }}" data-layout="button_count">
+				</div>
+				{{-- <button class="btn" type="button">
 					<i class="elo el-lg el-share"></i>
 				</button>
+
+				<div class="btn-list">
+					<button class="btn btn-default btn-share" data-social="facebook" data-title="{{ $product['title'] }}" data-desc="{{ $product['description'] }}" data-url="{{ url()->full()}}" data-image="{{ asset('storage/app'. $product['cover_mask']) }}" type="button">
+						<i class="elo el-lg el-share"></i>
+					</button>
+				</div>
+
+				<div class="btn-hidden">
+					<!-- Your share button code -->
+					<div class="fb-share-button" data-href="{{ url()->full()}}" data-layout="button_count"></div>
+				</div> --}}
 			</div>
-		</div> --}}
+		</div>
 
 		<div class="showcase-related">
 			<div class="related-header">

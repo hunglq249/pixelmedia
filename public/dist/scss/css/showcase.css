@@ -248,6 +248,10 @@
   transition: all ease-in-out 300ms;
 }
 
+.showcase-detail {
+  overflow-x: hidden;
+}
+
 .showcase-detail .showcase-cover {
   height: 100vh;
   position: relative;
@@ -257,6 +261,19 @@
 .showcase-detail .showcase-cover .mask {
   width: 100%;
   height: 100%;
+}
+
+.showcase-detail .showcase-cover video {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.showcase-detail .showcase-cover video source {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .showcase-detail .showcase-cover .cover-overlay {
@@ -269,6 +286,19 @@
   z-index: 1;
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .showcase-detail .showcase-cover .cover-overlay.show {
@@ -564,7 +594,8 @@
 }
 
 .showcase-detail .showcase-share {
-  height: 40px;
+  height: 60px;
+  padding: 0 1rem;
   border-bottom: 1px solid var(--border);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -583,6 +614,40 @@
 
 .showcase-detail .showcase-share .btn-wrapper {
   position: relative;
+}
+
+.showcase-detail .showcase-share .btn-wrapper:hover .btn-list {
+  right: 0;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.showcase-detail .showcase-share .btn-wrapper .btn-list {
+  width: auto;
+  height: 40px;
+  padding: 0 0.5rem;
+  position: absolute;
+  top: 0;
+  right: -200px;
+  z-index: 1;
+  border-radius: 20px;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.showcase-detail .showcase-share .btn-wrapper .btn-list > .btn {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.showcase-detail .showcase-share .btn-wrapper .btn-hidden {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .showcase-detail .showcase-related .related-header {
