@@ -66,4 +66,10 @@ $(document).ready(function () {
             500
         );
     });
+
+    $('.showcase-images')
+        .find('table img')
+        .each(function () {
+            $(this).addClass('wow slideInUp');
+        });
 });

@@ -402,12 +402,18 @@
 					margin-bottom: 2rem;
 
 					font-weight: 800;
+
+					display: block;
+					text-align: center;
 				}
 
 				> p {
 					max-width: 75%;
 
-					margin-bottom: 4rem;
+					margin: 0 auto 4rem;
+
+					display: block;
+					text-align: center;
 				}
 
 				.group{
@@ -445,6 +451,30 @@
 					max-width: 100%;
 
 					margin-bottom: 0.5rem;
+				}
+			}
+
+			table{
+				width: 100% !important;
+
+				border-color: transparent;
+
+				tbody{
+					tr{
+						td{
+							padding: 0.5rem;
+
+							border-color: transparent;
+
+							img{
+								width: 100%;
+								height: auto;
+
+								display: block;
+								object-fit: contain;
+							}
+						}
+					}
 				}
 			}
 
