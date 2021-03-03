@@ -31,10 +31,10 @@ class ProductRequest extends FormRequest
     {
         $rules = [
             'product_category_id' => 'required',
-            'client' => 'required',
-            'date' => 'required',
+            //'client' => 'required',
+            //'date' => 'required',
             'cover_type' => 'required',
-            'team_id' => 'required',
+            // 'team_id' => 'required',
             'title_vi' => 'required',
             'title_en' => 'required',
             'sub_title_vi' => 'required',
@@ -55,10 +55,10 @@ class ProductRequest extends FormRequest
     {
         $messages = [
             'product_category_id.required' => 'Danh Mục không được trống',
-            'client.required' => 'Khách Hàng không được trống',
-            'date.required'  => 'Ngày Tháng không được trống',
+            // 'client.required' => 'Khách Hàng không được trống',
+            // 'date.required'  => 'Ngày Tháng không được trống',
             'cover_type.required'  => 'Thể Loại không được trống',
-            'team_id.required'  => 'Thành Viên không được trống',
+            // 'team_id.required'  => 'Thành Viên không được trống',
             'title_vi.required'  => 'Tiêu Đề (Tiếng Việt) không được trống',
             'title_en.required'  => 'Tiêu Đề (Tiếng Anh) không được trống',
             'sub_title_vi.required'  => 'Tiêu Đề Phụ (Tiếng Việt) không được trống',

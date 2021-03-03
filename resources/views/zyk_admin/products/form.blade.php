@@ -4,7 +4,7 @@
 @endphp
 
 <div class="row">
-    <div class="form-group col-md-8">
+    <div class="form-group col-md-12">
         <label>
             Danh Mục (<span class="required">*</span>)
         </label>
@@ -19,21 +19,21 @@
             </span>
         @endif
     </div>
-    <div class="form-group col-md-4">
+    {{-- <div class="form-group col-md-4">
         <label>
             Khách Hàng
         </label>
         <input type="text" class="form-control" name="client" placeholder="Khách Hàng" value="{{$client ? $client : ''}}">
-    </div>
+    </div> --}}
 
-    <div class="form-group col-md-12">
+    {{-- <div class="form-group col-md-12">
         <label>
             Ngày Tháng
         </label>
         <input type="text" class="form-control datepicker" name="date" value="{{$date}}">
-    </div>
+    </div> --}}
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         <label>
             Thể Loại
         </label>
@@ -44,11 +44,11 @@
         </select>
     </div>
 
-    <div class="form-group col-md-8 render-by-type">
+    <div class="form-group col-md-6 render-by-type">
         <!-- COVER TYPE APPENDS HERE -->
     </div>
 
-    <div class="form-group col-md-12">
+    {{-- <div class="form-group col-md-12">
         <label>
             Thành Viên
         </label>
@@ -57,7 +57,7 @@
                 <option value="{{ $id }}" {{$isUpdate ? (in_array($id, $product->team_id) ? 'selected' : '') : ''}}>{{$team}}</option>
             @endforeach
         </select>
-    </div>
+    </div> --}}
 
     <div class="form-group col-md-6">
         <label>
