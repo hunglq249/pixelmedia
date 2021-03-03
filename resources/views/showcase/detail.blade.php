@@ -107,7 +107,7 @@
 						</li>
 					</ul>
 
-					<h3>
+					{{-- <h3>
 						{{ $product['title'] }}
 					</h3>
 
@@ -145,7 +145,7 @@
 								{{ $item['name'] }}
 							</h5>
 						</div>
-					@endforeach
+					@endforeach --}}
 				</div>
 			</div>
 		</div>
@@ -156,7 +156,7 @@
                     {!! $product['content'] !!}
 				</div>
 				
-				<div class="list-items row row-no-gutters">
+				{{-- <div class="list-items row row-no-gutters">
 					@if(count($product->images) > 0)
 						@foreach ($product->images as $key => $item)
 							@php
@@ -181,40 +181,25 @@
 							</div>
 						@endforeach
 					@endif
-				</div>
-				
-				{{-- <div class="list-images">
-					@if(count($product->images) > 0)
-						@foreach ($product->images as $key => $item)
-							<div class="wow slideInUp item-image">
-								<a href="#" class="open-image">
-									<img src="{{ asset('storage/app'. $item) }}" alt="Image">
-								</a>
-							</div>
-						@endforeach
-					@endif
 				</div> --}}
 			</div>
 		</div>
 
 		<div class="showcase-share">
 			<div class="btn-wrapper">
-				<div class="fb-share-button" data-href="{{ url()->full() }}" data-layout="button_count">
-				</div>
-				{{-- <button class="btn" type="button">
-					<i class="elo el-lg el-share"></i>
+				<button class="btn" type="button">
+					<i class="fas fa-share-alt"></i>
 				</button>
 
 				<div class="btn-list">
-					<button class="btn btn-default btn-share" data-social="facebook" data-title="{{ $product['title'] }}" data-desc="{{ $product['description'] }}" data-url="{{ url()->full()}}" data-image="{{ asset('storage/app'. $product['cover_mask']) }}" type="button">
-						<i class="elo el-lg el-share"></i>
-					</button>
+					<div class="btn btn-default btn-share" id="btnFbShare" data-href="{{ url()->full() }}" data-layout="button">
+						<i class="fab fa-facebook"></i>
+					</div>
 				</div>
 
 				<div class="btn-hidden">
-					<!-- Your share button code -->
-					<div class="fb-share-button" data-href="{{ url()->full()}}" data-layout="button_count"></div>
-				</div> --}}
+					
+				</div>
 			</div>
 		</div>
 
@@ -294,6 +279,9 @@
 @endsection
 
 @section('css')
+	<!-- FONT AWESOME CSS -->
+	<link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.css') }}">
+	
 	<!-- SWIPER CSS -->
 	<link rel="stylesheet" href="{{ asset('plugins/swiper/css/swiper-bundle.min.css') }}">
 	

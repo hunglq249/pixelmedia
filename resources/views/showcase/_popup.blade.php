@@ -11,11 +11,7 @@
 			<div class="popup-body">
 				<div class="swiper-container" id="swiperImage">
 					<div class="swiper-wrapper">
-						@foreach ($product->images as $key => $item)
-							<div class="swiper-slide">
-								<img src="{{ asset('storage/app'. $item) }}">
-							</div>
-						@endforeach
+						
 					</div>
 	
 					<div class="swiper-button-prev">

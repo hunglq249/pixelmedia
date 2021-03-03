@@ -14,6 +14,22 @@ $(document).ready(function () {
 
     new WOW().init();
 
+    $('#popupImageDetail').on('show.zyk.popup', function () {
+        $('#popupImageDetail').find('.swiper-wrapper').empty();
+
+        $('.showcase-images table')
+            .find('img')
+            .each(function () {
+                const _this = this;
+
+                $('#popupImageDetail').find('.swiper-wrapper').append(`
+                    <div class="swiper-slide">
+                        <img src="${$(_this).attr('src')}">
+                    </div>
+                `);
+            });
+    });
+
     $('#popupImageDetail').on('shown.zyk.popup', function () {
         var swiperImage = new Swiper('#swiperImage', {
             pagination: {
@@ -56,6 +72,15 @@ $(document).ready(function () {
             $popup.popup('show');
         });
 
+    $('.showcase-images table img')
+        .unbind()
+        .on('click', function (e) {
+            e.preventDefault();
+            const $popup = $('#popupImageDetail');
+
+            $popup.popup('show');
+        });
+
     $('#btnTop').on('click', function (e) {
         e.preventDefault();
 
@@ -71,5 +96,14 @@ $(document).ready(function () {
         .find('table img')
         .each(function () {
             $(this).addClass('wow slideInUp');
+        });
+
+    $('#btnFbShare')
+        .unbind()
+        .on('click', function () {
+            let url = $(this).data('href');
+
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'facebook-share-dialog', 'width=800,height=600');
+            return false;
         });
 });

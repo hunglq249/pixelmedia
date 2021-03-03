@@ -567,6 +567,16 @@
   display: block;
   -o-object-fit: contain;
      object-fit: contain;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.showcase-detail .showcase-images .container-fluid table tbody tr td img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 .showcase-detail .showcase-images .container-fluid .list-items {
@@ -662,6 +672,19 @@
   height: 38px;
   padding: 0;
   border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .showcase-detail .showcase-share .btn-wrapper .btn-hidden {
