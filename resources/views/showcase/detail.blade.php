@@ -24,6 +24,7 @@
 		}(document, 'script', 'facebook-jssdk')
 	);
 	</script>
+	<script src="https://player.vimeo.com/api/player.js"></script>
 
 	<div class="showcase-detail">
 		<div class="showcase-cover">
@@ -35,7 +36,6 @@
 				<div style="padding:56.25% 0 0 0;position:relative;">
 					<iframe src="https://player.vimeo.com/video/{{ $product['cover_url'] }}?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0&muted=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 				</div>
-				<script src="https://player.vimeo.com/api/player.js"></script>
 			@endif
 
 			<div class="cover-overlay">
@@ -46,7 +46,66 @@
 				@endif
 			</div>
 
-            @if ($previous)
+			@if ($previous)
+				<div class="overlay-hover overlay-prev" data-direction="prev">
+					<div class="overlay-hover-wrapper">
+						<div class="overlay-hover-text">
+							<span class="circle">
+								<i class="els el-lg el-caret-left"></i>
+							</span>
+							{{ trans('lang.showcase_previous') }}
+						</div>
+
+						<div class="overlay-cover overlay-cover-prev">
+							<div class="overlay-cover-wrapper">
+								@if ($previous['cover_type'] == 0)
+									<div class="mask">
+										<img src="{{ asset('storage/app'. $previous['cover_mask']) }}" alt="">
+									</div>
+								@elseif($previous['cover_type'] == 1)
+									<div class="video-wrapper">
+										<iframe src="https://player.vimeo.com/video/{{ $product['cover_url'] }}?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+									</div>
+								@endif
+
+								<a href="{{ route('showcase_detail', ['slug' => $previous->slug] )}}"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			@endif
+
+			@if ($next)
+				<div class="overlay-hover overlay-next" data-direction="next">
+					<div class="overlay-hover-wrapper">
+						<div class="overlay-hover-text">
+							{{ trans('lang.showcase_next') }}
+		
+							<span class="circle">
+								<i class="els el-lg el-caret-right"></i>
+							</span>
+						</div>
+
+						<div class="overlay-cover overlay-cover-next">
+							<div class="overlay-cover-wrapper">
+								@if ($next['cover_type'] == 0)
+									<div class="mask">
+										<img src="{{ asset('storage/app'. $next['cover_mask']) }}" alt="">
+									</div>
+								@elseif($next['cover_type'] == 1)
+									<div class="video-wrapper">
+										<iframe src="https://player.vimeo.com/video/{{ $next['cover_url'] }}?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+									</div>
+								@endif
+
+								<a href="{{ route('showcase_detail', ['slug' => $next->slug] )}}"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			@endif
+
+            {{-- @if ($previous)
                 <div class="overlay-hover overlay-prev" data-direction="prev">
                     <a href="{{ route('showcase_detail', ['slug' => $previous->slug] )}}" class="btn" role="button">
                         <span class="circle">
@@ -70,18 +129,26 @@
 
             @if ($previous)
                 <div class="cover-prev">
-                    <div class="mask">
-                        <img src="{{ asset('storage/app'. $previous['cover_mask']) }}" alt="">
-                    </div>
+					@if ($product['cover_type'] == 0)
+						<div class="mask">
+							<img src="{{ asset('storage/app'. $previous['cover_mask']) }}" alt="">
+						</div>
+					@elseif($product['cover_type'] == 1)
+						<a href="https://vimeo.com/{{ $previous['cover_url'] }}" class="btn btn-outline-dark" role="button" target="_blank"></a>
+					@endif
                 </div>
             @endif
             @if ($next)
                 <div class="cover-next">
-                    <div class="mask">
-                        <img src="{{ asset('storage/app'. $next['cover_mask']) }}" alt="">
-                    </div>
+					@if ($product['cover_type'] == 0)
+						<div class="mask">
+							<img src="{{ asset('storage/app'. $next['cover_mask']) }}" alt="">
+						</div>
+					@elseif($product['cover_type'] == 1)
+						<a href="https://vimeo.com/{{ $next['cover_url'] }}" class="btn btn-outline-dark" role="button" target="_blank"></a>
+					@endif
                 </div>
-            @endif
+            @endif --}}
 		</div>
 
 		<div class="showcase-info">
@@ -192,13 +259,13 @@
 				</button>
 
 				<div class="btn-list">
-					<div class="btn btn-default btn-share" id="btnFbShare" data-href="{{ url()->full() }}" data-layout="button">
+					<div class="btn btn-default btn-share" id="btnFbShare" data-href="{{ url()->full() }}" type="button">
 						<i class="fab fa-facebook"></i>
 					</div>
-				</div>
 
-				<div class="btn-hidden">
-					
+					<div class="btn btn-default btn-share" id="btnTwShare" data-href="{{ url()->full() }}" type="button">
+						<i class="fab fa-twitter"></i>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -311,44 +311,23 @@
   height: 100%;
   position: absolute;
   top: 0;
-  z-index: 3;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
+  z-index: 1;
 }
 
-.showcase-detail .showcase-cover .overlay-hover.active {
-  width: 50vw;
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
-}
-
-.showcase-detail .showcase-cover .overlay-hover .btn {
+.showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper .overlay-hover-text {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
   color: var(--white);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  opacity: 0.5;
 }
 
-.showcase-detail .showcase-cover .overlay-hover .btn:hover {
-  opacity: 1;
-}
-
-.showcase-detail .showcase-cover .overlay-hover .btn .circle {
+.showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper .overlay-hover-text .circle {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -368,25 +347,64 @@
           align-items: center;
 }
 
-.showcase-detail .showcase-cover .overlay-hover.overlay-prev {
-  left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+.showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper .overlay-cover {
+  width: 50vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
 }
 
-.showcase-detail .showcase-cover .overlay-hover.overlay-prev .btn {
-  text-align: left;
+.showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper .overlay-cover .overlay-cover-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper .overlay-cover .overlay-cover-wrapper .mask,
+.showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper .overlay-cover .overlay-cover-wrapper .video-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper .overlay-cover .overlay-cover-wrapper .video-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper .overlay-cover .overlay-cover-wrapper .video-wrapper iframe {
+  width: 205%;
+  height: 205%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper .overlay-cover .overlay-cover-wrapper a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.showcase-detail .showcase-cover .overlay-hover.overlay-prev {
+  left: 0;
+}
+
+.showcase-detail .showcase-cover .overlay-hover.overlay-prev:hover .overlay-hover-wrapper .overlay-cover {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.showcase-detail .showcase-cover .overlay-hover.overlay-prev .overlay-hover-wrapper .overlay-hover-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -402,29 +420,30 @@
           align-items: center;
 }
 
-.showcase-detail .showcase-cover .overlay-hover.overlay-prev .btn .circle {
+.showcase-detail .showcase-cover .overlay-hover.overlay-prev .overlay-hover-wrapper .overlay-hover-text .circle {
   margin-right: 0.5rem;
+}
+
+.showcase-detail .showcase-cover .overlay-hover.overlay-prev .overlay-hover-wrapper .overlay-cover {
+  left: 0;
+  -webkit-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 .showcase-detail .showcase-cover .overlay-hover.overlay-next {
   right: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
 }
 
-.showcase-detail .showcase-cover .overlay-hover.overlay-next .btn {
-  text-align: right;
+.showcase-detail .showcase-cover .overlay-hover.overlay-next:hover .overlay-hover-wrapper .overlay-cover {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.showcase-detail .showcase-cover .overlay-hover.overlay-next .overlay-hover-wrapper .overlay-hover-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -440,8 +459,16 @@
           align-items: center;
 }
 
-.showcase-detail .showcase-cover .overlay-hover.overlay-next .btn .circle {
+.showcase-detail .showcase-cover .overlay-hover.overlay-next .overlay-hover-wrapper .overlay-hover-text .circle {
   margin-left: 0.5rem;
+}
+
+.showcase-detail .showcase-cover .overlay-hover.overlay-next .overlay-hover-wrapper .overlay-cover {
+  right: 0;
+  -webkit-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 .showcase-detail .showcase-cover .cover-prev,
@@ -459,6 +486,13 @@
 .showcase-detail .showcase-cover .cover-next .mask {
   width: 100%;
   height: 100%;
+}
+
+.showcase-detail .showcase-cover .cover-prev a,
+.showcase-detail .showcase-cover .cover-next a {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .showcase-detail .showcase-cover .cover-prev {
@@ -573,8 +607,8 @@
 
 .showcase-detail .showcase-images .container-fluid table tbody tr td img:hover {
   cursor: pointer;
-  -webkit-transform: scale(1.05, 1.05);
-  transform: scale(1.05, 1.05);
+  -webkit-transform: scale(1.025, 1.025);
+  transform: scale(1.025, 1.025);
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
 }
@@ -626,9 +660,9 @@
 }
 
 .showcase-detail .showcase-share {
+  width: 100%;
   height: 60px;
   padding: 0 1rem;
-  border-bottom: 1px solid var(--border);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -644,12 +678,19 @@
           align-items: center;
 }
 
+.showcase-detail .showcase-share.fixed {
+  position: fixed;
+  bottom: 2rem;
+  z-index: 1030;
+}
+
 .showcase-detail .showcase-share .btn-wrapper {
   position: relative;
 }
 
 .showcase-detail .showcase-share .btn-wrapper:hover .btn-list {
-  right: 0;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
 }
@@ -660,8 +701,23 @@
   padding: 0 0.5rem;
   position: absolute;
   top: 0;
-  right: -200px;
+  right: 0;
   z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translate(200px, 0);
+  transform: translate(200px, 0);
   border-radius: 20px;
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;

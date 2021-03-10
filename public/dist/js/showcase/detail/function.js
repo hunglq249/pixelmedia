@@ -43,26 +43,6 @@ $(document).ready(function () {
         });
     });
 
-    // INIT PREVIEW NEXT/ PREVIOUS PROJECT
-    $('.overlay-hover').on({
-        mouseenter: function () {
-            let direction = $(this).data('direction');
-
-            setTimeout(function () {
-                $(`.cover-${direction}`).addClass('show');
-                $(this).addClass('active');
-                $('.cover-overlay').addClass('show');
-            }, 300);
-        },
-        mouseleave: function () {
-            let direction = $(this).data('direction');
-
-            $(`.cover-${direction}`).removeClass('show');
-            $(this).removeClass('active');
-            $('.cover-overlay').removeClass('show');
-        }
-    });
-
     $('.open-image')
         .unbind()
         .on('click', function (e) {
@@ -106,4 +86,23 @@ $(document).ready(function () {
             window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'facebook-share-dialog', 'width=800,height=600');
             return false;
         });
+
+    $('#btnTwShare')
+        .unbind()
+        .on('click', function () {
+            let url = $(this).data('href');
+
+            window.open('https://twitter.com/intent/tweet?original_referer=' + url + '&related=twitterapi%2Ctwitter?text=check&20it&20out&tw_p=tweetbutton&url=' + url + '&via=PixelMedia', 'width=800,height=600');
+            return false;
+        });
+
+    $(window).on('scroll', () => {
+        let scrollTop = $(window).scrollTop();
+
+        if (scrollTop <= $('body').height() - 1300) {
+            $('.showcase-share').addClass('fixed');
+        } else {
+            $('.showcase-share').removeClass('fixed');
+        }
+    });
 });
