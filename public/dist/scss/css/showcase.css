@@ -420,8 +420,16 @@
           align-items: center;
 }
 
+.showcase-detail .showcase-cover .overlay-hover.overlay-prev .overlay-hover-wrapper .overlay-hover-text:hover .circle {
+  margin-right: 1rem;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
 .showcase-detail .showcase-cover .overlay-hover.overlay-prev .overlay-hover-wrapper .overlay-hover-text .circle {
   margin-right: 0.5rem;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 .showcase-detail .showcase-cover .overlay-hover.overlay-prev .overlay-hover-wrapper .overlay-cover {
@@ -459,8 +467,16 @@
           align-items: center;
 }
 
+.showcase-detail .showcase-cover .overlay-hover.overlay-next .overlay-hover-wrapper .overlay-hover-text:hover .circle {
+  margin-left: 1rem;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
 .showcase-detail .showcase-cover .overlay-hover.overlay-next .overlay-hover-wrapper .overlay-hover-text .circle {
   margin-left: 0.5rem;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
 }
 
 .showcase-detail .showcase-cover .overlay-hover.overlay-next .overlay-hover-wrapper .overlay-cover {
@@ -588,6 +604,7 @@
 .showcase-detail .showcase-images .container-fluid table {
   width: 100% !important;
   border-color: transparent;
+  table-layout: fixed;
 }
 
 .showcase-detail .showcase-images .container-fluid table tbody tr td {
@@ -607,8 +624,8 @@
 
 .showcase-detail .showcase-images .container-fluid table tbody tr td img:hover {
   cursor: pointer;
-  -webkit-transform: scale(1.025, 1.025);
-  transform: scale(1.025, 1.025);
+  -webkit-transform: scale(1.01, 1.01);
+  transform: scale(1.01, 1.01);
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
 }
@@ -632,8 +649,8 @@
 }
 
 .showcase-detail .showcase-images .container-fluid .list-items .item-image:hover .open-image img {
-  -webkit-transform: scale(1.025, 1.025);
-  transform: scale(1.025, 1.025);
+  -webkit-transform: scale(1.005, 1.005);
+  transform: scale(1.005, 1.005);
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
 }
@@ -691,8 +708,8 @@
 .showcase-detail .showcase-share .btn-wrapper:hover .btn-list {
   -webkit-transform: translate(0, 0);
   transform: translate(0, 0);
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
+  -webkit-transition: 500ms ease-in-out 300ms;
+  transition: 500ms ease-in-out 300ms;
 }
 
 .showcase-detail .showcase-share .btn-wrapper .btn-list {
@@ -719,8 +736,8 @@
   -webkit-transform: translate(200px, 0);
   transform: translate(200px, 0);
   border-radius: 20px;
-  -webkit-transition: all ease-in-out 300ms;
-  transition: all ease-in-out 300ms;
+  -webkit-transition: 500ms ease-in-out 300ms;
+  transition: 500ms ease-in-out 300ms;
 }
 
 .showcase-detail .showcase-share .btn-wrapper .btn-list > .btn {

@@ -49,14 +49,14 @@
 			@if ($previous)
 				<div class="overlay-hover overlay-prev" data-direction="prev">
 					<div class="overlay-hover-wrapper">
-						<div class="overlay-hover-text">
+						<a href="{{ route('showcase_detail', ['slug' => $previous->slug] )}}" class="overlay-hover-text">
 							<span class="circle">
 								<i class="els el-lg el-caret-left"></i>
 							</span>
 							{{ trans('lang.showcase_previous') }}
-						</div>
+						</a>
 
-						<div class="overlay-cover overlay-cover-prev">
+						{{-- <div class="overlay-cover overlay-cover-prev">
 							<div class="overlay-cover-wrapper">
 								@if ($previous['cover_type'] == 0)
 									<div class="mask">
@@ -70,7 +70,7 @@
 
 								<a href="{{ route('showcase_detail', ['slug' => $previous->slug] )}}"></a>
 							</div>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			@endif
@@ -78,15 +78,15 @@
 			@if ($next)
 				<div class="overlay-hover overlay-next" data-direction="next">
 					<div class="overlay-hover-wrapper">
-						<div class="overlay-hover-text">
+						<a href="{{ route('showcase_detail', ['slug' => $next->slug] )}}" class="overlay-hover-text">
 							{{ trans('lang.showcase_next') }}
 		
 							<span class="circle">
 								<i class="els el-lg el-caret-right"></i>
 							</span>
-						</div>
+						</a>
 
-						<div class="overlay-cover overlay-cover-next">
+						{{-- <div class="overlay-cover overlay-cover-next">
 							<div class="overlay-cover-wrapper">
 								@if ($next['cover_type'] == 0)
 									<div class="mask">
@@ -100,7 +100,7 @@
 
 								<a href="{{ route('showcase_detail', ['slug' => $next->slug] )}}"></a>
 							</div>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			@endif
