@@ -664,7 +664,7 @@
 					// right: 0;
 					@include translate(0, 0);
 
-					@include transition(500ms);
+					@include transition(700ms);
 				}
 			}
 
@@ -682,12 +682,13 @@
 				@include d-flex(row, flex-end, center);
 				@include translate(200px, 0);
 				@include borderRadius(20px);
-				@include transition(500ms);
+				@include transition(700ms);
 
 				> .btn{
 					width: 38px;
 					height: 38px;
-
+					
+					margin: 0 0.125rem;
 					padding: 0;
 
 					@include borderRadius(50%);

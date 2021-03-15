@@ -41,6 +41,8 @@ $(document).ready(function () {
                 prevEl: '.swiper-button-prev'
             }
         });
+
+        swiperImage.slideTo($(this).data('index'));
     });
 
     $('.open-image')
@@ -52,14 +54,17 @@ $(document).ready(function () {
             $popup.popup('show');
         });
 
-    $('.showcase-images table img')
-        .unbind()
-        .on('click', function (e) {
-            e.preventDefault();
-            const $popup = $('#popupImageDetail');
+    $('.showcase-images table img').each(function (index) {
+        $(this)
+            .unbind()
+            .on('click', function () {
+                const $popup = $('#popupImageDetail');
 
-            $popup.popup('show');
-        });
+                $popup.data('index', index);
+
+                $popup.popup('show');
+            });
+    });
 
     $('#btnTop').on('click', function (e) {
         e.preventDefault();

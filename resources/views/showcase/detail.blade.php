@@ -255,16 +255,16 @@
 		<div class="showcase-share">
 			<div class="btn-wrapper">
 				<button class="btn" type="button">
-					<i class="fas fa-share-alt"></i>
+					<i class="fas fa-lg fa-share-alt"></i>
 				</button>
 
 				<div class="btn-list">
 					<div class="btn btn-default btn-share" id="btnFbShare" data-href="{{ url()->full() }}" type="button">
-						<i class="fab fa-facebook"></i>
+						<i class="fab fa-lg fa-facebook"></i>
 					</div>
 
 					<div class="btn btn-default btn-share" id="btnTwShare" data-href="{{ url()->full() }}" type="button">
-						<i class="fab fa-twitter"></i>
+						<i class="fab fa-lg fa-twitter"></i>
 					</div>
 				</div>
 			</div>
