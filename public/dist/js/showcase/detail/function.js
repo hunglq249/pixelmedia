@@ -1,17 +1,4 @@
 $(document).ready(function () {
-    // INIT MANSORY GRID
-    // const grid = $('.showcase-images .list-items').masonry({
-    //     itemSelector: '.item-image',
-    //     columnWidth: '.item-sizer',
-    //     percentPosition: true
-    // });
-
-    // grid.imagesLoaded().progress(function () {
-    //     grid.masonry('layout');
-
-    //
-    // });
-
     new WOW().init();
 
     $('#popupImageDetail').on('show.zyk.popup', function () {
@@ -104,10 +91,42 @@ $(document).ready(function () {
     $(window).on('scroll', () => {
         let scrollTop = $(window).scrollTop();
 
-        if (scrollTop <= $('body').height() - 1300) {
-            $('.showcase-share').addClass('fixed');
+        if (scrollTop == 0) {
+            $('.showcase-share').removeClass('fade-in');
         } else {
-            $('.showcase-share').removeClass('fixed');
+            $('.showcase-share').addClass('fade-in');
         }
+    });
+
+    var swiperRelated = new Swiper('#swiperRelated', {
+        slidesPerView: 3,
+        spaceBetween: 24,
+        pagination: {
+            el: '.swiper-pagination',
+            dynamicBullets: true
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        }
+    });
+
+    $('#btnPlayVideo')
+        .unbind()
+        .on('click', function () {
+            let id = $(this).data('id');
+
+            const $popup = $('#popupPlayVideo');
+
+            $popup.find('.popup-body').empty();
+            $popup.find('.popup-body').append(`
+                <iframe src="https://player.vimeo.com/video/${id}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            `);
+
+            $popup.popup('show');
+        });
+
+    $('#btnPlayVideo').on('hide.zyk.popup', function () {
+        $(this).find('.popup-body').empty();
     });
 });

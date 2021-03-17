@@ -15,6 +15,6 @@ class ArticleRepository extends EloquentRepository{
             ['lang' => function ($query) use ($lang){
                 $query->where('lang', $lang);
             }]
-        )->where('category_id', '=', $categoryId)->where('id', '!=', $id)->where('is_deleted', 0)->limit(3)->orderBy('id', 'DESC')->get();
+        )->where('category_id', '=', $categoryId)->where('id', '!=', $id)->where('is_deleted', 0)->limit(6)->orderBy('id', 'DESC')->get();
     }
 }

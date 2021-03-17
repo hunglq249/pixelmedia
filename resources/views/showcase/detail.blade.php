@@ -40,9 +40,9 @@
 
 			<div class="cover-overlay">
 				@if($product['cover_type'] == 1)
-					<a href="https://vimeo.com/{{ $product['cover_url'] }}" class="btn btn-outline-dark" role="button" target="_blank">
+					<button class="btn btn-outline-dark" id="btnPlayVideo" data-id="{{ $product['cover_url'] }}" type="button">
 						{{ trans('lang.home_btn_play') }}
-					</a>
+					</button>
 				@endif
 			</div>
 
@@ -277,7 +277,43 @@
 				</h5>
 			</div>
 			<div class="related-body">
-				<div class="container-fluid">
+				<div class="swiper-container" id="swiperRelated">
+					<div class="swiper-wrapper">
+						@if (count($relateds) > 0)
+							@foreach ($relateds as $key => $related)
+								<div class="swiper-slide">
+									<a href="{{ route('showcase_detail', ['slug' => $related['slug']] )}}">
+										<div class="mask">
+											<div class="mask-overlay"></div>
+											<img src="{{ asset('storage/app'. $related['cover_mask']) }}" alt="Image related">
+										</div>
+
+										<div class="item-content offset">
+											<h6 class="subtitle-md">
+												{{ $product['product_category'] }}
+											</h6>
+
+											<h4>
+												{{ $related['title'] }}
+											</h4>
+
+											<h6 class="subtitle-sm">
+												{{ trans('lang.articles_see_detail') }}
+											</h6>
+										</div>
+									</a>
+								</div>
+							@endforeach
+						@endif
+					</div>
+
+					<div class="swiper-button-prev"></div>
+	
+					<div class="swiper-button-next"></div>
+	
+					<div class="swiper-pagination"></div>
+				</div>
+				{{-- <div class="container-fluid">
 					<div class="row">
 						@if (count($relateds) > 0)
 							@foreach ($relateds as $key => $related)
@@ -306,7 +342,7 @@
 							@endforeach
 						@endif
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 
