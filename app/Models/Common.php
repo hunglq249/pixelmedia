@@ -96,12 +96,15 @@ class Common extends Model
         $contactInfo = [
             'Address' => trans('lang.footer_address'),
             'Email' => 'px.visualart@gmail.com',
-            'PhoneNumber' => '(+84) 1234 5678',
+            'PhoneNumber' => [
+                'Mr.Linh' => '0966.689.792',
+                'Mr.Tú' => '0983.213.195'
+            ],
             'Social' => [
                 'Facebook' => 'https://www.facebook.com/pg/Pixel-Media-341017606305657/about/?ref=page_internal',
-                'Instagram' => null,
                 'Youtube' => 'https://www.youtube.com/channel/UCk2hc04CDVg2BVOzBYRnBDA',
-                'Behance' => 'https://www.behance.net/pxmediaart'
+                'Behance' => 'https://www.behance.net/pxmediaart',
+                'Instagram' => 'https://www.instagram.com/pxmedia.art/?fbclid=IwAR3mmMtwEeQnLHv2nIbOve2IwwhkZZX6Lddi7pzuiG5Z4r69mQNjdhZyYMs',
             ],
         ];
 

@@ -165,7 +165,8 @@
 
 @section('js')
     <!-- TINYMCE JS -->
-    <script  src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>
+    {{-- <script  src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script> --}}
+    <script src="https://cdn.tiny.cloud/1/oj84zl752xbwr8k0visg3kosy189okrqsy5jt9bp6kmpnhgz/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <!-- DATEPICKER JS -->
     <script  src="{{ asset('plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>

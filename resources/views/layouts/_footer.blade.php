@@ -12,9 +12,12 @@
 				<h5>
 					<i class="elo el-lg el-envelope"></i> <a href="mailto:{{ $contactInfo['Email'] }}">{{ $contactInfo['Email'] }}</a>
 				</h5>
-				<h5>
-					<i class="elo el-lg el-phone"></i> <a href="tel:{{ $contactInfo['PhoneNumber'] }}">{{ $contactInfo['PhoneNumber'] }}</a>
-				</h5>
+				
+				@foreach ($contactInfo['PhoneNumber'] as $person => $number)
+					<h5>
+						<i class="elo el-lg el-phone"></i> <a href="tel:{{ $number }}">{{ $number }} ({{ $person }})</a>
+					</h5>
+				@endforeach
 			</address>
 		</div>
 

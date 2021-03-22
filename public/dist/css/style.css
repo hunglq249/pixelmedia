@@ -1967,8 +1967,11 @@ html {
   font-size: 400%;
 }
 
+html,
 body {
   background-color: var(--bg-body);
+  background-image: url("/dist/img/bg.jpeg");
+  background-repeat: repeat;
 }
 
 header {
@@ -2112,7 +2115,7 @@ header .header-nav .dropdown .dropdown-menu .dropdown-item img {
 
 footer {
   padding: 4rem 6rem 6rem;
-  background-color: var(--gray-1);
+  background-color: var(--bg-bw);
 }
 
 footer .row h4,

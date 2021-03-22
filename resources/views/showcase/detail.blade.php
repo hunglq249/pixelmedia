@@ -49,7 +49,7 @@
 			@if ($previous)
 				<div class="overlay-hover overlay-prev" data-direction="prev">
 					<div class="overlay-hover-wrapper">
-						<a href="{{ route('showcase_detail', ['slug' => $previous->slug] )}}" class="overlay-hover-text">
+						<a href="#" class="overlay-hover-text change-project" data-url="{{ route('showcase_detail', ['slug' => $previous->slug] )}}">
 							<span class="circle">
 								<i class="els el-lg el-caret-left"></i>
 							</span>
@@ -78,7 +78,7 @@
 			@if ($next)
 				<div class="overlay-hover overlay-next" data-direction="next">
 					<div class="overlay-hover-wrapper">
-						<a href="{{ route('showcase_detail', ['slug' => $next->slug] )}}" class="overlay-hover-text">
+						<a href="#" class="overlay-hover-text change-project" data-url="{{ route('showcase_detail', ['slug' => $next->slug] )}}">
 							{{ trans('lang.showcase_next') }}
 		
 							<span class="circle">
@@ -104,6 +104,30 @@
 					</div>
 				</div>
 			@endif
+
+			<div class="breadcrumb-wrapper">
+				<div class="container-fluid">
+					<ul class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a href="{{ route('showcase') }}">
+								{{ trans('lang.nav_showcase') }}
+							</a>
+						</li>
+
+						<li class="breadcrumb-item">
+							<a href="javascript:void(0)">
+								{{ $product['product_category'] }}
+							</a>
+						</li>
+
+						<li class="breadcrumb-item active">
+							<a href="javascript:void(0)">
+								{{ $product['title'] }}
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
 
             {{-- @if ($previous)
                 <div class="overlay-hover overlay-prev" data-direction="prev">
@@ -151,7 +175,7 @@
             @endif --}}
 		</div>
 
-		<div class="showcase-info">
+		{{-- <div class="showcase-info">
 			<div class="container">
 				<div class="info-title">
 					<ul class="breadcrumb">
@@ -174,7 +198,7 @@
 						</li>
 					</ul>
 
-					{{-- <h3>
+					<h3>
 						{{ $product['title'] }}
 					</h3>
 
@@ -212,10 +236,10 @@
 								{{ $item['name'] }}
 							</h5>
 						</div>
-					@endforeach --}}
+					@endforeach
 				</div>
 			</div>
-		</div>
+		</div> --}}
 
 		<div class="showcase-images">
 			<div class="container-fluid">

@@ -129,4 +129,18 @@ $(document).ready(function () {
     $('#btnPlayVideo').on('hide.zyk.popup', function () {
         $(this).find('.popup-body').empty();
     });
+
+    $('.change-project')
+        .unbind()
+        .on('click', function (e) {
+            e.preventDefault();
+
+            $('body').fadeOut();
+
+            let url = $(this).data('url');
+
+            setTimeout(function () {
+                window.location.href = url;
+            }, 300);
+        });
 });
