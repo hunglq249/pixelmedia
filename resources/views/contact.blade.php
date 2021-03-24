@@ -97,9 +97,11 @@
 								<p>
 									{{ trans('lang.contact_phone') }}
 								</p>
-								<h6>
-									{{ $contactInfo['PhoneNumber'] }}
-								</h6>
+								@foreach ($contactInfo['PhoneNumber'] as $person => $number)
+									<h6>
+										{{ $number }} ({{ $person }})
+									</h6>
+								@endforeach
 							</div>
 						</div>
 					</div>

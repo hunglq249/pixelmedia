@@ -15,7 +15,7 @@ class ProductRepository extends EloquentRepository{
     }
     
     public function getPreviousId($id){
-        return Product::where('id', '<', $id)->where('is_deleted', 0)->first();
+        return Product::where('id', '<', $id)->where('is_deleted', 0)->orderBy('id', 'DESC')->first();
     }
 
     public function related($categoryId, $id, $lang){
