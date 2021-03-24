@@ -1,11 +1,5 @@
 $(document).ready(function () {
-    // INIT ISOTOPE
-    $('.article-posts').isotope({
-        itemSelector: '.post',
-
-        columnWidth: '.post-sizer',
-        percentPosition: true
-    });
+    new WOW().init();
 
     $('.article-nav')
         .find('a')
@@ -32,11 +26,11 @@ $(document).ready(function () {
         });
 
     // INIT LOCOMOTIVE SCROLL
-    const scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true,
-        smoothMobile: true
-    });
+    // const scroll = new LocomotiveScroll({
+    //     el: document.querySelector('[data-scroll-container]'),
+    //     smooth: true,
+    //     smoothMobile: true
+    // });
 
     // INIT SWIPER
     var swiperArticleNav = new Swiper('#swiperArticle', {

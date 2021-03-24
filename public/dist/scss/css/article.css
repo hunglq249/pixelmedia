@@ -214,15 +214,27 @@
 
 .article .container-fluid .article-posts .post-sizer,
 .article .container-fluid .article-posts .post {
-  width: 50%;
+  width: 100%;
   margin-bottom: 1.5rem;
   padding: 0 0.75rem;
 }
 
 .article .container-fluid .article-posts .post-sizer a,
 .article .container-fluid .article-posts .post a {
-  display: block;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: normal;
+      -ms-flex-pack: normal;
+          justify-content: normal;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .article .container-fluid .article-posts .post-sizer a:hover .mask img,
@@ -235,8 +247,8 @@
 
 .article .container-fluid .article-posts .post-sizer a .mask,
 .article .container-fluid .article-posts .post a .mask {
-  width: 100%;
-  max-height: 50vh;
+  width: 50%;
+  height: 50vh;
   position: relative;
 }
 
@@ -261,17 +273,16 @@
 
 .article .container-fluid .article-posts .post-sizer a .blank-image,
 .article .container-fluid .article-posts .post a .blank-image {
-  min-height: 400px;
+  width: 50%;
+  height: 50vh;
   background-color: var(--gray-1);
 }
 
 .article .container-fluid .article-posts .post-sizer a .post-content,
 .article .container-fluid .article-posts .post a .post-content {
+  width: 50%;
+  height: 100%;
   padding: 2rem;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
 }
 
 .article .container-fluid .article-posts .post-sizer a .post-content h4,

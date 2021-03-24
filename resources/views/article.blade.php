@@ -38,10 +38,8 @@
 
 		<div class="container-fluid" data-scroll-section>
 			<div class="article-posts">
-				<div class="post-sizer"></div>
-
 				@foreach ($articles as $key => $article)
-					<div class="post post-{{ $article['category_id'] }}" data-scroll data-scroll-speed="{{ rand(2, 4) }}">
+					<div class="post post-{{ $article['category_id'] }} wow fadeIn">
 						<a href="{{ route('article_detail', ['slug' => $article['slug']]) }}">
 							@if(isset($article['image']) && $article['image'] != '')
 								<div class="mask">
@@ -86,6 +84,9 @@
 	<!-- SWIPER CSS -->
 	<link rel="stylesheet" href="{{ asset('plugins/swiper/css/swiper-bundle.min.css') }}">
 
+	<!-- ANIMATE CSS -->
+	<link rel="stylesheet" href="{{ asset('plugins/animate/animate.css') }}">
+	
 	<link rel="stylesheet" href="{{ asset('dist/scss/css/article.css') }}">
 @endsection
 
@@ -93,8 +94,8 @@
 	<!-- IMAGELOADED JS -->
 	<script src="{{ asset('plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
 
-	<!-- ISOTOPE JS -->
-	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+	<!-- WOW JS -->
+	<script src="{{ asset('plugins/wow/wow.min.js') }}"></script>
 
 	<!-- LOCOMOTIVE JS -->
 	<script src="{{ asset('plugins/locomotive/js/locomotive-scroll.min.js') }}"></script>
