@@ -636,6 +636,7 @@
 .showcase-detail .showcase-images .container-fluid p img {
   width: 100%;
   max-width: 100%;
+  height: auto;
   margin-bottom: 0.5rem;
 }
 
