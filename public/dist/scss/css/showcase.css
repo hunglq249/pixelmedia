@@ -730,7 +730,7 @@
   transition: 500ms ease-in-out 300ms;
   position: sticky;
   position: -webkit-sticky;
-  bottom: 0;
+  bottom: 5rem;
   z-index: 1030;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1199,6 +1199,31 @@
 }
 
 @media screen and (max-width: 576px) {
+  .showcase .showcase-cover .swiper-container .showcase-nav {
+    overflow-x: overlay;
+    overflow-y: hidden;
+  }
+  .showcase .showcase-cover .swiper-container .showcase-nav::-webkit-scrollbar {
+    height: 6px;
+    background-color: transparent;
+  }
+  .showcase .showcase-cover .swiper-container .showcase-nav::-webkit-scrollbar-thumb {
+    height: 6px;
+    background-color: #d1d1d1;
+    border-radius: 3px;
+    -webkit-transition: 300ms ease-in-out 300ms;
+    transition: 300ms ease-in-out 300ms;
+  }
+  .showcase .showcase-cover .swiper-container .showcase-nav::-webkit-scrollbar-thumb:hover {
+    width: calc($size + 4px);
+    background-color: #b3b3b3;
+    cursor: pointer;
+    -webkit-transition: 300ms ease-in-out 300ms;
+    transition: 300ms ease-in-out 300ms;
+  }
+  .showcase .showcase-cover .swiper-container .showcase-nav .container-fluid {
+    padding: 0 1.5rem;
+  }
   .showcase .showcase-cover .mask .mask-content {
     padding: 0 1.5rem;
     top: 10%;
@@ -1206,47 +1231,26 @@
   .showcase .showcase-cover .mask .mask-content h4 {
     max-width: unset;
   }
-  .showcase .showcase-cover .showcase-nav {
-    overflow-x: overlay;
-    overflow-y: hidden;
-  }
-  .showcase .showcase-cover .showcase-nav::-webkit-scrollbar {
-    height: 6px;
-    background-color: transparent;
-  }
-  .showcase .showcase-cover .showcase-nav::-webkit-scrollbar-thumb {
-    height: 6px;
-    background-color: #d1d1d1;
-    border-radius: 3px;
-    -webkit-transition: 300ms ease-in-out 300ms;
-    transition: 300ms ease-in-out 300ms;
-  }
-  .showcase .showcase-cover .showcase-nav::-webkit-scrollbar-thumb:hover {
-    width: calc($size + 4px);
-    background-color: #b3b3b3;
-    cursor: pointer;
-    -webkit-transition: 300ms ease-in-out 300ms;
-    transition: 300ms ease-in-out 300ms;
-  }
-  .showcase .showcase-cover .showcase-nav .container-fluid {
-    padding: 0 1.5rem;
-  }
   .showcase .showcase-list {
     padding: 8rem 0;
   }
-  .showcase .showcase-list .list-products .item-sizer,
   .showcase .showcase-list .list-products .item-product {
-    width: 100%;
+    margin-bottom: 0;
+  }
+  .showcase-detail .showcase-cover .overlay-hover .overlay-hover-wrapper .overlay-hover-text span:not(.circle) {
+    display: none;
+  }
+  .showcase-detail .showcase-cover .breadcrumb-wrapper {
+    height: auto;
+  }
+  .showcase-detail .showcase-cover .breadcrumb-wrapper .container-fluid {
+    padding: 0 1.5rem;
   }
   .showcase-detail .showcase-info .container {
     padding-top: 4rem;
   }
-  .showcase-detail .showcase-images .container-fluid {
-    padding: 0 1.5rem;
-  }
-  .showcase-detail .showcase-images .container-fluid .list-items .item-sizer,
-  .showcase-detail .showcase-images .container-fluid .list-items .item-image {
-    width: 100% !important;
+  .showcase-detail .showcase-detail-nav a.btn-control-showcase, .showcase-detail .showcase-detail-nav a.btn-top {
+    font-size: 0.625rem;
   }
 }
 /*# sourceMappingURL=showcase.css.map */

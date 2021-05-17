@@ -351,6 +351,12 @@ footer{
 		padding: 4rem 1.5rem 6rem;
 
 		.row{
+			.footer-contact {
+				address{
+					@include translate(0,0);
+				}
+			}
+			
 			.footer-social{
 				margin-top: 3rem;
 

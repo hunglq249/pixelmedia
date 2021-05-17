@@ -810,14 +810,22 @@
   .article .container-fluid .article-posts {
     padding-top: 4rem;
   }
-  .article .container-fluid .article-posts .post-sizer,
   .article .container-fluid .article-posts .post {
     width: 100%;
   }
-  .article .container-fluid .article-posts .post-sizer a .mask,
+  .article .container-fluid .article-posts .post a {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   .article .container-fluid .article-posts .post a .mask {
-    max-height: unset;
-    height: 100vh;
+    width: 100%;
+    height: 50vh;
+  }
+  .article .container-fluid .article-posts .post a .post-content {
+    width: 100%;
+    height: auto;
   }
   .article-detail .container-fluid {
     padding: 8rem 1.5rem;

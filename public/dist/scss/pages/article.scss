@@ -748,14 +748,20 @@
 			.article-posts{
 				padding-top: 4rem;
 
-				.post-sizer,
 				.post{
 					width: 100%;
 
 					a{
+						flex-direction: column;
+
 						.mask{
-							max-height: unset;
-							height: 100vh;
+							width: 100%;
+							height: 50vh;
+						}
+
+						.post-content{
+							width: 100%;
+							height: auto;
 						}
 					}
 				}

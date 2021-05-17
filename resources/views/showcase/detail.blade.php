@@ -54,7 +54,9 @@
 								<i class="els el-lg el-caret-left"></i>
 							</span>
 
-							{{ trans('lang.showcase_previous') }}
+							<span>
+								{{ trans('lang.showcase_previous') }}
+							</span>
 						</a>
 					</div>
 				</div>
@@ -64,7 +66,9 @@
 				<div class="overlay-hover overlay-prev" data-direction="prev">
 					<div class="overlay-hover-wrapper">
 						<a href="#" class="overlay-hover-text change-project" data-url="{{ route('showcase_detail', ['slug' => $previous->slug] )}}">
-							{{ trans('lang.showcase_next') }}
+							<span>
+								{{ trans('lang.showcase_next') }}
+							</span>
 
 							<span class="circle">
 								<i class="els el-lg el-caret-right"></i>
@@ -84,7 +88,7 @@
 						</li>
 
 						<li class="breadcrumb-item">
-							<a href="javascript:void(0)">
+							<a href="{{ route('showcase') }}?request={{ $product['product_category_id'] }}">
 								{{ $product['product_category'] }}
 							</a>
 						</li>

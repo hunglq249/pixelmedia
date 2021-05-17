@@ -2312,6 +2312,10 @@ footer .row .footer-social .social-logo a img {
   footer {
     padding: 4rem 1.5rem 6rem;
   }
+  footer .row .footer-contact address {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
   footer .row .footer-social {
     margin-top: 3rem;
     display: -webkit-box;

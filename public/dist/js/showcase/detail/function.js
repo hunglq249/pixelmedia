@@ -99,7 +99,7 @@ $(document).ready(function () {
     });
 
     var swiperRelated = new Swiper('#swiperRelated', {
-        slidesPerView: 3,
+        slidesPerView: 1,
         spaceBetween: 24,
         pagination: {
             el: '.swiper-pagination',
@@ -108,6 +108,11 @@ $(document).ready(function () {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
+        },
+        breakpoints: {
+            1024: {
+                slidesPerView: 3
+            }
         }
     });
 

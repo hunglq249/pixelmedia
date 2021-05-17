@@ -695,7 +695,7 @@
 		opacity: 0;
 
 		@include transition(500ms);
-		@include positionSticky(bottom, 0, 1030);
+		@include positionSticky(bottom, 5rem, 1030);
 		@include d-flex(row, flex-end, center);
 
 		&.fade-in{
@@ -1131,6 +1131,17 @@
 @media screen and (max-width: 576px){
 	.showcase{
 		.showcase-cover{
+			.swiper-container{
+				.showcase-nav{
+					@include overflow-x();
+					overflow-y: hidden;
+	
+					.container-fluid{
+						padding: 0 1.5rem;
+					}
+				}
+			}
+
 			.mask{
 				.mask-content{
 					padding: 0 1.5rem;
@@ -1142,10 +1153,35 @@
 					}
 				}
 			}
+		}
 
-			.showcase-nav{
-				@include overflow-x();
-				overflow-y: hidden;
+		.showcase-list{
+			padding: 8rem 0;
+
+			.list-products {
+				.item-product{
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.showcase-detail{
+		.showcase-cover {
+			.overlay-hover{
+				.overlay-hover-wrapper{
+					.overlay-hover-text{
+						span{
+							&:not(.circle){
+								display: none;
+							}
+						}
+					}
+				}
+			}
+
+			.breadcrumb-wrapper{
+				height: auto;
 
 				.container-fluid{
 					padding: 0 1.5rem;
@@ -1153,34 +1189,17 @@
 			}
 		}
 
-		.showcase-list{
-			padding: 8rem 0;
-
-			.list-products{
-				.item-sizer,
-				.item-product{
-					width: 100%;
-				}
-			}
-		}
-	}
-
-	.showcase-detail{
 		.showcase-info{
 			.container{
 				padding-top: 4rem;
 			}
 		}
 
-		.showcase-images{
-			.container-fluid{
-				padding: 0 1.5rem;
-
-				.list-items{
-					.item-sizer,
-					.item-image{
-						width: 100% !important;
-					}
+		.showcase-detail-nav{
+			a{
+				&.btn-control-showcase,
+				&.btn-top{
+					font-size: 0.625rem;
 				}
 			}
 		}

@@ -48,18 +48,10 @@
 						@php
 							$addtionalClass = '';
 
-							if($key >= 5){
-								if(($key % 10) - 5 == 0 || ($key % 10) - 5 == 1 || ($key % 10) - 5 == 2){
-									$additionalClass= 'col-md-4';
-								} else if(($key % 10) - 5 == 3 || ($key % 10) -5 == 4) {
-									$additionalClass= 'col-md-6';
-								}
-							} else {
-								if($key == 0 || $key == 1 || $key == 2){
-									$additionalClass= 'col-md-4';
-								} else if($key == 3 || $key == 4) {
-									$additionalClass = 'col-md-6';
-								}
+							if($key % 5 == 0 || $key % 5 == 1 || $key % 5 == 2){
+								$additionalClass= 'col-md-4';
+							} else if($key % 5 == 3 || $key % 5 == 4) {
+								$additionalClass= 'col-md-6';
 							}
 						@endphp
 
@@ -115,5 +107,8 @@
 	<!-- SWIPER JS -->
 	<script src="{{ asset('plugins/swiper/js/swiper-bundle.min.js') }}"></script>
 
-	<script src="{{ asset('dist/js/showcase/function.min.js') }}"></script>
+	<script>
+		let request = '{{ request()->get('request') }}';
+	</script>
+	<script src="{{ asset('dist/js/showcase/function.js') }}"></script>
 @endsection

@@ -1,3 +1,5 @@
+let scroll;
+
 $(document).ready(function () {
     // FILTER PRODUCT
     $('.showcase-nav')
@@ -12,20 +14,49 @@ $(document).ready(function () {
             $('.showcase-nav').find('a').removeClass('active');
             $(this).addClass('active');
 
-            if (type == '*') {
-                $('.item-product').fadeIn();
+            $('.item-product').removeClass((index, className) => {
+                return (className.match(/(^|\s)col-md-\S+/g) || []).join(' ');
+            })
 
+            $('.item-product').hide();
+
+            if (type == '*') {
+                $('.item-product').each(function(index) {
+                    if (index % 5 == 0 || index % 5 == 1 || index % 5 == 2) {
+                        $(this).addClass('col-md-4');
+                    } else if (index % 5 == 3 || index % 5 == 4) {
+                        $(this).addClass('col-md-6');
+                    }
+                });
+            
+                $('.item-product').fadeIn();
+            
                 scroll.update();
             } else {
-                $('.item-product').fadeOut();
-                $('.item-product-' + type).fadeIn();
-
+                $(`.item-product-${type}`).each(function(index) {
+                    if (index % 5 == 0 || index % 5 == 1 || index % 5 == 2) {
+                        $(this).addClass('col-md-4');
+                    } else if (index % 5 == 3 || index % 5 == 4) {
+                        $(this).addClass('col-md-6');
+                    }
+                });
+            
+                $(`.item-product-${type}`).fadeIn();
+            
                 scroll.update();
             }
         });
+    
+    if(request && request != ''){
+        request = Number(request);
+
+        setTimeout(function(){
+            $('.showcase-nav').find(`a[data-type="${request}"]`).trigger('click')
+        },100)
+    }
 
     // INIT LOCOMOTIVE SCROLL
-    const scroll = new LocomotiveScroll({
+    scroll = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),
         smooth: true,
         smoothMobile: true
@@ -47,3 +78,7 @@ $(document).ready(function () {
         slidesPerView: 1
     });
 });
+
+function updateItemProduct(type){
+    
+}
