@@ -46,61 +46,30 @@
 				@endif
 			</div>
 
-			@if ($previous)
-				<div class="overlay-hover overlay-prev" data-direction="prev">
-					<div class="overlay-hover-wrapper">
-						<a href="#" class="overlay-hover-text change-project" data-url="{{ route('showcase_detail', ['slug' => $previous->slug] )}}">
-							<span class="circle">
-								<i class="els el-lg el-caret-left"></i>
-							</span>
-							{{ trans('lang.showcase_previous') }}
-						</a>
-
-						{{-- <div class="overlay-cover overlay-cover-prev">
-							<div class="overlay-cover-wrapper">
-								@if ($previous['cover_type'] == 0)
-									<div class="mask">
-										<img src="{{ asset('storage/app'. $previous['cover_mask']) }}" alt="">
-									</div>
-								@elseif($previous['cover_type'] == 1)
-									<div class="video-wrapper">
-										<iframe src="https://player.vimeo.com/video/{{ $product['cover_url'] }}?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-									</div>
-								@endif
-
-								<a href="{{ route('showcase_detail', ['slug' => $previous->slug] )}}"></a>
-							</div>
-						</div> --}}
-					</div>
-				</div>
-			@endif
-
 			@if ($next)
 				<div class="overlay-hover overlay-next" data-direction="next">
 					<div class="overlay-hover-wrapper">
 						<a href="#" class="overlay-hover-text change-project" data-url="{{ route('showcase_detail', ['slug' => $next->slug] )}}">
+							<span class="circle">
+								<i class="els el-lg el-caret-left"></i>
+							</span>
+
+							{{ trans('lang.showcase_previous') }}
+						</a>
+					</div>
+				</div>
+			@endif
+
+			@if ($previous)
+				<div class="overlay-hover overlay-prev" data-direction="prev">
+					<div class="overlay-hover-wrapper">
+						<a href="#" class="overlay-hover-text change-project" data-url="{{ route('showcase_detail', ['slug' => $previous->slug] )}}">
 							{{ trans('lang.showcase_next') }}
-		
+
 							<span class="circle">
 								<i class="els el-lg el-caret-right"></i>
 							</span>
 						</a>
-
-						{{-- <div class="overlay-cover overlay-cover-next">
-							<div class="overlay-cover-wrapper">
-								@if ($next['cover_type'] == 0)
-									<div class="mask">
-										<img src="{{ asset('storage/app'. $next['cover_mask']) }}" alt="">
-									</div>
-								@elseif($next['cover_type'] == 1)
-									<div class="video-wrapper">
-										<iframe src="https://player.vimeo.com/video/{{ $next['cover_url'] }}?autoplay=1&loop=1&title=0&byline=0&portrait=0?controls=0&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-									</div>
-								@endif
-
-								<a href="{{ route('showcase_detail', ['slug' => $next->slug] )}}"></a>
-							</div>
-						</div> --}}
 					</div>
 				</div>
 			@endif

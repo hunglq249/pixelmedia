@@ -391,7 +391,7 @@
 }
 
 .showcase-detail .showcase-cover .overlay-hover.overlay-prev {
-  left: 0;
+  right: 0;
 }
 
 .showcase-detail .showcase-cover .overlay-hover.overlay-prev:hover .overlay-hover-wrapper .overlay-cover {
@@ -424,7 +424,7 @@
 }
 
 .showcase-detail .showcase-cover .overlay-hover.overlay-prev .overlay-hover-wrapper .overlay-hover-text .circle {
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
 }
@@ -438,7 +438,7 @@
 }
 
 .showcase-detail .showcase-cover .overlay-hover.overlay-next {
-  right: 0;
+  left: 0;
 }
 
 .showcase-detail .showcase-cover .overlay-hover.overlay-next:hover .overlay-hover-wrapper .overlay-cover {
@@ -471,7 +471,7 @@
 }
 
 .showcase-detail .showcase-cover .overlay-hover.overlay-next .overlay-hover-wrapper .overlay-hover-text .circle {
-  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
 }
