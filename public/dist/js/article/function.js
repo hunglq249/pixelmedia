@@ -14,23 +14,14 @@ $(document).ready(function () {
             $('.article-nav').find('a').removeClass('active');
             $(this).addClass('active');
 
+            $('.post').hide();
+
             if (type == '*') {
-                $('.article-posts').isotope({
-                    filter: '*'
-                });
+                $('.post').fadeIn();
             } else {
-                $('.article-posts').isotope({
-                    filter: '.post-' + type
-                });
+                $(`.post-${type}`).fadeIn();
             }
         });
-
-    // INIT LOCOMOTIVE SCROLL
-    // const scroll = new LocomotiveScroll({
-    //     el: document.querySelector('[data-scroll-container]'),
-    //     smooth: true,
-    //     smoothMobile: true
-    // });
 
     // INIT SWIPER
     var swiperArticleNav = new Swiper('#swiperArticle', {

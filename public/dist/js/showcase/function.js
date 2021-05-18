@@ -78,7 +78,3 @@ $(document).ready(function () {
         slidesPerView: 1
     });
 });
-
-function updateItemProduct(type){
-    
-}
