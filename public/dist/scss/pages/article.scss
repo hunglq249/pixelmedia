@@ -45,6 +45,8 @@
 						@include d-flex(row, normal, stretch);
 
 						a{
+							flex: 1 0 auto;
+
 							padding: 1rem;
 
 							font-size: 1.25rem;
@@ -737,6 +739,12 @@
 
 					.container-fluid{
 						padding: 0 1.5rem;
+
+						.nav{
+							a{
+								font-size: 1rem;
+							}
+						}
 					}
 				}
 			}

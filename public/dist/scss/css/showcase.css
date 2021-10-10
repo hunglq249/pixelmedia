@@ -111,6 +111,9 @@
 }
 
 .showcase .showcase-cover .swiper-container .showcase-nav .container-fluid .nav a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
   padding: 1rem;
   font-size: 1.25rem;
   text-transform: uppercase;
@@ -1223,6 +1226,9 @@
   }
   .showcase .showcase-cover .swiper-container .showcase-nav .container-fluid {
     padding: 0 1.5rem;
+  }
+  .showcase .showcase-cover .swiper-container .showcase-nav .container-fluid .nav a {
+    font-size: 1rem;
   }
   .showcase .showcase-cover .mask .mask-content {
     padding: 0 1.5rem;
