@@ -7,7 +7,7 @@ return [
 	'nav_about' => 'About us',
 	'nav_contact' => 'Contact us',
 
-	'footer_desc' => 'We do it in public',
+	'footer_desc' => 'to inspire people',
 	'footer_address' => 'No 2, Ng Khanh Toan, Cau Giay Dist., Hanoi',
 	'footer_follow' => 'Follow us',
 

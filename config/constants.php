@@ -12,5 +12,5 @@ return [
     "IMAGE_UPLOAD_OVER_SIZE" => 'Ảnh không được vựt quá 5.0 Mb!',
     "VIDEO_UPLOAD_OVER_SIZE" => 'Ảnh không được vựt quá 30.0 Mb!',
     'IMAGE_UPLOAD_SIZE' => 5242880,
-    'VIDEO_UPLOAD_SIZE' => 31457280,
+    'VIDEO_UPLOAD_SIZE' => 41943040,
 ];
